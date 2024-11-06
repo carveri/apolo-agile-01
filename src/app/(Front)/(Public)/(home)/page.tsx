@@ -4,10 +4,28 @@ import Image from "next/image";
 import logoPrincipal from "../../React/Assets/Icons/logoPricipal2.png";
 //import pantallazo from "./../../React/Assets/Images/pantallazo20.png";
 import dashboard from "../../React/Assets/Images/dashboard1.png";
+import MyButton from '../../React/Components/MyButton';
 
 const page = () => {
+
+  const dataBoton1 ={
+    id:1,
+    color: "#03ff57",
+    texto:'Ingresar',
+    funcionalidad : ''
+  }
+
+  const dataBoton2 ={
+    id:1,
+    color: "#9a0095",
+    texto:'Prueba!',
+    funcionalidad : ''
+  }
+
+
+
   return (
-    <div className='w-full h-full flex px-8'>
+    <div className='w-full h-full flex px-8 group'>
       <section className='w-[43%] h-auto  grid place-items-center '>
         <div className='w-5/6 h-1/2   '>
           <article className='w-full h-12 text-xl flex'>
@@ -29,13 +47,13 @@ const page = () => {
           <article className='text-2xl w-full h-2/6 py-4 pl-2'>
             olisss ipsum dolor sit amet consectetur adipisicing elit. Facere non laboriosam, laudantium illum voluptatum adipisci reprehenderit est esse
           </article>
-          <article className='w-full h-1/6  grid grid-cols-2 place-items-center'>
-            <button className='bg-[#00ff08] hover:bg-[#35e83b]  hover:duration-300 w-60 h-14 rounded text-white font-bold'>
-              Ingresar
-            </button>
-            <button className='bg-cyan-700 hover:bg-cyan-900 hover:text-white hover:duration-300 w-60 h-14 rounded text-gray-100 font-bold'>
-              Prueba Gratis!
-            </button>
+          <article className='w-full h-1/6  grid grid-cols-2 place-items-center bg-yellow-300 group-has-[&>button]:text-red-900 [&>button]:w-[90%] [&>button]:h-[60%] rounded'>
+            <MyButton 
+              dataBoton = {dataBoton1}
+            />
+            <MyButton 
+              dataBoton = {dataBoton2}
+            />
           </article>
         </div>
       </section>
