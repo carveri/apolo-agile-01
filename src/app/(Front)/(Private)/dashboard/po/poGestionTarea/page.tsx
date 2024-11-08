@@ -31,7 +31,8 @@ const page = () => {
           </header>
           <div className='w-[1625px] z-30 absolute top-28 left-3/5 max-h-[730px] overflow-auto'>
           <table className='border border-gray-200   w-[98%] ml-8 '>
-          <tr className='h-14'>
+          <thead>
+            <tr className='h-14'>
               <td className='w-[10%] pl-3'>Numero</td>
               <td className='w-[10%]'>Historia</td>
               <td className='w-[10%]'>Fecha Petición </td>
@@ -41,6 +42,8 @@ const page = () => {
               <td className='w-[15%]'>Descripción </td>
               
             </tr>
+          </thead>
+            <tbody>
             {historias.map((el)=>{
               const {id,nombreHistoria, createdAt, horaAt, presupuestoHistoria, tiempoHistoria, detalleHistoria} = el
                 return <tr key={id} className='border border-gray-200 h-14  cursor-pointer '>
@@ -70,18 +73,9 @@ const page = () => {
                       Ver
                     </button>
                   </td>
-                  {/* <td className=''>
-                    <button className='bg-blue-200 border border-gray-300 w-[70%] h-[80%] py-1 rounded hover:bg-blue-300 hover:text-white '>
-                      Actualizar
-                    </button>
-                  </td>
-                  <td className=''>
-                    <button className='bg-red-600 border border-white  w-[80%] h-[90%] text-white py-1 rounded hover:bg-red-700'>
-                      Eliminar
-                    </button>
-                  </td> */}
                 </tr>
               })}
+            </tbody>
         </table>
           </div>
         </section>

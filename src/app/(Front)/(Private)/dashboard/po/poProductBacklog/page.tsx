@@ -13,7 +13,7 @@ const page = () => {
   useEffect(()=>{
     const traerPb =  async()=>{
       const ruta = 'productBacklog'
-      const url = 'a3f75b55-ef27-4fcb-a097-2994bd91cf35'
+      const url = '1af659a1-06b9-46e7-94fb-2220d8f5f0b8'
       const res = await getDataLista({ruta, url})
       setPb(res)
     }
@@ -24,6 +24,7 @@ const page = () => {
   const {historias} = pb
   // console.log('la final', historias);
   
+  console.log('historias que le llegan al po:', historias);
   
 
   return (
@@ -34,6 +35,7 @@ const page = () => {
           </header>
           <div className='w-[1625px] z-30 absolute top-32 left-3/5 max-h-[730px] overflow-auto'>
           <table className='border border-gray-200   w-[98%] ml-8 '>
+            <thead>
             <tr className='h-14'>
               <td className='w-[8%] pl-3'>Numero</td>
               <td className='w-[20%]'>Nombre Historia</td>
@@ -46,6 +48,8 @@ const page = () => {
               <td className='w-[10%]'>Sprint </td>
               
             </tr>
+            </thead>
+            <tbody>
             {historias?.map((el)=>{
               const {id, nombreHistoria, createdAt, horaAt, tiempoHistoria} = el
                 return <tr key={id} className='border border-gray-200 h-14  cursor-pointer '>
@@ -79,6 +83,7 @@ const page = () => {
                  
                 </tr>
               })}
+            </tbody>
         </table>
           </div>
         </section>

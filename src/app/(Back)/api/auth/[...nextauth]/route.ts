@@ -16,7 +16,7 @@ export const authOptions: AuthOptions = {
           credentials: {
             email: { label: "Email", type: "email", placeholder: "jsmith@gmail.com" },
             password: { label: "Contraseña", type: "password", placeholder: "***********" },
-            empresa : {label: 'empresa', type: "text"}
+            //empresa : {label: 'empresa', type: "text"}
           },
           async authorize(credentials:any, req:any) {
             
@@ -49,7 +49,7 @@ export const authOptions: AuthOptions = {
             
             const matchpassword = await bcrypt.compare(credentials?.password, userFound?.password)
             if(!matchpassword) return null
-            console.log('usuarioEncontrado:', userFound);
+            //console.log('usuarioEncontrado:', userFound);
             
             return {
               id: userFound.id,
@@ -57,7 +57,7 @@ export const authOptions: AuthOptions = {
               email: userFound.email,
               //cosa: 'olis'
               //empresa: userFound.empresa,
-              cargo: 'sdsd'
+              //cargo: 'sdsd'
             }
           }
         })

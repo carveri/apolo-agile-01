@@ -31,12 +31,8 @@ const Sidebar = ({links}) => {
                 ${pathname===href? `border-1 bg-violet-300 duration-75 text-cyan-900`: ``}
                 `}>
                 <Link className=' py-4 flex' href={href}>
-                  <div className='w-[15%] '>
-                      <Image 
-                          src={icono} 
-                          width={22} 
-                          height={19} 
-                          alt='ad'/>
+                <div className='w-[15%] '>
+                      m
                   </div>
                     <div>
                     {nombre}

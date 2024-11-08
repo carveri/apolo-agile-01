@@ -37,6 +37,7 @@ const page = () => {
           </header>
           <div className='w-[1625px] z-30 absolute top-32 left-3/5 max-h-[730px] overflow-auto'>
           <table className='border border-gray-200   w-[98%] ml-8 '>
+            <thead>
             <tr className='h-14'>
               <td className='w-[10%] pl-3'>Numero</td>
               <td className='w-[10%]'>Historia</td>
@@ -47,6 +48,8 @@ const page = () => {
               <td className='w-[15%]'>Descripción </td>
               
             </tr>
+            </thead>
+            <tbody>
             {historias.map((el)=>{
               const {id,nombreHistoria, createdAt, horaAt, presupuestoHistoria, tiempoHistoria, detalleHistoria} = el
                 return <tr key={id} className='border border-gray-200 h-14  cursor-pointer '>
@@ -79,6 +82,7 @@ const page = () => {
                  
                 </tr>
               })}
+            </tbody>
         </table>
           </div>
         </section>
