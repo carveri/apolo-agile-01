@@ -25,7 +25,7 @@ const page = () => {
 
   const router = useRouter()
   const handleClickVerNuevasTareasPo =()=>{
-    router.push('/dashboard/nuevasTareasPo/verNuevasTareasPo')
+    router.push('/dashboard/po/poNuevaTarea/verNuevasTareasPo')
   }
 
 

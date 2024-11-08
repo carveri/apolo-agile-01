@@ -4,10 +4,11 @@ import { getData } from '@/app/(Front)/React/Fetch/getData'
 import { dataGestionPo } from '@/app/(Front)/React/Utils/dataGestionPo'
 import { dataTablaClientes } from '@/app/(Front)/React/Utils/dataTablaClientes'
 import React, { useEffect, useState } from 'react'
+import { useRouter } from "next/navigation";
 
 const page = () => {
 
-
+  const router = useRouter()
    // traer datos de db
    const [historias, setHistorias] = useState([])
 
@@ -22,6 +23,10 @@ const page = () => {
    }, [])
  
    console.log('histo:', historias);
+
+   const handleClickVerPo =()=>{
+    router.push('po/poNuevaTarea/verNuevaTarea')
+   }
 
   return (
     <div className='w-full h-full bg-white grid place-items-center' >
@@ -69,7 +74,7 @@ const page = () => {
                     {detalleHistoria}
                   </td>
                   <td className=''>
-                    <button className='bg-violet-100 border border-gray-200 w-[50%] h-[80%] py-1 px-3 rounded hover:bg-violet-200'>
+                    <button onClick={handleClickVerPo} className='bg-violet-100 border border-gray-200 w-[50%] h-[80%] py-1 px-3 rounded hover:bg-violet-200'>
                       Ver
                     </button>
                   </td>
