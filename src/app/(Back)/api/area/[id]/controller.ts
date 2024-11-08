@@ -29,9 +29,20 @@ class AreaDetalle {
         return getOneArea
     }
 
-    // getUserDetalle2 = async(req:Request, {params})=>{
-    //     const {email} = params
-    // }
+    // metodo put
+    putArea = async(req:Request, {params})=>{
+        const {id} = params
+        const {nombreArea} = await req.json()
+        const updatedArea = await prisma.area.update({
+            where:{
+                id
+            },
+            data:{
+                nombreArea,
+            }
+        })
+        return updatedArea
+    }
 }
 
 

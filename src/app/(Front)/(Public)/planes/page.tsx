@@ -17,11 +17,11 @@ const page = () => {
             <main className='w-full h-3/6 px-10'>
               {el.descripcion}
             </main>
-            <section className='w-full h-1/6 text-xl grid place-content-center text-blue-700 '>
+            <section className='w-full h-1/6 text-xl grid place-content-center text-colorTexto '>
               USD {el.valor}
             </section>
             <section className='w-full h-1/6 grid place-items-center'>
-              <button className='bg-violet-700 w-60 h-14 rounded text-white'>
+              <button className='bg-colorBotonSecundario w-60 h-14 rounded text-white'>
                 Seleccionar
               </button>
             </section>

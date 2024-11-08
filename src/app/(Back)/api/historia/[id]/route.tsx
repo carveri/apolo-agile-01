@@ -3,7 +3,7 @@ import { NextResponse } from "next/server"
 import { historiaOne1 } from "./controller"
 
 // ruta put
-export const PUT = async(req:Request, {params}: InterParams)=>{
+export const PUT = async(req:Request, {params})=>{
     try {
         return NextResponse.json(await historiaOne1.putHistoria(req, {params}))
     } catch (error) {

@@ -10,7 +10,7 @@ const page = () => {
       </div>
       <div className='grid  justify-items-center w-full h-[800px] '>
           <section className='w-5/6 h-2/5  mt-8 '>
-            <header className=' pb-6 text-xl font-semibold text-violet-700'>
+            <header className=' pb-6 text-xl font-semibold text-colorTexto'>
               Preguntas Frecuentes
             </header>
             <main>

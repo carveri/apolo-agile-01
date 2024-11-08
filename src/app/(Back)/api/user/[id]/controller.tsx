@@ -33,9 +33,15 @@ class UserDetalle {
         return getOneUser
     }
 
-    // getUserDetalle2 = async(req:Request, {params})=>{
-    //     const {email} = params
-    // }
+    deleteUser = async(req:Request, {params})=>{
+        const {id} = params
+        const deleteUser = await prisma.user.delete({
+            where:{
+                id
+            }
+        })
+        return deleteUser
+    }
 }
 
 

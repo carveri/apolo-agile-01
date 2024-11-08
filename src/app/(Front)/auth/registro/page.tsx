@@ -13,6 +13,7 @@ import Link from 'next/link';
 import { dataEmpresas } from '../../React/Utils/dataEmpresas';
 import { postData2 } from '../../React/Fetch/postData2';
 import { getData } from "../../React/Fetch/getData";
+import { getDataLista } from "../../React/Fetch/getDataLista";
 
 
 const page = () => {
@@ -32,6 +33,7 @@ const page = () => {
     const [nombreEmpresa, setNombreEmpresa] = useState('-')
     const [password, setPassword] = useState('')
     const [confirmPassword, setConfirmPassword] = useState('')
+    const [empresa, setEmpresa] = useState([])
 
 
 
@@ -40,11 +42,12 @@ const page = () => {
     useEffect(()=>{
       const traerEmpresas = async()=>{
         const ruta = `empresa`
-        const res = await getData({ruta})
-        setNombreEmpresa(res)
+        const url = rutEmpresa
+        const res = await getDataLista({ruta, url})
+        setEmpresa(res)
       }
       traerEmpresas()
-    }, [])
+    }, [rutEmpresa])
 
     //console.log('nombreempresa:', nombreEmpresa);
     
@@ -76,12 +79,15 @@ const page = () => {
         }
 
         else if(e.target.name === 'rutEmpresa'){
-          const res = nombreEmpresa.find((el)=>{
+          const res = dataEmpresas.find((el)=>{
             return el.rutEmpresa === e.target.value
           })
           // console.log(res.nombreEmpresa);
-          setNombreEmpresa(res?.nombreEmpresa)
+          //setNombreEmpresa(res?.nombreEmpresa)
           setRutEmpresa(e.target.value)
+          // const ruta = 'empresa'
+          // const url = e.target.value
+          // getDataLista({ruta, url})
         }
         
         else if(e.target.name === 'password'){
@@ -101,9 +107,9 @@ const page = () => {
 
     const createdAt = format(new Date(), 'dd/MM/yyyy')
     const horaAt = format(new Date(), 'H:mm')
-    const cargoId = "51e56b01-d55e-4496-93d9-cd3c67677eb8"
-    const empresaId = "6c84d6cd-b50e-4ef5-90ad-6c7032668ef7"
-    const equipoId = "12ffe6ab-5f6c-4575-84eb-e7dd6a3350a7"  
+    const cargoId = "cc2d1b31-8e40-47bd-beb5-6b34105f125e"
+    const empresaId =  empresa?.id
+    const equipoId = "8045c1d8-1162-4537-9dac-2e89b42a8100"  
 
     const handleSubmitRegistro =(e)=>{
         e.preventDefault()
@@ -124,6 +130,9 @@ const page = () => {
         console.log('equipoId:', equipoId);
         
         console.log('rut empresa:', rutEmpresa);
+        console.log('nombre de empresa:', nombreEmpresa);
+        console.log('empresa:', empresa);
+        
         
         //postData2({ruta2, data2})
         router.push('/api/auth/login')

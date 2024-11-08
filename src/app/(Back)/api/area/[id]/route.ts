@@ -10,3 +10,12 @@ export const GET = async(req:Request, {params})=>{
         return NextResponse.json(error)
     }
 }
+
+// ruta put
+export const PUT = async(req:Request, {params})=>{
+    try {
+        return NextResponse.json(await area1.putArea(req, {params}))
+    } catch (error) {
+        return NextResponse.json(error)
+    }
+}

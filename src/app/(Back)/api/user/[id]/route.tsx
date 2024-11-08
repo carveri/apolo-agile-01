@@ -11,4 +11,11 @@ export const GET = async(req:Request, {params})=>{
     }
 }
 
-//export const GET 
+//ruta delete
+export const DELETE = async(req:Request, {params}: InterParams)=>{
+    try {
+        return NextResponse.json(await user1.deleteUser(req, {params}))
+    } catch (error) {
+        return NextResponse.json(error)
+    }
+}

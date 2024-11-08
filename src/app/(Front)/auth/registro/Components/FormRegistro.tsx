@@ -8,7 +8,7 @@ const FormRegistro = ({handleSubmitRegistro, handleChangeRegistro, nombreEmpresa
     
 
   return (
-    <form onSubmit={handleSubmitRegistro} className='bg-[#5f67aa] w-[73%] h-full py-4 px-10 border border-1-gray rounded-md'>
+    <form onSubmit={handleSubmitRegistro} className='bg-colorForm w-[73%] h-full py-4 px-10 border border-1-gray rounded-md'>
               <header className='w-full h-[8%] grid place-content-center text-xl text-white font-semibold'>
                 Registro
               </header>
@@ -34,17 +34,17 @@ const FormRegistro = ({handleSubmitRegistro, handleChangeRegistro, nombreEmpresa
                   <input onChange={handleChangeRegistro} name='email' className='rounded h-10 pl-3 bg-gray-100' type="email" placeholder='Jorge@gmail.com'/>
                 </div>
                 <div className='grid'>
-                  <label className='h-1 text-white pb-5'  htmlFor="">Rut Personal (Sin puntos y con guion) </label>
+                  <label className='h-1 text-white pb-5'  htmlFor="">Rut Personal (Con puntos y guion) </label>
                   <input onChange={handleChangeRegistro} name='rutPersonal' className='rounded h-10 pl-3 bg-gray-100' type="text" placeholder='20.000.000-0'/>
                 </div>
                 <div className='grid'>
-                  <label className='h-1 text-white pb-5'  htmlFor="">Rut Empresa (Sin puntos y con guion) </label>
+                  <label className='h-1 text-white pb-5'  htmlFor="">Rut Empresa (Con puntos y guion) </label>
                   <input onChange={handleChangeRegistro} name='rutEmpresa' className='rounded h-10 pl-3 bg-gray-100' type="text" placeholder='70.000.000-0'/>
                 </div>
-                <div className='grid'>
+                {/* <div className='grid'>
                   <label className='h-1 text-white pb-5'  htmlFor="">Nombre Empresa</label>
                   <input onChange={handleChangeRegistro} value={nombreEmpresa} name='nombreEmpresa' className='rounded h-10 pl-3 bg-gray-100 cursor-pointer' type="text"/>
-                </div>
+                </div> */}
                 <div className='grid'>
                   <label className='h-1 text-white pb-5' htmlFor="">Password</label>
                   <input onChange={handleChangeRegistro} name='password' className='rounded h-10 pl-3 bg-gray-100' type="password" placeholder='*************'/>

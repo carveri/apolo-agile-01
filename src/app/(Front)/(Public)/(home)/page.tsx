@@ -1,8 +1,11 @@
 import React from 'react'
 import Image from "next/image";
 
+
 import logoPrincipal from "../../React/Assets/Icons/logoPricipal2.png";
-import pantallazo from "./../../React/Assets/Images/pantallazo20.png";
+import imagenDashboard from "./../../React/Assets/Images/dashboard1.png";
+
+
 
 const page = () => {
   return (
@@ -29,17 +32,22 @@ const page = () => {
             olisss ipsum dolor sit amet consectetur adipisicing elit. Facere non laboriosam, laudantium illum voluptatum adipisci reprehenderit est esse
           </article>
           <article className='w-full h-1/6  grid grid-cols-2 place-items-center'>
-            <button className='bg-[#00ff08] hover:bg-[#35e83b]  hover:duration-300 w-60 h-14 rounded text-white font-bold'>
+            <button className='bg-colorBotonAceptar hover:bg-[#35e83b]  hover:duration-300 w-60 h-14 rounded text-white font-bold'>
               Ingresar
             </button>
-            <button className='bg-violet-500 hover:bg-violet-600 hover:text-white hover:duration-300 w-60 h-14 rounded text-gray-100 font-bold'>
+            <button className='bg-colorBotonSecundario hover:bg-violet-600 hover:text-white hover:duration-300 w-60 h-14 rounded text-gray-100 font-bold'>
               Prueba Gratis!
             </button>
           </article>
         </div>
       </section>
       <section className='w-[57%]  grid place-items-center '>
-              Imagenes
+            <Image
+                  src={imagenDashboard}
+                  width={800}
+                  height={700}
+                  alt="Picture of the author"
+              />
 
       </section>
     </div>
