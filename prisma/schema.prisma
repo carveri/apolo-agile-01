@@ -1,0 +1,369 @@
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+
+// MODELOS 
+
+model Account {
+  id                 String  @id @default(uuid())
+  type               String
+  provider           String
+  providerAccountId  String
+  refresh_token      String?  @db.Text
+  access_token       String?  @db.Text
+  expires_at         Int?
+  token_type         String?
+  scope              String?
+  id_token           String?  @db.Text
+  session_state      String?
+
+  // USER FUERTE VS Account
+  userId             String
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  @@unique([provider, providerAccountId])
+}
+
+model Session {
+  id           String   @id @default(uuid())
+  sessionToken String   @unique
+  expires      DateTime
+
+  // USER FUERTE VS SESSION
+  userId       String
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model User {
+  id            String    @id @default(uuid())
+  primerNombre    String?
+  segundoNombre   String?
+  apellidoPaterno String?
+  apellidoMaterno String?
+  rutPersonal     String? @unique
+  password      String?  @unique
+  isActive      Boolean @default(true)
+  email         String?   @unique
+  emailVerified DateTime?
+  image         String?
+
+  createdAt String @map("created_at")
+  horaAt String @map("hora_at")
+  updatedAt     DateTime @updatedAt
+
+  // ACCOUNT DEBIL VS USER
+  accounts      Account[]
+  // SESSION DEBIL VS USER
+  sessions      Session[]
+  
+  // EMPRESA FUERTE VS USUARIO
+  empresaId     String
+  empresa       Empresa @relation(fields: [empresaId], references: [id], onDelete: Cascade)
+
+  // CARGO FUERTE VS USUARIO
+  cargoId       String
+  cargo         Cargo @relation(fields: [cargoId], references: [id], onDelete: Cascade)
+  
+  // EQUIPO FUERTE VS USUARIO
+  equipoId String
+  equipo Equipo @relation(fields: [equipoId], references: [id], onDelete: Cascade)
+
+
+  // EVENTO MUCHOS A MUCHOS CON USUARIO
+  eventos Evento[]
+
+  // TAREA DEBIL VS USUARIO
+  tareas Tarea[]
+
+  // HISTORIA DEBIL VS USER
+  historias Historia[]
+}
+
+model VerificationToken {
+  identifier String
+  token      String   @unique
+  expires    DateTime
+
+  @@unique([identifier, token])
+}
+
+// // MIOS
+
+model Area {
+  id            String    @id @default(uuid())
+  nombreArea    String 
+  isActive      Boolean @default(true)     
+
+  createdAt String @map("created_at")
+  horaAt String @map("hora_at")
+  updatedAt     DateTime @updatedAt
+
+  
+  // AREA DEBIL VS DEPARTAMENTO
+  departamentos Departamento[]
+
+  // EQUIPO DEL VS AREA
+  equipos Equipo[]
+
+  // EMPRESA MUCHOS A MUCHOS CON AREA
+  empresas Empresa[]
+
+}
+
+
+model Departamento {
+  id            String    @id @default(uuid())
+  nombreDepartamento String 
+  isActive      Boolean @default(true)
+
+  createdAt String @map("created_at")
+  horaAt String @map("hora_at")
+  updatedAt     DateTime @updatedAt
+
+  // AREA FUERTE VS DEPARTAMENTO
+  areaId        String
+  area          Area  @relation(fields: [areaId], references: [id], onDelete: Cascade)
+
+
+  // CARGO DEBIL VS DEPARTAMENTO
+  cargos        Cargo[]
+}
+
+
+
+model Cargo {
+  id            String @id @default(uuid())
+  nombreCargo   String
+  isActive      Boolean @default(true)
+
+  createdAt String @map("created_at")
+  horaAt String @map("hora_at")
+  updatedAt     DateTime @updatedAt
+
+  // DEPARTAMENTO FUERTE VS CARGO
+  departamentoId String
+  departamento   Departamento @relation(fields: [departamentoId], references: [id], onDelete: Cascade)
+
+  // USUARIO DEBIL VS CARGO
+  usuarios User[]
+
+
+  // TAREA DEBIL VS CARGO
+  tareas Tarea[]
+
+
+  // EVENTO DEBIL VS CARGO
+  eventos Evento[]
+
+  // PERMISO MUCHOS A MUCHOS CON CARGO
+  permisos Permiso[]
+}
+
+model Empresa {
+  id            String @id @default(uuid())
+  nombreEmpresa String 
+  rutEmpresa    String
+  isActive      Boolean @default(true)
+
+
+  createdAt String @map("created_at")
+  horaAt String @map("hora_at")
+  updatedAt     DateTime @updatedAt
+
+
+  // USUARIO DEBIL VS EMPRESA
+  usuarios      User[]
+
+  // AREA MUCHOS A MUCHOS CON EMPRESA
+  areas Area[]
+
+}
+
+model Evento {
+  id        String @id @default(uuid())
+  nombreEvento String 
+  isActive      Boolean @default(true)
+
+  createdAt String @map("created_at")
+  horaAt String @map("hora_at")
+  updatedAt     DateTime @updatedAt
+
+  // CARGO FUERTE VS EVENTO
+  cargoId String
+  cargo Cargo @relation(fields: [cargoId], references: [id], onDelete: Cascade)
+
+  // USURIO MUCHOS A MUCHOS CON EVENTO
+  usuarios User[]
+
+}
+
+
+
+model Tarea {
+  id            String @id @default(uuid())
+  nombreTarea   String 
+  pesoTarea     Int @default(1)
+  bloqueoTarea  Boolean @default(false)
+  isActive      Boolean @default(true)
+  
+
+  createdAt String @map("created_at")
+  horaAt String @map("hora_at")
+  updatedAt     DateTime @updatedAt
+
+
+  // CARGO FUERTE TAREA
+  cargoId       String 
+  cargo         Cargo @relation(fields: [cargoId], references: [id], onDelete: Cascade)
+
+  // USUARIO FUERTE VS TAREA
+  usuarioId String
+  usuario User @relation(fields: [usuarioId],references: [id], onDelete: Cascade)
+
+  
+  // HISTORIA FUERTE VS TAREA 
+  historiaId String
+  historia Historia @relation(fields: [historiaId], references: [id], onDelete: Cascade)
+
+  // SB FUERTE VS TAREA
+  sprintBacklogId String
+  sprintBacklog SprintBacklog @relation(fields: [sprintBacklogId], references: [id], onDelete: Cascade)
+}
+
+model Equipo {
+  id String @id @default(uuid())
+  nombreEquipo  String
+
+  createdAt String @map("created_at")
+  horaAt String @map("hora_at")
+  updatedAt     DateTime @updatedAt
+
+
+  // USUARIO DEBIL VS EQUIPO
+  usuarios User[]
+
+  // AREA FUERTE VS EQUIPO
+  areaId String
+  area Area @relation(fields: [areaId], references: [id], onDelete: Cascade)
+}
+
+
+model Permiso {
+  id String @id @default(uuid())
+  nombrePermiso String
+
+  createdAt String @map("created_at")
+  horaAt String @map("hora_at")
+  updatedAt     DateTime @updatedAt
+
+  // CARGO MUCHOS A MUCHOS CON PERMISO
+  cargos Cargo[]
+
+  
+
+}
+
+
+model Historia {
+  id String @id @default(uuid())
+  nombreHistoria String
+  presupuestoHistoria String @default("100.000")
+  puntoHistoria   Int @default(10)
+  tiempoHistoria String @default("14")
+  detalleHistoria String @default("Urgente")
+  discrepancia1 String @default("-")
+  descripcion1 String @default("-")
+  discrepancia2 String @default("-")
+  descripcion2 String @default("-")
+  discrepancia3 String @default("-")
+  descripcion3 String @default("-")
+  discrepancia4 String @default("-")
+  descripcion4 String @default("-")
+  
+
+
+
+  createdAt String @map("created_at")
+  horaAt String @map("hora_at")
+  updatedAt     DateTime @updatedAt
+
+
+  // TAREA DEBIL VS HISTORIA
+  tareas Tarea[]
+
+  // PB FUERTE VS HISTORIA 
+  productBacklogId String
+  productBacklog ProductBacklog @relation(fields: [productBacklogId], references: [id], onDelete: Cascade)
+
+  // CARACTER FUERTE VS HISTORIA 
+  caracterId String
+  caracter Caracter @relation(fields: [caracterId], references: [id], onDelete: Cascade)
+
+
+  // USER FUERTE VS HISTORIA 
+  userId String 
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+
+
+model ProductBacklog {
+  id String @id @default(uuid())
+  nombreProductBacklog String @default("Pb")
+
+  createdAt String @map("created_at")
+  horaAt String @map("hora_at")
+  updatedAt     DateTime @updatedAt
+
+  // HISTORIA DEBIL VS PB
+  historias Historia[]
+
+}
+
+model SprintBacklog {
+  id String @id @default(uuid())
+  nombreSprintBacklog String @default("Sb")
+  createdAt String @map("created_at")
+  horaAt String @map("hora_at")
+  updatedAt     DateTime @updatedAt
+
+  // TAREA DEBIL VS SB
+  tareas Tarea[]
+
+  // SPRINT FUERTE VS SB
+  sprintId String
+  sprint Sprint @relation(fields: [sprintId], references: [id], onDelete: Cascade)
+
+}
+
+model Caracter {
+  id String @id @default(uuid())
+  nombreCaracter String
+
+  createdAt String @map("created_at")
+  horaAt String @map("hora_at")
+  updatedAt     DateTime @updatedAt
+
+  // HISTORIA DEBIL VS CARACTER
+  historias Historia[]
+
+}
+
+model Sprint {
+  id String @id @default(uuid())
+  nombreSprint String
+
+  createdAt String @map("created_at")
+  horaAt String @map("hora_at")
+  updatedAt     DateTime @updatedAt
+
+  // SB DEBIL VS SPRINT
+  sprintBacklogs SprintBacklog[]
+
+}

@@ -33,7 +33,7 @@ export const dataFaq =[
         logo: abajo
     },
     {
-        id:1,
+        id:6,
         pregunta: '¿Que es Apolo Scrum?',
         respuesta: 'asaaaaaaaaa',
         logo: abajo

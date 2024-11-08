@@ -23,7 +23,14 @@ const config: Config = {
         // 'mio': '#d742d2',
         'colorTexto': '#164e63',
         'colorNavbar': '#ffffff',
-        'alturaNavbar': '12'
+        'colorBotonAceptar': '#51ff00',
+        'colorBotonSecundario': '#196363',
+        'colorBotonEliminar': '#e1103d',
+        'colorBotonActualizar': '#0051ff',
+        'colorForm': '#164e63',
+        
+        'alturaNavbar': '12',
+
 
       },
     },
