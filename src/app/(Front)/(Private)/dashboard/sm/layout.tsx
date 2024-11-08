@@ -7,8 +7,8 @@ import { redirect } from 'next/navigation'
 // // IMAGENES 
   
 //   // imagenes sm
-   import homeSm from "../../../React/Assets/Icons/homeSm.png";
-   import planningSm from "../../../React/Assets/Icons/planningSm.png";
+import homeSm from "../../../React/Assets/Icons/homeSm.png";
+import planningSm from "../../../React/Assets/Icons/planningSm.png";
 import dailySm from "../../../React/Assets/Icons/dailySm.png";
 import reviewSm from "../../../React/Assets/Icons/reviewSm2.png";
 import retrospectiveSm from "../../../React/Assets/Icons/retrospectiveSm.png";

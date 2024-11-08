@@ -20,14 +20,17 @@ const page = () => {
     traerHistorias()
   }, [])
 
-  console.log('webeo', historias);
+  //console.log('webeo', historias);
   
 
   const route = useRouter()
 
   const handleClickVerResolucionHistoria =()=>{
-    route.push('/dashboard/resolucionTareaCliente/verResolucionTarea')
+    route.push('/dashboard/cliente/clienteResolucionTarea/verResolucionTarea')
   }
+
+  console.log('histo:', historias);
+  
 
   return (
     <div className='w-full h-full   ' >
@@ -53,6 +56,7 @@ const page = () => {
                         <td className='w-[20%] pl-8'>Nombre Historia</td>
                         <td className='w-[10%] pl-8'>Fecha Ingreso</td>
                         <td className='w-[12%] pl-8'>Fecha Respuesta</td>
+                        <td className='w-[12%] pl-8'>Status </td>
                         
                         <td className='w-[10%] text-center'>Discrepancia 1</td>
                         <td className='w-[10%] text-center'>Discrepancia 2</td>
@@ -62,7 +66,7 @@ const page = () => {
                     </thead>
                     <tbody>
                     {historias.map((el)=>{
-                      const {id, nombreHistoria, createdAt, updatedAt, discrepancia1, discrepancia2, discrepancia3, discrepancia4} = el
+                      const {id, nombreHistoria, createdAt, status ,updatedAt, discrepancia1, discrepancia2, discrepancia3, discrepancia4} = el
                         const updatedAt2 = format(new Date(updatedAt), 'dd/MM/yyyy')
                         return <tr key={id} className='border border-gray-200 h-14  cursor-pointer w-full '>
                           <td className='pl-8'>
@@ -75,9 +79,11 @@ const page = () => {
                             {createdAt}
                           </td>
                           <td className='pl-12'>
-                            {updatedAt2}
+                            {status === 'Pendiente' ? '-': updatedAt2}
                           </td>
-                          
+                          <td className={`pl-6 ${status === 'Pendiente' ? 'text-yellow-400' : 'text-green-700'}`}>
+                            {status}
+                          </td>
                          
                           <td className='pl-8'>
                             {discrepancia1}
@@ -91,11 +97,11 @@ const page = () => {
                           <td className='pl-8'>
                             {discrepancia4}
                           </td>
-                          <div className='grid place-items-center pt-2 pr-2'>
+                          <td className='grid place-items-center pt-2 pr-2'>
                             <button onClick={handleClickVerResolucionHistoria} className='w-[100px] h-10 bg-violet-200 rounded text-violet-900'>
                               ver
                             </button>
-                          </div>
+                          </td>
                           
                           
                           

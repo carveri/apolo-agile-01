@@ -10,7 +10,7 @@ const page = () => {
             Dashboard {'>'} Clientes {'>'} Home
           </header>
           <main className='w-full h-[95%]  px-5 pt-5'>
-            <header className='w-full h-[9%]  flex gap-x-16 px-8 '>
+            <section className='w-full h-[9%]  flex gap-x-16 px-8 '>
               {dataHomePo.map((el)=>{
                 return <article className='w-full h-full  rounded-md flex bg-gray-50 border border-violet-50 shadow-md'>
                   <div className='h-full w-[20%] grid place-content-center'>
@@ -32,7 +32,7 @@ const page = () => {
                 </article>
               })}
               
-            </header>
+            </section>
             <section className='w-full h-[91%] p-8'>
               graficos
             </section>

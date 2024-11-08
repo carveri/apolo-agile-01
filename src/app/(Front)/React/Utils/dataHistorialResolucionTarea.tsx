@@ -46,7 +46,7 @@ export const dataHistorialResolucionTarea = [
         discrepancia4: 'cuarta',
     },
     {
-        id:1,
+        id:5,
         nombreTarea: 'uno',
         fechaIngreso: '12-12-2024',
         fechaRespuesta: '13-12-2024',
@@ -57,7 +57,7 @@ export const dataHistorialResolucionTarea = [
         discrepancia4: 'cuarta',
     },
     {
-        id:2,
+        id:6,
         nombreTarea: 'dos',
         fechaIngreso: '12-12-2024',
         fechaRespuesta: '13-12-2024',
@@ -68,7 +68,7 @@ export const dataHistorialResolucionTarea = [
         discrepancia4: 'cuarta',
     },
     {
-        id:3,
+        id:7,
         nombreTarea: 'tres',
         fechaIngreso: '12-12-2024',
         fechaRespuesta: '13-12-2024',
@@ -79,7 +79,7 @@ export const dataHistorialResolucionTarea = [
         discrepancia4: 'cuarta',
     },
     {
-        id:4,
+        id:8,
         nombreTarea: 'cuatro',
         fechaIngreso: '12-12-2024',
         fechaRespuesta: '13-12-2024',
@@ -90,7 +90,7 @@ export const dataHistorialResolucionTarea = [
         discrepancia4: 'cuarta',
     },
     {
-        id:1,
+        id:9,
         nombreTarea: 'uno',
         fechaIngreso: '12-12-2024',
         fechaRespuesta: '13-12-2024',
@@ -101,7 +101,7 @@ export const dataHistorialResolucionTarea = [
         discrepancia4: 'cuarta',
     },
     {
-        id:2,
+        id:10,
         nombreTarea: 'dos',
         fechaIngreso: '12-12-2024',
         fechaRespuesta: '13-12-2024',
@@ -112,7 +112,7 @@ export const dataHistorialResolucionTarea = [
         discrepancia4: 'cuarta',
     },
     {
-        id:3,
+        id:11,
         nombreTarea: 'tres',
         fechaIngreso: '12-12-2024',
         fechaRespuesta: '13-12-2024',
@@ -123,7 +123,7 @@ export const dataHistorialResolucionTarea = [
         discrepancia4: 'cuarta',
     },
     {
-        id:4,
+        id:12,
         nombreTarea: 'cuatro',
         fechaIngreso: '12-12-2024',
         fechaRespuesta: '13-12-2024',
@@ -134,7 +134,7 @@ export const dataHistorialResolucionTarea = [
         discrepancia4: 'cuarta',
     },
     {
-        id:1,
+        id:13,
         nombreTarea: 'uno',
         fechaIngreso: '12-12-2024',
         fechaRespuesta: '13-12-2024',
@@ -145,7 +145,7 @@ export const dataHistorialResolucionTarea = [
         discrepancia4: 'cuarta',
     },
     {
-        id:2,
+        id:14,
         nombreTarea: 'dos',
         fechaIngreso: '12-12-2024',
         fechaRespuesta: '13-12-2024',
@@ -156,7 +156,7 @@ export const dataHistorialResolucionTarea = [
         discrepancia4: 'cuarta',
     },
     {
-        id:3,
+        id:15,
         nombreTarea: 'tres',
         fechaIngreso: '12-12-2024',
         fechaRespuesta: '13-12-2024',
@@ -167,7 +167,7 @@ export const dataHistorialResolucionTarea = [
         discrepancia4: 'cuarta',
     },
     {
-        id:4,
+        id:16,
         nombreTarea: 'cuatro',
         fechaIngreso: '12-12-2024',
         fechaRespuesta: '13-12-2024',
@@ -178,7 +178,7 @@ export const dataHistorialResolucionTarea = [
         discrepancia4: 'cuarta',
     },
     {
-        id:1,
+        id:17,
         nombreTarea: 'uno',
         fechaIngreso: '12-12-2024',
         fechaRespuesta: '13-12-2024',
@@ -189,7 +189,7 @@ export const dataHistorialResolucionTarea = [
         discrepancia4: 'cuarta',
     },
     {
-        id:2,
+        id:18,
         nombreTarea: 'dos',
         fechaIngreso: '12-12-2024',
         fechaRespuesta: '13-12-2024',
@@ -200,7 +200,7 @@ export const dataHistorialResolucionTarea = [
         discrepancia4: 'cuarta',
     },
     {
-        id:3,
+        id:19,
         nombreTarea: 'tres',
         fechaIngreso: '12-12-2024',
         fechaRespuesta: '13-12-2024',
@@ -211,7 +211,7 @@ export const dataHistorialResolucionTarea = [
         discrepancia4: 'cuarta',
     },
     {
-        id:4,
+        id:20,
         nombreTarea: 'cuatro',
         fechaIngreso: '12-12-2024',
         fechaRespuesta: '13-12-2024',
@@ -222,7 +222,7 @@ export const dataHistorialResolucionTarea = [
         discrepancia4: 'cuarta',
     },
     {
-        id:1,
+        id:21,
         nombreTarea: 'uno',
         fechaIngreso: '12-12-2024',
         fechaRespuesta: '13-12-2024',
@@ -233,7 +233,7 @@ export const dataHistorialResolucionTarea = [
         discrepancia4: 'cuarta',
     },
     {
-        id:2,
+        id:22,
         nombreTarea: 'dos',
         fechaIngreso: '12-12-2024',
         fechaRespuesta: '13-12-2024',
@@ -244,7 +244,7 @@ export const dataHistorialResolucionTarea = [
         discrepancia4: 'cuarta',
     },
     {
-        id:3,
+        id:23,
         nombreTarea: 'tres',
         fechaIngreso: '12-12-2024',
         fechaRespuesta: '13-12-2024',
@@ -255,7 +255,7 @@ export const dataHistorialResolucionTarea = [
         discrepancia4: 'cuarta',
     },
     {
-        id:4,
+        id:24,
         nombreTarea: 'cuatro',
         fechaIngreso: '12-12-2024',
         fechaRespuesta: '13-12-2024',
@@ -266,7 +266,7 @@ export const dataHistorialResolucionTarea = [
         discrepancia4: 'cuarta',
     },
     {
-        id:1,
+        id:25,
         nombreTarea: 'uno',
         fechaIngreso: '12-12-2024',
         fechaRespuesta: '13-12-2024',
@@ -277,7 +277,7 @@ export const dataHistorialResolucionTarea = [
         discrepancia4: 'cuarta',
     },
     {
-        id:2,
+        id:26,
         nombreTarea: 'dos',
         fechaIngreso: '12-12-2024',
         fechaRespuesta: '13-12-2024',
@@ -288,7 +288,7 @@ export const dataHistorialResolucionTarea = [
         discrepancia4: 'cuarta',
     },
     {
-        id:3,
+        id:27,
         nombreTarea: 'tres',
         fechaIngreso: '12-12-2024',
         fechaRespuesta: '13-12-2024',
@@ -299,7 +299,7 @@ export const dataHistorialResolucionTarea = [
         discrepancia4: 'cuarta',
     },
     {
-        id:4,
+        id:28,
         nombreTarea: 'cuatro',
         fechaIngreso: '12-12-2024',
         fechaRespuesta: '13-12-2024',

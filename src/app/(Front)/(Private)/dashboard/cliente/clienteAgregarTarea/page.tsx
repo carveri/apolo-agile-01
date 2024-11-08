@@ -11,6 +11,7 @@ import { dataCaracter } from "@/app/(Front)/React/Utils/dataCaracter";
 import { dataCargo } from "@/app/(Front)/React/Utils/dataCargo";
 import { getData } from "@/app/(Front)/React/Fetch/getData";
 import { postData } from "@/app/(Front)/React/Fetch/postData";
+import { getDataLista } from "@/app/(Front)/React/Fetch/getDataLista";
 
 const page = () => {
 
@@ -45,6 +46,7 @@ const page = () => {
     const [cargoId, setCargoId] = useState('')
     const [userId, setUserId] = useState('')
     const [caracterId, setCaracterId] = useState('')
+    const [puntoHistoria, setPuntoHistoria] = useState('')
 
     useEffect(()=>{
         // const traerDepto =async()=>{
@@ -54,7 +56,14 @@ const page = () => {
         // }
         const traerCargo =async()=>{
             const ruta = 'cargo'
+            //const url = '12b87914-ed8c-4411-931e-7b9b567d7117'
             const res = await getData({ruta})
+            setCargo(res)
+        }
+        const traerCargo2 =async()=>{
+            const ruta = 'cargoPorArea'
+            const url = '12b87914-ed8c-4411-931e-7b9b567d7117'
+            const res = await getDataLista({ruta, url})
             setCargo(res)
         }
         const traerUser =async()=>{
@@ -115,6 +124,9 @@ const page = () => {
         else if(e.target.name === 'detalleHistoria'){
             setDetalleHistoria(e.target.value)
         }
+        else if(e.target.name === 'puntoDeHistoria'){
+            setPuntoHistoria(e.target.value)
+        }
         else {
             console.log('sd');
             
@@ -122,8 +134,8 @@ const page = () => {
         
     }
 
-    const areaId = "b1eaf458-7650-41f6-9852-561011a479a7"
-    const productBacklogId = 'a3f75b55-ef27-4fcb-a097-2994bd91cf35'
+    const areaId = "12b87914-ed8c-4411-931e-7b9b567d7117"
+    const productBacklogId = '1af659a1-06b9-46e7-94fb-2220d8f5f0b8'
 
     const handleClickCliente2 =(id, nombreCargo)=>{
         setCargoId(id)
@@ -147,13 +159,15 @@ const page = () => {
         e.preventDefault()
         console.log('areaId:', areaId);
         console.log('nombreHistoria:', nombreHistoria);
-        console.log('productBacklogId', "a3f75b55-ef27-4fcb-a097-2994bd91cf35");
+        console.log('productBacklogId', productBacklogId);
         console.log('caracterId:', caracterId);
         console.log('detalleHistoria:', detalleHistoria);
         console.log('presupuestoHistoria:', presupuestoHistoria);
         console.log('tiempoHistoria:', tiempoHistoria);
         console.log('userId:', userId);
-        const data = { nombreHistoria, productBacklogId, caracterId, detalleHistoria, presupuestoHistoria, tiempoHistoria, userId}
+        console.log('puntoHistoria:', puntoHistoria);
+        
+        const data = { nombreHistoria, presupuestoHistoria, puntoHistoria, tiempoHistoria,  detalleHistoria, productBacklogId, caracterId, userId}
 
         const ruta = 'historia'
         postData({ruta, data})
@@ -173,7 +187,7 @@ const page = () => {
             <main className='w-full h-[95%] '>
             <form onSubmit={handleSumbitCliente} action="" className=' w-full h-full '>
 
-                <div className='flex h-[80%] px-3  place-content-center  mt-8 '>
+                <div className='flex h-[85%]  place-content-center  mt-8 px-56 gap-x-10'>
                     <section className='w-[48%] h-[95%] border border-gray-200 px-4 mr-10 pt-5 bg-white rounded'>
                         <header className='w-full h-[10%]  grid place-content-center text-xl'>
                             Datos del Solicitante
@@ -200,11 +214,11 @@ const page = () => {
                                         {cargoI}
                                     </div>
                                     {activoCargo &&
-                                        <div className='mt-[228px] z-50 absolute top-60 left-3/5 max-h-[120px] overflow-auto '>
+                                        <div className='mt-[250px] z-50 absolute top-60 left-3/5 max-h-[120px] overflow-auto '>
                                             
                                             {cargo.map((el)=>{
                                                 const {nombreCargo, id} = el
-                                                    return  (<div onClick={()=>handleClickCliente2(id, nombreCargo)} className='w-[660px] cursor-pointer ml-2 h-10 bg-white hover:bg-violet-200  grid items-center pl-4' key={el.id}>
+                                                    return  (<div onClick={()=>handleClickCliente2(id, nombreCargo)} className='w-[435px] cursor-pointer ml-2 h-10 bg-white hover:bg-violet-200  grid items-center pl-4' key={el.id}>
                                                         {nombreCargo}
                                                     </div>)
                                                 })}
@@ -218,17 +232,23 @@ const page = () => {
                                         {userI}
                                     </div>
                                     {activoSolicitante &&
-                                        <div className='mt-[330px] z-50 absolute top-60 left-3/5 max-h-[120px] overflow-auto '>
+                                        <div className='mt-[360px] z-50 absolute top-60 left-3/5 max-h-[120px] overflow-auto '>
                                             
                                             {user.map((el)=>{
                                                 const {email, id} = el
-                                                    return  (<div onClick={()=>handleClickCliente3(id, email)} className='w-[660px] cursor-pointer ml-2 h-10 bg-white hover:bg-violet-200  grid items-center pl-4' key={el.id}>
+                                                    return  (<div onClick={()=>handleClickCliente3(id, email)} className='w-[435px] cursor-pointer ml-2 h-10 bg-white hover:bg-violet-200  grid items-center pl-4' key={el.id}>
                                                         {email} 
                                                     </div>)
                                                 })}
                                         </div>
                                     
                                     }
+                            </article>
+                            <article className='grid grid-rows-2 pb-3'>
+                                <label  htmlFor="">Punto de historia:</label>
+                                    
+                                    
+                                <input name="puntoDeHistoria" onChange={handleChangeCliente} className="pl-3 py-4 rounded-md bg-white border border-gray-200   grid content-center" type="text" placeholder="10"/>
                             </article>
                             
                         </div>
@@ -238,13 +258,13 @@ const page = () => {
 
 
 
-                    <section className='w-[48%] h-[95%] border border-gray-200 bg-white  mr-4 pt-5'>
-                        <header className='w-full h-[10%]  grid place-content-center text-xl' >
+                    <section className='w-[48%] h-[95%] border border-gray-200 bg-white  mr-4 pt-5  px-8'>
+                        <header className='w-full h-[10%]  grid place-content-center text-xl pb-2' >
                             Detalles de la petición
                         </header>
                         <div className='w-full h-[80%] grid grid-rows-5 px-8 mt-2 '>
                             
-                        <article className='grid grid-rows-2 pb-3'>
+                            <article className='grid grid-rows-2 pb-3'>
                                 <label  htmlFor="">Nombre de la petición (Historia de usuario):</label>
                                     
                                     
@@ -256,7 +276,7 @@ const page = () => {
                                         {caracterI}
                                     </div>
                                     {activoCaracter &&
-                                        <div className='mt-[145px] z-50 absolute top-60 left-3/5 max-h-44 overflow-auto '>
+                                        <div className='mt-[162px] z-50 absolute top-60 left-3/5 max-h-44 overflow-auto '>
                                             
                                             {caracter.map((el)=>{
                                                     const {nombreCaracter, id} = el
@@ -284,7 +304,7 @@ const page = () => {
                                 <label className="h-7 "  htmlFor="">Detalle de la petición:</label>
                                     
                                     
-                                <input name="detalleHistoria" onChange={handleChangeCliente} className="pl-3  h-24 rounded-md bg-white border border-gray-200 cursor-pointer  grid content-center" type="text" placeholder="Se requiere un calendario de color azul, con tonalidades grices"/>
+                                <input name="detalleHistoria" onChange={handleChangeCliente} className="pl-3  h-24 rounded-md bg-white border border-gray-200 cursor-pointer  grid content-center" type="text" placeholder="Se requiere un calendario de color azul..."/>
                             </article>
                         </div>
                         

@@ -239,6 +239,7 @@ model Tarea {
 model Equipo {
   id String @id @default(uuid())
   nombreEquipo  String
+  isActive      Boolean @default(true)
 
   createdAt String @map("created_at")
   horaAt String @map("hora_at")
@@ -257,6 +258,7 @@ model Equipo {
 model Permiso {
   id String @id @default(uuid())
   nombrePermiso String
+  isActive      Boolean @default(true)
 
   createdAt String @map("created_at")
   horaAt String @map("hora_at")
@@ -285,7 +287,8 @@ model Historia {
   descripcion3 String @default("-")
   discrepancia4 String @default("-")
   descripcion4 String @default("-")
-  
+  isActive      Boolean @default(true)
+  status       String @default("Pendiente")
 
 
 
@@ -316,7 +319,7 @@ model Historia {
 model ProductBacklog {
   id String @id @default(uuid())
   nombreProductBacklog String @default("Pb")
-
+  isActive      Boolean @default(true)
   createdAt String @map("created_at")
   horaAt String @map("hora_at")
   updatedAt     DateTime @updatedAt
@@ -330,6 +333,7 @@ model SprintBacklog {
   id String @id @default(uuid())
   nombreSprintBacklog String @default("Sb")
   createdAt String @map("created_at")
+  isActive      Boolean @default(true)
   horaAt String @map("hora_at")
   updatedAt     DateTime @updatedAt
 
@@ -345,6 +349,7 @@ model SprintBacklog {
 model Caracter {
   id String @id @default(uuid())
   nombreCaracter String
+  isActive      Boolean @default(true)
 
   createdAt String @map("created_at")
   horaAt String @map("hora_at")
@@ -358,6 +363,7 @@ model Caracter {
 model Sprint {
   id String @id @default(uuid())
   nombreSprint String
+  isActive      Boolean @default(true)
 
   createdAt String @map("created_at")
   horaAt String @map("hora_at")
