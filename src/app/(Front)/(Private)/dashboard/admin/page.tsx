@@ -10,6 +10,7 @@ import Image from "next/image";
 
 // IMAGENES
 import flechaAbajo from "./../../../React/Assets/Icons/flechaAbajo4.png";
+import { getDataLista } from "@/app/(Front)/React/Fetch/getDataLista";
 
 const page = () => {
 
@@ -55,7 +56,7 @@ const page = () => {
         traerEquipos()
     }, [])
 
-    // console.log(cargos);
+     console.log(cargos);
     // console.log(equipos);
     
     
@@ -73,15 +74,26 @@ const page = () => {
 
     const handleClickListaAdmin1 =(id, nombreCargo)=>{
         setCargoId(id)
+        // const traerEquipos = async()=>{
+        //     const ruta = 'equipo'
+        //     const url = '2cbca9d4-f9c2-4f8e-a8e3-a04212e901d6'
+        //     const res = await getDataLista({ruta, url})
+        //     setEquipos(res)
+        // }
+        // traerEquipos()
         setCargoI(nombreCargo)
         setActivoCargo(false)
     }
+
+    console.log('equi:', equipos);
+    
 
     const handleClickListaAdmin2 =(id, nombreEquipo)=>{
         setEquipoId(id)
         setEquipoI(nombreEquipo)
         setActivoEquipo(false)
     }
+    
 
     const hanldeChangeNewUser =(e)=>{
         if(e.target.name === 'primerNombre'){
@@ -118,6 +130,8 @@ const page = () => {
     const horaAt = format(new Date(), 'H:mm')
     const empresaId = "092cee92-4e22-4270-8aa5-1ba69194cf39 " 
 
+    //console.log('cargos:', cargos);
+    
     
 
     const handleSubmitNewUserAdmin = (e)=>{
@@ -211,7 +225,7 @@ const page = () => {
                                         </div>
                                     </div>
                                     {activoCargo &&
-                                        <div className='mt-[55px] z-50 absolute top-60 left-3/5 max-h-44 overflow-auto '>
+                                        <div className='mt-[67px] z-50 absolute top-60 left-3/5 max-h-44 overflow-auto '>
                                             
                                             {cargos.map((el)=>{
                                                     const {nombreCargo, id} = el
@@ -225,6 +239,9 @@ const page = () => {
                             </article>
                             <article className='grid grid-rows-2 pb-3'>
                                 <label  htmlFor="">Equipo Usuario:</label>
+                                {/* <div className="border border-gray-200 pl-3 pt-2">
+                                    {equipos?.nombreEquipo}
+                                </div> */}
                                     <div className=" pl-3 rounded-md  border border-gray-200 cursor-pointer  flex space-x-[150px]  " onClick={handleClickEquipo}>
                                         <div className=" w-56 pt-2">
                                             {equipoI}
@@ -240,7 +257,7 @@ const page = () => {
 
                                     </div>
                                     {activoEquipo &&
-                                        <div className='mt-[145px] z-50 absolute top-60 left-3/5 max-h-44 overflow-auto '>
+                                        <div className='mt-[158px] z-50 absolute top-60 left-3/5 max-h-44 overflow-auto '>
                                             
                                             {equipos.map((el)=>{
                                                     const {nombreEquipo, id} = el
@@ -250,7 +267,7 @@ const page = () => {
                                                 })}
                                         </div>
                                     
-                                    }
+                                            }
                             </article>
                             <article className='grid grid-rows-2 pb-3'>
                                 <label  htmlFor="">Email Empresa:</label>

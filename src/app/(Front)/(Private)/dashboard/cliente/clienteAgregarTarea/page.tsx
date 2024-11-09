@@ -46,7 +46,7 @@ const page = () => {
     const [cargoId, setCargoId] = useState('')
     const [userId, setUserId] = useState('')
     const [caracterId, setCaracterId] = useState('')
-    const [puntoHistoria, setPuntoHistoria] = useState('')
+    const [puntoHistoria, setPuntoHistoria] = useState(12)
 
     useEffect(()=>{
         // const traerDepto =async()=>{
@@ -125,7 +125,7 @@ const page = () => {
             setDetalleHistoria(e.target.value)
         }
         else if(e.target.name === 'puntoDeHistoria'){
-            setPuntoHistoria(e.target.value)
+            setPuntoHistoria(e.target.valueAsNumber)
         }
         else {
             console.log('sd');
@@ -157,18 +157,19 @@ const page = () => {
 
     const handleSumbitCliente =(e)=>{
         e.preventDefault()
-        console.log('areaId:', areaId);
-        console.log('nombreHistoria:', nombreHistoria);
-        console.log('productBacklogId', productBacklogId);
-        console.log('caracterId:', caracterId);
-        console.log('detalleHistoria:', detalleHistoria);
-        console.log('presupuestoHistoria:', presupuestoHistoria);
-        console.log('tiempoHistoria:', tiempoHistoria);
-        console.log('userId:', userId);
-        console.log('puntoHistoria:', puntoHistoria);
+        // console.log('areaId:', areaId);
+        // console.log('nombreHistoria:', nombreHistoria);
+        // console.log('productBacklogId', productBacklogId);
+        // console.log('caracterId:', caracterId);
+        // console.log('detalleHistoria:', detalleHistoria);
+        // console.log('presupuestoHistoria:', presupuestoHistoria);
+        // console.log('tiempoHistoria:', tiempoHistoria);
+        // console.log('userId:', userId);
+        // console.log('puntoHistoria:', puntoHistoria);
         
         const data = { nombreHistoria, presupuestoHistoria, puntoHistoria, tiempoHistoria,  detalleHistoria, productBacklogId, caracterId, userId}
-
+        console.log(data);
+        
         const ruta = 'historia'
         postData({ruta, data})
         alert('Se guardo correctamente la historia')
@@ -248,7 +249,7 @@ const page = () => {
                                 <label  htmlFor="">Punto de historia:</label>
                                     
                                     
-                                <input name="puntoDeHistoria" onChange={handleChangeCliente} className="pl-3 py-4 rounded-md bg-white border border-gray-200   grid content-center" type="text" placeholder="10"/>
+                                <input name="puntoDeHistoria" onChange={handleChangeCliente} className="pl-3 py-4 rounded-md bg-white border border-gray-200   grid content-center" type="number" placeholder="10"/>
                             </article>
                             
                         </div>

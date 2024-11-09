@@ -4,6 +4,7 @@ import Image from "next/image";
 
 import logoPrincipal from "../../React/Assets/Icons/logoPricipal2.png";
 import imagenDashboard from "./../../React/Assets/Images/dashboard1.png";
+import imagenDashboard2 from "./../../React/Assets/Icons/dashboard4.png";
 
 
 
@@ -20,6 +21,7 @@ const page = () => {
                   height={30}
                   alt="Picture of the author"
               />
+              
             </header> 
             <p>
               Apolo Agile
@@ -41,13 +43,24 @@ const page = () => {
           </article>
         </div>
       </section>
-      <section className='w-[57%]  grid place-items-center '>
-            <Image
-                  src={imagenDashboard}
-                  width={800}
-                  height={700}
-                  alt="Picture of the author"
-              />
+      <section className='w-[57%]   grid place-items-center '>
+            <div>
+              {/* <Image
+                    src={imagenDashboard}
+                    width={700}
+                    height={600}
+                    alt="Picture of the author"
+                    className=' ml-40 '
+                /> */}
+                <Image
+                    src={imagenDashboard2}
+                    width={900}
+                    height={800}
+                    alt="Picture of the author"
+                    className=' -mt-16 '
+                />
+            </div>
+              
 
       </section>
     </div>

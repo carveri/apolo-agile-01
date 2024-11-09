@@ -5,7 +5,7 @@ import { format } from "date-fns";
 
 class Historia {
     postHistoria =async(req:Request)=>{
-        const {nombreHistoria, productBacklogId, caracterId, detalleHistoria, presupuestoHistoria, tiempoHistoria, userId} = await req.json()
+        const {nombreHistoria, productBacklogId, caracterId, detalleHistoria, presupuestoHistoria, puntoHistoria,tiempoHistoria, userId} = await req.json()
         const saveHistoria = await prisma.historia.create({
             data:{
                 nombreHistoria,
@@ -15,6 +15,7 @@ class Historia {
                 presupuestoHistoria,
                 tiempoHistoria,
                 userId,
+                puntoHistoria,
                 createdAt: format(new Date(), 'dd/MM/yyyy'),
                 horaAt: format(new Date(), 'H:mm')
             }

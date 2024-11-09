@@ -30,10 +30,10 @@ const page = async() => {
               </tr>
             </thead>
             <tbody>
-              {usuariosCliente.map((el)=>{
+              {usuariosCliente.map((el, items)=>{
                   return <tr key={el.id} className='border border-gray-200 h-14  cursor-pointer '>
                     <td className='pl-8'>
-                      1
+                      {items + 1}
                     </td>
                     <td >
                       {el.primerNombre}

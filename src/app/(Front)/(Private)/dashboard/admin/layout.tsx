@@ -8,7 +8,7 @@ import { redirect } from 'next/navigation'
   
 //   // imagenes admin
   import nuevoUsuarioAdmin from "../../../React/Assets/Icons/nuevoUsuarioAdmin.png";
-  import clientesAdmin from "../../../React/Assets/Icons/clientesAdmin.png";
+  import clientesAdmin from "../../../React/Assets/Icons/adminClientes2.png";
   import poAdmin from "../../../React/Assets/Icons/poAdmin2.png";
   import smAdmin from "../../../React/Assets/Icons/smAdmin2.png";
   import devsAdmin from "../../../React/Assets/Icons/devsAdmin2.png";

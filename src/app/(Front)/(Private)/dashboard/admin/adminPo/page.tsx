@@ -7,7 +7,7 @@ const page = async() => {
   const ruta = 'userArea'
   const url = '2cbca9d4-f9c2-4f8e-a8e3-a04212e901d6'
   const usuariosPo = await getDataLista({ruta, url})
-  console.log('resultado del po:', usuariosPo);
+  //console.log('resultado del po:', usuariosPo);
 
 
   return (
@@ -29,10 +29,10 @@ const page = async() => {
               </tr>
             </thead>
             <tbody>
-              {usuariosPo.map((el)=>{
+              {usuariosPo.map((el, items)=>{
                   return <tr key={el.id} className='border border-gray-200 h-14  cursor-pointer '>
                     <td className='pl-8'>
-                      1
+                      {items + 1}
                     </td>
                     <td >
                       {el.primerNombre}

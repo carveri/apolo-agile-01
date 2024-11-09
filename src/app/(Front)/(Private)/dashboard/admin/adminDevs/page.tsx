@@ -21,10 +21,10 @@ const page = () => {
               </tr>
             </thead>
             <tbody>
-            {dataTablaDesarrollo.map((el)=>{
+            {dataTablaDesarrollo.map((el, items)=>{
                 return <tr key={el.id} className='border border-gray-200 h-14  cursor-pointer '>
                   <td className='pl-8'>
-                    {el.id}
+                    {items + 1}
                   </td>
                   <td >
                     {el.nombre}

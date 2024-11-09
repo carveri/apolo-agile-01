@@ -39,21 +39,21 @@ const page = () => {
           <thead>
             <tr className='h-14'>
               <td className='w-[10%] pl-3'>Numero</td>
-              <td className='w-[10%]'>Historia</td>
+              <td className='w-[15%]'>Historia</td>
               <td className='w-[10%]'>Fecha Petición </td>
               <td className='w-[10%]'>Hora petición</td>
-              <td className='w-[15%]'>Presupuesto (CLP)</td>
-              <td className='w-[15%]'>Tiempo(Dias) </td>
-              <td className='w-[15%]'>Descripción </td>
+              <td className='w-[12%]'>Presupuesto (CLP)</td>
+              <td className='w-[12%]'>Tiempo(Dias) </td>
+              <td className='w-[20%]'>Descripción </td>
               
             </tr>
           </thead>
             <tbody>
-            {historias.map((el)=>{
+            {historias.map((el, index)=>{
               const {id,nombreHistoria, createdAt, horaAt, presupuestoHistoria, tiempoHistoria, detalleHistoria} = el
                 return <tr key={id} className='border border-gray-200 h-14  cursor-pointer '>
                   <td className='pl-8'>
-                    1
+                    {index + 1}
                   </td>
                   <td >
                     {nombreHistoria}
