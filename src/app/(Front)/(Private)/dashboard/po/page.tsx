@@ -3,6 +3,9 @@ import React from 'react'
 import Image from "next/image";
 
 const page = () => {
+
+  
+
   return (
     <div className='w-full h-full bg-white grid place-items-center' >
         <section className='w-[99%] h-[99%]  '>

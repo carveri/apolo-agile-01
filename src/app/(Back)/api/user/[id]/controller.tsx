@@ -10,25 +10,30 @@ class UserDetalle {
         const getOneUser = await prisma.user.findFirst({
             where:{
                 email:email
-            },include:{
-                cargo: {
-                    include:{
-                        departamento:{
-                            include:{
-                                area: {
-                                    include: {
-                                        empresas: {
-                                            select: {
-                                                rutEmpresa: true
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
+            },
+            // include:{
+            //     cargo: {
+            //         include:{
+            //             departamento:{
+            //                 select:{
+            //                     nombreDepartamento: true
+            //                 },include:{
+            //                     area:{
+            //                         select: {
+            //                             nombreArea: true
+            //                         },include:{
+            //                             empresas:{
+            //                                 select:{
+            //                                     nombreEmpresa:true
+            //                                 }
+            //                             }
+            //                         }
+            //                     }
+            //                 }
+            //             }
+            //         }
+            //     }
+            // }
         })
         return getOneUser
     }
