@@ -19,6 +19,7 @@ const config: Config = {
         'colorBotonActualizar': '#0051ff',
         'colorForm': '#164e63',
         'colorFondo': '#ffffff',
+        'colorVerdeClaro': '#03ff57',
         
         'alturaNavbar': '12',
 

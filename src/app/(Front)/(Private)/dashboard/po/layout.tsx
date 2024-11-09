@@ -60,6 +60,7 @@ const linksPo = [
       id:2,
       href: '/dashboard/po/poNuevaTarea',
       nombre: 'Nuevas Historias ',
+      coso: '1',
       icono: nuevasTareasPo
   },
   {

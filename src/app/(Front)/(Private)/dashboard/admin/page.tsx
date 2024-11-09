@@ -6,6 +6,10 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { signOut } from "next-auth/react";
 import { postData } from "@/app/(Front)/React/Fetch/postData";
 import { getData } from "@/app/(Front)/React/Fetch/getData";
+import Image from "next/image";
+
+// IMAGENES
+import flechaAbajo from "./../../../React/Assets/Icons/flechaAbajo4.png";
 
 const page = () => {
 
@@ -120,14 +124,19 @@ const page = () => {
         e.preventDefault()
         const ruta = 'user'
         const data = {primerNombre, segundoNombre, apellidoPaterno, apellidoMaterno, email, rutPersonal, password, confirmPassword, createdAt, horaAt, cargoId, empresaId, equipoId}
-        // console.log('cargoId:', cargoId);
-        // console.log('empresaId:', empresaId);
-        // console.log('equipoId:', equipoId);
+        console.log('cargoId:', cargoId);
+        console.log('empresaId:', empresaId);
+        console.log('equipoId:', equipoId);
         
-        // console.log('data', data);
+        console.log('data', data);
+        //if(password)
         
-        
-        
+        if(password !== confirmPassword){
+            return alert('Las contraseñas no coinciden')
+        }
+        if(primerNombre === '' ||segundoNombre ===''|| apellidoPaterno === ''|| apellidoMaterno ===''|| email === '' || rutPersonal ==='' || password ==='' || confirmPassword === ''|| createdAt === ''|| horaAt === ''|| cargoId === ''|| empresaId === null || equipoId === ''  ){
+            return alert('Es necesario rellenar todos los campos')
+        }
         postData({ruta, data})
         signOut()
         router.push('/api/auth/login')
@@ -139,14 +148,14 @@ const page = () => {
   return (
     <div className='w-full h-full bg-white grid place-items-center' >
         <section className='w-[99%] h-[99%] bg-gray-50 rounded '>
-            <header className='w-full h-[5%] py-4 pl-4 '>
+            <header className='w-full h-[7%] py-4 pl-4 '>
                 Dashboard Cliente {'>'} Admin {'>'} Agregar Tarea
             </header>
-            <main className='w-full h-[95%] '>
-            <form onSubmit={handleSubmitNewUserAdmin} action="" className=' w-full h-full '>
+            <main className='w-full h-[93%] '>
+            <form onSubmit={handleSubmitNewUserAdmin} action="" className=' w-full h-full'>
 
                 <div className='flex h-[80%]   place-content-center  mt-8  px-56 gap-x-10'>
-                    <section className='w-[48%] h-[95%] border border-gray-200 px-4 mr-10 pt-5  rounded'>
+                    <section className='w-[48%] h-[95%] border border-gray-200 bg-white px-4 mr-10 pt-5  rounded'>
                         <header className='w-full h-[10%]  grid place-content-center text-xl'>
                             Datos Personales
                         </header>
@@ -179,7 +188,7 @@ const page = () => {
 
 
 
-                    <section className='w-[48%] h-[95%] border border-gray-200 bg-white  mr-4 pt-5 px-8'>
+                    <section className='w-[48%] h-[95%] border border-gray-200 bg-white  mr-4 pt-5 px-8 rounded'>
                         <header className='w-full h-[10%]  grid place-content-center text-xl ' >
                             Datos Laborales
                         </header>
@@ -188,8 +197,18 @@ const page = () => {
                             
                             <article className='grid grid-rows-2 pb-3'>
                                 <label  htmlFor="">Cargo Usuario:</label>
-                                    <div className=" pl-3 py-4 rounded-md bg-white border border-gray-200 cursor-pointer  grid content-center" onClick={handleClickCargo}>
-                                        {cargoI}
+                                    <div className=" pl-3 rounded-md  border border-gray-200 cursor-pointer  flex space-x-[150px]  " onClick={handleClickCargo}>
+                                        <div className=" w-56 pt-2">
+                                            {cargoI}
+                                        </div> 
+                                        <div className="pt-2">
+                                            <Image
+                                                src={flechaAbajo}
+                                                alt="a"
+                                                width={20}
+                                                height={20}
+                                            />
+                                        </div>
                                     </div>
                                     {activoCargo &&
                                         <div className='mt-[55px] z-50 absolute top-60 left-3/5 max-h-44 overflow-auto '>
@@ -206,8 +225,19 @@ const page = () => {
                             </article>
                             <article className='grid grid-rows-2 pb-3'>
                                 <label  htmlFor="">Equipo Usuario:</label>
-                                    <div className=" pl-3 py-4 rounded-md bg-white border border-gray-200 cursor-pointer  grid content-center" onClick={handleClickEquipo}>
-                                        {equipoI}
+                                    <div className=" pl-3 rounded-md  border border-gray-200 cursor-pointer  flex space-x-[150px]  " onClick={handleClickEquipo}>
+                                        <div className=" w-56 pt-2">
+                                            {equipoI}
+                                        </div> 
+                                        <div className="pt-2">
+                                            <Image
+                                                src={flechaAbajo}
+                                                alt="a"
+                                                width={20}
+                                                height={20}
+                                            />
+                                        </div>
+
                                     </div>
                                     {activoEquipo &&
                                         <div className='mt-[145px] z-50 absolute top-60 left-3/5 max-h-44 overflow-auto '>
@@ -241,7 +271,7 @@ const page = () => {
                 </div>
                 <div className=' w-full h-[7%] grid place-items-center  mt-2'>
                     <button className='w-[20%] h-[90%] bg-violet-500 hover:bg-violet-600 text-white rounded font-semibold'>
-                        Enviar
+                        Guardar
                     </button>
                 </div>
             </form>

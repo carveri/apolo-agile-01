@@ -9,10 +9,10 @@ import { redirect } from 'next/navigation'
 //   // imagenes admin
   import nuevoUsuarioAdmin from "../../../React/Assets/Icons/nuevoUsuarioAdmin.png";
   import clientesAdmin from "../../../React/Assets/Icons/clientesAdmin.png";
-  import poAdmin from "../../../React/Assets/Icons/poAdmin.png";
-  import smAdmin from "../../../React/Assets/Icons/smAdmin.png";
-  import devsAdmin from "../../../React/Assets/Icons/devsAdmin.png";
-  import adminAdmin from "../../../React/Assets/Icons/adminAdmin.png";
+  import poAdmin from "../../../React/Assets/Icons/poAdmin2.png";
+  import smAdmin from "../../../React/Assets/Icons/smAdmin2.png";
+  import devsAdmin from "../../../React/Assets/Icons/devsAdmin2.png";
+  import adminAdmin from "../../../React/Assets/Icons/adminAdmin7.png";
 
 
 
@@ -77,7 +77,7 @@ const linksAdmin = [
     {
         id:6,
         href: '/dashboard/admin/adminAdmin',
-        nombre: 'Administracion',
+        nombre: 'Administración',
         icono: adminAdmin
     }
 ]

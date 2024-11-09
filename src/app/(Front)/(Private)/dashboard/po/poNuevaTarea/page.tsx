@@ -40,12 +40,12 @@ const page = () => {
             <thead>
             <tr className='h-14'>
               <td className='w-[10%] pl-3'>Numero</td>
-              <td className='w-[10%]'>Historia</td>
+              <td className='w-[15%]'>Historia</td>
               <td className='w-[10%]'>Fecha Petición </td>
               <td className='w-[10%]'>Hora petición</td>
-              <td className='w-[15%]'>Presupuesto (CLP)</td>
-              <td className='w-[15%]'>Tiempo(Dias) </td>
-              <td className='w-[15%]'>Descripción </td>
+              <td className='w-[13%]'>Presupuesto (CLP)</td>
+              <td className='w-[10%]'>Tiempo(Dias) </td>
+              <td className='w-[25%]'>Descripción </td>
               
             </tr>
             </thead>
@@ -59,7 +59,7 @@ const page = () => {
                   <td >
                     {nombreHistoria}
                   </td>
-                  <td>
+                  <td >
                     {createdAt}
                   </td>
                   <td >
@@ -75,7 +75,7 @@ const page = () => {
                     {detalleHistoria}
                   </td>
                    <td className=' '>
-                    <button onClick={handleClickVerNuevasTareasPo} className='bg-violet-100 grid place-content-center border border-gray-200 w-[50%] h-[80%] py-1 px-8 rounded hover:bg-violet-200'>
+                    <button onClick={handleClickVerNuevasTareasPo} className='bg-violet-100 grid place-content-center border border-gray-200 w-[70%] h-[80%] py-1 px-8 rounded hover:bg-violet-200'>
                       Ver
                     </button>
                   </td>
