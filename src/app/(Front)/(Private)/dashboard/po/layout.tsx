@@ -53,7 +53,7 @@ const linksPo = [
       id:2,
       href: '/dashboard/po/poNuevaTarea',
       nombre: 'Nuevas Historias ',
-      coso: historias[0].status === 'Pendiente' ?  historias.length : null,
+      coso: historias[0]?.status === 'Pendiente' ?  historias.length : null,
       icono: nuevasTareasPo
   },
   {

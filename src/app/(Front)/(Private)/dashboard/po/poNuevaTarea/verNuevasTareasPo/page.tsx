@@ -92,13 +92,16 @@ const page = () => {
         }
     }
 
+    const status = 'Retornada'
+    const id = "580e0e9d-b13c-40d7-9f1e-51710c44f465"
+
     // if(!discrepancia1Nombre === '-' || !discrepancia2Nombre  === '-' || !discrepancia3Nombre  === '-' || !discrepancia4Nombre  === '-'  || !descripcion1  === '-' || !descripcion2  === '-' || !descripcion3  === '-'  || !descripcion4  === '-'){
     //     console.log('as');
         
     // }
     const nombreHistoria = 'desde el front'
 
-    const handleClickEnviarDiscrepancia =(e, id)=>{
+    const handleClickEnviarDiscrepancia =(e)=>{
         e.preventDefault()
         console.log(discrepancia1);
         console.log(discrepancia2);
@@ -110,14 +113,15 @@ const page = () => {
         console.log(descripcion3);
         console.log(descripcion4);
         const ruta = 'historia'
-        //const id = "76736e2f-8f60-4e9b-af4e-60a11388eddf"
-        const data = {nombreHistoria, discrepancia1, descripcion1, discrepancia2, descripcion2, discrepancia3, descripcion3, discrepancia4, descripcion4}
+        
+        const data = {nombreHistoria, status, discrepancia1, descripcion1, discrepancia2, descripcion2, discrepancia3, descripcion3, discrepancia4, descripcion4}
         console.log(data);
         //console.log('id:', id);
         
         
-        //updateData({ruta, id, data})
-        // alert('Se enviaron las dicrepancias')
+        updateData({ruta, id, data})
+        location.reload();
+        alert('Se enviaron las dicrepancias')
     }
 
     const handleClickAgregarAlPb =(e)=>{

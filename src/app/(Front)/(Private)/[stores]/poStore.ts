@@ -23,6 +23,7 @@ export const useHistoriaPo = create((set)=>
     historias: [],
     session: [],
     historiaStatus: [],
+    historiaStatusRetornada: [],
     getHistorias: async()=>{
         const ruta = 'historia'
         const historias = await getData({ruta})
@@ -47,5 +48,15 @@ export const useHistoriaPo = create((set)=>
             ...state, 
             historiaStatus
         }))
+    },
+    getHistoriaStatusRetornada: async()=>{
+        const ruta = 'historiaStatus'
+        const url = 'Retornada'
+        const historiaStatusRetornada = await getDataLista({ruta, url})
+        set(state => ({
+            ...state, 
+            historiaStatusRetornada
+        }))
     }
+
 }))

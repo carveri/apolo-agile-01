@@ -54,8 +54,8 @@ const page = () => {
                 /> */}
                 <Image
                     src={imagenDashboard2}
-                    width={900}
-                    height={800}
+                    width={750}
+                    height={650}
                     alt="Picture of the author"
                     className=' -mt-16 '
                 />

@@ -57,10 +57,11 @@ const page = () => {
               <article className='w-full h-[80%] flex'>
                 <div className='w-full h-full'>
                 <Image
-                      width={730}
-                      height={630}
+                      width={500}
+                      height={400}
                       alt='kksd'
                       src={grafico1Po}
+                      className='border border-none'
                     />
                 </div>
                 <div className='w-[30%]'>
