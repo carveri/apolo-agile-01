@@ -11,29 +11,7 @@ class UserDetalle {
             where:{
                 email:email
             },
-            // include:{
-            //     cargo: {
-            //         include:{
-            //             departamento:{
-            //                 select:{
-            //                     nombreDepartamento: true
-            //                 },include:{
-            //                     area:{
-            //                         select: {
-            //                             nombreArea: true
-            //                         },include:{
-            //                             empresas:{
-            //                                 select:{
-            //                                     nombreEmpresa:true
-            //                                 }
-            //                             }
-            //                         }
-            //                     }
-            //                 }
-            //             }
-            //         }
-            //     }
-            // }
+            
         })
         return getOneUser
     }

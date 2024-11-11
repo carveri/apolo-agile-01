@@ -4,6 +4,7 @@ import { create } from "zustand";
 import { getData } from "../../React/Fetch/getData";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/app/(Back)/api/auth/[...nextauth]/route";
+import { getDataLista } from "../../React/Fetch/getDataLista";
 
 
 interface IusePoStore {
@@ -21,6 +22,7 @@ export const useHistoriaPo = create((set)=>
     resHistoria: 4,
     historias: [],
     session: [],
+    historiaStatus: [],
     getHistorias: async()=>{
         const ruta = 'historia'
         const historias = await getData({ruta})
@@ -32,9 +34,18 @@ export const useHistoriaPo = create((set)=>
     getSessionPo: async()=>{
         //const ruta = 'historia'
         const session =  await getServerSession(authOptions)
-        set(state => ({
+        set(state => ({ 
             ...state, 
             session
+        }))
+    },
+    getHistoriaStatus: async()=>{
+        const ruta = 'historiaStatus'
+        const url = 'Pendiente'
+        const historiaStatus = await getDataLista({ruta, url})
+        set(state => ({
+            ...state, 
+            historiaStatus
         }))
     }
 }))

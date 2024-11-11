@@ -1,12 +1,8 @@
 'use client'
-
-import { getDataLista } from "@/app/(Front)/React/Fetch/getDataLista";
-// import { dataTareaPo } from '@/app/(Front)/React/Utils/dataTareaPo'
-// import {useState, useEffect} from 'react'
+import React, { useEffect, useState } from 'react'
+import { useHistoriaPo } from '../../../[stores]/poStore';
 import { useRouter } from "next/navigation";
-import { useState, useEffect } from "react";
-//import { getData } from '@/app/(Front)/React/Fetch/getData';
-//import { useHistoriaPo, usePoStore } from '../../../[stores]/poStore';
+import { getDataLista } from '@/app/(Front)/React/Fetch/getDataLista';
 
 const page = () => {
 
@@ -16,7 +12,7 @@ const page = () => {
   useEffect(()=>{
     const trearHistoPendiente = async()=>{
       const ruta = 'historiaStatus'
-      const url = 'Pendiente'
+      const url = 'Retornada'
       const res = await getDataLista({ruta, url})
       setHistoPendiente(res)
     }
@@ -30,12 +26,11 @@ const page = () => {
     router.push('/dashboard/po/poNuevaTarea/verNuevasTareasPo')
   }
 
-
   return (
     <div className='w-full h-full bg-white grid place-items-center' >
         <section className='w-[99%] h-[99%]  '>
           <header className='w-full h-[5%] bg-white py-4 pl-4'>
-            Dashboard {'>'} Product Owner {'>'} Nuevas Tareas
+            Dashboard {'>'} Product Owner {'>'} Historias Retornadas 
           </header>
           <div className='w-[1625px] z-30 absolute top-32 left-3/5 max-h-[730px] overflow-auto'>
           <table className='border border-gray-200   w-[98%] ml-8 '>
@@ -76,11 +71,7 @@ const page = () => {
                   <td>
                     {detalleHistoria}
                   </td>
-                   <td className=' '>
-                    <button onClick={handleClickVerNuevasTareasPo} className='bg-violet-100 grid place-content-center border border-gray-200 w-[70%] h-[80%] py-1 px-8 rounded hover:bg-violet-200'>
-                      Ver
-                    </button>
-                  </td>
+                   
                  
                 </tr>
               })}

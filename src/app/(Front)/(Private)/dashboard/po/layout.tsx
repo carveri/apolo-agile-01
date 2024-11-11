@@ -12,11 +12,14 @@ import homePo from "../../../React/Assets/Icons/homePo.png";
 import nuevasTareasPo from "../../../React/Assets/Icons/nuevasTareasPo.png";
 import gestionTareasPo from "../../../React/Assets/Icons/gestionTareasPo.png";
 import productBacklogPo from "../../../React/Assets/Icons/productBacklogPo.png";
+import historiRetornadas from "../../../React/Assets/Icons/logoHistoriaREtornada2.png";
 
 
 import Sidebar from '@/app/(Front)/React/Components/Sidebar';
 import Navbar from '@/app/(Front)/React/Components/Navbar';
 import {  useHistoriaPo, usePoStore, useSessionPo } from '../../[stores]/poStore';
+import { getData } from '@/app/(Front)/React/Fetch/getData';
+import { getDataLista } from '@/app/(Front)/React/Fetch/getDataLista';
   
 
 
@@ -30,12 +33,13 @@ export default async function RootLayout({children,}: Readonly<{children: React.
 
   const {user}= session
 
-
-// // traer historias desde zustand
-//   const { historias} = useHistoriaPo() 
-//   console.log('histoenellayout:', historias);
-   
+  const ruta = 'historiaStatus'
+  const url = 'Pendiente'
+  const historias = await getDataLista({ruta, url})
+  console.log('histo del layout solo pendiente:', historias);
   
+
+    
   
 
 const linksPo = [
@@ -49,17 +53,23 @@ const linksPo = [
       id:2,
       href: '/dashboard/po/poNuevaTarea',
       nombre: 'Nuevas Historias ',
-      coso: '1',
+      coso: historias[0].status === 'Pendiente' ?  historias.length : null,
       icono: nuevasTareasPo
   },
   {
       id:3,
+      href: '/dashboard/po/poHistoriasRetornadas',
+      nombre: 'Historias Retornadas',
+      icono: historiRetornadas
+  },
+  {
+      id:4,
       href: '/dashboard/po/poGestionTarea',
       nombre: 'Gestion Historica',
       icono: gestionTareasPo
   },
   {
-      id:4,
+      id:5,
       href: '/dashboard/po/poProductBacklog',
       nombre: 'Product Backlog',
       icono: productBacklogPo

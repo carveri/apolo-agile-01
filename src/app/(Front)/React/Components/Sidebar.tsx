@@ -42,8 +42,9 @@ const Sidebar = ({links}) => {
                     {nombre}
                   </div>
                   {coso &&
-                    <div className='ml-5 -mt-1 w-5 h-5 bg-colorVerdeClaro rounded-full text-center font-semibold text-sm text-cyan-700'>
+                    <div className='ml-5  pt-[2px]  w-5 h-5 bg-red-500 rounded-full text-center font-extrabold text-xs text-white'>
                       {coso}
+                      
                     </div>
                   }
                 </Link>
