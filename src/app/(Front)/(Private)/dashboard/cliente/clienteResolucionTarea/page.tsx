@@ -48,7 +48,7 @@ const page = () => {
                     {format(new Date(), 'dd/MM/yyyy')}
                   </div>
                 </header>
-                <div className='w-[1625px] z-30  top-28 left-3/5 max-h-[520px] overflow-auto'>
+                <div className='w-[1625px] z-30  top-28 left-3/5 max-h-[563px] overflow-auto'>
                   <table className='border border-gray-200   w-[100%]  '>
                     <thead>
                       <tr className='h-14'>

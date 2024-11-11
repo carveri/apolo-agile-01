@@ -1,9 +1,26 @@
+'use client'
+
 import { dataHomePo } from '@/app/(Front)/React/Utils/dataHomePo'
-import React from 'react'
+import {useState, useEffect} from 'react'
 import Image from "next/image";
+import { usePoStore, useHistoriaPo } from '../../[stores]/poStore';
+import grafico1Po from "../../dashboard/../../React/Assets/Images/grafico3Po.png";
+//import Image from "next/image";
 
 const page = () => {
 
+  // traigo datos desde la store
+  const { getHistorias, historias} = useHistoriaPo()
+
+
+  useEffect(()=>{
+    getHistorias()
+  }, [])
+ 
+  console.log('historiasZus:', historias);
+  
+  
+  
   
 
   return (
@@ -36,8 +53,28 @@ const page = () => {
               })}
               
             </header>
-            <section className='w-full h-[91%] p-8'>
-              graficos
+            <section className='w-full h-[91%] p-8 '>
+              <article className='w-full h-[80%] flex'>
+                <div className='w-full h-full'>
+                <Image
+                      width={730}
+                      height={630}
+                      alt='kksd'
+                      src={grafico1Po}
+                    />
+                </div>
+                <div className='w-[30%]'>
+                  lista
+                </div>
+              </article>
+              <article className='w-full h-[20%] flex'>
+                <div className='w-[80%] h-full '>
+                  cosa1
+                </div>
+                <div className='w-[20%] h-full'>
+                  cosa2
+                </div>
+              </article>
             </section>
           </main>
         </section>

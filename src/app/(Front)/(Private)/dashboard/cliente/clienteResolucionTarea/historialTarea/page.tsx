@@ -11,7 +11,7 @@ const page = () => {
                 <div className='h-14  bg-violet-100 grid place-content-center '>
                     Historical Resolucion de peticiones
                 </div>
-                <div className='w-[1625px] h-[90%] z-30  top-20 left-3/5 max-h-[668px] overflow-auto'>
+                <div className='w-[1625px] h-[90%] z-30  top-20 left-3/5 max-h-[610px] overflow-auto'>
                     <table className='border border-gray-200   w-[100%]  '>
                     <thead>
                       <tr className='h-14'>

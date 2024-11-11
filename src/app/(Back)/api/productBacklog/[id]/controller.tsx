@@ -9,12 +9,12 @@ class Pb {
         const {id} = params
         const getOnePb = await prisma.productBacklog.findUnique({
             where:{
-                id,
+                id: id
             },
             include:{
                 historias: {
                     where: {
-                        nombreHistoria: "desde el front"
+                        nombreHistoria: "Bajar los costos55"
                     },
                     orderBy:{
                         nombreHistoria: 'asc'

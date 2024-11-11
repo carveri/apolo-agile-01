@@ -98,7 +98,7 @@ const page = () => {
     // }
     const nombreHistoria = 'desde el front'
 
-    const handleClickEnviarDiscrepancia =(e)=>{
+    const handleClickEnviarDiscrepancia =(e, id)=>{
         e.preventDefault()
         console.log(discrepancia1);
         console.log(discrepancia2);
@@ -110,10 +110,14 @@ const page = () => {
         console.log(descripcion3);
         console.log(descripcion4);
         const ruta = 'historia'
-        const id = "76736e2f-8f60-4e9b-af4e-60a11388eddf"
+        //const id = "76736e2f-8f60-4e9b-af4e-60a11388eddf"
         const data = {nombreHistoria, discrepancia1, descripcion1, discrepancia2, descripcion2, discrepancia3, descripcion3, discrepancia4, descripcion4}
-        updateData({ruta, id, data})
-        alert('Se enviaron las dicrepancias')
+        console.log(data);
+        //console.log('id:', id);
+        
+        
+        //updateData({ruta, id, data})
+        // alert('Se enviaron las dicrepancias')
     }
 
     const handleClickAgregarAlPb =(e)=>{

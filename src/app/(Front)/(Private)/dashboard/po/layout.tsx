@@ -1,5 +1,5 @@
-//import Navbar from "../../React/Components/Navbar";
-//import Sidebar from "../../React/Components/Sidebar";
+
+
 import { getServerSession } from 'next-auth'
 import { authOptions } from '@/app/(Back)/api/auth/[...nextauth]/route'
 import { redirect } from 'next/navigation'
@@ -9,23 +9,14 @@ import { redirect } from 'next/navigation'
 
 //   // imagenes po
 import homePo from "../../../React/Assets/Icons/homePo.png";
-
 import nuevasTareasPo from "../../../React/Assets/Icons/nuevasTareasPo.png";
-
-//   import nuevasTareasPo from "./../../React/Assets/Icons/nuevasTareasPo.png";
-
 import gestionTareasPo from "../../../React/Assets/Icons/gestionTareasPo.png";
-//   import gestionTareasPo from "./../../React/Assets/Icons/gestionTareasPo.png";
-
 import productBacklogPo from "../../../React/Assets/Icons/productBacklogPo.png";
-//   import productBacklogPo from "./../../React/Assets/Icons/productBacklogPo.png";
-
-
-
 
 
 import Sidebar from '@/app/(Front)/React/Components/Sidebar';
 import Navbar from '@/app/(Front)/React/Components/Navbar';
+import {  useHistoriaPo, usePoStore, useSessionPo } from '../../[stores]/poStore';
   
 
 
@@ -39,13 +30,11 @@ export default async function RootLayout({children,}: Readonly<{children: React.
 
   const {user}= session
 
-  console.log('sesiones:', user);
-  
 
-  
-  const palanca = user?.name
-  console.log('palanquita bonita:', palanca);
-  
+// // traer historias desde zustand
+//   const { historias} = useHistoriaPo() 
+//   console.log('histoenellayout:', historias);
+   
   
   
 

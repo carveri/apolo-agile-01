@@ -4,23 +4,20 @@ import { dataTareaPo } from '@/app/(Front)/React/Utils/dataTareaPo'
 import {useState, useEffect} from 'react'
 import { useRouter } from "next/navigation";
 import { getData } from '@/app/(Front)/React/Fetch/getData';
+import { useHistoriaPo, usePoStore } from '../../../[stores]/poStore';
 
 const page = () => {
 
+  // const po = usePoStore((stata)=> stata.cosa)
+  // console.log(po);
+  
+  const { historias, session} = useHistoriaPo()
   // traer datos de db
-  const [historias, setHistorias] = useState([])
+  
 
-  useEffect(()=>{
-    const traerHistorias = async()=>{
-      const ruta = 'historia'
-      const res = await getData({ruta})
-      setHistorias(res)
-    }
-    traerHistorias()
-
-  }, [])
-
-  //console.log('histo:', historias);
+  console.log('histoEnAgregar:', historias);
+  console.log('sesion con zu:', session);
+  
   
 
   const router = useRouter()
