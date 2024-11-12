@@ -5,20 +5,31 @@ import {useState, useEffect} from 'react'
 import { format } from "date-fns";
 import { useRouter, useSearchParams } from "next/navigation";
 import { getData } from '@/app/(Front)/React/Fetch/getData';
+import { useHistoriaPo } from '../../../[stores]/poStore';
+import { getDataLista } from '@/app/(Front)/React/Fetch/getDataLista';
 //import { format } from "date-fns";
 
 const page = () => {
 
   const [historias, setHistorias] = useState([])
+  //const {historiaStatus, getHistoriaStatus} = useHistoriaPo
 
   useEffect(()=>{
     const traerHistorias = async()=>{
-      const ruta = 'historia'
-      const res = await getData({ruta})
+      const ruta = 'historiaStatus'
+      const url = 'Retornada'
+      const res = await getDataLista({ruta, url})
       setHistorias(res)
     }
     traerHistorias()
   }, [])
+
+  
+
+  //console.log('histoStatus:', historiaStatus);
+  
+
+  
 
   //console.log('webeo', historias);
   
@@ -29,7 +40,7 @@ const page = () => {
     route.push('/dashboard/cliente/clienteResolucionTarea/verResolucionTarea')
   }
 
-  console.log('histo:', historias);
+  //console.log('histo:', historias);
   
 
   return (
@@ -65,12 +76,12 @@ const page = () => {
                       </tr>
                     </thead>
                     <tbody>
-                    {historias.map((el)=>{
+                    {historias?.map((el, index)=>{
                       const {id, nombreHistoria, createdAt, status ,updatedAt, discrepancia1, discrepancia2, discrepancia3, discrepancia4} = el
                         const updatedAt2 = format(new Date(updatedAt), 'dd/MM/yyyy')
                         return <tr key={id} className='border border-gray-200 h-14  cursor-pointer w-full '>
                           <td className='pl-8'>
-                            1
+                            {index + 1}
                           </td>
                           <td className='pl-8'>
                             {nombreHistoria}
