@@ -20,10 +20,13 @@ export const usePoStore = create<IusePoStore>(()=>({
 export const useHistoriaPo = create((set)=>
 ({
     resHistoria: 4,
+    idHistoria: '',
+
     historias: [],
     session: [],
     historiaStatus: [],
     historiaStatusRetornada: [],
+    historiaBacklog: [],
     getHistorias: async()=>{
         const ruta = 'historia'
         const historias = await getData({ruta})
@@ -57,6 +60,26 @@ export const useHistoriaPo = create((set)=>
             ...state, 
             historiaStatusRetornada
         }))
-    }
+    },
+
+    cambiarIdHistoria: (id)=>{
+        const idHistoria = id
+        set(state =>({
+            ...state, 
+            idHistoria
+        }))
+    },
+
+    getHistoriaBacklog: async()=>{
+        const ruta = 'historiaStatus'
+        const url = 'Aceptada'
+        const historiaBacklog = await getDataLista({ruta, url})
+        set(state => ({
+            ...state, 
+            historiaBacklog
+        }))
+    },
+
+    
 
 }))

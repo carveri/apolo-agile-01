@@ -56,13 +56,7 @@ const page = () => {
             <section className='w-full h-[91%] p-8 '>
               <article className='w-full h-[80%] flex'>
                 <div className='w-full h-full'>
-                <Image
-                      width={500}
-                      height={400}
-                      alt='kksd'
-                      src={grafico1Po}
-                      className='border border-none'
-                    />
+                graficoss
                 </div>
                 <div className='w-[30%]'>
                   lista

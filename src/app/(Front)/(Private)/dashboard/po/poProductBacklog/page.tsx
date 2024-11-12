@@ -4,27 +4,18 @@
 import { getDataLista } from '@/app/(Front)/React/Fetch/getDataLista'
 import { dataProductBacklogPo } from '@/app/(Front)/React/Utils/dataProductBacklogPo'
 import {useState, useEffect} from 'react'
+import { useHistoriaPo } from '../../../[stores]/poStore'
 
 const page = () => {
 
 
-  const [pb, setPb] = useState([])
+  const {historiaBacklog, getHistoriaBacklog} = useHistoriaPo()
 
   useEffect(()=>{
-    const traerPb =  async()=>{
-      const ruta = 'productBacklog'
-      const url = '1af659a1-06b9-46e7-94fb-2220d8f5f0b8'
-      const res = await getDataLista({ruta, url})
-      setPb(res)
-    }
-    traerPb()
+    getHistoriaBacklog()
   }, [])
-
-  // console.log('RES DEL BACKLOG:', pb);
-  const {historias} = pb
-  // console.log('la final', historias);
-  
-  console.log('historias que le llegan al po:', historias);
+ 
+  console.log('historiasZusRETOENADA:', historiaBacklog);
   
 
   return (
@@ -50,7 +41,7 @@ const page = () => {
             </tr>
             </thead>
             <tbody>
-            {historias?.map((el)=>{
+            {historiaBacklog?.map((el)=>{
               const {id, nombreHistoria, createdAt, horaAt, tiempoHistoria} = el
                 return <tr key={id} className='border border-gray-200 h-14  cursor-pointer '>
                   <td className='pl-8'>

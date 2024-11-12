@@ -20,6 +20,8 @@ const config: Config = {
         'colorForm': '#164e63',
         'colorFondo': '#ffffff',
         'colorVerdeClaro': '#03ff57',
+        'colorCajaBloqueda': '#b4b0b0',
+        'bgBloqueado': '#a4a1a1',
         
         'alturaNavbar': '12',
 

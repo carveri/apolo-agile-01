@@ -1,4 +1,4 @@
-
+import type { Metadata } from "next";
 
 import { getServerSession } from 'next-auth'
 import { authOptions } from '@/app/(Back)/api/auth/[...nextauth]/route'
@@ -21,10 +21,16 @@ import {  useHistoriaPo, usePoStore, useSessionPo } from '../../[stores]/poStore
 import { getData } from '@/app/(Front)/React/Fetch/getData';
 import { getDataLista } from '@/app/(Front)/React/Fetch/getDataLista';
   
-
+export const metadata: Metadata = {
+  title: "(2) Product Owner",
+  description: "ERP para StartApps",
+};
 
 export default async function RootLayout({children,}: Readonly<{children: React.ReactNode;}>) 
 {
+
+  
+
   const session = await getServerSession(authOptions)
    // validacion
    if(!session){

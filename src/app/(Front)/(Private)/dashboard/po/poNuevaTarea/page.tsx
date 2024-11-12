@@ -11,7 +11,7 @@ import { useHistoriaPo } from "../../../[stores]/poStore";
 
 const page = () => {
 
-  const { getHistoriaStatus, historiaStatus} = useHistoriaPo()
+  const { getHistoriaStatus, historiaStatus, cambiarIdHistoria, idHistoria} = useHistoriaPo()
 
 
   useEffect(()=>{
@@ -23,7 +23,11 @@ const page = () => {
   
 
   const router = useRouter()
-  const handleClickVerNuevasTareasPo =()=>{
+  const handleClickVerNuevasTareasPo =(id)=>{
+    console.log('idHisto:', id);
+    cambiarIdHistoria(id)
+    console.log('idzusthistoria:', idHistoria);
+     //idHistoria
     router.push('/dashboard/po/poNuevaTarea/verNuevasTareasPo')
   }
 
@@ -75,7 +79,7 @@ const page = () => {
                       {detalleHistoria}
                     </td>
                      <td className=' '>
-                      <button onClick={handleClickVerNuevasTareasPo} className='bg-violet-100 grid place-content-center border border-gray-200 w-[70%] h-[80%] py-1 px-8 rounded hover:bg-violet-200'>
+                      <button onClick={()=>handleClickVerNuevasTareasPo(id)} className='bg-violet-100 grid place-content-center border border-gray-200 w-[70%] h-[80%] py-1 px-8 rounded hover:bg-violet-200'>
                         Ver
                       </button>
                     </td>
