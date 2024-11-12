@@ -287,8 +287,13 @@ model Historia {
   descripcion3  String @default("-")
   discrepancia4 String @default("-")
   descripcion4  String @default("-")
-  parametroDiscrepancia     Int @default(10)
-  pesoDiscrepancia          Int @default(100)
+  tiempo1     Int @default(10)
+  peso1          Int @default(100)
+  presupuesto2     Int @default(10)
+  peso2          Int @default(100)
+  equipo3     Int @default(10)
+  peso3          Int @default(100)
+           
   isActive      Boolean @default(true)
   status       String @default("Pendiente")
 

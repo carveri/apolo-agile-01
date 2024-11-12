@@ -20,6 +20,21 @@ import Navbar from '@/app/(Front)/React/Components/Navbar';
 
 export default async function RootLayout({children,}: Readonly<{children: React.ReactNode;}>) 
 {
+
+  const session = await getServerSession(authOptions)
+   // validacion
+   if(!session){
+    redirect('/api/auth/signin')
+  }
+
+  const {user}= session
+
+  //console.log('sesiones:', user);
+  
+
+  
+  const palanca = user?.name
+  //console.log('palanquita bonita del sm:', palanca);
   
 
 const linksSm = [
@@ -84,10 +99,10 @@ const linksSm = [
         </main>
         <div className=' h-7 flex items-center pl-4  bg-violet-400  mt-1'>
           <section className="w-4/6  bg-violet-400 text-white">
-            sm
+          {session.user?.email}
           </section>
           <div className="text-white">
-            sm
+          {user?.name}
           </div>
       </div>
       </section>

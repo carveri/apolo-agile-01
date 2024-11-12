@@ -20,6 +20,14 @@ import Sidebar from '@/app/(Front)/React/Components/Sidebar';
 
 export default async function RootLayout({children,}: Readonly<{children: React.ReactNode;}>) 
 {
+
+  const session = await getServerSession(authOptions)
+   // validacion
+   if(!session){
+    redirect('/api/auth/signin')
+  }
+
+  const {user}= session
   
 const linksClientes = [
   {
@@ -69,10 +77,10 @@ const linksClientes = [
         </main>
         <div className=' h-7 flex items-center pl-4  bg-violet-400  mt-1'>
           <section className="w-4/6  bg-violet-400 text-white">
-            cliente
+          {session.user?.email}
           </section>
           <div className="text-white">
-            cliente
+          {user?.name}
           </div>
       </div>
       </section>

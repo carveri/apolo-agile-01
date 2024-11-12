@@ -18,3 +18,12 @@ export const DELETE = async(req:Request, {params})=>{
         return NextResponse.json(error)
     }
 }
+
+// ruta put
+export const GET = async(req:Request, {params})=>{
+    try {
+        return NextResponse.json(await historiaOne1.getOneHistoria(req, {params}))
+    } catch (error) {
+        return NextResponse.json(error)
+    }
+}

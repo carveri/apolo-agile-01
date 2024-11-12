@@ -1,11 +1,8 @@
 'use client'
 
-import { dataResolucionTarea } from '@/app/(Front)/React/Utils/dataResolucionTarea'
 import {useState, useEffect} from 'react'
 import { format } from "date-fns";
 import { useRouter, useSearchParams } from "next/navigation";
-import { getData } from '@/app/(Front)/React/Fetch/getData';
-import { useHistoriaPo } from '../../../[stores]/poStore';
 import { getDataLista } from '@/app/(Front)/React/Fetch/getDataLista';
 //import { format } from "date-fns";
 
@@ -26,18 +23,10 @@ const page = () => {
 
   
 
-  //console.log('histoStatus:', historiaStatus);
-  
-
-  
-
-  //console.log('webeo', historias);
-  
-
   const route = useRouter()
 
   const handleClickVerResolucionHistoria =()=>{
-    route.push('/dashboard/cliente/clienteResolucionTarea/verResolucionTarea')
+    route.push('/dashboard/cliente/verResolucionTarea')
   }
 
   //console.log('histo:', historias);
