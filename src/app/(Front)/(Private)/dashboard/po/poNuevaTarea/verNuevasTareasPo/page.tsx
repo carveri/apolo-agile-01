@@ -315,8 +315,8 @@ const page = () => {
                                     />
                             </main>
                         </section>
-                        <section className='h-[10%] w-full grid  justify-end pt-6 pr-12 font-bold text-xl'>
-                            Total: 100
+                        <section className='h-[10%] w-full grid  justify-end pt-6 pr-12 font-bold text-lg'>
+                            Total peso discrepancia: 100
                         </section>
                    </div>
                    <div className='w-full h-[10%]  flex justify-end'>

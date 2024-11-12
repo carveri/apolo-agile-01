@@ -39,7 +39,7 @@ const linksClientes = [
   {
       id:2,
       href: '/dashboard/cliente/clienteAgregarTarea',
-      nombre: 'Agregar una peticion',
+      nombre: 'Agregar nueva Historia',
       icono: agregarTareasClientes
   },
   {

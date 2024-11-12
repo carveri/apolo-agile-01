@@ -5,11 +5,13 @@ import React from 'react'
 const BadgeDiscrepancia = ({dis, numero, checked, setChecked, handleClickVerNuevasTareas, discrepanciaI, handleChangeDiscrepancia,  handleClickTiempo, tiempoI, activoTiempo, tiempoh, handleClickPeso, pesoI, activoPeso, pesoh, top1, top2}) => {
   return (
     <>
-        <label  className='flex content-center '  htmlFor=""> 
-                                        <div className='mr-1'>
-                                            <input type="checkbox" onChange={(e)=>setChecked(!checked)} />
+                                    <label  className='flex content-center '  htmlFor=""> 
+                                        <div className='mr-1 pt-2'>
+                                            <input  type="checkbox" onChange={(e)=>setChecked(!checked)} />
                                         </div>
+                                            <div className='h-10 w-full pt-2 pl-2 mb-1 bg-gray-100'>
                                             Discrepancia {numero}:
+                                            </div>
                                     </label>
                             {checked &&
                                 <article className='flex mb-4  w-[100%] bg-white'>
@@ -17,10 +19,10 @@ const BadgeDiscrepancia = ({dis, numero, checked, setChecked, handleClickVerNuev
                                     
 
                                     
-                                    <div className={`pl-3 h-8 rounded-md ${checked ? 'bg-gray-100': 'bg-gray-300'} bg-gray-100 border border-gray-200 cursor-pointer  grid content-center`} onClick={handleClickVerNuevasTareas}>
+                                    <div className={`pl-3 h-8 ml-4  rounded-md ${checked ? 'bg-gray-100': 'bg-gray-300'} bg-gray-100 border border-gray-200   grid content-center`} onClick={handleClickVerNuevasTareas}>
                                         {discrepanciaI}
                                     </div>
-                                    <div className='grid grid-rows-2 h-14'>
+                                    <div className='grid grid-rows-2 h-14 ml-4'>
                                     <label htmlFor="">
                                         Descripción (opcional)
                                     </label>
@@ -45,14 +47,14 @@ const BadgeDiscrepancia = ({dis, numero, checked, setChecked, handleClickVerNuev
                                     <div className='h-[30%] w-full  grid place-content-center text-center'>
                                         {dis.titulo2}
                                     </div>
-                                    <div onClick={handleClickTiempo} className='border border-gray-200 w-full h-[30%] mt-4  grid place-content-center cursor-pointer'>
+                                    <div onClick={handleClickTiempo} className='border bg-gray-200 border-gray-200 w-full h-[30%] mt-4  grid place-content-center cursor-pointer'>
                                         {tiempoI}
                                     </div>
                                     {activoTiempo && 
                                         <div className={`mt-${top1} z-50 absolute  left-3/5 max-h-20 overflow-auto`}>
                                         {dataTiempoHistoria.map((el)=>{
                                             const {id, tiempo} = el
-                                            return <div key={id} onClick={()=>tiempoh(id,tiempo)} className='w-[123px] text-center bg-gray-50 hover:bg-gray-300 cursor-pointer pl-6'>
+                                            return <div key={id} onClick={()=>tiempoh(id,tiempo)} className='w-[123px] text-center bg-gray-50 hover:bg-gray-300  pl-6'>
                                                 {tiempo}
                                             </div>
                                         })}
@@ -70,7 +72,7 @@ const BadgeDiscrepancia = ({dis, numero, checked, setChecked, handleClickVerNuev
                                         <div className={` mt-${top2} z-50 absolute left-3/5 max-h-24 overflow-auto`}>
                                         {dataPesoHistoria.map((el)=>{
                                             const {id, nombrePeso} = el
-                                            return <div key={el.id} onClick={()=>pesoh(id,nombrePeso)} className='w-[123px] text-center bg-gray-50 hover:bg-gray-300 cursor-pointer pl-6'>
+                                            return <div key={el.id} onClick={()=>pesoh(id,nombrePeso)} className='w-[123px] text-center bg-gray-50 hover:bg-gray-300  pl-6'>
                                                 {nombrePeso}
                                             </div>
                                         })}
