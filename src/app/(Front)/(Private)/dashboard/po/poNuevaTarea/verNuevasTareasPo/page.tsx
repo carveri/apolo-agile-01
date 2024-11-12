@@ -10,6 +10,7 @@ import { updateData } from '@/app/(Front)/React/Fetch/updateData';
 import { useHistoriaPo } from '@/app/(Front)/(Private)/[stores]/poStore';
 import { dataTiempoHistoria } from '@/app/(Front)/React/Utils/dataTiempoHistoria';
 import { dataPesoHistoria } from '@/app/(Front)/React/Utils/dataPesoHistoria';
+import BadgeDiscrepancia from './Componentes/BadgeDiscrepancia';
 //import { dataDiscrepanciasPo } from '@/app/(Front)/React/Utils/dataDisprepanciasPo';
 //import { dataDiscrepanciasPo } from '@/app/(Front)/React/Utils/dataDisprepanciasPo'
 
@@ -23,14 +24,26 @@ const page = () => {
     const [activoTiempo, setActivoTiempo] = useState(false)
     const [activoPeso, setActivoPeso] = useState(false)
 
+    const [activoPresupuesto, setActivoPresupuesto] = useState(false)
+    const [activoPeso2, setActivoPeso2] = useState(false)
+
+    const [activoEquipo, setActivoEquipo] = useState(false)
+    const [activoPeso3, setActivoPeso3] = useState(false)
+
     // inicial
     const [discrepancia1I, setDiscrepancia1I] = useState('Tiempo')
-    const [discrepancia2I, setDiscrepancia2I] = useState('Tiempo')
-    const [discrepancia3I, setDiscrepancia3I] = useState('Tiempo')
+    const [discrepancia2I, setDiscrepancia2I] = useState('Presupuesto')
+    const [discrepancia3I, setDiscrepancia3I] = useState('Equipo')
     const [discrepancia4I, setDiscrepancia4I] = useState('Tiempo')
 
     const [tiempo1I, setTiempo1I] = useState(10)
     const [peso1I, setPeso1I] = useState(100)
+
+    const [presupuesto1I, setPresupuesto1I] = useState(19822)
+    const [peso2I, setPeso2I] = useState(100)
+
+    const [equipo1I, setEquipo1I] = useState(69)
+    const [peso3I, setPeso3I] = useState(100)
 
     // nombre
     const [discrepancia1, setDiscrepancia1] = useState('-')
@@ -175,7 +188,55 @@ const page = () => {
         setActivoPeso(false)
     }
 
+
+
+    const presupuesto1h =(id, presupuesto)=>{
+        setPresupuesto1I(presupuesto)
+        setActivoPresupuesto(false)
+    }
+    const peso2h = (id, nombrePeso)=>{
+        setPeso1I(nombrePeso)
+        setActivoPeso(false)
+    }
+
+
+
+    const equipo1h =(id, equipo)=>{
+        setEquipo1I(equipo)
+        setActivoEquipo(false)
+    }
+    const peso3h = (id, nombrePeso)=>{
+        setPeso1I(nombrePeso)
+        setActivoPeso(false)
+    }
+
+
+
+
     //console.log('checked:', checked1);
+
+
+    // cosas a enviar 
+    const dis1 = {
+        titulo1: 'Tiempo propuesto por el cliente (Días)',
+        titulo2: 'Tiempo propuesto (Días)',
+        titulo3: 'Peso de discrepancia (%)'
+    }
+
+    const dis2 = {
+        titulo1: 'Presupuesto por el cliente (Clp)',
+        titulo2: 'Presupuesto propuesto (Clp)',
+        titulo3: 'Peso de discrepancia (%)'
+    }
+
+    const dis3 = {
+        titulo1: 'Equipo actual para el trabajo',
+        titulo2: 'Equipo propuesto extra(N°)',
+        titulo3: 'Peso de discrepancia (%)'
+    }
+
+    const mt1 = 96
+    const mt2 = 96
     
   return (
     <div className='w-full h-full bg-white grid place-items-center' >
@@ -183,283 +244,80 @@ const page = () => {
             <header className='w-full h-[5%] bg-white py-4 pl-4'>
                 Dashboard {'>'} Product Owner {'>'} <Link className='hover:underline' href={'/dashboard/po/poNuevaTarea'}>Nuevas Tareas</Link> {'>'} Ver
             </header>
-            <form  className='w-full h-[95%] '>
-                   <div className='w-[100%] h-[90%]  flex px-5 '>
-                   <section className='w-full h-full pt-10 px-7'>
+            <form  className='w-full h-[95%]  '>
+                   <div className='w-[100%] h-[90%]   px-5   justify-end'>
+                   <section className='w-full h-[90%] pt-10 px-7 '>
                     <header className='w-full h-[7%]  grid place-content-center'> 
                         Discrepancias
                     </header>
-                        <main className='w-full h-[90%] grid grid-rows-4  py-2'>
-                            <article className='flex mb-4  w-[100%]'>
-                                <section className='w-[70%] '>
-                                    <label  className='flex content-center'  htmlFor=""> <div className='mr-1'><input type="checkbox" onChange={(e)=>setChecked1(!checked1)} /></div>Discrepancia 1:</label>
-                                    
-                                    <div className={`pl-3 h-8 rounded-md ${checked1 ? 'bg-gray-100': 'bg-gray-300'} bg-gray-100 border border-gray-200 cursor-pointer  grid content-center`} onClick={handleClickVerNuevasTareas1}>
-                                            {discrepancia1I}
-                                    </div>
-                                        <div className='grid grid-rows-2 h-14'>
-                                            <label htmlFor="">Descripción (opcional)</label>
-                                            {checked1 ?
-                                                <input name='discrepancia1'  onChange={handleChangeDiscrepancia} className='h-8 border border-gray-200 rounded pl-2' type="text" />: <input name='discrepancia1' readOnly onChange={handleChangeDiscrepancia} className='h-8 border border-#a4a1a1 rounded pl-2 bg-gray-300' type="text" />
-                                            
-                                            }
-                                        </div>
-                                </section>
+                        <main className='w-full h-[90%]   py-2'>
+                                    <BadgeDiscrepancia
+                                        numero = '1'
+                                        checked = {checked1}
+                                        setChecked = {setChecked1}
+                                        handleClickVerNuevasTareas={handleClickVerNuevasTareas1}
+                                        discrepanciaI={discrepancia1I}
+                                        handleChangeDiscrepancia={handleChangeDiscrepancia}
+                                        handleClickTiempo={handleClickTiempo}
+                                        tiempoI={tiempo1I}
+                                        activoTiempo={activoTiempo}
+                                        tiempoh={tiempo1h}
+                                        handleClickPeso={handleClickPeso}
+                                        pesoI={peso1I}
+                                        activoPeso={activoPeso}
+                                        pesoh={peso1h}
+                                        dis={dis1}
+                                        top1 = {mt1}
+                                        top2 = {mt2}
+                                    />
 
-
-
-
-
-
-
-
-                                <section className=' w-[30%] h-full flex  pt-5'>
-                                    {checked1 ?
-                                    <article className=' w-1/3 h-full px-2 '>
-                                        <div className='h-[40%] pt-1 text-center' >
-                                            Tiempo propuesto por el cliente (Días)
-                                        </div>
-                                        <div className='w-full h-20  text-center pt-3'>
-                                            4
-                                        </div>
-                                    </article>:
-                                    <article className=' w-1/3 h-full px-2 '>
-                                    <div className='h-[40%] pt-1 text-center bg-gray-300' >
-                                        Tiempo propuesto por el cliente (Días)
-                                    </div>
-                                    <div className='w-full h-20  text-center pt-3 bg-gray-300'>
-                                        4
-                                    </div>
-                                </article>
-                                    
-                                    }
-
-                                    {checked1 ?
-                                    
-                                    <article className=' w-1/3 h-full px-2 pt-2'>
-                                    <div className='h-[30%] w-full  grid place-content-center text-center'>
-                                        Tiempo propuesto (Días)
-                                    </div>
-                                    <div onClick={handleClickTiempo} className='border border-gray-200 w-full h-[30%] mt-4  grid place-content-center cursor-pointer'>
-                                        {tiempo1I}
-                                    </div>
-                                    {activoTiempo && 
-                                        <div className='mt-[55px] z-50 absolute top-60 left-3/5 max-h-24 overflow-auto '>
-                                        {dataTiempoHistoria.map((el)=>{
-                                            const {id, tiempo} = el
-                                            return <div key={id} onClick={()=>tiempo1h(id,tiempo)} className='w-[123px] text-center bg-gray-50 hover:bg-gray-300 cursor-pointer pl-6'>
-                                                {tiempo}
-                                            </div>
-                                        })}
-                                        </div>
-                                    }
-
-                                </article>:
-                                <article className=' w-1/3 h-full px-2 pt-2'>
-                                <div className='h-[30%] w-full  grid place-content-center text-center bg-gray-300'>
-                                    Tiempo propuesto (Días)
-                                </div>
-                                <div onClick={handleClickTiempo}  className='border bg-gray-300 border-gray-200 w-full h-[30%] mt-4  grid place-content-center cursor-pointer'>
-                                    {tiempo1I}
-                                </div>
-                                {activoTiempo && 
-                                    <div className='mt-[55px] z-50 absolute top-60 left-3/5 max-h-24 overflow-auto '>
-                                    {dataTiempoHistoria.map((el)=>{
-                                        const {id, tiempo} = el
-                                        return <div key={id} onClick={()=>tiempo1h(id,tiempo)} className='w-[123px] text-center bg-gray-50 hover:bg-gray-300 cursor-pointer pl-6'>
-                                            {tiempo}
-                                        </div>
-                                    })}
-                                    </div>
-                                }
-
-                            </article>
-                                }
-                                    
-
-
-
-
-                                    <article className=' w-1/3 h-full px-2'>
-                                        <div className='h-[40%]  grid place-content-center text-center'>
-                                            Peso de discrepancia (%)
-                                        </div>
-                                        <div onClick={handleClickPeso} className='border border-gray-200 w-full h-[30%] mt-2  grid place-content-center cursor-pointer'>
-                                            {peso1I}
-                                        </div>
-                                        {activoPeso && 
-                                            <div className='mt-[55px] z-50 absolute top-60 left-3/5 max-h-24 overflow-auto '>
-                                            {dataPesoHistoria.map((el)=>{
-                                                const {id, nombrePeso} = el
-                                                return <div key={el.id} onClick={()=>peso1h(id,nombrePeso)} className='w-[123px] text-center bg-gray-50 hover:bg-gray-300 cursor-pointer pl-6'>
-                                                    {nombrePeso}
-                                                </div>
-                                            })}
-                                            </div>
-                                        }
-                                    </article>
-                                </section>
-                            </article>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                <article className='grid grid-rows-2 pb-1 mb-4'>
-                                <label  className='flex content-center'  htmlFor=""> <div className='mr-1'><input type="checkbox" onChange={(e)=>setChecked2(!checked2)}  /></div>Discrepancia 2:</label>
-                                <div className={`pl-3 h-8 rounded-md ${checked2 ? 'bg-gray-100': 'bg-gray-300'} bg-gray-100 border border-gray-200 cursor-pointer  grid content-center`} onClick={handleClickVerNuevasTareas2}>
-                                    {discrepancia2I}
-                                </div>
-                                {activoDiscrepancia2 &&
-                                    <div className='mt-[170px] z-50 absolute top-60 left-3/5 max-h-44 overflow-auto '>
-                                                
-                                {checked2 &&
-                                    <div>
-                                        {dataDiscrepanciaPo.map((el)=>{
-                                        const {id, discrepancia} = el
-                                                return  (<div onClick={()=>discrepancia2h(id,discrepancia)} className='w-[678px] cursor-pointer ml-2 h-10 bg-violet-50 hover:bg-violet-200  grid items-center pl-4' key={el.id}>
-                                                    {discrepancia}
-                                            </div>)
-                                            })}
-                                    </div>
-                                    } 
-                                    </div>
-    
-                                    }
-                                    <div className='grid grid-rows-2 h-14'>
-                                        <label htmlFor="">Descripción</label>
-                                        {checked2 ?
-                                            <input name='discrepancia2'  onChange={handleChangeDiscrepancia} className='h-8 border border-gray-200 rounded pl-2' type="text" />: <input name='discrepancia2' readOnly onChange={handleChangeDiscrepancia} className='h-8 border border-gray-200 rounded pl-2 bg-gray-300' type="text" />
+                                    <BadgeDiscrepancia
+                                        numero = '2'
+                                        checked = {checked2}
+                                        setChecked = {setChecked2}
+                                        handleClickVerNuevasTareas={handleClickVerNuevasTareas2}
+                                        discrepanciaI={discrepancia2I}
+                                        handleChangeDiscrepancia={handleChangeDiscrepancia}
+                                        handleClickTiempo={handleClickTiempo}
+                                        tiempoI={presupuesto1I}
+                                        activoTiempo={activoPresupuesto}
+                                        tiempoh={presupuesto1I}
+                                        handleClickPeso={handleClickPeso}
+                                        pesoI={peso2I}
+                                        activoPeso={activoPeso2}
+                                        pesoh={peso2h}
+                                        dis={dis2}
+                                        top1 = {mt1}
+                                        top2 = {mt2}
                                         
-                                        }
-                                    </div>
-                                </article>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                <article className='grid grid-rows-2 pb-1 mb-4'>
-                                <label  className='flex content-center'  htmlFor=""> <div className='mr-1'><input type="checkbox" onChange={(e)=>setChecked3(!checked3)} /></div>Discrepancia 3:</label>
-                                <div className={`pl-3 h-8 rounded-md ${checked3 ? 'bg-gray-100': 'bg-gray-300'} bg-gray-100 border border-gray-200 cursor-pointer  grid content-center`} onClick={handleClickVerNuevasTareas3}>
-                                    {discrepancia3I}
-                                </div>
-                                {activoDiscrepancia3 &&
-                                    <div className='mt-[315px] z-50 absolute top-60 left-3/5 max-h-44 overflow-auto '>
-                                     {checked3 &&
-
-                                     <div>
-                                        {dataDiscrepanciaPo.map((el)=>{
-                                        const {id, discrepancia} = el
-                                                return  (<div onClick={()=>discrepancia3h(id,discrepancia)} className='w-[678px] cursor-pointer ml-2 h-10 bg-violet-50 hover:bg-violet-200  grid items-center pl-4' key={el.id}>
-                                                    {discrepancia}
-                                            </div>)
-                                            })}
-                                     </div>
-                                     
-                                     }           
-                                    
-                                    </div>
-    
-                                    }
-                                    <div className='grid grid-rows-2 h-14'>
-                                        <label htmlFor="">Descripción</label>
-                                        {checked3 ?
-                                            <input name='discrepancia3'  onChange={handleChangeDiscrepancia} className='h-8 border border-gray-200 rounded pl-2' type="text" />: <input name='discrepancia3' readOnly onChange={handleChangeDiscrepancia} className='h-8 border border-gray-200 rounded pl-2 bg-gray-300' type="text" />
                                         
-                                        }
-                                    </div>
-                                </article>
+                                    />
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                <article className='grid grid-rows-2 pb-1 mb-4'>
-                                <label  className='flex content-center'  htmlFor=""> <div className='mr-1'><input type="checkbox" onChange={(e)=>setChecked4(!checked4)} /></div>Discrepancia 4:</label>
-                                <div className={`pl-3 h-8 rounded-md ${checked4 ? 'bg-gray-100': 'bg-gray-300'} bg-gray-100 border border-gray-200 cursor-pointer  grid content-center`} onClick={handleClickVerNuevasTareas4}>
-                                    {discrepancia4I}
-                                </div>
-                                {activoDiscrepancia4 &&
-                                    <div className='mt-[460px] z-50 absolute top-60 left-3/5 max-h-44 overflow-auto '>
-                                    {checked4 && 
-                                        <div>
-                                            {dataDiscrepanciaPo.map((el)=>{
-                                            const {id, discrepancia} = el
-                                                    return  (<div onClick={()=>discrepancia4h(id,discrepancia)} className='w-[678px] cursor-pointer ml-2 h-10 bg-violet-50 hover:bg-violet-200  grid items-center pl-4' key={el.id}>
-                                                        {discrepancia}
-                                                </div>)
-                                                })}
-                                        </div>
-                                    
-                                    }        
-                                    
-                                    </div>
-    
-                                    }
-                                    
-                                        <div className='grid grid-rows-2 h-14 pb-2'>
-                                            <label htmlFor="">Descripción</label>
-                                            {checked4 ? 
-                                            
-                                            <input name='discrepancia4'  onChange={handleChangeDiscrepancia} className='h-8 border border-gray-200 rounded pl-2' type="text" />: <input name='discrepancia4' readOnly onChange={handleChangeDiscrepancia} className='h-8 border border-gray-200 rounded pl-2 bg-gray-300' type="text" />}
-                                            
-                                        </div>
-        
-                                    
-                                </article>
-
-
-
-
-
-
-
+                                    <BadgeDiscrepancia
+                                        numero = '3'
+                                        checked = {checked3}
+                                        setChecked = {setChecked3}
+                                        handleClickVerNuevasTareas={handleClickVerNuevasTareas3}
+                                        discrepanciaI={discrepancia3I}
+                                        handleChangeDiscrepancia={handleChangeDiscrepancia}
+                                        handleClickTiempo={handleClickTiempo}
+                                        tiempoI={tiempo1I}
+                                        activoTiempo={activoTiempo}
+                                        tiempoh={tiempo1h}
+                                        handleClickPeso={handleClickPeso}
+                                        pesoI={peso1I}
+                                        activoPeso={activoPeso}
+                                        pesoh={peso1h}
+                                        dis={dis3}
+                                        top1 = {mt1}
+                                        top2 = {mt2}
+                                        
+                                    />
                             </main>
                         </section>
-
-
-
-
-
-
-
-                        
-
-
-
+                        <section className='h-[10%] w-full grid  justify-end pt-6 pr-12 font-bold text-xl'>
+                            Total: 100
+                        </section>
                    </div>
                    <div className='w-full h-[10%]  flex justify-end'>
                         <article className='w-[15%]  grid place-items-center'>
