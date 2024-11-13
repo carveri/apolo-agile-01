@@ -1,18 +1,11 @@
 'use client'
 
-import { dataClientes } from '@/app/(Front)/React/Utils/dataClientes'
-//import { dataDiscrepancias } from '@/app/(Front)/React/Utils/dataDiscrepancias'
-
-import {useState} from 'react'
+import {useEffect, useState} from 'react'
 import Link from "next/link";
-import { dataDiscrepanciaPo } from '@/app/(Front)/React/Utils/dataDiscrepanciaPo';
 import { updateData } from '@/app/(Front)/React/Fetch/updateData';
 import { useHistoriaPo } from '@/app/(Front)/(Private)/[stores]/poStore';
-import { dataTiempoHistoria } from '@/app/(Front)/React/Utils/dataTiempoHistoria';
-import { dataPesoHistoria } from '@/app/(Front)/React/Utils/dataPesoHistoria';
 import BadgeDiscrepancia from './Componentes/BadgeDiscrepancia';
-//import { dataDiscrepanciasPo } from '@/app/(Front)/React/Utils/dataDisprepanciasPo';
-//import { dataDiscrepanciasPo } from '@/app/(Front)/React/Utils/dataDisprepanciasPo'
+import { getDataLista } from '@/app/(Front)/React/Fetch/getDataLista';
 
 const page = () => {
 
@@ -56,6 +49,10 @@ const page = () => {
     const [descripcion2, setDescripcion2] = useState("-")
     const [descripcion3, setDescripcion3] = useState("-")
     const [descripcion4, setDescripcion4] = useState("-")
+
+    // historiaporId
+    const [historiaporId, setHistoriaporId] = useState({})
+
 
 
     const handleClickVerNuevasTareas1 =()=>{
@@ -120,6 +117,9 @@ const page = () => {
     const status2 = 'Aceptada'
     const id = idHistoria
 
+    
+    
+
     //const nombreHistoria = 'desde el front'
 
     const handleClickEnviarDiscrepancia =(e)=>{
@@ -172,12 +172,6 @@ const page = () => {
     const [checked3, setChecked3] = useState(false)
     const [checked4, setChecked4] = useState(false)
     
-
-    // const discrepancia4h =(id, discrepancia)=>{
-    //     setDiscrepancia4(discrepancia)
-    //     setDiscrepancia4I(discrepancia)
-    //     setActivoDiscrepancia4(false)
-    // }
     const tiempo1h =(id, tiempo)=>{
         setTiempo1I(tiempo)
         setActivoTiempo(false)
@@ -187,8 +181,6 @@ const page = () => {
         setPeso1I(nombrePeso)
         setActivoPeso(false)
     }
-
-
 
     const presupuesto1h =(id, presupuesto)=>{
         setPresupuesto1I(presupuesto)
@@ -209,11 +201,6 @@ const page = () => {
         setPeso1I(nombrePeso)
         setActivoPeso(false)
     }
-
-
-
-
-    //console.log('checked:', checked1);
 
 
     // cosas a enviar 
@@ -237,6 +224,19 @@ const page = () => {
 
     const mt1 = 96
     const mt2 = 96
+
+    useEffect(()=>{
+        const traerHistoriaPorId = async()=>{
+            const ruta = 'historia'
+            const url = idHistoria
+            const res = await getDataLista({ruta, url})
+            setHistoriaporId(res)
+        }
+        traerHistoriaPorId()
+    }, [])
+
+    const {tiempo1, presupuesto2, equipo3} = historiaporId
+    console.log('hiXid:', historiaporId);
     
   return (
     <div className='w-full h-full bg-white grid place-items-center' >
@@ -269,6 +269,7 @@ const page = () => {
                                         dis={dis1}
                                         top1 = {mt1}
                                         top2 = {mt2}
+                                        parame = {tiempo1}
                                     />
 
                                     <BadgeDiscrepancia
@@ -289,7 +290,7 @@ const page = () => {
                                         dis={dis2}
                                         top1 = {mt1}
                                         top2 = {mt2}
-                                        
+                                        parame = {presupuesto2}
                                         
                                     />
 
@@ -311,7 +312,7 @@ const page = () => {
                                         dis={dis3}
                                         top1 = {mt1}
                                         top2 = {mt2}
-                                        
+                                        parame = {equipo3}
                                     />
                             </main>
                         </section>

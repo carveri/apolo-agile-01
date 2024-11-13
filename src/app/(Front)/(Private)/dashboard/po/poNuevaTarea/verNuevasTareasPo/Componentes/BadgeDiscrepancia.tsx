@@ -2,7 +2,7 @@ import { dataPesoHistoria } from '@/app/(Front)/React/Utils/dataPesoHistoria'
 import { dataTiempoHistoria } from '@/app/(Front)/React/Utils/dataTiempoHistoria'
 import React from 'react'
 
-const BadgeDiscrepancia = ({dis, numero, checked, setChecked, handleClickVerNuevasTareas, discrepanciaI, handleChangeDiscrepancia,  handleClickTiempo, tiempoI, activoTiempo, tiempoh, handleClickPeso, pesoI, activoPeso, pesoh, top1, top2}) => {
+const BadgeDiscrepancia = ({dis, numero, checked, setChecked, handleClickVerNuevasTareas, discrepanciaI, handleChangeDiscrepancia, parame, handleClickTiempo, tiempoI, activoTiempo, tiempoh, handleClickPeso, pesoI, activoPeso, pesoh, top1, top2}) => {
   return (
     <>
                                     <label  className='flex content-center '  htmlFor=""> 
@@ -39,46 +39,24 @@ const BadgeDiscrepancia = ({dis, numero, checked, setChecked, handleClickVerNuev
                                             {dis.titulo1}
                                         </div>
                                         <div className='w-full h-20  text-center pt-4 bg-white'>
-                                            4
+                                            {parame}
                                         </div>
                                     </article>
 
                                     <article className=' w-1/3 h-full px-2 '>
-                                    <div className='h-[30%] w-full  grid place-content-center text-center'>
-                                        {dis.titulo2}
-                                    </div>
-                                    <div onClick={handleClickTiempo} className='border bg-gray-200 border-gray-200 w-full h-[30%] mt-4  grid place-content-center cursor-pointer'>
-                                        {tiempoI}
-                                    </div>
-                                    {activoTiempo && 
-                                        <div className={`mt-${top1} z-50 absolute  left-3/5 max-h-20 overflow-auto`}>
-                                        {dataTiempoHistoria.map((el)=>{
-                                            const {id, tiempo} = el
-                                            return <div key={id} onClick={()=>tiempoh(id,tiempo)} className='w-[123px] text-center bg-gray-50 hover:bg-gray-300  pl-6'>
-                                                {tiempo}
-                                            </div>
-                                        })}
+                                        <div className='h-[30%] w-full  grid place-content-center text-center pb-3'>
+                                            {dis.titulo2}
                                         </div>
-                                    }
-                                </article>
-                                <article className=' w-1/3 h-full px-2'>
-                                    <div className='h-[40%]  grid place-content-center text-center'>
-                                        {dis.titulo3}
-                                    </div>
-                                    <div onClick={handleClickPeso} className='border border-gray-200 w-full h-[30%] mt-4  grid place-content-center cursor-pointer'>
-                                        {pesoI}
-                                    </div>
-                                    {activoPeso && 
-                                        <div className={` mt-${top2} z-50 absolute left-3/5 max-h-24 overflow-auto`}>
-                                        {dataPesoHistoria.map((el)=>{
-                                            const {id, nombrePeso} = el
-                                            return <div key={el.id} onClick={()=>pesoh(id,nombrePeso)} className='w-[123px] text-center bg-gray-50 hover:bg-gray-300  pl-6'>
-                                                {nombrePeso}
-                                            </div>
-                                        })}
+                                        
+                                        <input className='w-full h-8 border border-gray-200 text-center' type="text" placeholder='7' />
+                                    </article>
+                                    <article className=' w-1/3 h-full px-2 '>
+                                        <div className='h-[30%] w-full  grid place-content-center text-center pb-3'>
+                                            {dis.titulo3}
                                         </div>
-                                    }
-                                </article>
+                                        
+                                        <input className='w-full h-8 border border-gray-200 text-center' type="text" placeholder='100' />
+                                    </article>
                             </section>
                     </article>
                     }
