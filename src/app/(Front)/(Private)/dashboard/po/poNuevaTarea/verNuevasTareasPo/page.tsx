@@ -24,9 +24,9 @@ const page = () => {
     const [activoPeso3, setActivoPeso3] = useState(false)
 
     // inicial
-    const [discrepancia1I, setDiscrepancia1I] = useState('-')
-    const [discrepancia2I, setDiscrepancia2I] = useState('-')
-    const [discrepancia3I, setDiscrepancia3I] = useState('-')
+    const [discrepancia1I, setDiscrepancia1I] = useState('Tiempo')
+    const [discrepancia2I, setDiscrepancia2I] = useState('Presupuesto')
+    const [discrepancia3I, setDiscrepancia3I] = useState('Equipo')
     
 
     const [tiempo1I, setTiempo1I] = useState(10)
@@ -68,7 +68,7 @@ const page = () => {
     const [pesoEquipo, setPesoEquipo] = useState(0)
 
 
-
+    // const discrepancia1 = 
 
 
     const handleClickVerNuevasTareas1 =()=>{
@@ -320,7 +320,10 @@ const page = () => {
     console.log('hiXid:', historiaporId);
 
     
+    const pesototal = pesoTiempo + pesoPresupuesto + pesoEquipo
+    console.log('pesoTotal:', pesototal);
 
+    
     
     
 
@@ -415,19 +418,46 @@ const page = () => {
                             </main>
                         </section>
                         <section className='h-[10%] w-full grid  justify-end pt-6 pr-12 font-bold text-lg'>
-                            Total peso discrepancia: 100
+                            {pesototal >100 &&
+                                <div className='flex flex-col  text-center'>
+                                    {/* <span>Peso total: {pesototal} %</span> */}
+                                    <span>Peso total: {pesototal} %</span>
+                                    <span className='text-red-600 text-sm'>Supera el 100%</span>
+                                    
+                                </div> 
+                                // <div>
+                                //     Peso total: {pesototal} %
+                                // </div>
+                        
+                            }
+                            {pesototal <100 &&
+                                <div className='flex flex-col  text-center'>
+                                    {/* <span>Peso total: {pesototal} %</span> */}
+                                    <span>Peso total: {pesototal} %</span>
+                                    <span className='text-cyan-600 text-sm'>No es igual a 100%</span>
+                                </div> 
+                                // <div className='bg-yellow-300'>
+                                //     Peso total: {pesototal} %
+                                // </div>
+                        
+                            }
+                            {pesototal ===100 &&
+                                <div className='pr-2'>
+                                Peso total: {pesototal} %
+                            </div>
+                            }
                         </section>
                    </div>
-                   <div className='w-full h-[10%]  flex justify-end'>
+                   <div className='w-full h-[10%]  flex justify-end pr-9'>
                         <article className='w-[15%]  grid place-items-center'>
-                            {checked1 &&
+                            {checked1 && pesototal === 100 && paramTiempo !== 0 && pesoTiempo !== 0  &&
                             <button  onClick={handleClickEnviarDiscrepancia} className='w-[95%] h-[60%] bg-violet-500 rounded text-white font-semibold hover:bg-violet-600'>
                                 Enviar discrepancias
                             </button>
                             
                         }
                         </article>
-                        {discrepancia1I === '-' && discrepancia2I  === '-' && discrepancia3I  === '-'  && descTiempo  === '-' && descPresupuesto  === '-' && descEquipo  === '-'  &&
+                        {descTiempo  === '-' && descPresupuesto  === '-' && descEquipo  === '-'  && paramTiempo === 0 && pesoTiempo === 0 && pesoPresupuesto === 0 && pesoEquipo === 0 && paramPresupuesto === 0 && paramEquipo === 0 &&
                             <article className='w-[15%]  grid place-items-center'>
                                 <button onClick={handleClickAgregarAlPb} className='w-[95%] h-[60%] bg-[#00ff08] rounded text-white font-semibold hover:bg-[#00dd07]'>
                                     Agregar al product Backlog
