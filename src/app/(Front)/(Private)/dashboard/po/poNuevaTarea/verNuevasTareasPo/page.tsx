@@ -24,10 +24,10 @@ const page = () => {
     const [activoPeso3, setActivoPeso3] = useState(false)
 
     // inicial
-    const [discrepancia1I, setDiscrepancia1I] = useState('Tiempo')
-    const [discrepancia2I, setDiscrepancia2I] = useState('Presupuesto')
-    const [discrepancia3I, setDiscrepancia3I] = useState('Equipo')
-    const [discrepancia4I, setDiscrepancia4I] = useState('Tiempo')
+    const [discrepancia1I, setDiscrepancia1I] = useState('-')
+    const [discrepancia2I, setDiscrepancia2I] = useState('-')
+    const [discrepancia3I, setDiscrepancia3I] = useState('-')
+    
 
     const [tiempo1I, setTiempo1I] = useState(10)
     const [peso1I, setPeso1I] = useState(100)
@@ -52,6 +52,22 @@ const page = () => {
 
     // historiaporId
     const [historiaporId, setHistoriaporId] = useState({})
+
+    // estado de los inputs
+
+    const [descTiempo, setDescTiempo] = useState('-')
+    const [descPresupuesto, setDescPresupuesto] = useState('-')
+    const [descEquipo, setDescEquipo] = useState('-')
+
+    const [paramTiempo, setParamTiempo] = useState(0)
+    const [paramPresupuesto, setParamPresupuesto] = useState(0)
+    const [paramEquipo, setParamEquipo] = useState(0)
+
+    const [pesoTiempo, setPesoTiempo] = useState(0)
+    const [pesoPresupuesto, setPesoPresupuesto] = useState(0)
+    const [pesoEquipo, setPesoEquipo] = useState(0)
+
+
 
 
 
@@ -116,27 +132,78 @@ const page = () => {
     const status = 'Retornada'
     const status2 = 'Aceptada'
     const id = idHistoria
-
     
     
 
-    //const nombreHistoria = 'desde el front'
+    // handlechange descripciones 
+    const changeDesTiempo =(e)=>{
+        setDescTiempo(e.target.value)
+    }
+
+    const changeDescPresupuesto =(e)=>{
+        setDescPresupuesto(e.target.value)
+    }
+
+    const changeDesEquipo =(e)=>{
+        setDescEquipo(e.target.value)
+    }
+
+    // handlechange parametero
+    const changeParamTiempo = (e)=>{
+        setParamTiempo(e.target.valueAsNumber)
+    }
+
+    const changeParamPresupuesto = (e)=>{
+        setParamPresupuesto(e.target.valueAsNumber)
+    }
+
+    const changeParamEquipo = (e)=>{
+        setParamEquipo(e.target.valueAsNumber)
+    }
+    
+
+    // handlechange peso 
+
+    const changePesoTiempo = (e)=>{
+        setPesoTiempo(e.target.valueAsNumber)
+    }
+
+    const changePesoPresupuesto = (e)=>{
+        setPesoPresupuesto(e.target.valueAsNumber)
+    }
+
+    const changePesoEquipo = (e)=>{
+        setPesoEquipo(e.target.valueAsNumber)
+    }
+
+        
+    
+    
+
+   // boton enviar discrepancias
 
     const handleClickEnviarDiscrepancia =(e)=>{
         e.preventDefault()
-        console.log(discrepancia1);
-        console.log(discrepancia2);
-        console.log(discrepancia3);
-        console.log(discrepancia4);
-
-        console.log(descripcion1);
-        console.log(descripcion2);
-        console.log(descripcion3);
-        console.log(descripcion4);
+        const id = idHistoria
+        const discrepancia1 = 'Tiempo'
+        const discrepancia2 = 'Presupuesto'
+        const discrepancia3 = 'Equipo'
+        const tiempoHistoria = paramTiempo
+        const presupuestoHistoria = paramPresupuesto
+        const descripcion1 = descTiempo
+        const descripcion2 = descPresupuesto
+        const descripcion3 = descEquipo
+        const tiempo1 = paramTiempo
+        const presupuesto2 = paramPresupuesto
+        const equipo3 = paramEquipo
+        const peso1 = pesoTiempo
+        const peso2 = pesoPresupuesto
+        const peso3 = pesoEquipo
         const ruta = 'historia'
         
-        const data = { status, discrepancia1, descripcion1, discrepancia2, descripcion2, discrepancia3, descripcion3, discrepancia4, descripcion4}
-        console.log(data);
+        
+        const data = {id, status,tiempoHistoria, presupuestoHistoria, tiempo1, peso1, presupuesto2, peso2, equipo3, peso3, discrepancia1, descripcion1, discrepancia2, descripcion2, discrepancia3, descripcion3}
+        console.log('data:', data);
         //console.log('id:', id);
         
         
@@ -146,11 +213,25 @@ const page = () => {
         
     }
 
+    
+    // boton enviar al pb
+
     const handleClickAgregarAlPb =(e)=>{
         e.preventDefault()
         const ruta = 'historia'
         const status = status2
         const data = {status}
+        // console.log('destiem:', descTiempo);
+        // console.log('despresu:', descPresupuesto);
+        // console.log('desequi:', descEquipo);
+        // console.log('paratiem:', paramTiempo);
+        // console.log('parapresu:', paramPresupuesto);
+        // console.log('paraequi:', paramEquipo);
+        // console.log('tiem:', pesoTiempo);
+        // console.log('presu:', pesoPresupuesto);
+        // console.log('equi:', pesoEquipo);
+        console.log(data);
+        
         updateData({ruta, id, data})
         alert('Se guardo la historia en el ProductBacklog')
         location.reload();
@@ -237,6 +318,13 @@ const page = () => {
 
     const {tiempo1, presupuesto2, equipo3} = historiaporId
     console.log('hiXid:', historiaporId);
+
+    
+
+    
+    
+
+    
     
   return (
     <div className='w-full h-full bg-white grid place-items-center' >
@@ -270,6 +358,10 @@ const page = () => {
                                         top1 = {mt1}
                                         top2 = {mt2}
                                         parame = {tiempo1}
+                                        handleChangeDes={changeDesTiempo}
+                                        handleChangeInputPeso = {changePesoTiempo}
+                                        handleChangeInputParam={changeParamTiempo}
+
                                     />
 
                                     <BadgeDiscrepancia
@@ -291,6 +383,9 @@ const page = () => {
                                         top1 = {mt1}
                                         top2 = {mt2}
                                         parame = {presupuesto2}
+                                        handleChangeDes={changeDescPresupuesto}
+                                        handleChangeInputPeso = {changePesoPresupuesto}
+                                        handleChangeInputParam={changeParamPresupuesto}
                                         
                                     />
 
@@ -313,6 +408,9 @@ const page = () => {
                                         top1 = {mt1}
                                         top2 = {mt2}
                                         parame = {equipo3}
+                                        handleChangeDes={changeDesEquipo}
+                                        handleChangeInputPeso = {changePesoEquipo}
+                                        handleChangeInputParam={changeParamEquipo}
                                     />
                             </main>
                         </section>
@@ -329,7 +427,7 @@ const page = () => {
                             
                         }
                         </article>
-                        {discrepancia1 === '-' && discrepancia2  === '-' && discrepancia3  === '-' && discrepancia4  === '-'  && descripcion1  === '-' && descripcion2  === '-' && descripcion3  === '-'  && descripcion4  === '-' &&
+                        {discrepancia1I === '-' && discrepancia2I  === '-' && discrepancia3I  === '-'  && descTiempo  === '-' && descPresupuesto  === '-' && descEquipo  === '-'  &&
                             <article className='w-[15%]  grid place-items-center'>
                                 <button onClick={handleClickAgregarAlPb} className='w-[95%] h-[60%] bg-[#00ff08] rounded text-white font-semibold hover:bg-[#00dd07]'>
                                     Agregar al product Backlog

@@ -116,10 +116,10 @@ const page = () => {
         }
         
         else if(e.target.name === 'presupuestoHistoria'){
-            setPresupuestoHistoria(e.target.value)
+            setPresupuestoHistoria(e.target.valueAsNumber)
         }
         else if(e.target.name === 'tiempoHistoria'){
-            setTiempoHistoria(e.target.value)
+            setTiempoHistoria(e.target.valueAsNumber)
         }
         else if(e.target.name === 'detalleHistoria'){
             setDetalleHistoria(e.target.value)
@@ -293,13 +293,13 @@ const page = () => {
                                 <label  htmlFor="">Monto del presupuesto de la petición (CLP):</label>
                                     
                                     
-                                <input name="presupuestoHistoria" onChange={handleChangeCliente} className="pl-3 py-4 rounded-md bg-white border border-gray-200 cursor-pointer  grid content-center" type="text" placeholder="100.000"/>
+                                <input name="presupuestoHistoria" onChange={handleChangeCliente} className="pl-3 py-4 rounded-md bg-white border border-gray-200 cursor-pointer  grid content-center" type="number" placeholder="100.000"/>
                             </article>
                             <article className='grid grid-rows-2 pb-3'>
                                 <label  htmlFor="">Tiempo estimado de la petición (dias):</label>
                                     
                                     
-                                <input name="tiempoHistoria" onChange={handleChangeCliente} className="pl-3 py-4 rounded-md bg-white border border-gray-200 cursor-pointer  grid content-center" type="text" placeholder="7"/>
+                                <input name="tiempoHistoria" onChange={handleChangeCliente} className="pl-3 py-4 rounded-md bg-white border border-gray-200 cursor-pointer  grid content-center" type="number" placeholder="7"/>
                             </article>
                             <article className='grid  pb-3  h-28'>
                                 <label className="h-7 "  htmlFor="">Detalle de la petición:</label>

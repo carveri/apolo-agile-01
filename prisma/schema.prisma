@@ -275,9 +275,9 @@ model Permiso {
 model Historia {
   id String @id @default(uuid())
   nombreHistoria String
-  presupuestoHistoria String @default("100.000")
+  presupuestoHistoria Int @default(100000)
   puntoHistoria   Int @default(10)
-  tiempoHistoria String @default("14")
+  tiempoHistoria Int @default(0)
   detalleHistoria String @default("Urgente")
   discrepancia1 String @default("-")
   descripcion1  String @default("-")
