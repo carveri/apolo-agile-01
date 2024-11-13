@@ -4,20 +4,31 @@ import { getDataLista } from '@/app/(Front)/React/Fetch/getDataLista'
 import {useState, useEffect} from 'react'
 import { format } from "date-fns";
 import { dataTiempoHistoria } from '@/app/(Front)/React/Utils/dataTiempoHistoria';
+import { useHistoriaPo } from '../../../[stores]/poStore';
 
 const page = () => {
 
+  const { idHistoria} = useHistoriaPo()
+
   const [historia, setHistoria] = useState({})
   //const {historiaStatus, getHistoriaStatus} = useHistoriaPo
+  // useEffect(()=>{
+  //   cambiarIdHistoria()
+  // }, [])
+
+  console.log('idHistopintar:', idHistoria);
+  
 
   useEffect(()=>{
+    //cambiarIdHistoria()
     const traerHistorias = async()=>{
       const ruta = 'historia'
-      const url = 'a025b093-04a4-431f-b9b1-1d123114d5db'
+      const url = idHistoria
       const res = await getDataLista({ruta, url})
       setHistoria(res)
     }
     traerHistorias()
+    
   }, [])
 
   console.log('histo unica:', historia);

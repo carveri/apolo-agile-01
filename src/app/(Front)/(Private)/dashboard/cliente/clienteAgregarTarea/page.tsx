@@ -136,6 +136,7 @@ const page = () => {
 
     const areaId = "12b87914-ed8c-4411-931e-7b9b567d7117"
     const productBacklogId = '1af659a1-06b9-46e7-94fb-2220d8f5f0b8'
+    const equipo3 = 6
 
     const handleClickCliente2 =(id, nombreCargo)=>{
         setCargoId(id)
@@ -156,18 +157,8 @@ const page = () => {
     }
 
     const handleSumbitCliente =(e)=>{
-        e.preventDefault()
-        // console.log('areaId:', areaId);
-        // console.log('nombreHistoria:', nombreHistoria);
-        // console.log('productBacklogId', productBacklogId);
-        // console.log('caracterId:', caracterId);
-        // console.log('detalleHistoria:', detalleHistoria);
-        // console.log('presupuestoHistoria:', presupuestoHistoria);
-        // console.log('tiempoHistoria:', tiempoHistoria);
-        // console.log('userId:', userId);
-        // console.log('puntoHistoria:', puntoHistoria);
-        
-        const data = { nombreHistoria, presupuestoHistoria, puntoHistoria, tiempoHistoria,  detalleHistoria, productBacklogId, caracterId, userId}
+        e.preventDefault()    
+        const data = { nombreHistoria, equipo3, presupuestoHistoria, puntoHistoria, tiempoHistoria,  detalleHistoria, productBacklogId, caracterId, userId}
         console.log(data);
         
         const ruta = 'historia'

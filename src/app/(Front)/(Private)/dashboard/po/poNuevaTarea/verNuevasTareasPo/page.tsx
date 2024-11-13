@@ -316,12 +316,12 @@ const page = () => {
         traerHistoriaPorId()
     }, [])
 
-    const {tiempo1, presupuesto2, equipo3} = historiaporId
+    const {tiempoHistoria, presupuestoHistoria, equipo3} = historiaporId
     console.log('hiXid:', historiaporId);
 
     
     const pesototal = pesoTiempo + pesoPresupuesto + pesoEquipo
-    console.log('pesoTotal:', pesototal);
+    //console.log('pesoTotal:', pesototal);
 
     
     
@@ -360,7 +360,7 @@ const page = () => {
                                         dis={dis1}
                                         top1 = {mt1}
                                         top2 = {mt2}
-                                        parame = {tiempo1}
+                                        parame = {tiempoHistoria}
                                         handleChangeDes={changeDesTiempo}
                                         handleChangeInputPeso = {changePesoTiempo}
                                         handleChangeInputParam={changeParamTiempo}
@@ -385,7 +385,7 @@ const page = () => {
                                         dis={dis2}
                                         top1 = {mt1}
                                         top2 = {mt2}
-                                        parame = {presupuesto2}
+                                        parame = {presupuestoHistoria}
                                         handleChangeDes={changeDescPresupuesto}
                                         handleChangeInputPeso = {changePesoPresupuesto}
                                         handleChangeInputParam={changeParamPresupuesto}
