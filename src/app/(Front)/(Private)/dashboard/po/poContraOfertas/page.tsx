@@ -96,7 +96,7 @@ const page = () => {
             </table>
               </div>: 
               <div className='w-full h-[95%]  grid place-content-center text-xl'>
-                Aún no hay Historias retornadas
+                Aún no hay Contraofertas de parte del cliente
               </div>
           
           

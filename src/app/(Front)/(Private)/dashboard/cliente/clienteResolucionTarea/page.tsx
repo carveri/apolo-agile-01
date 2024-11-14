@@ -66,7 +66,7 @@ const page = () => {
                     <td className='w-[10%] pl-8'>Fecha Ingreso</td>
                     <td className='w-[12%] pl-8'>Fecha Respuesta</td>
                     <td className='w-[12%] pl-8'>Hora Respuesta</td>
-                    <td className='w-[12%] pl-8'>Status </td>
+                    <td className='w-[8%] pl-8'>Status </td>
                     
                     <td className='w-[10%] text-center'>Discrepancia 1</td>
                     <td className='w-[10%] text-center'>Discrepancia 2</td>
