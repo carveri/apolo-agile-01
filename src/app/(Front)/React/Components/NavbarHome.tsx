@@ -11,7 +11,7 @@ const NavbarHome = () => {
                 <Link className=' text-gray-800 hover:text-colorTexto' href={'/'}>Apolo Agile</Link>
             </div>
         </header>
-        <ul className='w-[27%] grid grid-cols-4 place-content-center font-medium px-4 group-has-[&>li]:text-colorTexto group-has-[&>li]:justify-items-center group-has-[&>li]:text-base'>
+        <ul className='w-[27%] grid grid-cols-4 place-content-center font-medium px-10 group-has-[&>li]:text-colorTexto group-has-[&>li]:justify-items-center group-has-[&>li]:text-base'>
             <li>
                 <Link  href={'/planes'}>Planes</Link>
             </li>

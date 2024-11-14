@@ -5,16 +5,24 @@ import {useState, useEffect} from 'react'
 import { format } from "date-fns";
 import { dataTiempoHistoria } from '@/app/(Front)/React/Utils/dataTiempoHistoria';
 import { useHistoriaPo } from '../../../[stores]/poStore';
+import { updateData } from '@/app/(Front)/React/Fetch/updateData';
 
 const page = () => {
 
   const { idHistoria} = useHistoriaPo()
 
   const [historia, setHistoria] = useState({})
+
+  // estados de los inputs
+  const [ptiempo, setPtiempo] = useState(0)
+  const [pPresupuesto, setPPresupuesto] = useState(0)
+  const [pEquipo, setPEquipo] = useState(0)
+
   //const {historiaStatus, getHistoriaStatus} = useHistoriaPo
   // useEffect(()=>{
   //   cambiarIdHistoria()
   // }, [])
+
 
   console.log('idHistopintar:', idHistoria);
   
@@ -50,6 +58,95 @@ const page = () => {
   const handleClickEquipo = ()=>{
     setEquipoActivo(!equipoActivo)
   }
+
+  const {tiempoHistoria, presupuestoHistoria, equipo3, peso1, peso2, peso3} = historia
+  //const of1 = 
+
+  const calculoPesoOferta =(oferta1 = 0, oferta2 = 0  , peso = 0 )=>{
+    // oferta1 es la que me mando el po
+    // oferta2 es la que realiza el cliente (la contraoferta)
+    // el peso es el porcentaje de importancia que le dio el po
+    const res = peso/oferta1
+      const nuevo = res * ((oferta1) - (oferta1-oferta2))
+      return nuevo
+
+  }
+
+  const limite = 80
+  const limiteInferior = 40
+
+  const handleChangeVerResuTarea =(e)=>{
+    e.preventDefault()
+    if(e.target.name === 'tiempo'){
+      setPtiempo(e.target.valueAsNumber)
+    }
+    else if(e.target.name === 'presupuesto'){
+      setPPresupuesto(e.target.valueAsNumber)
+    }
+    else if(e.target.name === 'equipo'){
+      setPEquipo(e.target.valueAsNumber)
+    }
+    else {
+      console.log('sd');
+      
+    }
+  }
+
+    let pesoTiempo = calculoPesoOferta(tiempoHistoria, ptiempo, peso1) 
+    let pesoPresupuesto = calculoPesoOferta(presupuestoHistoria, pPresupuesto, peso2) 
+    let pesoEquipo = 0
+    const pesoTotal =  pesoTiempo + pesoPresupuesto
+  
+
+  const handleClickAgregarAlProductBacklog =(e)=>{
+    const status = 'Aceptada'
+    // renombrar los estados 
+    const tiempoHistoria = ptiempo
+    const presupuestoHistoria = pPresupuesto
+    const equipo3 = pEquipo
+    const data = {tiempoHistoria, presupuestoHistoria, equipo3, status}
+    const ruta = 'historia'
+    const id = idHistoria
+    updateData({data, ruta, id})
+    alert('Se guardo la historia en el PB')
+  }
+
+  const handleClickEnviarContraoferta =()=>{
+    const status = 'ContraOferta'
+    // renombrar los estados 
+    const tiempoHistoria = ptiempo
+    const presupuestoHistoria = pPresupuesto
+    const equipo3 = pEquipo
+    const data = {tiempoHistoria, presupuestoHistoria, equipo3, status}
+    const ruta = 'historia'
+    const id = idHistoria
+    updateData({data, ruta, id})
+    alert('Se envio la controferta al po')
+    
+  }
+
+  const handleClickEliminarTareaCliente=()=>{
+    console.log('elim');
+    
+  }
+
+
+  if(equipo3 === 0 ){
+      pesoEquipo = 0
+  }
+  else if(tiempoHistoria === 0){
+      pesoTiempo = 0
+  }
+  else if(presupuestoHistoria === 0){
+      pesoEquipo = 0
+  }
+  
+
+
+ 
+
+  
+  
   
   return (
     <div className='w-full h-full '>
@@ -65,11 +162,12 @@ const page = () => {
                       <tr className='h-14'>
                         <td className='w-[7%]  pl-3'>Numero</td>
                         <td className='w-[10%] pl-8'>Nombre Historia</td>
-                        <td className='w-[10%] text-center'>Discrepancias</td>
-                        <td className='w-[10%] text-center'>Parametros</td>
-                        <td className='w-[10%] text-center'>Oferta Parametros</td>
+                        <td className='w-[13%] text-center'>Discrepancias</td>
+                        <td className='w-[10%] text-center'>Propuesta del Po</td>
+                        
+                        <td className='w-[10%] text-center'>Nueva oferta</td>
                         <td className='w-[10%] text-center'>Peso Oferta</td>
-                        <td className='w-[10%] text-center'>Porcentaje (%)</td>
+                        <td className='w-[10%] text-center'>Peso Discrepancia (%)</td>
                         <td className='w-[27%] text-center'>Descripciónes</td>
                         
                       </tr>
@@ -86,13 +184,13 @@ const page = () => {
                          
                           <td className='pl-8 '>
                             <div className='h-20 grid place-content-center'>
-                              {historia?.discrepancia1}
+                              {historia?.discrepancia1} (Dias)
                             </div>
                             <div className='h-20 grid place-content-center'>
-                              {historia?.discrepancia2}
+                              {historia?.discrepancia2} (Clp)
                             </div>
                             <div className='h-20 grid place-content-center'>
-                              {historia?.discrepancia3}
+                              {historia?.discrepancia3} (personas)
                             </div>
                             
 
@@ -109,58 +207,31 @@ const page = () => {
                             </div>
 
                           </td>
-                          
                           <td>
-                            <div className='h-20 grid place-content-center'>
-                                <div onClick={handleClickTiempo} className='rounded border border-gray-200 w-24 h-8 grid place-content-center'>
-                                  15
-                                </div>
-                                {tiempoActivo &&
-                                
-                                <div className={`mt-14  z-50 absolute  left-3/5 max-h-12 overflow-auto`}>
-                                {dataTiempoHistoria.map((el)=>{
-                                  const {id, tiempo} = el
-                                  return <div className='w-20 ml-10 bg-white hover:bg-gray-100 grid place-content-center'  key={id}>
-                                    {tiempo}
-                                  </div>
-                                })}
-
-                                </div>
-                                }
+                              <div className='h-20 grid place-content-center'>
+                                <input name='tiempo'  onChange={handleChangeVerResuTarea} type="number" className='rounded w-24 h-8 pl-10 border border-gray-200 ' placeholder='4'/>
                               </div>
                               <div className='h-20 grid place-content-center'>
-                                <input  type="text" className='rounded w-24 h-8 pl-3 border border-gray-200' placeholder='$100.000'/>
+                                <input name='presupuesto'  onChange={handleChangeVerResuTarea}  type="number" className='rounded w-24 h-8 pl-3 border border-gray-200' placeholder='$100.000'/>
                               </div>
                               <div className='h-20 grid place-content-center'>
-                                <div onClick={handleClickEquipo} className='border rounded border-gray-200 w-24 h-8 grid place-content-center'>
-                                  35 
-                                </div>
-                                {equipoActivo &&
-                                  <div className={`mt-14 z-50 absolute  left-3/5 max-h-12 overflow-auto`}>
-                                  {dataTiempoHistoria.map((el)=>{
-                                    const {id, tiempo} = el
-                                    return <div className='w-20 ml-10 bg-white hover:bg-gray-100 grid place-content-center'  key={id}>
-                                      {tiempo}
-                                    </div>
-                                  })}
-
-                                  </div>
-                                
-                                }
+                                <input name='equipo'  onChange={handleChangeVerResuTarea}  type="number" className='rounded w-24 h-8 pl-5 border border-gray-200' placeholder='43434'/>
                               </div>
+                              
                             
                           </td>
-                          <td>
-                            <div className='h-20 grid place-content-center'> 
-                              23d
-                            </div>
-                            <div className='h-20 grid place-content-center'> 
-                              23s
-                            </div>
-                            <div className='h-20 grid place-content-center'> 
-                              23a
-                            </div>
 
+
+                          <td className='pl-8'>
+                            <div className='h-20 grid place-content-center font-bold'>
+                            {Math.round(pesoTiempo)}
+                            </div>
+                            <div className='h-20 grid place-content-center font-bold'>
+                            {Math.round(pesoPresupuesto)}
+                            </div>
+                            <div className='h-20 grid place-content-center font-bold'>
+                            {Math.round(pesoEquipo)}
+                            </div>
                           </td>
                           <td className='pl-8'>
                             <div className='h-20 grid place-content-center'>
@@ -173,6 +244,10 @@ const page = () => {
                             {historia?.peso3}
                             </div>
                           </td>
+                          
+                          
+                          
+                          
                           <td className='pl-8 '>
                             <div className='h-20 grid place-content-center'>
                               {historia?.descripcion1}
@@ -202,16 +277,22 @@ const page = () => {
 
                 </div>
                 <div className='w-full h-[10%]  grid justify-end pt-7 pr-7 font-bold text-lg'>
-                  Total peso de oferta: 40%
+                  Total peso de oferta: {Math.round(pesoTotal)}
                 </div>
                 <div className='w-full h-[10%]  flex justify-end gap-x-2 pr-3'>
-                  <button className='bg-colorBotonAceptar w-60 rounded h-12 text-white font-semibold'>
+                  {pesoTotal > limite &&
+                  <button onClick={handleClickAgregarAlProductBacklog} className='bg-colorBotonAceptar w-60 rounded h-12 text-white font-semibold'>
                     Agregar Al Product Backlog
                   </button>
-                  <button className='bg-colorBotonActualizar w-60 rounded h-12 text-white font-semibold'>
-                    Enviar Contraoferta
-                  </button>
-                  <button className='bg-colorBotonEliminar w-60 rounded h-12 text-white font-semibold'>
+                  
+                  }
+                  {pesoTotal >limiteInferior && pesoTotal <=limite &&
+                    <button onClick={handleClickEnviarContraoferta} className='bg-colorBotonActualizar w-60 rounded h-12 text-white font-semibold'>
+                      Enviar Contraoferta
+                    </button>
+                  
+                  }
+                  <button onClick={handleClickEliminarTareaCliente} className='bg-colorBotonEliminar w-60 rounded h-12 text-white font-semibold'>
                     Eliminar Tarea
                   </button>
                 </div>

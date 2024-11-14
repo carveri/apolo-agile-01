@@ -36,7 +36,8 @@ const page = () => {
     route.push('/dashboard/cliente/verResolucionTarea')
   }
 
-  //console.log('histo:', historias);
+  console.log('historietasvolao: ', historias);
+  
   
 
   return (
@@ -64,6 +65,7 @@ const page = () => {
                     <td className='w-[20%] pl-8'>Nombre Historia</td>
                     <td className='w-[10%] pl-8'>Fecha Ingreso</td>
                     <td className='w-[12%] pl-8'>Fecha Respuesta</td>
+                    <td className='w-[12%] pl-8'>Hora Respuesta</td>
                     <td className='w-[12%] pl-8'>Status </td>
                     
                     <td className='w-[10%] text-center'>Discrepancia 1</td>
@@ -74,7 +76,7 @@ const page = () => {
                 </thead>
                 <tbody>
                 {historias?.map((el, index)=>{
-                  const {id, nombreHistoria, createdAt, status ,updatedAt, discrepancia1, discrepancia2, discrepancia3, discrepancia4} = el
+                  const {id, nombreHistoria, createdAt, status ,updatedAt, horaAt, discrepancia1, discrepancia2, discrepancia3, discrepancia4} = el
                     const updatedAt2 = format(new Date(updatedAt), 'dd/MM/yyyy')
                     return <tr key={id} className='border border-gray-200 h-14  cursor-pointer w-full '>
                       <td className='pl-8'>
@@ -83,11 +85,15 @@ const page = () => {
                       <td className='pl-8'>
                         {nombreHistoria}
                       </td>
-                      <td className='pl-8'>
+                      <td className='text-center'>
                         {createdAt}
                       </td>
-                      <td className='pl-12'>
+                      
+                      <td className='pl-14'>
                         {status === 'Pendiente' ? '-': updatedAt2}
+                      </td>
+                      <td className=' text-center'>
+                        {horaAt}
                       </td>
                       <td className={`pl-6 ${status === 'Pendiente' ? 'text-yellow-400' : 'text-green-700'}`}>
                         {status}

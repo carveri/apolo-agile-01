@@ -70,8 +70,8 @@ const linksPo = [
   },
   {
       id:4,
-      href: '/dashboard/po/poGestionTarea',
-      nombre: 'Gestion Historica',
+      href: '/dashboard/po/poContraOfertas',
+      nombre: 'Controfertas',
       icono: gestionTareasPo
   },
   {

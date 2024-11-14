@@ -27,6 +27,7 @@ export const useHistoriaPo = create((set)=>
     historiaStatus: [],
     historiaStatusRetornada: [],
     historiaBacklog: [],
+    historiaContraOferta: [],
     getHistorias: async()=>{
         const ruta = 'historia'
         const historias = await getData({ruta})
@@ -77,6 +78,15 @@ export const useHistoriaPo = create((set)=>
         set(state => ({
             ...state, 
             historiaBacklog
+        }))
+    },
+    getHistoriaContraOferta: async()=>{
+        const ruta = 'historiaStatus'
+        const url = 'ContraOferta'
+        const historiaContraOferta = await getDataLista({ruta, url})
+        set(state => ({
+            ...state, 
+            historiaContraOferta
         }))
     },
 

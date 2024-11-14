@@ -36,13 +36,14 @@ const page = () => {
               <td className='w-[10%]'>Status </td>
               
               <td className='w-[10%]'>Tiempo(dias) </td>
+              <td className='w-[10%]'>Presupuesto (Clp) </td>
               <td className='w-[10%]'>Sprint </td>
               
             </tr>
             </thead>
             <tbody>
             {historiaBacklog?.map((el)=>{
-              const {id, nombreHistoria, createdAt, horaAt, tiempoHistoria} = el
+              const {id, nombreHistoria, createdAt, horaAt, tiempoHistoria, presupuestoHistoria} = el
                 return <tr key={id} className='border border-gray-200 h-14  cursor-pointer '>
                   <td className='pl-8'>
                     1
@@ -60,8 +61,11 @@ const page = () => {
                   <td>
                     En desarrolo
                   </td>
-                  <td>
+                  <td className='pl-8'>
                     {tiempoHistoria}
+                  </td>
+                  <td className='pl-8'>
+                    {presupuestoHistoria}
                   </td>
                   <td>
                     11
