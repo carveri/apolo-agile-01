@@ -36,14 +36,15 @@ const page = () => {
   
 
   useEffect(()=>{
-    const traerHistoriasStatusCargo = async()=>{
-        const ruta = 'historiaStatusCargo' 
-        const param1 = 'f72d2f55-fe11-4b72-ae67-1bcc35b4d95f'
-        const param2 = 'Pendiente'
-        const res = await getDataCompleja({ruta, param1, param2})
-        setHistouseridcargo(res)
+    //cambiarIdHistoria()
+    const traerHistorias = async()=>{
+      const ruta = 'historia'
+      const url = idHistoria
+      const res = await getDataLista({ruta, url})
+      setHistoria(res)
     }
-    traerHistoriasStatusCargo()
+    traerHistorias()
+    
   }, [])
 
   console.log('histo unica:', historia);

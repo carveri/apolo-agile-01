@@ -22,7 +22,7 @@ const page = () => {
     const traerHistoriasStatusCargo = async()=>{
         const ruta = 'historiaStatusCargo' 
         const param1 = 'f72d2f55-fe11-4b72-ae67-1bcc35b4d95f'
-        const param2 = 'Pendiente'
+        const param2 = 'Retornada'
         const res = await getDataCompleja({ruta, param1, param2})
         setHistouseridcargo(res)
     }
@@ -37,7 +37,7 @@ const page = () => {
     console.log('idHisto:', id);
     cambiarIdHistoria(id)
     console.log('idzusthistoria:', idHistoria);
-    route.push('/dashboard/cliente/finanzas/verResolucionTarea')
+    route.push('/dashboard/cliente/comercial/verResolucionTarea')
   }
 
   console.log('historietasvolao: ', historias);
@@ -46,7 +46,7 @@ const page = () => {
 
   return (
     <div className='w-full h-full   ' >
-        {historias.length !== 0 ?
+        {histouseridcargo.length !== 0 ?
         <section  className='w-[99%] h-[99%]  '>
         <main className='py-2 px-4 w-full h-[99%] '>
             <div className='h-14  bg-violet-100 grid place-content-center '>
@@ -79,7 +79,7 @@ const page = () => {
                   </tr>
                 </thead>
                 <tbody>
-                {historias?.map((el, index)=>{
+                {histouseridcargo?.map((el, index)=>{
                   const {id, nombreHistoria, createdAt, status ,updatedAt, horaAt, discrepancia1, discrepancia2, discrepancia3, discrepancia4} = el
                     const updatedAt2 = format(new Date(updatedAt), 'dd/MM/yyyy')
                     const updatedPintar = format(new Date(updatedAt), 'H:mm')

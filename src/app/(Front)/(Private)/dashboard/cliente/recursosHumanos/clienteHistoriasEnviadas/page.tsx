@@ -58,7 +58,7 @@ const page = () => {
                     <td className='w-[7%] pl-3'>Numero</td>
                     <td className='w-[20%] pl-8'>Nombre Historia</td>
                     <td className='w-[10%] pl-8'>Fecha Ingreso</td>
-              
+                    <td className='w-[10%] pl-8'>Hora Ingreso</td>
                     <td className='w-[12%] pl-8'>Punto Historia</td>
                     <td className='w-[12%] pl-8'>Tiempo Historia</td>
                     <td className='w-[12%] pl-8'>Presupuesto Historia </td>
@@ -71,6 +71,7 @@ const page = () => {
                 {histouseridcargo?.map((el, index)=>{
                   const {id, nombreHistoria, createdAt, status ,updatedAt, horaAt, puntoHistoria, tiempoHistoria, presupuestoHistoria, discrepancia4} = el
                     const updatedAt2 = format(new Date(updatedAt), 'dd/MM/yyyy')
+                    
                     return <tr key={id} className='border border-gray-200 h-14  cursor-pointer w-full '>
                       <td className='pl-8'>
                         {index + 1}
@@ -80,6 +81,9 @@ const page = () => {
                       </td>
                       <td className='pl-10'>
                         {createdAt}
+                      </td>
+                      <td className='pl-10'>
+                        {horaAt}
                       </td>
                       <td className='pl-20'>
                         {puntoHistoria}

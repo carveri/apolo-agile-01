@@ -116,7 +116,7 @@ const page = () => {
         </main>
     </section>: 
     <div className='w-full h-full grid content-end justify-center text-xl'>
-      No hay historias retornadas
+      Aún no hay historias Aceptadas
     </div>
       
       }

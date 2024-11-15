@@ -21,7 +21,7 @@ const page = () => {
     const traerHistoriasStatusCargo = async()=>{
         const ruta = 'historiaStatusCargo' 
         const param1 = 'fbe29def-eb7d-4083-8c22-32c7bc0a0e52'
-        const param2 = 'Pendiente'
+        const param2 = 'Retornada'
         const res = await getDataCompleja({ruta, param1, param2})
         setHistouseridcargo(res)
     }
@@ -45,7 +45,7 @@ const page = () => {
 
   return (
     <div className='w-full h-full   ' >
-        {historias.length !== 0 ?
+        {histouseridcargo.length !== 0 ?
         <section  className='w-[99%] h-[99%]  '>
         <main className='py-2 px-4 w-full h-[99%] '>
             <div className='h-14  bg-violet-100 grid place-content-center '>
@@ -67,6 +67,7 @@ const page = () => {
                     <td className='w-[7%] pl-3'>Numero</td>
                     <td className='w-[20%] pl-8'>Nombre Historia</td>
                     <td className='w-[10%] pl-8'>Fecha Ingreso</td>
+                    
                     <td className='w-[12%] pl-8'>Fecha Respuesta</td>
                     <td className='w-[12%] pl-8'>Hora Respuesta</td>
                     <td className='w-[8%] pl-8'>Status </td>
@@ -78,7 +79,7 @@ const page = () => {
                   </tr>
                 </thead>
                 <tbody>
-                {historias?.map((el, index)=>{
+                {histouseridcargo?.map((el, index)=>{
                   const {id, nombreHistoria, createdAt, status ,updatedAt, horaAt, discrepancia1, discrepancia2, discrepancia3, discrepancia4} = el
                     const updatedAt2 = format(new Date(updatedAt), 'dd/MM/yyyy')
                     const updatedPintar = format(new Date(updatedAt), 'H:mm')
@@ -92,6 +93,7 @@ const page = () => {
                       <td className='text-center'>
                         {createdAt}
                       </td>
+                      
                       
                       <td className='pl-14'>
                         {status === 'Pendiente' ? '-': updatedAt2}
