@@ -160,7 +160,7 @@ const page = () => {
   return (
     <div className='w-full h-full '>
         <header className='w-full h-[5%] bg-white py-4 pb-10 pl-4 '>
-            Dashboard {'>'} Clientes {'>'} Resolucion Tarea {'>'} Ver
+            Dashboard {'>'} Clientes {'>'} Recursos Humanos {'>'} Resolucion Tarea {'>'} Ver
           </header>
           <main className='w-full h-[95%] '>
             <header className='bg-gray-100 h-12 grid place-content-center '>

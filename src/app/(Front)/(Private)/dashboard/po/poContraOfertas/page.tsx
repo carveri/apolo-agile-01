@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react'
 import { useHistoriaPo } from '../../../[stores]/poStore';
 import { useRouter } from "next/navigation";
+import { format } from "date-fns";
 import { getDataLista } from '@/app/(Front)/React/Fetch/getDataLista';
 
 const page = () => {
@@ -47,8 +48,8 @@ const page = () => {
                 <tr className='h-14'>
                   <td className='w-[10%] pl-3'>Numero</td>
                   <td className='w-[15%]'>Historia</td>
-                  <td className='w-[10%]'>Fecha Petición </td>
-                  <td className='w-[10%]'>Hora petición</td>
+                  <td className='w-[10%]'>Fecha Contraoferta</td>
+                  <td className='w-[10%]'>Hora Contraoferta</td>
                   <td className='w-[10%]'>Presupuesto (CLP)</td>
                   <td className='w-[10%]'>Tiempo(Dias) </td>
                   <td className='w-[10%]'>Status </td>
@@ -58,7 +59,9 @@ const page = () => {
                 </thead>
                 <tbody>
                 {historiaContraOferta.map((el, index)=>{
-                  const {id,nombreHistoria, createdAt, horaAt, presupuestoHistoria, tiempoHistoria, detalleHistoria, status} = el
+                  const {id,nombreHistoria, createdAt, horaAt, updatedAt,  presupuestoHistoria, tiempoHistoria, detalleHistoria, status} = el
+                  const updatedAt2 = format(new Date(updatedAt), 'dd/MM/yyyy')
+                  const updatedPintar = format(new Date(updatedAt), 'H:mm')
                     return <tr key={id} className='border border-gray-200 h-14  cursor-pointer '>
                       <td className='pl-8'>
                         {index + 1}
@@ -66,16 +69,16 @@ const page = () => {
                       <td >
                         {nombreHistoria}
                       </td>
-                      <td >
-                        {createdAt}
+                      <td className='pl-8'>
+                        {updatedAt2}
                       </td>
-                      <td >
-                        {horaAt}
+                      <td className='pl-8'>
+                        {updatedPintar}
                       </td>
-                      <td>
+                      <td className='pl-8'>
                         {presupuestoHistoria}
                       </td>
-                      <td>
+                      <td className='pl-8'>
                         {tiempoHistoria}
                       </td>
                       <td>

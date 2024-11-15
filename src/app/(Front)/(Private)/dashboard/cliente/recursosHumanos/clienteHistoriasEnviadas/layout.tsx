@@ -7,11 +7,11 @@ export default  function RootLayout({children,}: Readonly<{children: React.React
 
   const router = useRouter()
   const handleClickMeeting1 =()=>{
-    router.push('/dashboard/cliente/recursosHumanos/clienteHistoriasEnviadas')
+    router.push('/dashboard/cliente/clienteHistoriasEnviadas')
   }
 
   const handleClickMeeting2 =()=>{
-    router.push('/dashboard/cliente/recursosHumanos/clienteHistoriasEnviadas/historialHistoriasEnviadas')
+    router.push('/dashboard/cliente/clienteHistoriasEnviadas/historialHistoriasEnviadas')
   }
 
 

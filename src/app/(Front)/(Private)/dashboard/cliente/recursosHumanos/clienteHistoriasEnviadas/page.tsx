@@ -54,11 +54,11 @@ const page = () => {
             <div className='w-[1625px] z-30  top-28 left-3/5 max-h-[563px] overflow-auto'>
               <table className='border border-gray-200   w-[100%]  '>
                 <thead>
-                  <tr className='h-14'>
+                <tr className='h-14'>
                     <td className='w-[7%] pl-3'>Numero</td>
                     <td className='w-[20%] pl-8'>Nombre Historia</td>
                     <td className='w-[10%] pl-8'>Fecha Ingreso</td>
-                    <td className='w-[10%] pl-8'>Hora Ingreso</td>
+              
                     <td className='w-[12%] pl-8'>Punto Historia</td>
                     <td className='w-[12%] pl-8'>Tiempo Historia</td>
                     <td className='w-[12%] pl-8'>Presupuesto Historia </td>
@@ -69,9 +69,8 @@ const page = () => {
                 </thead>
                 <tbody>
                 {histouseridcargo?.map((el, index)=>{
-                  const {id, nombreHistoria, createdAt, status ,updatedAt, horaAt, puntoHistoria, tiempoHistoria, presupuestoHistoria, discrepancia4} = el
+                  const {id, nombreHistoria, createdAt, status ,updatedAt, horaAt, puntoHistoria, tiempoHistoria, presupuestoHistoria} = el
                     const updatedAt2 = format(new Date(updatedAt), 'dd/MM/yyyy')
-                    
                     return <tr key={id} className='border border-gray-200 h-14  cursor-pointer w-full '>
                       <td className='pl-8'>
                         {index + 1}
@@ -81,9 +80,6 @@ const page = () => {
                       </td>
                       <td className='pl-10'>
                         {createdAt}
-                      </td>
-                      <td className='pl-10'>
-                        {horaAt}
                       </td>
                       <td className='pl-20'>
                         {puntoHistoria}
@@ -112,7 +108,7 @@ const page = () => {
         </main>
     </section>: 
     <div className='w-full h-full grid content-end justify-center text-xl'>
-      No hay historias retornadas
+      Aún no hay historias Enviadas
     </div>
       
       }

@@ -16,7 +16,6 @@ const page = () => {
   const [historias, setHistorias] = useState([])
   //const {historiaStatus, getHistoriaStatus} = useHistoriaPo
   const [histouseridcargo, setHistouseridcargo] = useState([])
-  //const {historiaStatus, getHistoriaStatus} = useHistoriaPo
 
   useEffect(()=>{
     const traerHistoriasStatusCargo = async()=>{
