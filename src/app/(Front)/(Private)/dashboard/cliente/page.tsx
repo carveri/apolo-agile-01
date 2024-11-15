@@ -1,8 +1,23 @@
+import { authOptions } from '@/app/(Back)/api/auth/[...nextauth]/route'
 import { dataHomePo } from '@/app/(Front)/React/Utils/dataHomePo'
+import { getServerSession } from 'next-auth'
 import Image from 'next/image'
 import React from 'react'
+import { redirect } from "next/navigation";
 
-const page = () => {
+const page = async() => {
+
+  const session = await getServerSession(authOptions)
+   // validacion
+   if(!session){
+    redirect('/api/auth/signin')
+  }
+  //console.log(user);
+  
+  const {user}= session
+
+  console.log('cositas del user:', user);
+  
   return (
     <div className='w-full h-full bg-white grid place-items-center' >
         <section className='w-[99%] h-[99%]  '>

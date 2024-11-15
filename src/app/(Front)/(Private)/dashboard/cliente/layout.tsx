@@ -8,7 +8,8 @@ import { redirect } from 'next/navigation'
   
 //   // imagenes clientes
    import homeClientes from "../../../React/Assets/Icons/homeClientes.png";
-   import agregarTareasClientes from "../../../React/Assets/Icons/agregarTareasClientes.png";
+   import agregarTareasClientes from "../../../React/Assets/Icons/agregarTareaCliente2.png";
+   import historiasEnviadasClientes from "../../../React/Assets/Icons/logoPricipal3.png";
     import resolucionTareasClientes from "../../../React/Assets/Icons/resolucionTareaClientes.png";
 
 
@@ -44,6 +45,12 @@ const linksClientes = [
   },
   {
       id:3,
+      href: '/dashboard/cliente/clienteHistoriasEnviadas',
+      nombre: 'Historias Enviadas',
+      icono: historiasEnviadasClientes
+  },
+  {
+      id:4,
       href: '/dashboard/cliente/clienteResolucionTarea',
       nombre: 'Resoluciones',
       icono: resolucionTareasClientes

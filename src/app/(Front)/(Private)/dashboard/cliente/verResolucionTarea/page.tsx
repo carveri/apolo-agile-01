@@ -6,8 +6,12 @@ import { format } from "date-fns";
 import { dataTiempoHistoria } from '@/app/(Front)/React/Utils/dataTiempoHistoria';
 import { useHistoriaPo } from '../../../[stores]/poStore';
 import { updateData } from '@/app/(Front)/React/Fetch/updateData';
+import { deleteData } from '@/app/(Front)/React/Fetch/deleteData';
+import {useRouter} from "next/navigation";
 
 const page = () => {
+
+  const router = useRouter()
 
   const { idHistoria} = useHistoriaPo()
 
@@ -126,7 +130,11 @@ const page = () => {
   }
 
   const handleClickEliminarTareaCliente=()=>{
-    console.log('elim');
+    const ruta = 'historia'
+    const url = idHistoria
+    deleteData({ruta, url})
+    alert('La tarea se borro correctamente')
+    router.push('/dashboard/cliente/clienteResolucionTarea')
     
   }
 

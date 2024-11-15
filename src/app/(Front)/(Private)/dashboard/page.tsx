@@ -40,7 +40,7 @@ const page = async() => {
   return (
     <>
       <div className="w-full h-12">
-        olis
+        
       </div>
     </>
 )}
