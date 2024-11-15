@@ -44,7 +44,7 @@ const linksTecnico = [
   },
   {
       id:2,
-      href: '/dashboard/cliente/tecnico/resolver',
+      href: '/dashboard/cliente/tecnico/listaResolver',
       nombre: 'Resolver Historias',
       icono: agregarTareasClientes
   },

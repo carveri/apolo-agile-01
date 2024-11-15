@@ -36,7 +36,7 @@ const page = () => {
     console.log('idHisto:', id);
     cambiarIdHistoria(id)
     console.log('idzusthistoria:', idHistoria);
-    route.push('/dashboard/cliente/finanzas/verResolucionTarea')
+    route.push('/dashboard/cliente/recursosHumanos/verResolucionTarea')
   }
 
   console.log('historietasvolao: ', historias);

@@ -23,7 +23,7 @@ export const useHistoriaPo = create((set)=>
     idHistoria: '',
 
     historias: [],
-    session: [],
+    session: {},
     historiaStatus: [],
     historiaStatusRetornada: [],
     historiaBacklog: [],

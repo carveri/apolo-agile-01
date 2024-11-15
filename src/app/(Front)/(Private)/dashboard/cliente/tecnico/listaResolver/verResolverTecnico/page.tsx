@@ -1,7 +1,9 @@
 'use client'
 
 import { useHistoriaPo } from '@/app/(Front)/(Private)/[stores]/poStore'
+import { deleteData } from '@/app/(Front)/React/Fetch/deleteData'
 import { getDataLista } from '@/app/(Front)/React/Fetch/getDataLista'
+import { updateData } from '@/app/(Front)/React/Fetch/updateData'
 import {useState, useEffect} from 'react'
 
 const page = () => {
@@ -15,7 +17,7 @@ const page = () => {
     //cambiarIdHistoria()
     const traerHistorias = async()=>{
       const ruta = 'historia'
-      const url = "373b67fc-42b9-421e-95cc-d066d933f80d"
+      const url = idHistoria
       const res = await getDataLista({ruta, url})
       setHistoria(res)
     }
@@ -23,21 +25,30 @@ const page = () => {
     
   }, [])
 
-  console.log('histo unica:', historia);
+  console.log('idHisto ver lider tecnico:', idHistoria);
 
 
   const handleClickAgregarAlProductBacklogContraT =()=>{
-    console.log('as');
+    const ruta = 'historia'
+    const status = 'Aceptada'
+    const id = idHistoria
+    const data = {status}
+    updateData({ruta, id, data})
+    alert('Se agrego correctamente la historia al Productbacklog')
     
   }
 
   const handleClickEliminarTareaClienteT =()=>{
-    console.log('afff');
+    const ruta = 'historia'
+    const url = idHistoria
+    
+    deleteData({ruta, url})
+    alert('Se elimino correctamente la historia')
     
   }
 
   return (
-    <main className='w-full h-[95%] '>
+    <main className='w-full h-[100%]  '>
             <header className='bg-gray-100 h-12 grid place-content-center '>
               Resolver Historia Tecnica
             </header>
@@ -87,22 +98,12 @@ const page = () => {
                               {historia?.equipo3}
                             </div>
 
-                          </td>
-                          
-
-                          
-                          
-                          
-                          
-                          
-                          
-                          
-                          
+                          </td>                      
                         </tr>
                       
                     </tbody>
                 </table>
-                <div className='w-full h-[30%]'>
+                <div className='w-full h-[100%]'>
 
                 </div>
                 <div className='w-full h-[10%]  grid justify-end pt-7 pr-7 font-bold text-lg'>
@@ -110,11 +111,11 @@ const page = () => {
                 </div>
                 <div className='w-full h-[10%]  flex justify-end gap-x-2 pr-3'>
                 
-                  <button onClick={handleClickAgregarAlProductBacklogContraT} className='bg-colorBotonAceptar w-60 rounded h-12 text-white font-semibold'>
+                  <button onClick={handleClickAgregarAlProductBacklogContraT} className='bg-colorBotonActualizar hover:bg-blue-700 w-60 rounded h-12 text-white font-semibold'>
                     Agregar Al Product Backlog
                   </button>
-                  <button onClick={handleClickEliminarTareaClienteT} className='bg-colorBotonActualizar w-60 rounded h-12 text-white font-semibold'>
-                    Eliminar Tarea
+                  <button onClick={handleClickEliminarTareaClienteT} className='bg-colorBotonEliminar hover:bg-red-600 w-60 rounded h-12 text-white font-semibold'>
+                    Eliminar Historia
                   </button>
                 </div>
           </main>

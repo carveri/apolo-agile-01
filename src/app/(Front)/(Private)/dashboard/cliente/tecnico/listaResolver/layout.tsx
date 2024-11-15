@@ -19,10 +19,10 @@ export default  function RootLayout({children,}: Readonly<{children: React.React
     <div  className='w-full h-full bg-white grid justify-items-center'>
       <section className='w-[99%] h-[98%]  '>
           <header className='w-full h-[5%] bg-white py-4 pl-4 '>
-            Dashboard {'>'} Clientes {'>'} Marketing {'>'} Historias Aceptadas
+            Dashboard {'>'} Clientes {'>'} Técnico {'>'} Historias Aceptadas
           </header>
       </section>
-      <main className='w-full h-[95%] -mt-[377px]'> 
+      <main className='w-full h-[100%] -mt-[367px]'> 
         
         <div className="h-64 ">
           {children}

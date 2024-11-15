@@ -114,13 +114,6 @@ const page = () => {
 
   const handleClickAgregarAlProductBacklogContra =()=>{
     const status = 'Aceptada'
-    // renombrar los estados 
-    // const tiempoHistoria = ptiempo
-    // const presupuestoHistoria = pPresupuesto
-    // const equipo3 = pEquipo
-    // const data = {tiempoHistoria, presupuestoHistoria, equipo3, status}
-    // const ruta = 'historia'
-    // const id = idHistoria
     const ruta = 'historia'
     const id = idHistoria
     const data = {status}
@@ -129,8 +122,13 @@ const page = () => {
     
   }
 
-  const handleClickEliminarTareaCliente=()=>{
-    console.log('elim');
+  const handleClickEnviarAlLiderTecnico=()=>{
+    const status = 'LiderTecnico'
+    const ruta = 'historia'
+    const id = idHistoria
+    const data = {status}
+    updateData({data, ruta, id})
+    alert('Se Envio la historia al lider tecnico')
     
   }
 
@@ -227,7 +225,7 @@ const page = () => {
                   <button onClick={handleClickAgregarAlProductBacklogContra} className='bg-colorBotonAceptar w-60 rounded h-12 text-white font-semibold'>
                     Agregar Al Product Backlog
                   </button>
-                  <button onClick={handleClickEliminarTareaCliente} className='bg-colorBotonActualizar w-60 rounded h-12 text-white font-semibold'>
+                  <button onClick={handleClickEnviarAlLiderTecnico} className='bg-colorBotonActualizar w-60 rounded h-12 text-white font-semibold'>
                     Enviar Al lider Tecnico
                   </button>
                 </div>
