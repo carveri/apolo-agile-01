@@ -30,28 +30,28 @@ export default async function RootLayout({children,}: Readonly<{children: React.
 
   const {user}= session
   
-const linksClientes = [
+const linksTecnico = [
   {
       id:1,
-      href: '/dashboard/cliente',
+      href: '/dashboard/cliente/tecnico',
       nombre: 'Home',
       icono: homeClientes
   },
   {
       id:2,
-      href: '/dashboard/cliente/clienteAgregarTarea',
+      href: '/dashboard/cliente/tecnico/clienteAgregarTarea',
       nombre: 'Agregar Historia',
       icono: agregarTareasClientes
   },
   {
       id:3,
-      href: '/dashboard/cliente/clienteHistoriasEnviadas',
+      href: '/dashboard/cliente/tecnico/clienteHistoriasEnviadas',
       nombre: 'Historias Enviadas',
       icono: historiasEnviadasClientes
   },
   {
       id:4,
-      href: '/dashboard/cliente/clienteResolucionTarea',
+      href: '/dashboard/cliente/tecnico/clienteResolucionTarea',
       nombre: 'Resoluciones',
       icono: resolucionTareasClientes
   },
@@ -70,7 +70,7 @@ const linksClientes = [
         <aside className="w-full h-[820px] bg-gray-100 ">
          
         <Sidebar
-        links={linksClientes}
+        links={linksTecnico}
       />
           
         </aside>

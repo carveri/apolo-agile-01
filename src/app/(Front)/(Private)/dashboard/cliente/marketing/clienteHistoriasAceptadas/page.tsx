@@ -1,52 +1,46 @@
 'use client'
-
-import {useState, useEffect} from 'react'
-import { format } from "date-fns";
+import { getDataCompleja } from "@/app/(Front)/React/Fetch/getDataCompleja";
 import { useRouter, useSearchParams } from "next/navigation";
-import { getDataLista } from '@/app/(Front)/React/Fetch/getDataLista';
-import { useHistoriaPo } from '../../../[stores]/poStore';
-//import { format } from "date-fns";
-
-
+import { useState, useEffect } from "react";
+import { format } from "date-fns";
+import { useHistoriaPo } from "@/app/(Front)/(Private)/[stores]/poStore";
 
 const page = () => {
+
   const { idHistoria, cambiarIdHistoria} = useHistoriaPo()
 
-  const [historias, setHistorias] = useState([])
-  //const {historiaStatus, getHistoriaStatus} = useHistoriaPo
+  const [histouseridcargo, setHistouseridcargo] = useState([])  
+
 
   useEffect(()=>{
-    const traerHistorias = async()=>{
-      const ruta = 'historiaStatus'
-      const url = 'Retornada'
-      const res = await getDataLista({ruta, url})
-      setHistorias(res)
+    const traerHistoriasStatusCargo = async()=>{
+        const ruta = 'historiaStatusCargo' 
+        const param1 = 'fbe29def-eb7d-4083-8c22-32c7bc0a0e52'
+        const param2 = 'Aceptada'
+        const res = await getDataCompleja({ruta, param1, param2})
+        setHistouseridcargo(res)
     }
-    traerHistorias()
+    traerHistoriasStatusCargo()
   }, [])
 
+  const router = useRouter()
+
+  console.log('serian las histo pendiente del user cliente1:', histouseridcargo);
   
-
-  const route = useRouter()
-
   const handleClickVerResolucionHistoria =(id)=>{
     console.log('idHisto:', id);
     cambiarIdHistoria(id)
     console.log('idzusthistoria:', idHistoria);
-    route.push('/dashboard/cliente/verResolucionTarea')
+    router.push('/dashboard/cliente/verResolucionTarea')
   }
-
-  console.log('historietasvolao: ', historias);
-  
-  
 
   return (
     <div className='w-full h-full   ' >
-        {historias.length !== 0 ?
+        {histouseridcargo.length !== 0 ?
         <section  className='w-[99%] h-[99%]  '>
         <main className='py-2 px-4 w-full h-[99%] '>
             <div className='h-14  bg-violet-100 grid place-content-center '>
-                Peticiones Actuales
+               Historias Aceptadas
             </div>
             <header className='w-full h-[7%] -mt-7 flex justify-end items-center  pb-3 font-bold mb-1 pr-6  text-violet-800 '>
              
@@ -75,9 +69,10 @@ const page = () => {
                   </tr>
                 </thead>
                 <tbody>
-                {historias?.map((el, index)=>{
+                {histouseridcargo?.map((el, index)=>{
                   const {id, nombreHistoria, createdAt, status ,updatedAt, horaAt, discrepancia1, discrepancia2, discrepancia3, discrepancia4} = el
                     const updatedAt2 = format(new Date(updatedAt), 'dd/MM/yyyy')
+                    const updatedPintar = format(new Date(updatedAt), 'H:mm')
                     return <tr key={id} className='border border-gray-200 h-14  cursor-pointer w-full '>
                       <td className='pl-8'>
                         {index + 1}
@@ -93,9 +88,9 @@ const page = () => {
                         {status === 'Pendiente' ? '-': updatedAt2}
                       </td>
                       <td className=' text-center'>
-                        {horaAt}
+                        {status === 'Pendiente' ? '-': updatedPintar}
                       </td>
-                      <td className={`pl-6 ${status === 'Pendiente' ? 'text-yellow-400' : 'text-green-700'}`}>
+                      <td className={`pl-6 ${status === 'Pendiente' ? 'text-yellow-400' : 'text-green-500'}`}>
                         {status}
                       </td>
                      
@@ -109,11 +104,7 @@ const page = () => {
                         {discrepancia3}
                       </td>
                       
-                      <td className='grid place-items-center pt-2 pr-2'>
-                        <button onClick={()=>handleClickVerResolucionHistoria(id)} className='w-[100px] h-10 bg-violet-200 rounded text-violet-900'>
-                          ver
-                        </button>
-                      </td>
+                      
                       
                       
                       
@@ -127,7 +118,7 @@ const page = () => {
         </main>
     </section>: 
     <div className='w-full h-full grid content-end justify-center text-xl'>
-      No hay historias retornadas
+      Aún no hay historias Aceptadas
     </div>
       
       }

@@ -52,9 +52,10 @@ export const authOptions: AuthOptions = {
             //console.log('usuarioEncontrado:', userFound);
             
             return {
-              id: userFound?.cargoId,
+              id: userFound.id,
               name: userFound?.cargo?.departamento?.areaId,
               email: userFound.email,
+              image: userFound.cargoId
               //cosa: 'olis'
               //empresa: userFound.empresa,
               //cargo: 'sdsd'

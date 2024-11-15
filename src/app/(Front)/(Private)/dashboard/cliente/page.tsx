@@ -1,13 +1,13 @@
-import { authOptions } from '@/app/(Back)/api/auth/[...nextauth]/route'
-import { dataHomePo } from '@/app/(Front)/React/Utils/dataHomePo'
-import { getServerSession } from 'next-auth'
-import Image from 'next/image'
-import React from 'react'
+
+import { getServerSession } from "next-auth/next";
+import { authOptions } from '@/app/(Back)/api/auth/[...nextauth]/route';
+
 import { redirect } from "next/navigation";
+
 
 const page = async() => {
 
-  const session = await getServerSession(authOptions)
+    const session = await getServerSession(authOptions)
    // validacion
    if(!session){
     redirect('/api/auth/signin')
@@ -15,46 +15,43 @@ const page = async() => {
   //console.log(user);
   
   const {user}= session
+  console.log('userPagPivoteCliente2222:', user);
 
-  console.log('cositas del user:', user);
   
+  // user.image es el cargoId
+
+  // const com = '1b16b7b1-df3f-4242-853c-8f12999bb2b8'
+  // const fin = '78509248-2aea-47a3-a4d2-68e210b270cd'
+  // const mar = 'b0665e7d-e4ca-4036-980a-0b22434422dd'
+  // const rec = '658ae10d-5016-48a6-90bf-f2e562fa2bee'
+  // const tec = '447ab6a5-a1c3-4ca9-9de5-ac00f5ecc6bc'
+
+  if( user?.image === '1b16b7b1-df3f-4242-853c-8f12999bb2b8'){
+    redirect('/dashboard/cliente/comercial')
+  }else if(user?.image === '78509248-2aea-47a3-a4d2-68e210b270cd'){
+    redirect('/dashboard/cliente/finanzas')
+  }
+  else if(user?.image === 'b0665e7d-e4ca-4036-980a-0b22434422dd'){
+    redirect('/dashboard/cliente/marketing')
+  }
+  else if(user?.image === '658ae10d-5016-48a6-90bf-f2e562fa2bee'){
+    redirect('/dashboard/cliente/recursosHumanos')
+  }
+  else if(user?.image === '447ab6a5-a1c3-4ca9-9de5-ac00f5ecc6bc'){
+    redirect('/dashboard/cliente/tecnico')
+  }
+  else{
+    redirect('/api/auth/login')
+    
+  }
+    
+
   return (
-    <div className='w-full h-full bg-white grid place-items-center' >
-        <section className='w-[99%] h-[99%]  '>
-          <header className='w-full h-[5%] bg-white py-4 pl-4'>
-            Dashboard {'>'} Clientes {'>'} Home
-          </header>
-          <main className='w-full h-[95%]  px-5 pt-5'>
-            <section className='w-full h-[9%]  flex gap-x-16 px-8 '>
-              {dataHomePo.map((el)=>{
-                return <article key={el.id} className='w-full h-full  rounded-md flex bg-gray-50 border border-violet-50 shadow-md'>
-                  <div className='h-full w-[20%] grid place-content-center'>
-                    <Image
-                      width={50}
-                      height={50}
-                      alt='kk'
-                      src={el.icono}
-                    />
-                  </div>
-                  <div className='h-full w-[80%] grid grid-rows-2 place-items-center'>
-                    <section>
-                      {el.nombre}
-                    </section>
-                    <section className='font-semibold'>
-                      {el.valor}
-                    </section>
-                  </div>
-                </article>
-              })}
-              
-            </section>
-            <section className='w-full h-[91%] p-8'>
-              graficos
-            </section>
-          </main>
-        </section>
-    </div>
-  )
-}
+    <>
+      <div className="w-full h-12">
+        
+      </div>
+    </>
+)}
 
 export default page
