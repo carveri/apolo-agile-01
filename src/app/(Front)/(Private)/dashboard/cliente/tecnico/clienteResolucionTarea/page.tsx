@@ -5,6 +5,7 @@ import { format } from "date-fns";
 import { useRouter, useSearchParams } from "next/navigation";
 import { getDataLista } from '@/app/(Front)/React/Fetch/getDataLista';
 import { useHistoriaPo } from '../../../../[stores]/poStore';
+import { getDataCompleja } from '@/app/(Front)/React/Fetch/getDataCompleja';
 //import { format } from "date-fns";
 
 
@@ -14,15 +15,18 @@ const page = () => {
 
   const [historias, setHistorias] = useState([])
   //const {historiaStatus, getHistoriaStatus} = useHistoriaPo
+  const [histouseridcargo, setHistouseridcargo] = useState([])
+  //const {historiaStatus, getHistoriaStatus} = useHistoriaPo
 
   useEffect(()=>{
-    const traerHistorias = async()=>{
-      const ruta = 'historiaStatus'
-      const url = 'Retornada'
-      const res = await getDataLista({ruta, url})
-      setHistorias(res)
+    const traerHistoriasStatusCargo = async()=>{
+        const ruta = 'historiaStatusCargo' 
+        const param1 = 'eaefa4b5-a5e8-4ed4-a3ca-1ae450242c1c'
+        const param2 = 'Pendiente'
+        const res = await getDataCompleja({ruta, param1, param2})
+        setHistouseridcargo(res)
     }
-    traerHistorias()
+    traerHistoriasStatusCargo()
   }, [])
 
   
@@ -33,7 +37,7 @@ const page = () => {
     console.log('idHisto:', id);
     cambiarIdHistoria(id)
     console.log('idzusthistoria:', idHistoria);
-    route.push('/dashboard/cliente/verResolucionTarea')
+    route.push('/dashboard/cliente/finanzas/verResolucionTarea')
   }
 
   console.log('historietasvolao: ', historias);
@@ -46,7 +50,7 @@ const page = () => {
         <section  className='w-[99%] h-[99%]  '>
         <main className='py-2 px-4 w-full h-[99%] '>
             <div className='h-14  bg-violet-100 grid place-content-center '>
-                Peticiones Actuales
+                Historias Retornadas
             </div>
             <header className='w-full h-[7%] -mt-7 flex justify-end items-center  pb-3 font-bold mb-1 pr-6  text-violet-800 '>
              
@@ -78,6 +82,7 @@ const page = () => {
                 {historias?.map((el, index)=>{
                   const {id, nombreHistoria, createdAt, status ,updatedAt, horaAt, discrepancia1, discrepancia2, discrepancia3, discrepancia4} = el
                     const updatedAt2 = format(new Date(updatedAt), 'dd/MM/yyyy')
+                    const updatedPintar = format(new Date(updatedAt), 'H:mm')
                     return <tr key={id} className='border border-gray-200 h-14  cursor-pointer w-full '>
                       <td className='pl-8'>
                         {index + 1}
@@ -93,9 +98,9 @@ const page = () => {
                         {status === 'Pendiente' ? '-': updatedAt2}
                       </td>
                       <td className=' text-center'>
-                        {horaAt}
+                        {updatedPintar}
                       </td>
-                      <td className={`pl-6 ${status === 'Pendiente' ? 'text-yellow-400' : 'text-green-700'}`}>
+                      <td className={`pl-6 ${status === 'Pendiente' ? 'text-yellow-400' : 'text-cyan-500'}`}>
                         {status}
                       </td>
                      
@@ -127,7 +132,7 @@ const page = () => {
         </main>
     </section>: 
     <div className='w-full h-full grid content-end justify-center text-xl'>
-      No hay historias retornadas
+      Aún no hay Historias Retornadas
     </div>
       
       }

@@ -9,7 +9,7 @@ import { redirect } from 'next/navigation'
 //   // imagenes clientes
    //import homeClientes from "../../../React/Assets/Icons/homeClientes.png";
    import homeClientes from "../../../../React/Assets/Icons/homeClientes.png";
-   import agregarTareasClientes from "../../../../React/Assets/Icons/agregarTareaCliente2.png";
+   import agregarTareasClientes from "../../../../React/Assets/Icons/agregarTareaCliente3.png";
    //import agregarTareasClientes from "../../../React/Assets/Icons/agregarTareaCliente2.png";
    import historiasEnviadasClientes from "../../../../React/Assets/Icons/logoPricipal3.png";
    //import historiasEnviadasClientes from "../../../React/Assets/Icons/logoPricipal3.png";

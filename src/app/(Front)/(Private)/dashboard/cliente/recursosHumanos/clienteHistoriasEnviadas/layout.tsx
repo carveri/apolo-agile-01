@@ -7,11 +7,11 @@ export default  function RootLayout({children,}: Readonly<{children: React.React
 
   const router = useRouter()
   const handleClickMeeting1 =()=>{
-    router.push('/dashboard/cliente/clienteHistoriasEnviadas')
+    router.push('/dashboard/cliente/recursosHumanos/clienteHistoriasEnviadas')
   }
 
   const handleClickMeeting2 =()=>{
-    router.push('/dashboard/cliente/clienteHistoriasEnviadas/historialHistoriasEnviadas')
+    router.push('/dashboard/cliente/recursosHumanos/clienteHistoriasEnviadas/historialHistoriasEnviadas')
   }
 
 
@@ -19,7 +19,7 @@ export default  function RootLayout({children,}: Readonly<{children: React.React
     <div  className='w-full h-full bg-white grid justify-items-center'>
       <section className='w-[99%] h-[98%]  '>
           <header className='w-full h-[5%] bg-white py-4 pl-4 '>
-            Dashboard {'>'} Clientes {'>'} Finanzas {'>'} Historias Enviadas
+            Dashboard {'>'} Clientes {'>'} Recursos Humanos {'>'} Historias Enviadas
           </header>
       </section>
       <main className='w-full h-[95%] -mt-[377px]'> 

@@ -174,7 +174,7 @@ const page = () => {
     <div className='w-full h-full bg-white grid place-items-center' >
         <section className='w-[99%] h-[99%] bg-gray-50 rounded '>
             <header className='w-full h-[5%] py-4 pl-4 '>
-                Dashboard Cliente {'>'} Clientes {'>'} Tecnico {'>'} Agregar Tarea
+                Dashboard Cliente {'>'} Clientes {'>'} Recursos Humanos  {'>'} Agregar Tarea
             </header>
             <main className='w-full h-[95%] '>
             <form onSubmit={handleSumbitCliente} action="" className=' w-full h-full '>

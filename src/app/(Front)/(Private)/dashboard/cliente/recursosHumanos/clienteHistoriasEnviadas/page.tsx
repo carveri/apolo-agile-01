@@ -15,7 +15,7 @@ const page = () => {
   useEffect(()=>{
     const traerHistoriasStatusCargo = async()=>{
         const ruta = 'historiaStatusCargo' 
-        const param1 = 'fbe29def-eb7d-4083-8c22-32c7bc0a0e52'
+        const param1 = '897abc28-2c33-4f67-b272-f6b70b9b33ad'
         const param2 = 'Pendiente'
         const res = await getDataCompleja({ruta, param1, param2})
         setHistouseridcargo(res)
@@ -54,7 +54,7 @@ const page = () => {
             <div className='w-[1625px] z-30  top-28 left-3/5 max-h-[563px] overflow-auto'>
               <table className='border border-gray-200   w-[100%]  '>
                 <thead>
-                <tr className='h-14'>
+                  <tr className='h-14'>
                     <td className='w-[7%] pl-3'>Numero</td>
                     <td className='w-[20%] pl-8'>Nombre Historia</td>
                     <td className='w-[10%] pl-8'>Fecha Ingreso</td>
@@ -69,7 +69,7 @@ const page = () => {
                 </thead>
                 <tbody>
                 {histouseridcargo?.map((el, index)=>{
-                  const {id, nombreHistoria, createdAt, status ,updatedAt, horaAt, puntoHistoria, tiempoHistoria, presupuestoHistoria} = el
+                  const {id, nombreHistoria, createdAt, status ,updatedAt, horaAt, puntoHistoria, tiempoHistoria, presupuestoHistoria, discrepancia4} = el
                     const updatedAt2 = format(new Date(updatedAt), 'dd/MM/yyyy')
                     return <tr key={id} className='border border-gray-200 h-14  cursor-pointer w-full '>
                       <td className='pl-8'>
@@ -108,7 +108,7 @@ const page = () => {
         </main>
     </section>: 
     <div className='w-full h-full grid content-end justify-center text-xl'>
-      Aún no hay historias Enviadas
+      No hay historias retornadas
     </div>
       
       }

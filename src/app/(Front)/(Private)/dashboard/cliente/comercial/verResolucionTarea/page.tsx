@@ -9,12 +9,15 @@ import { updateData } from '@/app/(Front)/React/Fetch/updateData';
 import { deleteData } from '@/app/(Front)/React/Fetch/deleteData';
 import {useRouter} from "next/navigation";
 import { useHistoriaPo } from '@/app/(Front)/(Private)/[stores]/poStore';
+import { getDataCompleja } from '@/app/(Front)/React/Fetch/getDataCompleja';
 
 const page = () => {
 
   const router = useRouter()
 
-  const { idHistoria} = useHistoriaPo()
+  const { idHistoria, cambiarIdHistoria} = useHistoriaPo()
+
+  const [histouseridcargo, setHistouseridcargo] = useState([]) 
 
   const [historia, setHistoria] = useState({})
 
@@ -33,15 +36,14 @@ const page = () => {
   
 
   useEffect(()=>{
-    //cambiarIdHistoria()
-    const traerHistorias = async()=>{
-      const ruta = 'historia'
-      const url = idHistoria
-      const res = await getDataLista({ruta, url})
-      setHistoria(res)
+    const traerHistoriasStatusCargo = async()=>{
+        const ruta = 'historiaStatusCargo' 
+        const param1 = 'f72d2f55-fe11-4b72-ae67-1bcc35b4d95f'
+        const param2 = 'Pendiente'
+        const res = await getDataCompleja({ruta, param1, param2})
+        setHistouseridcargo(res)
     }
-    traerHistorias()
-    
+    traerHistoriasStatusCargo()
   }, [])
 
   console.log('histo unica:', historia);
@@ -160,7 +162,7 @@ const page = () => {
   return (
     <div className='w-full h-full '>
         <header className='w-full h-[5%] bg-white py-4 pb-10 pl-4 '>
-            Dashboard {'>'} Clientes {'>'} Resolucion Tarea {'>'} Ver
+            Dashboard {'>'} Clientes {'>'} Comercial {'>'} Resolucion Tarea {'>'} Ver
           </header>
           <main className='w-full h-[95%] '>
             <header className='bg-gray-100 h-12 grid place-content-center '>

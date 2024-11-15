@@ -5,6 +5,7 @@ import { format } from "date-fns";
 import { useRouter, useSearchParams } from "next/navigation";
 import { getDataLista } from '@/app/(Front)/React/Fetch/getDataLista';
 import { useHistoriaPo } from '../../../../[stores]/poStore';
+import { getDataCompleja } from '@/app/(Front)/React/Fetch/getDataCompleja';
 //import { format } from "date-fns";
 
 
@@ -14,15 +15,17 @@ const page = () => {
 
   const [historias, setHistorias] = useState([])
   //const {historiaStatus, getHistoriaStatus} = useHistoriaPo
+  const [histouseridcargo, setHistouseridcargo] = useState([])
 
   useEffect(()=>{
-    const traerHistorias = async()=>{
-      const ruta = 'historiaStatus'
-      const url = 'Retornada'
-      const res = await getDataLista({ruta, url})
-      setHistorias(res)
+    const traerHistoriasStatusCargo = async()=>{
+        const ruta = 'historiaStatusCargo' 
+        const param1 = 'fbe29def-eb7d-4083-8c22-32c7bc0a0e52'
+        const param2 = 'Pendiente'
+        const res = await getDataCompleja({ruta, param1, param2})
+        setHistouseridcargo(res)
     }
-    traerHistorias()
+    traerHistoriasStatusCargo()
   }, [])
 
   
@@ -128,7 +131,7 @@ const page = () => {
         </main>
     </section>: 
     <div className='w-full h-full grid content-end justify-center text-xl'>
-      No hay historias retornadas
+      Aún no hay Historias Retornadas
     </div>
       
       }

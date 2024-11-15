@@ -15,8 +15,8 @@ const page = () => {
   useEffect(()=>{
     const traerHistoriasStatusCargo = async()=>{
         const ruta = 'historiaStatusCargo' 
-        const param1 = 'fbe29def-eb7d-4083-8c22-32c7bc0a0e52'
-        const param2 = 'Pendiente'
+        const param1 = 'f72d2f55-fe11-4b72-ae67-1bcc35b4d95f'
+        const param2 = 'Aceptada'
         const res = await getDataCompleja({ruta, param1, param2})
         setHistouseridcargo(res)
     }
@@ -40,7 +40,7 @@ const page = () => {
         <section  className='w-[99%] h-[99%]  '>
         <main className='py-2 px-4 w-full h-[99%] '>
             <div className='h-14  bg-violet-100 grid place-content-center '>
-               Historias Enviadas 
+               Historias Aceptadas
             </div>
             <header className='w-full h-[7%] -mt-7 flex justify-end items-center  pb-3 font-bold mb-1 pr-6  text-violet-800 '>
              
@@ -56,13 +56,14 @@ const page = () => {
                 <thead>
                 <tr className='h-14'>
                     <td className='w-[7%] pl-3'>Numero</td>
-                    <td className='w-[20%] pl-8'>Nombre Historia</td>
+                    <td className='w-[15%] pl-8'>Nombre Historia</td>
                     <td className='w-[10%] pl-8'>Fecha Ingreso</td>
-              
-                    <td className='w-[12%] pl-8'>Punto Historia</td>
-                    <td className='w-[12%] pl-8'>Tiempo Historia</td>
-                    <td className='w-[12%] pl-8'>Presupuesto Historia </td>
-                    <td className='w-[12%] pl-8'>Status</td>
+                    <td className='w-[10%] pl-8'>Fecha Aceptación</td>
+                    <td className='w-[10%] pl-8'>Hora Aceptación</td>
+                    <td className='w-[10%] pl-8'>Punto Historia</td>
+                    <td className='w-[14%] pl-8'>Tiempo Historia (Dias)</td>
+                    <td className='w-[14%] pl-8'>Presupuesto Historia (Clp) </td>
+                    <td className='w-[10%] pl-8'>Status</td>
                     
                     
                   </tr>
@@ -71,6 +72,7 @@ const page = () => {
                 {histouseridcargo?.map((el, index)=>{
                   const {id, nombreHistoria, createdAt, status ,updatedAt, horaAt, puntoHistoria, tiempoHistoria, presupuestoHistoria} = el
                     const updatedAt2 = format(new Date(updatedAt), 'dd/MM/yyyy')
+                    const updatedPintar = format(new Date(updatedAt), 'H:mm')
                     return <tr key={id} className='border border-gray-200 h-14  cursor-pointer w-full '>
                       <td className='pl-8'>
                         {index + 1}
@@ -80,6 +82,12 @@ const page = () => {
                       </td>
                       <td className='pl-10'>
                         {createdAt}
+                      </td>
+                      <td className='pl-12'>
+                        {updatedAt2}
+                      </td>
+                      <td className='pl-16'>
+                        {updatedPintar}
                       </td>
                       <td className='pl-20'>
                         {puntoHistoria}
@@ -108,7 +116,7 @@ const page = () => {
         </main>
     </section>: 
     <div className='w-full h-full grid content-end justify-center text-xl'>
-      Aún no hay historias Enviadas
+      No hay historias retornadas
     </div>
       
       }

@@ -7,10 +7,15 @@ import { redirect } from 'next/navigation'
 // // IMAGENES 
   
 //   // imagenes clientes
-   import homeClientes from "../../../React/Assets/Icons/homeClientes.png";
-   import agregarTareasClientes from "../../../React/Assets/Icons/agregarTareaCliente2.png";
-   import historiasEnviadasClientes from "../../../React/Assets/Icons/logoPricipal3.png";
-    import resolucionTareasClientes from "../../../React/Assets/Icons/resolucionTareaClientes.png";
+   //import homeClientes from "../../../React/Assets/Icons/homeClientes.png";
+   import homeClientes from "../../../../React/Assets/Icons/homeClientes.png";
+   import agregarTareasClientes from "../../../../React/Assets/Icons/agregarTareaCliente3.png";
+   //import agregarTareasClientes from "../../../React/Assets/Icons/agregarTareaCliente2.png";
+   import historiasEnviadasClientes from "../../../../React/Assets/Icons/logoPricipal3.png";
+   //import historiasEnviadasClientes from "../../../React/Assets/Icons/logoPricipal3.png";
+   import resolucionTareasClientes from "../../../../React/Assets/Icons/resolucionTareaClientes.png";
+   //import resolucionTareasClientes from "../../../React/Assets/Icons/resolucionTareaClientes.png";
+   import resolucionTareasClientesAceptadas from "../../../../React/Assets/Icons/gestionTareasPo.png";
 
 
 
@@ -52,8 +57,14 @@ const linksTecnico = [
   {
       id:4,
       href: '/dashboard/cliente/comercial/clienteResolucionTarea',
-      nombre: 'Resoluciones',
+      nombre: 'Historias Retornadas',
       icono: resolucionTareasClientes
+  },
+  {
+      id:5,
+      href: '/dashboard/cliente/comercial/clienteHistoriasAceptadas',
+      nombre: 'Historias Aceptadas',
+      icono: resolucionTareasClientesAceptadas
   },
  
 ]

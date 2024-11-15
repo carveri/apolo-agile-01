@@ -21,7 +21,7 @@ const page = () => {
   useEffect(()=>{
     const traerHistoriasStatusCargo = async()=>{
         const ruta = 'historiaStatusCargo' 
-        const param1 = 'eaefa4b5-a5e8-4ed4-a3ca-1ae450242c1c'
+        const param1 = 'f72d2f55-fe11-4b72-ae67-1bcc35b4d95f'
         const param2 = 'Pendiente'
         const res = await getDataCompleja({ruta, param1, param2})
         setHistouseridcargo(res)

@@ -10,7 +10,7 @@ import { redirect } from 'next/navigation'
    
   import homeClientes from "../../../../React/Assets/Icons/homeClientes.png";
   //import homeClientes from "../../../React/Assets/Icons/homeClientes.png";
-  import agregarTareasClientes from "../../../../React/Assets/Icons/agregarTareaCliente2.png";
+  import agregarTareasClientes from "../../../../React/Assets/Icons/agregarTareaCliente4.png";
   //import agregarTareasClientes from "../../../React/Assets/Icons/agregarTareaCliente2.png";
    
   import historiasEnviadasClientes from "../../../../React/Assets/Icons/logoPricipal3.png";
@@ -60,7 +60,7 @@ const linksTecnico = [
   {
       id:4,
       href: '/dashboard/cliente/marketing/clienteResolucionTarea',
-      nombre: 'Resoluciones',
+      nombre: 'Historias Retornadas',
       icono: resolucionTareasClientes
   },
   {
