@@ -1,0 +1,2 @@
+-- AlterTable
+ALTER TABLE `Historia` ADD COLUMN `posicion` INTEGER NOT NULL DEFAULT 0;

@@ -7,11 +7,21 @@ import { redirect } from 'next/navigation'
 // // IMAGENES 
   
 //   // imagenes dev
-   import homeDev from "../../../React/Assets/Icons/homeDevs.png";
-   import miEquipoDev from "../../../React/Assets/Icons/devMIEquipo.png";
-    import sprintBacklogDev from "../../../React/Assets/Icons/devSprintBacklog.png";
-    import misTareasDev from "../../../React/Assets/Icons/devMisTareas.png";
-    import tecnicoDev from "../../../React/Assets/Icons/devTecnico.png";
+
+    import homeDev from "../../../../React/Assets/Icons/homeDevs.png";
+   //import homeDev from "../../../React/Assets/Icons/homeDevs.png";
+   
+   import miEquipoDev from "../../../../React/Assets/Icons/devMIEquipo.png";
+   //import miEquipoDev from "../../../React/Assets/Icons/devMIEquipo.png";
+    
+   import sprintBacklogDev from "../../../../React/Assets/Icons/devSprintBacklog.png";
+   //import sprintBacklogDev from "../../../React/Assets/Icons/devSprintBacklog.png";
+    
+   import misTareasDev from "../../../../React/Assets/Icons/devMisTareas.png";
+   //import misTareasDev from "../../../React/Assets/Icons/devMisTareas.png";
+    
+   import tecnicoDev from "../../../../React/Assets/Icons/devMisTareas.png";
+   //import tecnicoDev from "../../../React/Assets/Icons/devTecnico.png";
 
 
 
@@ -48,30 +58,7 @@ const linksDevs = [
       nombre: 'Home',
       icono: homeDev
   },
-  {
-      id:2,
-      href: '/dashboard/devs/devMiEquipo',
-      nombre: 'Mi Equipo',
-      icono: miEquipoDev
-  },
-  {
-      id:3,
-      href: '/dashboard/devs/devSprintBacklog',
-      nombre: 'Sprint Backlog',
-      icono: sprintBacklogDev
-  },
-  {
-      id:4,
-      href: '/dashboard/devs/devMisTareas',
-      nombre: 'Mis Tareas',
-      icono: misTareasDev
-  },
-  {
-      id:5,
-      href: '/dashboard/devs/devTecnico',
-      nombre: 'Tecnico',
-      icono: tecnicoDev
-  }
+  
 ]
 
   return (
@@ -97,10 +84,10 @@ const linksDevs = [
         </main>
         <div className=' h-7 flex items-center pl-4  bg-violet-400  mt-1'>
           <section className="w-4/6  bg-violet-400 text-white">
-            devs
+            {user?.email}
           </section>
           <div className="text-white">
-            devs
+            {user?.name}
           </div>
       </div>
       </section>

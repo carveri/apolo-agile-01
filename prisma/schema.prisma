@@ -293,6 +293,7 @@ model Historia {
   peso2          Int @default(100)
   equipo3     Int @default(10)
   peso3          Int @default(100)
+  posicion    Int @default(0)
            
   isActive      Boolean @default(true)
   status       String @default("Pendiente")
