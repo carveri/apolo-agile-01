@@ -28,7 +28,7 @@ const Sidebar = ({links}) => {
                 const {id, nombre, href, icono, coso} = element
                 return <li key={id} className={`rounded border-1 border-gray-100 grid items-center pl-4  hover:bg-violet-200
                 }
-                ${pathname===href? `border-1 bg-violet-300 duration-75 text-cyan-900`: ``}
+                ${pathname===href? `border-1 bg-colorBotonPrincipal duration-75 text-cyan-900`: ``}
                 `}>
                 <Link className=' py-4 flex' href={href}>
                   <Image

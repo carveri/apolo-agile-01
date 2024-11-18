@@ -1,18 +1,27 @@
 'use client'
 
-const MyButton = ({dataBoton}:any, handleClickBoton) => {
+const MyButton = ({colores, bgColor,  texto, ancho, alto, hover, nombreBoton}) => {
 
-  console.log(dataBoton);
+  const handleClickMyBoton =(e)=>{
+    if(e.target.name === 'botonIngresar'){
+      console.log('soy el de ingresar');
+    }
+    else if(e.target.name === 'botonPrueba'){
+      console.log('soy el bot de prueba');
+      
+    }
+   
+    
+  }
 
-  const {color, texto, funcionalidad} = dataBoton
-  console.log(color);
-  console.log(`bg-${color}`);
-
-  const colorcito ='#03ff57'
+  console.log('color:', colores);
+  console.log('bg:', bgColor);
+  
+  
   
   //console.log(typeof(#900c0c));
   return (
-    <button onClick={handleClickBoton} className={`bg-[${colorcito}]`}>
+    <button style={{background: bgColor, color: colores}}  name={nombreBoton} onClick={handleClickMyBoton} className={` w-[${ancho}] h-[${alto}] rounded font-semibold`} >
       {texto}
     </button>
   )
