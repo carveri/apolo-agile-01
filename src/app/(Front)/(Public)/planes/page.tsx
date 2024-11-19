@@ -21,7 +21,7 @@ const page = () => {
               USD {el.valor}
             </section>
             <section className='w-full h-1/6 grid place-items-center'>
-              <button className='bg-colorBotonSecundario w-60 h-14 rounded text-white'>
+              <button className='bg-colorBotonPrincipal w-60 h-14 rounded text-white font-bold'>
                 Seleccionar
               </button>
             </section>

@@ -100,14 +100,14 @@ const linksAdmin = [
         </aside>
       </section>
       <section className="w-full h-full  ">
-        <header className="h-12 bg-gray-100">
+        <header className="h-12 bg-gray-100 ">
           <Navbar />
         </header>
         <main className="w-full h-[828px]  rounded">
           {children}
         </main>
-        <div className=' h-7 flex items-center pl-4  bg-colorBotonPrincipal mt-1'>
-          <section className="w-4/6  bg-colorBotonPrincipal text-white">
+        <div className=' h-7 flex items-center pl-4  bg-colorBarraBaja mt-1'>
+          <section className="w-4/6  bg-rgb(106, 114, 219) text-white">
             {session.user?.email}
           </section>
           <div className="text-white">

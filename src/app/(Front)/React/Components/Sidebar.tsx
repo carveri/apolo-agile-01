@@ -26,11 +26,11 @@ const Sidebar = ({links}) => {
         <ul className='w-full h-[43%] grid grid-rows-6 '>
             {links.map((element)=>{
                 const {id, nombre, href, icono, coso} = element
-                return <li key={id} className={`rounded border-1 border-gray-100 grid items-center pl-4  hover:bg-violet-200
+                return <li key={id} className={`rounded  font-medium border-1 border-gray-100 grid items-center pl-4  hover:bg-hoverColorSidebar
                 }
-                ${pathname===href? `border-1 bg-colorBotonPrincipal duration-75 text-cyan-900`: ``}
+                ${pathname===href? `border-1 bg-colorSidebar duration-75  text-white`: ``}
                 `}>
-                <Link className=' py-4 flex' href={href}>
+                <Link className=' hover:text-gray-100  py-4 flex' href={href}>
                   <Image
                     src={icono}
                     alt='d'

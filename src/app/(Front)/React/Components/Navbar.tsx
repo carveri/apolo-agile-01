@@ -16,7 +16,7 @@ const Navbar = () => {
 
   return (
     <nav className='w-full h-full  grid justify-items-end '>
-        <ul className='w-52 h-full  grid grid-cols-3 place-items-center pr-16 text-violet-900 font-medium '>
+        <ul className='w-52 h-full  grid grid-cols-3 place-items-center pr-16 text-colorTextoNavbar font-medium '>
             <li >
             <Link href={'/dashboard/perfil'}>
                     <Image 

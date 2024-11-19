@@ -7,9 +7,7 @@ class CargoEquipo {
         const {id} = params
         const getOneCargoEquipo = await prisma.cargo.findFirst({
             where: {
-                departamentoId: {
-                    equals: id
-                }
+                
             },
             // orderBy:{
             //     nombreCargo: 'asc'

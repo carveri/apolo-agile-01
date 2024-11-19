@@ -8,7 +8,7 @@ const page = () => {
     <div className='w-full h-[800px] '>
        <div className='w-full h-14  pt-4 pl-32'>
         Home {'>'} Productos
-        <header className='py-12 font-semibold text-colorTexto text-xl'>
+        <header className='py-12 font-semibold text-colorTextoTitulo1 text-xl'>
           Productos de gestion
         </header>
       </div>

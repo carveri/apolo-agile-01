@@ -14,26 +14,30 @@ const config: Config = {
         'colorFondoGrande': '#ffffff',
         'colorFondoChico': '#ffffff',
 
-
         // textos
-        'colorTextoNavbar': 'black',
-        'colorTextoBoton': '#ffffff',
+        'colorTextoNavbar': 'rgb(78, 81, 142)',
+        'colorTextoTitulo1': 'rgb(186, 32, 153)',
+        'colorTextoTitulo2': 'rgb(36, 28, 34)',
         
         // Componentes
         'colorNavbar': '#ffffff',
+        'colorFormularioLogin': 'rgb(98, 102, 167)',
+        'colorSidebar': 'rgb(146, 153, 255)',
+        'colorBarraBaja': 'rgb(114, 122, 240)',
+        'hoverColorSidebar': 'rgb(134, 141, 236)',
 
         // Botones
-        'colorBotonPrincipal':'rgb(167 139 250)',
-        'colorBotonAceptar': 'rgb(120, 105, 175)',
+        'colorBotonPrincipal':'rgb(114, 122, 240)',
+        'hoverColorBotonPrincipal': 'rgb(95, 103, 210)',
+        'colorBotonAceptar': 'rgb(1, 224, 1)',
         'hoverColorBotonAceptar': '#07a53c',
         'colorBotonSecundario': '#196363',
         'colorBotonEliminar': '#e1103d',
         'colorBotonActualizar': '#0051ff',
 
 
-        'colorForm': '#164e63',
+        
         'colorFondo': '#ffffff',
-        'colorVerdeClaro': '#03ff57',
         'colorCajaBloqueda': '#b4b0b0',
         'bgBloqueado': '#a4a1a1',
         

@@ -1,19 +1,13 @@
 
-import React from 'react'
 import Image from "next/image";
 
 
 import logoPrincipal from "../../React/Assets/Icons/logoPricipal2.png";
-import imagenDashboard from "./../../React/Assets/Images/dashboard1.png";
 import imagenDashboard2 from "./../../React/Assets/Icons/dashboard4.png";
-import MyButton from '../../React/Components/MyButton';
-
+import MiBoton from "../../React/Components/MiBoton/MiBoton";
 
 
 const page = () => {
-
-
-  
 
   return (
     <div className='w-full h-full flex px-8'>
@@ -29,38 +23,22 @@ const page = () => {
               />
               
             </header> 
-            <p>
+            <p >
               Apolo Agile
             </p>
           </article>
-          <article className='text-3xl w-full h-36 py-4 pl-2'>
+          <article className='text-3xl w-full h-36 py-4' >
             El ERP de metodologia Scrum para StartUps con alto potencial de crecimiento
           </article>
           <article className='text-2xl w-full h-2/6 py-4 pl-2'>
             olisss ipsum dolor sit amet consectetur adipisicing elit. Facere non laboriosam, laudantium illum voluptatum adipisci reprehenderit est esse
           </article>
-          <article className='w-full h-1/6  grid grid-cols-2 place-items-center gap-x-4 py-3'>
-            <MyButton
-              colores = 'white'
-              bgColor ='#0ced57'
-              texto = 'Ingresar'
-              ancho = '100%'
-              alto = '100%'
-              hover = 'hoverColorBotonAceptar'
-              nombreBoton = 'botonIngresar'
-    
-              
-              
+          <article className='w-[95%] h-1/6  grid grid-cols-2 place-items-center gap-x-4 py-3'>
+            <MiBoton
+              nombreBoton = 'HomeIngresar'  
             />
-            <MyButton
-              colores = 'white'
-              bgColor='#05af9b'
-              texto = 'Prueba Gratis'
-              ancho = '100%'
-              alto = '100%'
-              hover = 'hoverColorBotonAceptar'
-              nombreBoton = 'botonPrueba'
-              
+            < MiBoton
+              nombreBoton = 'HomePrueba'
             />
           </article>
         </div>
@@ -75,8 +53,6 @@ const page = () => {
                     className=' -mt-16 '
                 />
             </div>
-              
-
       </section>
     </div>
   )

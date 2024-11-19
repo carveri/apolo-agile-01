@@ -8,7 +8,7 @@ const FormRegistro = ({handleSubmitRegistro, handleChangeRegistro, nombreEmpresa
     
 
   return (
-    <form onSubmit={handleSubmitRegistro} className='bg-colorForm w-[73%] h-full py-4 px-10 border border-1-gray rounded-md'>
+    <form onSubmit={handleSubmitRegistro} className='bg-colorFormularioLogin w-[73%] h-full py-4 px-10 border border-1-gray rounded-md'>
               <header className='w-full h-[8%] grid place-content-center text-xl text-white font-semibold'>
                 Registro
               </header>
