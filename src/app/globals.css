@@ -9,6 +9,9 @@
   /* BOTONES */
   --botonPrincipal: rgb(120, 126, 205);
   --botonAceptar: rgb(1, 224, 1);
+  --botonSecundario: #3dc3c3;
+  --botonActualizar: #6384ca;
+  --botonELiminar: #e1103d;
 
   --hoverBotonPrincipal: rgb(186, 32, 153); 
   --hoverBotonAceptar: rgb(3, 166, 3);

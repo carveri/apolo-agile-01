@@ -1,4 +1,5 @@
 import React from 'react'
+import MiBoton from '../MiBoton/MiBoton'
 
 
 const Tabla = ({logicaTabla, usuarios}) => {
@@ -39,20 +40,21 @@ const Tabla = ({logicaTabla, usuarios}) => {
                     <td>
                       {el?.cargo?.nombreCargo}
                     </td>
-                    <td className=''>
-                      <button className='bg-violet-100 border border-gray-200 w-[50%] h-[80%] py-1 px-3 rounded hover:bg-violet-200'>
-                        Ver
-                      </button>
+                    
+                    <td className='w-[4%] h-4 py-3 mr-3 pr-2'>
+                        <MiBoton
+                          nombreBoton = 'Ver'  
+                      />
                     </td>
-                    <td className=''>
-                      <button className='bg-blue-200 border border-gray-300 w-[70%] h-[80%] py-1 rounded hover:bg-blue-300 hover:text-white '>
-                        Actualizar
-                      </button>
+                    <td className='w-[7%] h-4 py-3 mr-3   pr-2'>
+                        <MiBoton
+                          nombreBoton = 'Actualizar'  
+                      />
                     </td>
-                    <td className=''>
-                      <button className='bg-red-600 border border-white  w-[80%] h-[90%] text-white py-1 rounded hover:bg-red-700'>
-                        Eliminar
-                      </button>
+                    <td className='w-[7%] h-4 py-3 mr-3  pr-2'>
+                        <MiBoton
+                          nombreBoton = 'Eliminar'  
+                      />
                     </td>
                   </tr>
                 })}

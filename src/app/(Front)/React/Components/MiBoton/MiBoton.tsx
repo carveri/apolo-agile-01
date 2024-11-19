@@ -1,5 +1,6 @@
 'use client'
 
+import { deleteData } from "../../Fetch/deleteData";
 import { logicaMiBoton } from "./logicaMiBoton";
 import { useRouter } from "next/navigation";
 
@@ -16,7 +17,7 @@ interface IMiBoton {
 
 
 
-const MyButton = ({ nombreBoton}) => {
+const MiBoton = ({ nombreBoton}) => {
 
   const router = useRouter()
 
@@ -29,6 +30,17 @@ const MyButton = ({ nombreBoton}) => {
     else if(e.target.name === 'HomePrueba'){
       console.log('soy el bot de prueba'); 
     }
+    else if(e.target.name === 'Ver'){
+      console.log('soy el bot de prueba'); 
+    }
+    else if(e.target.name === 'Actualizar'){
+      console.log('soy el bot de prueba'); 
+    }
+    else if(e.target.name === 'Eliminar'){
+      console.log('borrar');
+      
+    }
+
   }
 
   return (
@@ -38,4 +50,4 @@ const MyButton = ({ nombreBoton}) => {
   )
 }
 
-export default MyButton
+export default MiBoton
