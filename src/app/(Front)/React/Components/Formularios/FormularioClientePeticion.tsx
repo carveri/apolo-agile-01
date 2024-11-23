@@ -1,11 +1,178 @@
-import React from 'react'
+'use client'
 
-const FormularioClientePeticion = ({handleSumbitCliente, dia, hora, cargoI, activoCargo, cargo, handleClickCargo, handleClickCliente2, userI, activoSolicitante, user, handleClickCliente3, handleChangeCliente, caracterI, activoCaracter, handleClickCaracter, caracter, handleClickCliente4, handleClickSolicitante}) => {
-  return (
+
+import { useState, useEffect } from "react";
+import { getData } from "../../Fetch/getData";
+import { getDataLista } from "../../Fetch/getDataLista";
+import { format } from "date-fns";
+
+
+const FormularioClientePeticion = ({id}) => {
+  
+    const [activoDepto, setActivoDepto] = useState(false)
+    const [activoCargo, setActivoCargo] = useState(false)
+    const [activoSolicitante, setActivoSolicitante] = useState(false)
+    const [activoCaracter, setActivoCaracter] = useState(false)
+    const [activoProblema, setActivoProblema] = useState(false)
+
+    // estados de los inputs 
+    const [nombreHistoria, setNombreHistoria] = useState('')
+    const [presupuestoHistoria, setPresupuestoHistoria] = useState(0)
+    const [tiempoHistoria, setTiempoHistoria] = useState(0)
+    const [detalleHistoria, setDetalleHistoria] = useState('')
+
+    // traer datos de la db
+    //const [departamento, setDepartamento] = useState([])
+    const [cargo, setCargo] = useState([])
+    const [user, setUser] = useState([])
+    const [caracter, setCaracter] = useState([])
+
+
+    // inicial
+    //const [departamentoI, setDepartamentoI] = useState('Stake Holder')
+    const [cargoI, setCargoI] = useState('SuperAdmin')
+    const [userI, setUserI] = useState('Usuario@gmail.com')
+    const [caracterI, setCaracterI] = useState('Crecimiento')
+
+    // ids
+    //const [departamentoId, setDepartamentoId] = useState('')
+    const [cargoId, setCargoId] = useState('')
+    const [userId, setUserId] = useState('')
+    const [caracterId, setCaracterId] = useState('')
+    const [puntoHistoria, setPuntoHistoria] = useState(12)
+
+    useEffect(()=>{
+        // const traerDepto =async()=>{
+        //     const ruta = 'departamento'
+        //     const res = await getData({ruta})
+        //     setDepartamento(res)
+        // }
+        const traerCargo =async()=>{
+            const ruta = 'cargo'
+            //const url = '12b87914-ed8c-4411-931e-7b9b567d7117'
+            const res = await getData({ruta})
+            setCargo(res)
+        }
+        const traerCargo2 =async()=>{
+            const ruta = 'cargoPorArea'
+            const url = '12b87914-ed8c-4411-931e-7b9b567d7117'
+            const res = await getDataLista({ruta, url})
+            setCargo(res)
+        }
+        const traerUser =async()=>{
+            const ruta = 'user'
+            const res = await getData({ruta})
+            setUser(res)
+        }
+        const traerCaracter =async()=>{
+            const ruta = 'caracter'
+            const res = await getData({ruta})
+            setCaracter(res)
+        }
+        //traerDepto()
+        traerCargo()
+        traerUser()
+        traerCaracter()
+        
+
+    }, [])
+
+    //console.log(caracter);
+    
+
+
+    // const handleClickDepto =()=>{
+    //     setActivoDepto(!activoDepto)
+    // }
+
+    const handleClickCargo = ()=>{
+        setActivoCargo(!activoCargo)
+    }
+
+    const handleClickSolicitante = ()=>{
+        setActivoSolicitante(!activoSolicitante)
+    }
+
+
+    // detalles
+    const handleClickCaracter =()=>{
+        setActivoCaracter(!activoCaracter)
+    }
+
+    const handleClickProblema =()=>{
+        setActivoProblema(!activoProblema)
+    }
+
+    const handleChangeCliente =(e)=>{
+        if(e.target.name === 'nombreHistoria'){
+            setNombreHistoria(e.target.value)
+        }
+        
+        else if(e.target.name === 'presupuestoHistoria'){
+            setPresupuestoHistoria(e.target.valueAsNumber)
+        }
+        else if(e.target.name === 'tiempoHistoria'){
+            setTiempoHistoria(e.target.valueAsNumber)
+        }
+        else if(e.target.name === 'detalleHistoria'){
+            setDetalleHistoria(e.target.value)
+        }
+        else if(e.target.name === 'puntoDeHistoria'){
+            setPuntoHistoria(e.target.valueAsNumber)
+        }
+        else {
+            console.log('sd');
+            
+        }
+        
+    }
+
+    const areaId = "12b87914-ed8c-4411-931e-7b9b567d7117"
+    const productBacklogId = '1af659a1-06b9-46e7-94fb-2220d8f5f0b8'
+    const equipo3 = 6
+
+    const handleClickCliente2 =(id, nombreCargo)=>{
+        setCargoId(id)
+        setCargoI(nombreCargo)
+        setActivoCargo(false)
+    }
+
+    const handleClickCliente3 =(id, email)=>{
+        setUserId(id)
+        setUserI(email)
+        setActivoSolicitante(false)
+    }
+
+    const handleClickCliente4 =(id, nombreCaracter)=>{
+        setCaracterId(id)
+        setCaracterI(nombreCaracter)
+        setActivoCaracter(false)
+    }
+
+    const handleSumbitCliente =(e)=>{
+        e.preventDefault()    
+        const data = { nombreHistoria, equipo3, presupuestoHistoria, puntoHistoria, tiempoHistoria,  detalleHistoria, productBacklogId, caracterId, userId}
+        console.log(data);
+        
+        // const ruta = 'historia'
+        // postData({ruta, data})
+        // alert('Se guardo correctamente la historia')
+        
+    }
+
+    const dia =format(new Date(), 'dd/MM/yyyy')
+    const hora = format(new Date(), 'H:mm')
+    console.log('iddelclientepapu:', id);
+    
+    
+    
+    
+  
+    return (
     <form onSubmit={handleSumbitCliente} action="" className=' w-full h-full '>
 
-                <div className='flex h-[85%]  place-content-center  mt-8 px-56 gap-x-10'>
-                    <section className='w-[48%] h-[95%] border border-gray-200 px-4 mr-10 pt-5 bg-white rounded'>
+                <div className='flex h-[85%]  place-content-center  mt-8 px-64 gap-x-16'>
+                    <section className='w-[48%] h-[95%] border border-gray-200 px-4 mr-10 pt-5 bg-white rounded shadow-md'>
                         <header className='w-full h-[10%]  grid place-content-center text-xl'>
                             Datos del Solicitante
                         </header>
@@ -27,39 +194,15 @@ const FormularioClientePeticion = ({handleSumbitCliente, dia, hora, cargoI, acti
                             
                             <article className='grid grid-rows-2 pb-3'>
                                 <label  htmlFor="">Cargo del solicitante:</label>
-                                    <div className=" pl-3 py-4 rounded-md bg-white border border-gray-200 cursor-pointer  grid content-center" onClick={handleClickCargo}>
-                                        {cargoI}
-                                    </div>
-                                    {activoCargo &&
-                                        <div className='mt-[250px] z-50 absolute top-60 left-3/5 max-h-[120px] overflow-auto '>
-                                            
-                                            {cargo.map((el)=>{
-                                                const {nombreCargo, id} = el
-                                                    return  (<div onClick={()=>handleClickCliente2(id, nombreCargo)} className='w-[435px] cursor-pointer ml-2 h-10 bg-white hover:bg-violet-200  grid items-center pl-4' key={el.id}>
-                                                        {nombreCargo}
-                                                    </div>)
-                                                })}
-                                        </div>
-                                    
-                                    }
+                                <div className=' pl-3 py-4 rounded-md  focus: border border-gray-200 bg-gray-50 grid content-center' >
+                                    sdsd
+                                </div>
                             </article>
-                            <article className='grid grid-rows-2'>
-                            <label  htmlFor="">Email del solicitante:</label>
-                                    <div className=" pl-3 py-4 rounded-md bg-white border border-gray-200 cursor-pointer  grid content-center" onClick={handleClickSolicitante}>
-                                        {userI}
-                                    </div>
-                                    {activoSolicitante &&
-                                        <div className='mt-[360px] z-50 absolute top-60 left-3/5 max-h-[120px] overflow-auto '>
-                                            
-                                            {user.map((el)=>{
-                                                const {email, id} = el
-                                                    return  (<div onClick={()=>handleClickCliente3(id, email)} className='w-[435px] cursor-pointer ml-2 h-10 bg-white hover:bg-violet-200  grid items-center pl-4' key={el.id}>
-                                                        {email} 
-                                                    </div>)
-                                                })}
-                                        </div>
-                                    
-                                    }
+                            <article className='grid grid-rows-2 pb-3'>
+                                <label  htmlFor="">Email del solicitante:</label>
+                                <div className=' pl-3 py-4 rounded-md  focus: border border-gray-200 bg-gray-50 grid content-center' >
+                                    cliente1@gmail.com
+                                </div>
                             </article>
                             <article className='grid grid-rows-2 pb-3'>
                                 <label  htmlFor="">Punto de historia:</label>
@@ -75,7 +218,7 @@ const FormularioClientePeticion = ({handleSumbitCliente, dia, hora, cargoI, acti
 
 
 
-                    <section className='w-[48%] h-[95%] border border-gray-200 bg-white  mr-4 pt-5  px-8'>
+                    <section className='w-[48%] h-[95%] border border-gray-200 bg-white  mr-4 pt-5  px-8 shadow-md'>
                         <header className='w-full h-[10%]  grid place-content-center text-xl pb-2' >
                             Detalles de la petición
                         </header>
