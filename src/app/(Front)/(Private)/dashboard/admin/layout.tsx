@@ -12,7 +12,7 @@ import { redirect } from 'next/navigation'
   import poAdmin from "../../../React/Assets/Icons/poAdmin2.png";
   import smAdmin from "../../../React/Assets/Icons/smAdmin2.png";
   import devsAdmin from "../../../React/Assets/Icons/devsAdmin2.png";
-  import adminAdmin from "../../../React/Assets/Icons/adminAdmin7.png";
+  import adminAdmin from "../../../React/Assets/Icons/adminAdmin6.png";
 
 
 
@@ -87,8 +87,8 @@ const linksAdmin = [
   return (
     <div className="w-screen h-screen flex">
       <section className="w-[280px] h-full bg-[--verdecito] ">
-        <header className="h-12 w-full bg-gray-500 grid place-content-center text-[#00ff08]">
-          Apolo Scrum
+        <header className="h-12 w-full bg-colorCajaLogo grid place-content-center text-white">
+          Apolo Agile
         </header>
         <aside className="w-full h-[820px] bg-gray-100 ">
          
@@ -107,10 +107,10 @@ const linksAdmin = [
           {children}
         </main>
         <div className=' h-7 flex items-center pl-4  bg-colorBarraBaja mt-1'>
-          <section className="w-4/6  bg-rgb(106, 114, 219) text-white">
+          <section className="w-4/6  bg-rgb(106, 114, 219) text-colorTextoBarraBaja font-semibold">
             {session.user?.email}
           </section>
-          <div className="text-white">
+          <div className="text-colorTextoBarraBaja font-semibold">
             {user?.name}
           </div>
       </div>

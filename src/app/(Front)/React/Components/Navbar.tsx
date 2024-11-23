@@ -40,7 +40,7 @@ const Navbar = () => {
                 </Link>
             </li>
             <div>
-                <button onClick={handleClickLogOut}>
+                <button className=' hover:underline py-2 px-1' onClick={handleClickLogOut}>
                     Salir
                 </button>
             </div>

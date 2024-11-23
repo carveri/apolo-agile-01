@@ -18,13 +18,16 @@ const config: Config = {
         'colorTextoNavbar': 'rgb(78, 81, 142)',
         'colorTextoTitulo1': 'rgb(186, 32, 153)',
         'colorTextoTitulo2': 'rgb(36, 28, 34)',
+        'colorTextoBarraBaja': 'white',
         
         // Componentes
         'colorNavbar': '#ffffff',
         'colorFormularioLogin': 'rgb(98, 102, 167)',
         'colorSidebar': 'rgb(146, 153, 255)',
-        'colorBarraBaja': 'rgb(114, 122, 240)',
+        'colorBarraBaja': 'rgb(95, 103, 210)',
         'hoverColorSidebar': 'rgb(134, 141, 236)',
+        'colorBarraSuperiorTablas': 'rgb(122, 143, 253)',
+        'colorCajaLogo': 'rgb(73, 61, 163)',
 
         // Botones
         'colorBotonPrincipal':'rgb(114, 122, 240)',

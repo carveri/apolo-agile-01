@@ -5,11 +5,9 @@ class EquipoCargo {
     // metodo
     getEquipoCargo = async(req:Request, {params})=>{
         const {id} = params
-        const getOneEquipoCargo = await prisma.equipo.findFirst({
+        const getOneEquipoCargo = await prisma.equipo.findMany({
             where: {
-                area:{
-                    is:''
-                }
+                
         })
         return getOneEquipoCargo
     }

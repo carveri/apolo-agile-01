@@ -33,7 +33,7 @@ export const logicaMiBoton = (nombre: string)=>{
             color: 'white',
             ancho: '100%',
             alto: '100%',
-            borde:'3%',
+            borde:'6%',
             hover: 'hoverBotonPrincipal'
         },
         {
@@ -44,7 +44,7 @@ export const logicaMiBoton = (nombre: string)=>{
             color: 'white',
             ancho: '100%',
             alto: '100%',
-            borde:'3%',
+            borde:'6%',
             hover: 'hoverBotonPrincipal'
         },
         {
@@ -55,7 +55,7 @@ export const logicaMiBoton = (nombre: string)=>{
             color: 'white',
             ancho: '100%',
             alto: '100%',
-            borde:'3%',
+            borde:'6%',
             hover: 'hoverBotonPrincipal'
         },
     ]

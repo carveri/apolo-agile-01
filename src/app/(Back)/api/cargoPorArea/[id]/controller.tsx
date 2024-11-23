@@ -3,19 +3,27 @@ import prisma from "@/libs/prisma"
 
 class CargoDetalle {
     // metodo
-    getCargoDetalleArea = async(req:Request, {params})=>{
-        const {departamentoId} = params
-        const getOneCargoArea = await prisma.cargo.findFirst({
-            where: {
-                departamentoId
+    getAreaDetalle = async(req:Request, {params})=>{
+        const {nombreArea} = params
+        const getOneArea = await prisma.area.findFirst({
+            where:{
+                nombreArea: nombreArea
+            },include:{
+                equipos:{
+                    include:{
+                        usuarios:{
+                            include:{
+                                cargo: true
+                            }
+                        }
+                    }
+                }
             },
-            
-            
             orderBy:{
-                nombreCargo: 'asc'
+                nombreArea: 'asc'
             }
         })
-        return getOneCargoArea
+        return getOneArea
     }
 }
 
