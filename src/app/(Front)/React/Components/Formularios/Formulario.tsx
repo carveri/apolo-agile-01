@@ -9,76 +9,13 @@ import Image from 'next/image';
 
 import flechaAbajo from "./../../../React/Assets/Icons/flechaAbajo4.png";
 import { getDataLista } from '../../Fetch/getDataLista';
+import {useUserStore } from '@/app/(Front)/(Private)/[stores]/userStore';
+import { postData } from '../../Fetch/postData';
 
 
-const Formulario = () => {
+const Formulario = ({id}) => {
 
-    const [parametro1, setParametro1] = useState('-')
-    const [parametros1, setParametros1] = useState([])
-    const [parametros1Id, setParametros1Id] = useState('')
-    
-    const [parametro2, setParametro2] = useState('-')
-    const [parametros2, setParametros2] = useState([])
-    const [parametros2Id, setParametros2Id] = useState('')
-
-    const [parametro3, setParametro3] = useState('-')
-    const [parametros3, setParametros3] = useState([])
-    const [parametros3Id, setParametros3Id] = useState('')
-
-
-    // estado de activacion
-    const [activoParametro1, setActivoParametro1] = useState(false)
-    const [activoParametro2, setActivoParametro2] = useState(false)
-    const [activoParametro3, setActivoParametro3] = useState(false)
-
-    // traer datos de los departamentos
-    useEffect(()=>{
-        const traerParametros = async()=>{
-            const ruta = 'departamento'
-            const res = await getData({ruta})
-            setParametros1(res)
-            
-        }    
-        traerParametros()
-        
-    }, [])
-
-    // traer datos de los cargos
-    useEffect(()=>{
-        const traerParametros = async()=>{
-            const ruta = 'cargoPorDepartamento'
-            const url = parametros1Id
-            const res = await getDataLista({ruta, url})
-            setParametros2(res)
-        }    
-        traerParametros()
-    }, [parametro1])
-
-    // traer datos de los equipos
-    useEffect(()=>{
-        const traerParametros = async()=>{
-            const ruta = 'equipo'
-            const res = await getData({ruta})
-            setParametros3(res)
-            
-        }    
-        traerParametros()
-        
-    }, [])
-
-    console.log('equipos:', parametros3);
-
-    const filtrarEquiposDevs =()=>{
-        const res = parametros3?.filter((el)=> el?.nombreEquipo.at(0) === 'D')
-        return res
-    }
-
-
-    console.log('filtro:', filtrarEquiposDevs());
-    
-    
-
- 
+    console.log('id del usuario:', id);
 
     // AREA
     const handleClickSelectForm =({id,nombreDepartamento})=>{
@@ -118,15 +55,167 @@ const Formulario = () => {
     }
     
 
-    console.log('iddepto:', parametros1Id);
-    console.log('idCargo:', parametros2Id);
-    console.log('deptos::', parametros1);
-    console.log('cargos::', parametros2);
+    // ESTADOS DE ONCHANGE
+    const [primerNombre, setPrimerNombre] = useState('')
+    const [segundoNombre, setSegundoNombre] = useState('')
+    const [apellidoPaterno, setApellidoPaterno] = useState('')
+    const [apellidoMaterno, setApellidoMaterno] = useState('')
+    const [rutPersonal, setRutPersonal] = useState('')
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+    const [confirmPassword, setConfirmPassword] = useState('')
 
-    console.log('nombredpro:', parametro1);
+
+
+    const [parametro1, setParametro1] = useState('-')
+    const [parametros1, setParametros1] = useState([])
+    const [parametros1Id, setParametros1Id] = useState('')
+    
+    const [parametro2, setParametro2] = useState('-')
+    const [parametros2, setParametros2] = useState([])
+    const [parametros2Id, setParametros2Id] = useState('')
+
+    const [parametro3, setParametro3] = useState('-')
+    const [parametros3, setParametros3] = useState([])
+    const [parametros3Id, setParametros3Id] = useState('')
+
+
+    // estado de activacion
+    const [activoParametro1, setActivoParametro1] = useState(false)
+    const [activoParametro2, setActivoParametro2] = useState(false)
+    const [activoParametro3, setActivoParametro3] = useState(false)
+
+    // estado traer las cosas de la empresa con el id del useer
+    const [empresa, setEmpresa] = useState([])
+
+
+    // traer el id de la empresa con el id del admin
+    useEffect(()=>{
+        const traerParametros = async()=>{
+            const ruta = 'empresaPorUser'
+            const url = id
+            const res = await getDataLista({ruta, url})
+            setEmpresa(res)
+            
+        }    
+        traerParametros()
+        
+    }, [])
+
+    console.log('info de la empresa: ', empresa);
+    
+
+    // traer datos de los departamentos
+    useEffect(()=>{
+        const traerParametros = async()=>{
+            const ruta = 'departamento'
+            const res = await getData({ruta})
+            setParametros1(res)
+            
+        }    
+        traerParametros()
+        
+    }, [])
+
+    // traer datos de los cargos
+    useEffect(()=>{
+        const traerParametros = async()=>{
+            const ruta = 'cargoPorDepartamento'
+            const url = parametros1Id
+            const res = await getDataLista({ruta, url})
+            setParametros2(res)
+        }    
+        traerParametros()
+    }, [parametro1])
+
+    // traer datos de los equipos
+    useEffect(()=>{
+        const traerParametros = async()=>{
+            const ruta = 'equipo'
+            const res = await getData({ruta})
+            setParametros3(res)
+            
+        }    
+        traerParametros()
+        
+    }, [])
+
+    //console.log('equipos:', parametros3);
+
+    const filtrarEquiposDevs =()=>{
+        const res = parametros3?.filter((el)=> el?.nombreEquipo.at(0) === 'D')
+        return res
+    }
+
+
+    //console.log('filtro:', filtrarEquiposDevs());
+    
+
+    // CAMBIAR ESTADO DEL ONCHANGE
+    const handleChangeAdmin =(e)=>{
+        if(e.target.name === 'primerNombre'){
+            setPrimerNombre(e.target.value)
+        }
+        else if(e.target.name === 'segundoNombre'){
+            setSegundoNombre(e.target.value)
+        }
+        else if(e.target.name === 'apellidoPaterno'){
+            setApellidoPaterno(e.target.value)
+        }
+        else if(e.target.name === 'apellidoMaterno'){
+            setApellidoMaterno(e.target.value)
+        }
+        else if(e.target.name === 'rutPersonal'){
+            setRutPersonal(e.target.value)
+        }
+        else if(e.target.name === 'email'){
+            setEmail(e.target.value)
+        }
+        else if(e.target.name === 'password'){
+            setPassword(e.target.value)
+        }
+        else if(e.target.name === 'confirmPassword'){
+            setConfirmPassword(e.target.value)
+        }
+    }
+    
+
+ 
+
     
     
-    //agregarUsuario('perroo')
+
+    // console.log('iddepto:', parametros1Id);
+    // console.log('idCargo:', parametros2Id);
+    // console.log('deptos::', parametros1);
+    // console.log('cargos::', parametros2);
+
+    // console.log('nombredpro:', parametro1);
+
+    const handleSubmitAdmin =(e)=>{
+        e.preventDefault()
+        const data = {
+            primerNombre, 
+            segundoNombre, 
+            apellidoPaterno, 
+            apellidoMaterno, 
+            rutPersonal, 
+            //parametros1Id,
+            empresaId: empresa.at(0)?.id,
+            cargoId: parametros2Id,
+            equipoId: parametros3Id,
+            email, 
+            password, 
+            confirmPassword}
+            console.log(data);
+
+            const ruta = 'user'
+
+            postData({ruta, data})
+            alert('Se guardo correctamente el nuevo usuario')
+        
+    }
+ 
     
 
   return (
@@ -136,7 +225,7 @@ const Formulario = () => {
                 Dashboard Cliente {'>'} Admin {'>'} Agregar Usuario
             </header>
             <main className='w-full h-[99%] -mt-6'>
-            <form  action={agregarUsuario} className=' w-full h-[700px]'>
+            <form  onSubmit={handleSubmitAdmin} className=' w-full h-[700px]'>
 
                 <div className='flex h-[95%]   place-content-center  mt-8  px-72 gap-x-10 '>
                     <section className='w-[48%] h-[95%] border border-gray-200 bg-white px-4 mr-10 pt-5  rounded shadow-lg'>
@@ -150,6 +239,7 @@ const Formulario = () => {
                                 nombre = 'primerNombre'
                                 tipo = 'text'
                                 placeholder = 'Pedro'
+                                handleChangeAdmin={handleChangeAdmin}
                             />
                             {/* SEGUNDO NOMBRE */}
                             <InputFormulario
@@ -157,6 +247,7 @@ const Formulario = () => {
                                 nombre = 'segundoNombre'
                                 tipo = 'text'
                                 placeholder = 'Raul'
+                                handleChangeAdmin={handleChangeAdmin}
                             />
                             
                             {/* AP PATERNO */}
@@ -165,6 +256,7 @@ const Formulario = () => {
                                 nombre = 'apellidoPaterno'
                                 tipo = 'text'
                                 placeholder = 'Ruiz'
+                                handleChangeAdmin={handleChangeAdmin}
                             />
                             {/* AP MATERNO */}
                             <InputFormulario
@@ -172,6 +264,7 @@ const Formulario = () => {
                                 nombre = 'apellidoMaterno'
                                 tipo = 'text'
                                 placeholder = 'Cortes'
+                                handleChangeAdmin={handleChangeAdmin}
                             />
                             {/* RUT PERSONAL */}
                             <InputFormulario
@@ -179,6 +272,7 @@ const Formulario = () => {
                                 nombre = 'rutPersonal'
                                 tipo = 'text'
                                 placeholder = '11.111.111-1'
+                                handleChangeAdmin={handleChangeAdmin}
                             />    
                         </div>
                         
@@ -271,7 +365,7 @@ const Formulario = () => {
                             }
 
                             {/* LISTA DE Equipos */}
-                            {(parametro1 === 'Backend' || 'Frontend' || 'Database' || 'Diseño' || 'Quality Assurance' || 'SysAdmin') &&
+                            {(parametro1 === 'Backend' || parametro1 === 'Frontend' || parametro1 ==='Database' || parametro1 ==='Diseño' || parametro1 ==='Quality Assurance' || parametro1 ==='SysAdmin') &&
                                 <article className='grid grid-rows-2 pb-3 '>
                                 <label  htmlFor="">Nombre Equipo</label>
                                     <div  className=" pl-3 pr-3 rounded-md  border border-gray-200 cursor-pointer  flex space-x-[10px]  " onClick={handleClickParam3}>
@@ -322,6 +416,7 @@ const Formulario = () => {
                                 nombre = 'email'
                                 tipo = 'text'
                                 placeholder = 'juanitoxx@gmail.com'
+                                handleChangeAdmin={handleChangeAdmin}
                             />
                             {/* PASSWORD */}
                             <InputFormulario
@@ -329,6 +424,7 @@ const Formulario = () => {
                                 nombre = 'password'
                                 tipo = 'text'
                                 placeholder = '************'
+                                handleChangeAdmin={handleChangeAdmin}
                             />
                             {/* CONFIRM PASSWORD */}
                             <InputFormulario
@@ -336,6 +432,7 @@ const Formulario = () => {
                                 nombre = 'confirmPassword'
                                 tipo = 'text'
                                 placeholder = '************'
+                                handleChangeAdmin={handleChangeAdmin}
                              />
                             
                         </div>

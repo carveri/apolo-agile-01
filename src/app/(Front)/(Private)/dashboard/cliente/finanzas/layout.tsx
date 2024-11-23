@@ -75,7 +75,7 @@ const linksTecnico = [
   return (
     <div className="w-screen h-screen flex">
       <section className="w-[280px] h-full bg-[--verdecito] ">
-        <header className="h-12 w-full bg-gray-500 grid place-content-center text-[#00ff08]">
+        <header className="h-12 w-full bg-colorCajaLogo grid place-content-center text-white">
           Apolo Scrum
         </header>
         <aside className="w-full h-[820px] bg-gray-100 ">
@@ -93,8 +93,8 @@ const linksTecnico = [
         <main className="w-full h-[828px]  rounded">
           {children}
         </main>
-        <div className=' h-7 flex items-center pl-4  bg-violet-400  mt-1'>
-          <section className="w-4/6  bg-violet-400 text-white">
+        <div className=' h-7 flex items-center pl-4  bg-colorBarraBaja  mt-1'>
+          <section className="w-4/6  bg-colorBarraBaja text-white">
           {session.user?.email}
           </section>
           <div className="text-white">

@@ -16,9 +16,11 @@ const config: Config = {
 
         // textos
         'colorTextoNavbar': 'rgb(78, 81, 142)',
-        'colorTextoTitulo1': 'rgb(186, 32, 153)',
+        'colorTextoTitulo1': 'rgb(95, 103, 210)',
         'colorTextoTitulo2': 'rgb(36, 28, 34)',
+        'colorTextoBarraAlta': 'white',
         'colorTextoBarraBaja': 'white',
+        'colorTextoBoton': 'white',
         
         // Componentes
         'colorNavbar': '#ffffff',
@@ -37,6 +39,7 @@ const config: Config = {
         'colorBotonSecundario': '#196363',
         'colorBotonEliminar': '#e1103d',
         'colorBotonActualizar': '#0051ff',
+        'colorBotonVer': '#3dc3c3',
 
 
         

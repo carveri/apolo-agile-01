@@ -185,7 +185,7 @@ const page = () => {
                             Datos del Solicitante
                         </header>
                         <div className='w-full h-[80%] grid grid-rows-5 px-8 '>
-                            <article className='flex w-full h-14  justify-end gap-x-10 text-violet-600 items-center font-semibold pr-4'>
+                            <article className='flex w-full h-14  justify-end gap-x-10 text-colorTextoTitulo1 items-center font-semibold pr-4'>
                                 <div>
                                     {dia}
                                 </div>
@@ -303,7 +303,7 @@ const page = () => {
                     </section>
                 </div>
                 <div className=' w-full h-[7%] grid place-items-center  mt-2'>
-                    <button className='w-[20%] h-[90%] bg-violet-500 hover:bg-violet-600 text-white rounded font-semibold'>
+                    <button className='w-[20%] h-[90%] bg-colorBotonPrincipal hover:bg-hoverColorBotonPrincipal text-white rounded font-semibold'>
                         Enviar
                     </button>
                 </div>

@@ -41,17 +41,17 @@ const Tabla = ({logicaTabla, usuarios}) => {
                       {el?.cargo?.nombreCargo}
                     </td>
                     
-                    <td className='w-[4%] h-4 py-3 mr-3 pr-2'>
+                    <td className='w-[4%] h-4 py-3 mr-3 pr-4 text-sm'>
                         <MiBoton
                           nombreBoton = 'Ver'  
                       />
                     </td>
-                    <td className='w-[7%] h-4 py-3 mr-3   pr-2'>
+                    <td className='w-[7%] h-4 py-3 mr-3   pr-4 text-sm'>
                         <MiBoton
                           nombreBoton = 'Actualizar'  
                       />
                     </td>
-                    <td className='w-[7%] h-4 py-3 mr-3  pr-2'>
+                    <td className='w-[7%] h-4 py-3 mr-3  pr-8 text-sm'>
                         <MiBoton
                           nombreBoton = 'Eliminar'  
                       />
