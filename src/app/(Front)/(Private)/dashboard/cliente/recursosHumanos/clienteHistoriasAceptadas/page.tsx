@@ -39,10 +39,10 @@ const page = () => {
         {histouseridcargo.length !== 0 ?
         <section  className='w-[99%] h-[99%]  '>
         <main className='py-2 px-4 w-full h-[99%] '>
-            <div className='h-14  bg-violet-100 grid place-content-center '>
+            <div className='h-14  bg-colorBarraSuperiorTablas grid place-content-center text-colorTextoBarraAlta font-semibold '>
                Historias Aceptadas
             </div>
-            <header className='w-full h-[7%] -mt-7 flex justify-end items-center  pb-3 font-bold mb-1 pr-6  text-violet-800 '>
+            <header className='w-full h-[7%] -mt-7 flex justify-end items-center  pb-3 font-bold mb-1 pr-6  text-colorTextoBarraAlta '>
              
               <div className='pr-3 '>
                 Fecha Actual
@@ -51,7 +51,7 @@ const page = () => {
                 {format(new Date(), 'dd/MM/yyyy')}
               </div>
             </header>
-            <div className='w-[1625px] z-30  top-28 left-3/5 max-h-[563px] overflow-auto'>
+            <div className='w-[1625px] mt-3 z-30  top-28 left-3/5 max-h-[563px] overflow-auto'>
               <table className='border border-gray-200   w-[100%]  '>
                 <thead>
                 <tr className='h-14'>

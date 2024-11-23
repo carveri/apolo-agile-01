@@ -5,6 +5,7 @@ import Image from 'next/image'
 import React from 'react'
 import { redirect } from "next/navigation";
 
+
 const page = async() => {
 
   const session = await getServerSession(authOptions)
@@ -25,6 +26,7 @@ const page = async() => {
             Dashboard {'>'} Clientes {'>'} Tecnico {'>'} Home
           </header>
           <main className='w-full h-[95%]  px-5 pt-5'>
+          
             <section className='w-full h-[9%]  flex gap-x-16 px-8 '>
               {dataHomePo.map((el)=>{
                 return <article key={el.id} className='w-full h-full  rounded-md flex bg-gray-50 border border-violet-50 shadow-md'>

@@ -17,7 +17,8 @@ import TablaPo from './components/TablaPo'
 const page = () => {
 
 
-  const {historiaBacklog, getHistoriaBacklog} = useHistoriaPo()
+  const historiaBacklog = useHistoriaPo((state)=> state.historiaBacklog)
+  const getHistoriaBacklog = useHistoriaPo((state)=> state.getHistoriaBacklog)
 
   useEffect(()=>{
     getHistoriaBacklog()
@@ -63,10 +64,22 @@ console.log('histodraw', historiaDraw);
 
     <div className='w-full h-full bg-white grid place-items-center' >
         <section className='w-[99%] h-[99%]   flex-col'>
-          <header className='w-full h-[5%] bg-white py-4 pl-4'>
+          <header className='w-full h-[6%] bg-white py-4 pl-4'>
             Dashboard {'>'} Product Owner {'>'} Product Backlog
           </header>
-          <div className='w-[1625px] h-[90%] z-30  top-32 left-3/5 max-h-[618px] overflow-auto  mt-10'>
+          <div className='h-14 w-[96%] ml-8 bg-colorBarraSuperiorTablas grid place-content-center text-colorTextoBarraAlta font-semibold'>
+               Product Backlog
+            </div>
+            <header className='w-full h-[7%] -mt-7 flex justify-end items-center  pb-3 font-bold mb-1 pr-12  text-colorTextoBarraAlta'>
+             
+              <div className='pr-6 -mt-9'>
+                Fecha Actual
+              </div>
+              <div className="-mt-9">
+                {format(new Date(), 'dd/MM/yyyy')}
+              </div>
+            </header>
+          <div className='w-[1625px] h-[90%]  z-30  top-32 left-3/5 max-h-[618px] overflow-auto -mt-8'>
           
           <table className='border border-gray-200   w-[98%] ml-8 '>
             <thead>
@@ -115,8 +128,8 @@ console.log('histodraw', historiaDraw);
         </table>
        
           </div>
-          <div className='h-[10%] bg-yellow-400 grid justify-end mt-4'>
-            <button className='bg-colorBotonAceptar h-[60%] w-40 rounded mr-14 mt-5'>
+          <div className='h-[10%]  grid justify-end mt-4'>
+            <button className='bg-colorBotonAceptar h-[60%] w-40 rounded mr-14 mt-5 text-colorTextoBoton'>
               Confirmar Cambios
             </button>
           </div>

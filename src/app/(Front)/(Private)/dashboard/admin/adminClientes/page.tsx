@@ -11,7 +11,9 @@ const page = async() => {
   const url = '12b87914-ed8c-4411-931e-7b9b567d7117'
   const usuarios = await getDataLista({ruta, url})
 
-  logicaTabla
+  //logicaTabla
+  console.log('usu:', usuarios);
+  
 
   return (
     <div className='w-full h-full bg-white grid place-items-center' >

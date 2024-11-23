@@ -21,6 +21,11 @@ const config: Config = {
         'colorTextoBarraAlta': 'white',
         'colorTextoBarraBaja': 'white',
         'colorTextoBoton': 'white',
+        'colorTextoCaja': 'white',
+        'colorTextoAceptada': 'rgb(1, 224, 1)',
+        'colorTextoRetornada': 'rgb(217, 8, 214)',
+        'colorTextoContraOferta': '#ff5b08',
+
         
         // Componentes
         'colorNavbar': '#ffffff',

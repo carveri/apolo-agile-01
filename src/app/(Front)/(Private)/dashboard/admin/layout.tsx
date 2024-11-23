@@ -87,7 +87,7 @@ const linksAdmin = [
   return (
     <div className="w-screen h-screen flex">
       <section className="w-[280px] h-full bg-[--verdecito] ">
-        <header className="h-12 w-full bg-colorCajaLogo grid place-content-center text-white">
+        <header className="h-12 w-full bg-colorCajaLogo grid place-content-center text-colorTextoCaja">
           Apolo Agile
         </header>
         <aside className="w-full h-[820px] bg-gray-100 ">

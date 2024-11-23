@@ -49,7 +49,7 @@ const page = () => {
 
   return (
     <main className='w-full h-[100%]  '>
-            <header className='bg-gray-100 h-12 grid place-content-center '>
+            <header className='bg-colorBarraSuperiorTablas h-12 grid place-content-center text-colorTextoBarraAlta font-semibold  '>
               Resolver Historia Tecnica
             </header>
             <table className='border border-gray-200 h-[40%]  w-[47%] mt-5   ml-[450px]'>

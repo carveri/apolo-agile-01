@@ -45,6 +45,18 @@ const page = () => {
 
   return (
     <div className='w-[1625px] z-30  top-28 left-3/5 max-h-[563px] overflow-auto'>
+        <div className='h-14  bg-colorBarraSuperiorTablas grid place-content-center text-colorTextoBarraAlta font-semibold '>
+               Resolución de conflictos
+            </div>
+            <header className='w-full h-[7%] -mt-7 flex justify-end items-center  pb-3 font-bold mb-1 pr-6  text-colorTextoBarraAlta '>
+             
+              <div className='pr-3 '>
+                Fecha Actual
+              </div>
+              <div>
+                {format(new Date(), 'dd/MM/yyyy')}
+              </div>
+            </header>
         {histouseridcargo.length !==0 ? 
           <table className='border border-gray-200   w-[97%] ml-10 '>
           <thead>
