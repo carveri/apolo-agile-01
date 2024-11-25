@@ -1,7 +1,10 @@
 
 
 export const getDataLista = async({ruta, url})=>{
-    //console.log('url:', url);
+    console.log('ruta en el gettt:', ruta);
+    console.log('url en el geett:', url);
+    
+    
     
     try {
         const apiUrl = `http://localhost:3000/api/${ruta}/${url}`

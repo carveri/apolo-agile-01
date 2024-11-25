@@ -29,7 +29,7 @@ const config: Config = {
         
         // Componentes
         'colorNavbar': '#ffffff',
-        'colorFormularioLogin': 'rgb(98, 102, 167)',
+        'colorFormularioLogin': 'rgb(73, 61, 163)',
         'colorSidebar': 'rgb(146, 153, 255)',
         'colorBarraBaja': 'rgb(95, 103, 210)',
         'hoverColorSidebar': 'rgb(134, 141, 236)',

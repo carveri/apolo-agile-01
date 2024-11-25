@@ -1,33 +1,134 @@
 'use client'
 
-import SelectFormulario from './SelectFormulario'
 import InputFormulario from './InputFormulario'
-import { agregarUsuario } from "@/app/actions/aAdmin"
 import { useState, useEffect } from "react";
 import { getData } from '../../Fetch/getData';
 import Image from 'next/image';
 
 import flechaAbajo from "./../../../React/Assets/Icons/flechaAbajo4.png";
 import { getDataLista } from '../../Fetch/getDataLista';
-import {useUserStore } from '@/app/(Front)/(Private)/[stores]/userStore';
 import { postData } from '../../Fetch/postData';
+
 
 
 const Formulario = ({id}) => {
 
-    console.log('id del usuario:', id);
+    //console.log('id del usuario:', id);
 
-    // AREA
+    
+    
+
+    // ESTADOS DE ONCHANGE
+    const [primerNombre, setPrimerNombre] = useState('')
+    const [segundoNombre, setSegundoNombre] = useState('')
+    const [apellidoPaterno, setApellidoPaterno] = useState('')
+    const [apellidoMaterno, setApellidoMaterno] = useState('')
+    const [rutPersonal, setRutPersonal] = useState('')
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+    const [confirmPassword, setConfirmPassword] = useState('')
+
+
+
+    const [parametro1, setParametro1] = useState('-')
+    const [parametros1, setParametros1] = useState([])
+    const [parametros1Id, setParametros1Id] = useState('sdd')
+    
+    const [parametro2, setParametro2] = useState('-')
+    const [parametros2, setParametros2] = useState([])
+    const [parametros2Id, setParametros2Id] = useState('')
+
+    const [parametro3, setParametro3] = useState('-')
+    const [parametros3, setParametros3] = useState([])
+    const [parametros3Id, setParametros3Id] = useState('')
+
+
+    // estado de activacion
+    const [activoParametro1, setActivoParametro1] = useState(false)
+    const [activoParametro2, setActivoParametro2] = useState(false)
+    const [activoParametro3, setActivoParametro3] = useState(false)
+
+    // estado traer las cosas de la empresa con el id del useer
+    const [empresa, setEmpresa] = useState([])
+
+
+
+    //console.log('info de la empresa: ', empresa);
+    
+    
+
+    // traer datos de los departamentos
+    useEffect(()=>{
+        const traerParametros = async()=>{
+            const ruta = 'departamento'
+            const res = await getData({ruta})
+            setParametros1(res)
+            
+        }    
+        traerParametros()
+        //location.reload();
+    }, []);
+
+        
+
+    // traer datos de los cargos
+        useEffect(()=>{
+            const traerParametros = async()=>{
+                const ruta = 'cargoPorDepartamento'
+                const url = parametros1Id
+                const res = await getDataLista({ruta, url})
+                setParametros2(res)
+            }    
+            traerParametros()
+        }, [parametros1Id])
+    
+    
+    
+    
+
+    // traer datos de los equipos
+    useEffect(()=>{
+        const traerParametros = async()=>{
+            const ruta = 'equipo'
+            const res = await getData({ruta})
+            setParametros3(res)
+            
+        }    
+        traerParametros()
+        
+    }, [])
+
+    // traer el id de la empresa con el id del admin
+    useEffect(()=>{
+        const traerParametros = async()=>{
+            const ruta = 'empresaPorUser'
+            const url = id
+            const res = await getDataLista({ruta, url})
+            setEmpresa(res)
+            
+        }    
+        traerParametros()
+        
+    }, [])
+
+    
+
+    // DEPARTAMENTO
     const handleClickSelectForm =({id,nombreDepartamento})=>{
         setParametros1Id(id)
         
         setParametro1(nombreDepartamento)
+        // traer cargos
+        
         setActivoParametro1(false)
     }
 
     const handleClickParam1 = ()=>{
+        
         setActivoParametro1(!activoParametro1)
     }
+
+    
     
     
     // CARGO
@@ -53,92 +154,6 @@ const Formulario = ({id}) => {
     const handleClickParam3 = ()=>{
         setActivoParametro3(!activoParametro3)
     }
-    
-
-    // ESTADOS DE ONCHANGE
-    const [primerNombre, setPrimerNombre] = useState('')
-    const [segundoNombre, setSegundoNombre] = useState('')
-    const [apellidoPaterno, setApellidoPaterno] = useState('')
-    const [apellidoMaterno, setApellidoMaterno] = useState('')
-    const [rutPersonal, setRutPersonal] = useState('')
-    const [email, setEmail] = useState('')
-    const [password, setPassword] = useState('')
-    const [confirmPassword, setConfirmPassword] = useState('')
-
-
-
-    const [parametro1, setParametro1] = useState('-')
-    const [parametros1, setParametros1] = useState([])
-    const [parametros1Id, setParametros1Id] = useState('')
-    
-    const [parametro2, setParametro2] = useState('-')
-    const [parametros2, setParametros2] = useState([])
-    const [parametros2Id, setParametros2Id] = useState('')
-
-    const [parametro3, setParametro3] = useState('-')
-    const [parametros3, setParametros3] = useState([])
-    const [parametros3Id, setParametros3Id] = useState('')
-
-
-    // estado de activacion
-    const [activoParametro1, setActivoParametro1] = useState(false)
-    const [activoParametro2, setActivoParametro2] = useState(false)
-    const [activoParametro3, setActivoParametro3] = useState(false)
-
-    // estado traer las cosas de la empresa con el id del useer
-    const [empresa, setEmpresa] = useState([])
-
-
-    // traer el id de la empresa con el id del admin
-    useEffect(()=>{
-        const traerParametros = async()=>{
-            const ruta = 'empresaPorUser'
-            const url = id
-            const res = await getDataLista({ruta, url})
-            setEmpresa(res)
-            
-        }    
-        traerParametros()
-        
-    }, [])
-
-    console.log('info de la empresa: ', empresa);
-    
-
-    // traer datos de los departamentos
-    useEffect(()=>{
-        const traerParametros = async()=>{
-            const ruta = 'departamento'
-            const res = await getData({ruta})
-            setParametros1(res)
-            
-        }    
-        traerParametros()
-        
-    }, [])
-
-    // traer datos de los cargos
-    useEffect(()=>{
-        const traerParametros = async()=>{
-            const ruta = 'cargoPorDepartamento'
-            const url = parametros1Id
-            const res = await getDataLista({ruta, url})
-            setParametros2(res)
-        }    
-        traerParametros()
-    }, [parametro1])
-
-    // traer datos de los equipos
-    useEffect(()=>{
-        const traerParametros = async()=>{
-            const ruta = 'equipo'
-            const res = await getData({ruta})
-            setParametros3(res)
-            
-        }    
-        traerParametros()
-        
-    }, [])
 
     //console.log('equipos:', parametros3);
 
@@ -184,7 +199,10 @@ const Formulario = ({id}) => {
 
     
     
-
+    console.log('parametros1:', parametros1);
+    console.log('parametros2:', parametros2);
+    
+    
     // console.log('iddepto:', parametros1Id);
     // console.log('idCargo:', parametros2Id);
     // console.log('deptos::', parametros1);
@@ -281,51 +299,42 @@ const Formulario = ({id}) => {
 
 
 
-                    <section className='w-[46%] h-[95%] border border-gray-200 bg-white  mr-4 pt-5 px-8 rounded shadow-lg'>
+                    <section className='w-[46%] h-[95%] border border-gray-200 bg-white  mr-4 pt-5 px-8 rounded shadow-lg '>
                         <header className='w-full h-[10%]  grid place-content-center text-xl ' >
                             Datos Laborales
                         </header>
                         <div className='w-full h-[80%] grid grid-rows-6 px-8 mt-2 '>
-                          
-
-
-
-
-
-
-
-
-
+     
                             {/* LISTA DE Departamento */}
-                            <article className='grid grid-rows-2 pb-3 '>
-                        <label  htmlFor="">Nombre Departamento</label>
-                            <div  className=" pl-3 pr-3 rounded-md  border border-gray-200 cursor-pointer  flex space-x-[10px]  " onClick={handleClickParam1}>
-                        <div className=" w-96 pt-2">
-                            {parametro1}
-                        </div> 
-                        {/* <input type="text" className="w-56 "  readOnly aria-valuetext="ds" defaultValue={parametro1} name="cargoId"/> */}
-                        <div className="pt-2">
-                            <Image
-                                src={flechaAbajo}
-                                alt="a"
-                                width={20}
-                                height={20}
-                            />
+                        <article className='grid grid-rows-2  pb-3 '>
+                            <label  htmlFor="">Nombre Departamento</label>
+                            <div  className=" pl-3 pr-3 rounded-md w-[380px] border  border-gray-200 cursor-pointer  flex space-x-[10px]  " onClick={handleClickParam1}>
+                                <div className=" w-[350px] pt-2">
+                                    {parametro1}
+                                </div> 
+                                {/* <input type="text" className="w-56 "  readOnly aria-valuetext="ds" defaultValue={parametro1} name="cargoId"/> */}
+                                <div className="pt-2">
+                                <Image
+                                    src={flechaAbajo}
+                                    alt="a"
+                                    width={20}
+                                    height={20}
+                                />
+                                </div>
                             </div>
-                        </div>
-                        {activoParametro1 &&
-                            <div className={` mt-[75px] z-50  w-[420px] absolute bg-yellow-300 left-3/5 max-h-[120px] overflow-auto `}>
-                                            
-                                {parametros1.map((el)=>{
-                                    const {id, nombreDepartamento} = el
-                                        return  (<button name='departamentoId' onClick={()=>handleClickSelectForm({id, nombreDepartamento})} className='w-[405px]  text-start cursor-pointer h-10 bg-white  hover:bg-violet-200  pl-4' key={id}>
-                                            {nombreDepartamento}
-                                                </button>)
-                                                })}
-                                        </div>
-                                    
-                                    }
-                            </article>
+                            {activoParametro1 &&
+                                <div className={` mt-[75px] z-50  w-[380px] absolute  left-3/5 max-h-[120px] overflow-auto `}>
+                                                
+                                    {parametros1.map((el)=>{
+                                        const {id, nombreDepartamento} = el
+                                            return  (<button name='departamentoId' onClick={()=>handleClickSelectForm({id, nombreDepartamento})} className='w-[365px]  text-start cursor-pointer h-10 bg-white  hover:bg-violet-200  pl-4' key={id}>
+                                                {nombreDepartamento}
+                                                    </button>)
+                                                    })}
+                                            </div>
+                                        
+                                        }
+                        </article>
 
 
 
@@ -334,26 +343,26 @@ const Formulario = ({id}) => {
                             {parametro1 !== '-' &&
                                 <article className='grid grid-rows-2 pb-3 '>
                                 <label  htmlFor="">Nombre Cargo</label>
-                                    <div  className=" pl-3 pr-3 rounded-md  border border-gray-200 cursor-pointer  flex space-x-[10px]  " onClick={handleClickParam2}>
-                                <div className=" w-96 pt-2 ">
-                                    {parametro2}
-                                </div> 
-                                {/* <input type="text" className="w-56 "  readOnly aria-valuetext="ds" defaultValue={parametro1} name="cargoId"/> */}
-                                <div className="pt-2">
-                                    <Image
-                                        src={flechaAbajo}
-                                        alt="a"
-                                        width={20}
-                                        height={20}
-                                    />
+                                <div  className=" pl-3 pr-3 rounded-md w-[380px] border border-gray-200 cursor-pointer  flex space-x-[10px]  " onClick={handleClickParam2}>
+                                    <div className=" w-96 pt-2 ">
+                                        {parametro2}
+                                    </div> 
+                                    {/* <input type="text" className="w-56 "  readOnly aria-valuetext="ds" defaultValue={parametro1} name="cargoId"/> */}
+                                    <div className="pt-2">
+                                        <Image
+                                            src={flechaAbajo}
+                                            alt="a"
+                                            width={20}
+                                            height={20}
+                                        />
                                     </div>
                                 </div>
                                 {activoParametro2 &&
-                                    <div className={` mt-[75px] w-[420px] z-50 absolute left-3/5 max-h-[120px] overflow-auto `}>
+                                    <div className={` mt-[75px] w-[380px] z-50 absolute left-3/5 max-h-[120px] overflow-auto `}>
                                                     
                                         {parametros2?.map((el)=>{
                                             const {id, nombreCargo} = el
-                                                return  (<button name='cargoId' onClick={()=>handleClickSelectForm2({id, nombreCargo})} className='w-[405px] text-start cursor-pointer h-10 bg-white hover:bg-violet-200  pl-4' key={id}>
+                                                return  (<button name='cargoId' onClick={()=>handleClickSelectForm2({id, nombreCargo})} className='w-[365px] text-start cursor-pointer h-10 bg-white hover:bg-violet-200  pl-4' key={id}>
                                                     {nombreCargo}
                                                         </button>)
                                                         })}
@@ -368,26 +377,26 @@ const Formulario = ({id}) => {
                             {(parametro1 === 'Backend' || parametro1 === 'Frontend' || parametro1 ==='Database' || parametro1 ==='Diseño' || parametro1 ==='Quality Assurance' || parametro1 ==='SysAdmin') &&
                                 <article className='grid grid-rows-2 pb-3 '>
                                 <label  htmlFor="">Nombre Equipo</label>
-                                    <div  className=" pl-3 pr-3 rounded-md  border border-gray-200 cursor-pointer  flex space-x-[10px]  " onClick={handleClickParam3}>
-                                <div className=" w-96 pt-2">
-                                    {parametro3}
-                                </div> 
-                                {/* <input type="text" className="w-56 "  readOnly aria-valuetext="ds" defaultValue={parametro1} name="cargoId"/> */}
-                                <div className="pt-2">
-                                    <Image
-                                        src={flechaAbajo}
-                                        alt="a"
-                                        width={20}
-                                        height={20}
-                                    />
+                                <div  className=" pl-3 pr-3 rounded-md w-[380px]  border border-gray-200 cursor-pointer  flex space-x-[10px]  " onClick={handleClickParam3}>
+                                    <div className=" w-96 pt-2">
+                                        {parametro3}
+                                    </div> 
+                                    {/* <input type="text" className="w-56 "  readOnly aria-valuetext="ds" defaultValue={parametro1} name="cargoId"/> */}
+                                    <div className="pt-2">
+                                        <Image
+                                            src={flechaAbajo}
+                                            alt="a"
+                                            width={20}
+                                            height={20}
+                                        />
                                     </div>
                                 </div>
                                 {activoParametro3 &&
-                                    <div className={` mt-[75px] w-[420px] z-50 absolute left-3/5 max-h-[120px] overflow-auto `}>
+                                    <div className={` mt-[75px] w-[380px] z-50 absolute left-3/5 max-h-[120px] overflow-auto `}>
                                                     
                                         {filtrarEquiposDevs()?.map((el)=>{
                                             const {id, nombreEquipo} = el
-                                                return  (<button name='equipoId' onClick={()=>handleClickSelectForm3({id, nombreEquipo})} className='w-[405px] text-start cursor-pointer h-10 bg-white hover:bg-violet-200  pl-4' key={id}>
+                                                return  (<button name='equipoId' onClick={()=>handleClickSelectForm3({id, nombreEquipo})} className='w-[365px] text-start cursor-pointer h-10 bg-white hover:bg-violet-200  pl-4' key={id}>
                                                     {nombreEquipo}
                                                         </button>)
                                                         })}
