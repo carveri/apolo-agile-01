@@ -73,7 +73,7 @@ console.log('histodraw', historiaDraw);
             <header className='w-full h-[7%] -mt-7 flex justify-end items-center  pb-3 font-bold mb-1 pr-12  text-colorTextoBarraAlta'>
              
               <div className='pr-6 -mt-9'>
-                Fecha Actual
+                Fecha Actual:
               </div>
               <div className="-mt-9">
                 {format(new Date(), 'dd/MM/yyyy')}
@@ -83,19 +83,19 @@ console.log('histodraw', historiaDraw);
           
           <table className='border border-gray-200   w-[98%] ml-8 '>
             <thead>
-            <tr className='h-14'>
-              <td className='w-[8%] pl-3'>Posición</td>
-              <td className='w-[20%]'>Nombre Historia</td>
-             
-              <td className='w-[10%]'>Fecha Ingreso </td>
-              <td className='w-[10%]'>Hora Ingreso</td>
-              <td className='w-[10%]'>Status </td>
+              <tr className='h-14'>
+                <td className='w-[8%] pl-3'>Posición</td>
+                <td className='w-[20%]'>Nombre Historia</td>
               
-              <td className='w-[10%]'>Tiempo(dias) </td>
-              <td className='w-[10%]'>Presupuesto (Clp) </td>
-              <td className='w-[10%]'>Sprint </td>
-              
-            </tr>
+                <td className='w-[10%]'>Fecha Ingreso </td>
+                <td className='w-[10%]'>Hora Ingreso</td>
+                <td className='w-[10%]'>Status </td>
+                
+                <td className='w-[10%]'>Tiempo(dias) </td>
+                <td className='w-[10%]'>Presupuesto (Clp) </td>
+                <td className='w-[10%]'>Sprint </td>
+                
+              </tr>
             </thead>
             <tbody>
             {historiaDraw?.map((el, index)=>{
@@ -105,7 +105,7 @@ console.log('histodraw', historiaDraw);
               
               const updatedAt2 = format(new Date(updatedAt), 'dd/MM/yyyy')
               const updatedPintar = format(new Date(updatedAt), 'H:mm')
-                return <SortableContext items={historiaDraw} strategy={verticalListSortingStrategy}>
+                return <SortableContext key={id} items={historiaDraw} strategy={verticalListSortingStrategy}>
                   <TablaPo
                     
                     id = {id}
@@ -129,7 +129,7 @@ console.log('histodraw', historiaDraw);
        
           </div>
           <div className='h-[10%]  grid justify-end mt-4'>
-            <button className='bg-colorBotonAceptar h-[60%] w-40 rounded mr-14 mt-5 text-colorTextoBoton'>
+            <button className='bg-colorBotonAceptar h-[60%] w-44 rounded mr-14 mt-5 text-colorTextoBoton font-semibold hover:bg-hoverColorBotonAceptar'>
               Confirmar Cambios
             </button>
           </div>

@@ -35,6 +35,7 @@ const config: Config = {
         'hoverColorSidebar': 'rgb(134, 141, 236)',
         'colorBarraSuperiorTablas': 'rgb(122, 143, 253)',
         'colorCajaLogo': 'rgb(73, 61, 163)',
+        'colorHoverLista': 'rgb(208, 216, 255)',
 
         // Botones
         'colorBotonPrincipal':'rgb(114, 122, 240)',
@@ -44,7 +45,7 @@ const config: Config = {
         'colorBotonSecundario': '#196363',
         'colorBotonEliminar': '#e1103d',
         'colorBotonActualizar': '#0051ff',
-        'colorBotonVer': '#3dc3c3',
+        'colorBotonVer': 'rgb(237 233 254)',
 
 
         

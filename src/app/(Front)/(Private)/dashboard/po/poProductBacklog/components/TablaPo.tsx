@@ -9,7 +9,7 @@ const TablaPo = ({id, nombreHistoria, updatedAt2, updatedPintar, createdAt, upda
     const {attributes, listeners, setNodeRef, transform, transition} = useSortable({id: id})
   
     return (
-        <tr  style={{transform: CSS.Transform.toString(transform), transition}} ref={setNodeRef} {...attributes} {...listeners}  className='border border-gray-200 h-14  cursor-pointer hover:bg-violet-200'>
+        <tr  style={{transform: CSS.Transform.toString(transform), transition}} ref={setNodeRef} {...attributes} {...listeners}  className='border border-gray-200 h-14  cursor-pointer hover:bg-colorHoverLista'>
                   <td className='pl-8'>
                     {index + 1}
                   </td>
@@ -36,7 +36,7 @@ const TablaPo = ({id, nombreHistoria, updatedAt2, updatedPintar, createdAt, upda
                     11
                   </td>
                    <td className=' '>
-                    <button className='bg-violet-100 grid place-content-center border border-gray-200 w-[50%] h-[80%] py-1 px-8 rounded hover:bg-violet-200'>
+                    <button className='bg-colorBotonVer grid place-content-center border border-gray-200 w-[50%] h-[80%] py-1 px-8 rounded hover:bg-violet-200'>
                       Ver
                     </button>
                   </td>

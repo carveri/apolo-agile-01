@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import { getData } from "../../Fetch/getData";
 import { getDataLista } from "../../Fetch/getDataLista";
 import { format } from "date-fns";
+import { postData } from "../../Fetch/postData";
 
 
 const FormularioClientePeticion = ({id, areaId, email}) => {
@@ -37,7 +38,7 @@ const FormularioClientePeticion = ({id, areaId, email}) => {
     // ids
     //const [departamentoId, setDepartamentoId] = useState('')
     const [cargoId, setCargoId] = useState('')
-    const [userId, setUserId] = useState('')
+    //const [userId, setUserId] = useState('')
     const [caracterId, setCaracterId] = useState('')
     const [puntoHistoria, setPuntoHistoria] = useState(12)
 
@@ -125,20 +126,24 @@ const FormularioClientePeticion = ({id, areaId, email}) => {
 
     const handleSumbitCliente =(e)=>{
         e.preventDefault()    
+        const userId = id
         const data = { nombreHistoria, equipo3, presupuestoHistoria, puntoHistoria, tiempoHistoria,  detalleHistoria, productBacklogId, caracterId, userId}
         console.log(data);
         
+        const ruta = 'historia'
+        postData({ruta, data})
+        alert('Se guardo correctamente la historia')
         
     }
 
     const dia =format(new Date(), 'dd/MM/yyyy')
     const hora = format(new Date(), 'H:mm')
-    console.log('idDElUsuario:', id);
-    console.log('IDDELAREA:', areaId);
+    // console.log('idDElUsuario:', id);
+    // console.log('IDDELAREA:', areaId);
     
     
     
-    console.log('cargoPOrUsuario:', cargo);
+    // console.log('cargoPOrUsuario:', cargo);
     
     
   
@@ -246,7 +251,7 @@ const FormularioClientePeticion = ({id, areaId, email}) => {
                 </div>
                 <div className=' w-full h-[7%] grid place-items-center  mt-2'>
                     <button className='w-[20%] h-[90%] bg-colorBotonPrincipal hover:bg-hoverColorBotonPrincipal text-white rounded font-semibold'>
-                        Enviar
+                        Guardar
                     </button>
                 </div>
             </form>

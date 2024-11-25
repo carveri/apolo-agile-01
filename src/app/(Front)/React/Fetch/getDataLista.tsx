@@ -1,8 +1,8 @@
 
 
 export const getDataLista = async({ruta, url})=>{
-    console.log('ruta en el gettt:', ruta);
-    console.log('url en el geett:', url);
+    // console.log('ruta en el gettt:', ruta);
+    // console.log('url en el geett:', url);
     
     
     

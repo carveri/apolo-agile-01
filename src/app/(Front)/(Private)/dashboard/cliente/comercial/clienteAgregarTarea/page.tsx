@@ -19,8 +19,8 @@ if(!session){
 const {user}= session
 const {id, name, email} = user
 //console.log('datauserpal cliente:', user.name);
-console.log('areaaid:', name);
-console.log('emaialal:', email);
+// console.log('areaaid:', name);
+// console.log('emaialal:', email);
 
 
 
