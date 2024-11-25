@@ -199,8 +199,7 @@ const Formulario = ({id}) => {
 
     
     
-    console.log('parametros1:', parametros1);
-    console.log('parametros2:', parametros2);
+   
     
     
     // console.log('iddepto:', parametros1Id);
@@ -221,11 +220,14 @@ const Formulario = ({id}) => {
             //parametros1Id,
             empresaId: empresa.at(0)?.id,
             cargoId: parametros2Id,
-            equipoId: parametros3Id,
+            equipoId: parametros3Id ? parametros3Id : '1c3eb8cf-684c-49d4-90da-6698060cbe54',
             email, 
             password, 
             confirmPassword}
             console.log(data);
+
+            //console.log(data);
+            
 
             const ruta = 'user'
 

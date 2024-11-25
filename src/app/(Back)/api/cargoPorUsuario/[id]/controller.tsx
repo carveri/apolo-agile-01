@@ -4,10 +4,14 @@ import prisma from "@/libs/prisma"
 class CargoPorUsuario {
     // metodo
     getCargoPorUsuario = async(req:Request, {params})=>{
-        const {departamentoId} = params
+        const {id} = params
         const getCargoPorUsuario = await prisma.cargo.findFirst({
             where: {
-                departamentoId
+                usuarios:{
+                    some:{
+                        id:id
+                    }
+                }
             },
             
             

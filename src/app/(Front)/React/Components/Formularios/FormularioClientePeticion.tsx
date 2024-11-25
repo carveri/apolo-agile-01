@@ -7,7 +7,7 @@ import { getDataLista } from "../../Fetch/getDataLista";
 import { format } from "date-fns";
 
 
-const FormularioClientePeticion = ({id}) => {
+const FormularioClientePeticion = ({id, areaId, email}) => {
   
     const [activoDepto, setActivoDepto] = useState(false)
     const [activoCargo, setActivoCargo] = useState(false)
@@ -23,7 +23,7 @@ const FormularioClientePeticion = ({id}) => {
 
     // traer datos de la db
     //const [departamento, setDepartamento] = useState([])
-    const [cargo, setCargo] = useState([])
+    const [cargo, setCargo] = useState({})
     const [user, setUser] = useState([])
     const [caracter, setCaracter] = useState([])
 
@@ -42,20 +42,11 @@ const FormularioClientePeticion = ({id}) => {
     const [puntoHistoria, setPuntoHistoria] = useState(12)
 
     useEffect(()=>{
-        // const traerDepto =async()=>{
-        //     const ruta = 'departamento'
-        //     const res = await getData({ruta})
-        //     setDepartamento(res)
-        // }
-        const traerCargo =async()=>{
-            const ruta = 'cargo'
-            //const url = '12b87914-ed8c-4411-931e-7b9b567d7117'
-            const res = await getData({ruta})
-            setCargo(res)
-        }
+        
+        
         const traerCargo2 =async()=>{
-            const ruta = 'cargoPorArea'
-            const url = '12b87914-ed8c-4411-931e-7b9b567d7117'
+            const ruta = 'cargoPorUsuario'
+            const url = id
             const res = await getDataLista({ruta, url})
             setCargo(res)
         }
@@ -70,20 +61,14 @@ const FormularioClientePeticion = ({id}) => {
             setCaracter(res)
         }
         //traerDepto()
-        traerCargo()
+        //traerCargo()
+        traerCargo2()
         traerUser()
         traerCaracter()
         
 
     }, [])
 
-    //console.log(caracter);
-    
-
-
-    // const handleClickDepto =()=>{
-    //     setActivoDepto(!activoDepto)
-    // }
 
     const handleClickCargo = ()=>{
         setActivoCargo(!activoCargo)
@@ -127,21 +112,10 @@ const FormularioClientePeticion = ({id}) => {
         
     }
 
-    const areaId = "12b87914-ed8c-4411-931e-7b9b567d7117"
+    //const areaId = "12b87914-ed8c-4411-931e-7b9b567d7117"
     const productBacklogId = '1af659a1-06b9-46e7-94fb-2220d8f5f0b8'
     const equipo3 = 6
 
-    const handleClickCliente2 =(id, nombreCargo)=>{
-        setCargoId(id)
-        setCargoI(nombreCargo)
-        setActivoCargo(false)
-    }
-
-    const handleClickCliente3 =(id, email)=>{
-        setUserId(id)
-        setUserI(email)
-        setActivoSolicitante(false)
-    }
 
     const handleClickCliente4 =(id, nombreCaracter)=>{
         setCaracterId(id)
@@ -154,17 +128,17 @@ const FormularioClientePeticion = ({id}) => {
         const data = { nombreHistoria, equipo3, presupuestoHistoria, puntoHistoria, tiempoHistoria,  detalleHistoria, productBacklogId, caracterId, userId}
         console.log(data);
         
-        // const ruta = 'historia'
-        // postData({ruta, data})
-        // alert('Se guardo correctamente la historia')
         
     }
 
     const dia =format(new Date(), 'dd/MM/yyyy')
     const hora = format(new Date(), 'H:mm')
-    console.log('iddelclientepapu:', id);
+    console.log('idDElUsuario:', id);
+    console.log('IDDELAREA:', areaId);
     
     
+    
+    console.log('cargoPOrUsuario:', cargo);
     
     
   
@@ -187,21 +161,21 @@ const FormularioClientePeticion = ({id}) => {
                             </article>
                             <article className='grid grid-rows-2 pb-3'>
                                 <label  htmlFor="">Area del solicitante:</label>
-                                <div className=' pl-3 py-4 rounded-md  focus: border border-gray-200 bg-gray-50 grid content-center' >
+                                <div className=' pl-3 py-4 rounded-md  focus: border border-gray-200 bg-gray-100 grid content-center' >
                                     Cliente
                                 </div>
                             </article>
                             
                             <article className='grid grid-rows-2 pb-3'>
                                 <label  htmlFor="">Cargo del solicitante:</label>
-                                <div className=' pl-3 py-4 rounded-md  focus: border border-gray-200 bg-gray-50 grid content-center' >
-                                    sdsd
+                                <div className=' pl-3 py-4 rounded-md  focus: border border-gray-200 bg-gray-100 grid content-center' >
+                                    {cargo?.nombreCargo}
                                 </div>
                             </article>
                             <article className='grid grid-rows-2 pb-3'>
                                 <label  htmlFor="">Email del solicitante:</label>
-                                <div className=' pl-3 py-4 rounded-md  focus: border border-gray-200 bg-gray-50 grid content-center' >
-                                    cliente1@gmail.com
+                                <div className=' pl-3 py-4 rounded-md  focus: border border-gray-200 bg-gray-100 grid content-center' >
+                                    {email}
                                 </div>
                             </article>
                             <article className='grid grid-rows-2 pb-3'>

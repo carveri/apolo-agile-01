@@ -36,10 +36,10 @@ class UserArea {
                         }
                     }
                 }
+            },
+            orderBy:{
+                apellidoPaterno: 'asc'
             }
-            // orderBy:{
-            //     apellidoPaterno: 'asc'
-            // }
         })
         return getOneUserArea
     }

@@ -1,26 +1,7 @@
-// 'use client'
-
 import { authOptions } from "@/app/(Back)/api/auth/[...nextauth]/route";
 import FormularioClientePeticion from "@/app/(Front)/React/Components/Formularios/FormularioClientePeticion"
 import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
-
-// import { useState, useEffect } from "react";
-// import { format } from "date-fns";
-
-// import { dataClientes } from '@/app/(Front)/React/Utils/dataClientes'
-
-// import React from 'react'
-// import { dataDeptos } from "@/app/(Front)/React/Utils/dataDeptos";
-// import { dataCaracter } from "@/app/(Front)/React/Utils/dataCaracter";
-// import { dataCargo } from "@/app/(Front)/React/Utils/dataCargo";
-// import { getData } from "@/app/(Front)/React/Fetch/getData";
-// import { postData } from "@/app/(Front)/React/Fetch/postData";
-// import { getDataLista } from "@/app/(Front)/React/Fetch/getDataLista";
-// import FormularioClientePeticion from "@/app/(Front)/React/Components/Formularios/FormularioClientePeticion";
-// import { getServerSession } from "next-auth";
-// import { authOptions } from "@/app/(Back)/api/auth/[...nextauth]/route";
-
 
 
 const page = async() => {
@@ -32,9 +13,14 @@ if(!session){
 }
 //console.log(user);
 
+// NAME => AREAID
+
+
 const {user}= session
-const {id} = user
-console.log('datauserpal cliente:', user);
+const {id, name, email} = user
+//console.log('datauserpal cliente:', user.name);
+console.log('areaaid:', name);
+console.log('emaialal:', email);
 
 
 
@@ -50,6 +36,8 @@ console.log('datauserpal cliente:', user);
             <main className='w-full h-[95%] '>
             <FormularioClientePeticion
                 id={id}
+                areaId={name}
+                email = {email}
             />
         </main>
         </section>

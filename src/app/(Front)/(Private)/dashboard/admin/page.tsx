@@ -17,7 +17,7 @@ const page = async() => {
   const {id, name, email, image} = user
   
 
-  console.log('datauser del admin:', user);
+  //console.log('datauser del admin:', user);
   
   
 
