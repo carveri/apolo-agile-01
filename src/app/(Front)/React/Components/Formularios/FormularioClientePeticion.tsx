@@ -21,6 +21,10 @@ const FormularioClientePeticion = ({id, areaId, email}) => {
     const [presupuestoHistoria, setPresupuestoHistoria] = useState(0)
     const [tiempoHistoria, setTiempoHistoria] = useState(0)
     const [detalleHistoria, setDetalleHistoria] = useState('')
+    const [quiero, setQuiero] = useState('')
+    const [como, setComo] = useState('')
+    const [para, setPara] = useState('')
+
 
     // traer datos de la db
     //const [departamento, setDepartamento] = useState([])
@@ -30,15 +34,10 @@ const FormularioClientePeticion = ({id, areaId, email}) => {
 
 
     // inicial
-    //const [departamentoI, setDepartamentoI] = useState('Stake Holder')
-    const [cargoI, setCargoI] = useState('SuperAdmin')
-    const [userI, setUserI] = useState('Usuario@gmail.com')
+    
     const [caracterI, setCaracterI] = useState('Crecimiento')
 
     // ids
-    //const [departamentoId, setDepartamentoId] = useState('')
-    const [cargoId, setCargoId] = useState('')
-    //const [userId, setUserId] = useState('')
     const [caracterId, setCaracterId] = useState('')
     const [puntoHistoria, setPuntoHistoria] = useState(12)
 
@@ -93,6 +92,15 @@ const FormularioClientePeticion = ({id, areaId, email}) => {
         if(e.target.name === 'nombreHistoria'){
             setNombreHistoria(e.target.value)
         }
+        else if(e.target.name === 'quiero'){
+            setQuiero(e.target.value)
+        }
+        else if(e.target.name === 'como'){
+            setComo(e.target.value)
+        }
+        else if(e.target.name === 'para'){
+            setPara(e.target.value)
+        }
         
         else if(e.target.name === 'presupuestoHistoria'){
             setPresupuestoHistoria(e.target.valueAsNumber)
@@ -127,12 +135,12 @@ const FormularioClientePeticion = ({id, areaId, email}) => {
     const handleSumbitCliente =(e)=>{
         e.preventDefault()    
         const userId = id
-        const data = { nombreHistoria, equipo3, presupuestoHistoria, puntoHistoria, tiempoHistoria,  detalleHistoria, productBacklogId, caracterId, userId}
+        const data = { nombreHistoria, equipo3, quiero, para, como, presupuestoHistoria, puntoHistoria, tiempoHistoria,  detalleHistoria, productBacklogId, caracterId, userId}
         console.log(data);
         
-        const ruta = 'historia'
-        postData({ruta, data})
-        alert('Se guardo correctamente la historia')
+        // const ruta = 'historia'
+        // postData({ruta, data})
+        // alert('Se guardo correctamente la historia')
         
     }
 
@@ -153,41 +161,47 @@ const FormularioClientePeticion = ({id, areaId, email}) => {
                 <div className='flex h-[85%]  place-content-center  mt-8 px-64 gap-x-16'>
                     <section className='w-[48%] h-[95%] border border-gray-200 px-4 mr-10 pt-5 bg-white rounded shadow-md'>
                         <header className='w-full h-[10%]  grid place-content-center text-xl'>
-                            Datos del Solicitante
+                            Información de la petición 
                         </header>
-                        <div className='w-full h-[80%] grid grid-rows-5 px-8 '>
-                            <article className='flex w-full h-14  justify-end gap-x-10 text-colorTextoTitulo1 items-center font-semibold pr-4'>
+                        <div className='w-full h-[80%] grid grid-rows-5 px-8 mt-4'>
+                            {/* <article className='flex w-full h-14  justify-end gap-x-10 text-colorTextoTitulo1 items-center font-semibold pr-4'>
                                 <div>
                                     {dia}
                                 </div>
                                 <div>
                                     {hora}
                                 </div>
-                            </article>
+                            </article> */}
                             <article className='grid grid-rows-2 pb-3'>
-                                <label  htmlFor="">Area del solicitante:</label>
-                                <div className=' pl-3 py-4 rounded-md  focus: border border-gray-200 bg-gray-100 grid content-center' >
-                                    Cliente
-                                </div>
+                                <label  htmlFor="">Nombre de la petición (Historia de usuario):</label>
+                                    
+                                    
+                                <input name="nombreHistoria" onChange={handleChangeCliente} className="pl-3 py-4 rounded-md bg-white border border-gray-200   grid content-center" type="text" placeholder="Agregar calendario. "/>
                             </article>
                             
                             <article className='grid grid-rows-2 pb-3'>
-                                <label  htmlFor="">Cargo del solicitante:</label>
-                                <div className=' pl-3 py-4 rounded-md  focus: border border-gray-200 bg-gray-100 grid content-center' >
-                                    {cargo?.nombreCargo}
-                                </div>
-                            </article>
-                            <article className='grid grid-rows-2 pb-3'>
-                                <label  htmlFor="">Email del solicitante:</label>
-                                <div className=' pl-3 py-4 rounded-md  focus: border border-gray-200 bg-gray-100 grid content-center' >
-                                    {email}
-                                </div>
-                            </article>
-                            <article className='grid grid-rows-2 pb-3'>
-                                <label  htmlFor="">Punto de historia:</label>
+                                <label  htmlFor="">Quiero:</label>
                                     
                                     
-                                <input name="puntoDeHistoria" onChange={handleChangeCliente} className="pl-3 py-4 rounded-md bg-white border border-gray-200   grid content-center" type="number" placeholder="10"/>
+                                <input name="quiero" onChange={handleChangeCliente} className="pl-3 py-4 rounded-md bg-white border border-gray-200   grid content-center" type="text" placeholder="Agregar un calendario como herramienta de filtro."/>
+                            </article>
+                            <article className='grid grid-rows-2 pb-3'>
+                                <label  htmlFor="">Cómo:</label>
+                                    
+                                    
+                                <input name="como" onChange={handleChangeCliente} className="pl-3 py-4 rounded-md bg-white border border-gray-200   grid content-center" type="text" placeholder="De color azul, en español."/>
+                            </article>
+                            <article className='grid grid-rows-2 pb-3'>
+                                <label  htmlFor="">Para:</label>
+                                    
+                                    
+                                <input name="para" onChange={handleChangeCliente} className="pl-3 py-4 rounded-md bg-white border border-gray-200   grid content-center" type="text" placeholder="Filtrar vacaciones de empleados entre las fechas..."/>
+                            </article>
+                            <article className='grid grid-rows-2 pb-3'>
+                                <label  htmlFor="">Archivo Explicativo (Opcional):</label>
+                                    
+                                    
+                                <input name="archivo" onChange={handleChangeCliente} className="pl-1 rounded-md bg-white    grid content-center" type="file" placeholder="Filtrar vacaciones de empleados entre las fechas..."/>
                             </article>
                             
                         </div>
@@ -204,22 +218,22 @@ const FormularioClientePeticion = ({id, areaId, email}) => {
                         <div className='w-full h-[80%] grid grid-rows-5 px-8 mt-2 '>
                             
                             <article className='grid grid-rows-2 pb-3'>
-                                <label  htmlFor="">Nombre de la petición (Historia de usuario):</label>
+                                <label  htmlFor="">Punto de Historia:</label>
                                     
                                     
-                                <input name="nombreHistoria" onChange={handleChangeCliente} className="pl-3 py-4 rounded-md bg-white border border-gray-200 cursor-pointer  grid content-center" type="text" placeholder="Agregar calendario..."/>
+                                <input name="puntoDeHistoria" onChange={handleChangeCliente} className="pl-3 py-4 rounded-md bg-white border border-gray-200 cursor-pointer  grid content-center" type="number" placeholder="10"/>
                             </article>
                             <article className='grid grid-rows-2 pb-3'>
                                 <label  htmlFor="">Caracter de la petición:</label>
-                                    <div className=" pl-3 py-4 rounded-md bg-white border border-gray-200 cursor-pointer  grid content-center" onClick={handleClickCaracter}>
+                                    <div className=" pl-3 py-4 rounded-md bg-gray-50 border border-gray-200 cursor-pointer  grid content-center" onClick={handleClickCaracter}>
                                         {caracterI}
                                     </div>
                                     {activoCaracter &&
-                                        <div className='mt-[162px] z-50 absolute top-60 left-3/5 max-h-44 overflow-auto '>
+                                        <div className='mt-[162px] z-50 absolute top-60 left-3/5 max-h-20 overflow-auto '>
                                             
                                             {caracter.map((el)=>{
                                                     const {nombreCaracter, id} = el
-                                                    return  (<div onClick={()=>handleClickCliente4(id, nombreCaracter)} className='w-[660px] cursor-pointer ml-2 h-10 bg-white hover:bg-violet-200  grid items-center pl-4' key={el.id}>
+                                                    return  (<div onClick={()=>handleClickCliente4(id, nombreCaracter)} className='w-[370px] cursor-pointer ml-2 h-10 bg-white hover:bg-violet-200  grid items-center pl-4' key={id}>
                                                         {nombreCaracter}
                                                     </div>)
                                                 })}
@@ -243,7 +257,7 @@ const FormularioClientePeticion = ({id, areaId, email}) => {
                                 <label className="h-7 "  htmlFor="">Detalle de la petición (Criterios de Aceptación):</label>
                                     
                                     
-                                <input name="detalleHistoria" onChange={handleChangeCliente} className="pl-3  h-24 rounded-md bg-white border border-gray-200 cursor-pointer  grid content-center" type="text" placeholder="Se requiere un calendario de color azul..."/>
+                                <input name="detalleHistoria" onChange={handleChangeCliente} className="pl-3  h-24 rounded-md bg-white border border-gray-200 cursor-pointer  " type="text" placeholder="Se requiere un calendario de color azul..."/>
                             </article>
                         </div>
                         

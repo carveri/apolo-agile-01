@@ -5,8 +5,11 @@ import { deleteData } from '@/app/(Front)/React/Fetch/deleteData'
 import { getDataLista } from '@/app/(Front)/React/Fetch/getDataLista'
 import { updateData } from '@/app/(Front)/React/Fetch/updateData'
 import {useState, useEffect} from 'react'
+import { useRouter } from "next/navigation";
 
 const page = () => {
+
+  const router = useRouter()
 
 
   const { idHistoria} = useHistoriaPo()
@@ -44,6 +47,7 @@ const page = () => {
     
     deleteData({ruta, url})
     alert('Se elimino correctamente la historia')
+    router.push('/dashboard/cliente/tecnico/listaResolver')
     
   }
 
