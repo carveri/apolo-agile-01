@@ -4,6 +4,7 @@ import { useHistoriaPo } from '../../../[stores]/poStore';
 import { useRouter } from "next/navigation";
 import { getDataLista } from '@/app/(Front)/React/Fetch/getDataLista';
 import { format } from "date-fns";
+import BadgeNoAun from '@/app/(Front)/React/Components/BadgeNoAun/BadgeNoAun';
 
 const page = () => {
 
@@ -94,8 +95,10 @@ const page = () => {
                 </tbody>
             </table>
               </div>: 
-              <div className='w-full h-[95%]  grid place-content-center text-xl'>
-                Aún no hay Historias retornadas
+              <div className='w-full h-[60%]  grid place-content-center text-xl'>
+                <BadgeNoAun
+                  nombre = 'Retornadas'
+                />
               </div>
           
           

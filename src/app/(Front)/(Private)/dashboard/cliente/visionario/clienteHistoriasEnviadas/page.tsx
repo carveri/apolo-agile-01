@@ -7,6 +7,7 @@ import { useHistoriaPo } from "@/app/(Front)/(Private)/[stores]/poStore";
 import Image from "next/image";
 
 import diagramaVacio from "../../../../../React/Assets/Icons/diagramaVacio2.png";
+import BadgeNoAun from "@/app/(Front)/React/Components/BadgeNoAun/BadgeNoAun";
 
 const page = () => {
 
@@ -114,19 +115,9 @@ const page = () => {
       
         </main>
     </section>: 
-    <div className='w-full h-[130%] grid content-end justify-center text-xl '>
-    <div className='flex justify-center'>
-      <Image
-        src={diagramaVacio}
-        width={120}
-        height={120}
-        alt='s'
-      />
-    </div>
-    <div>
-      Aún no hay Historias Enviadas
-    </div>
-  </div>
+    <BadgeNoAun
+    nombre='Enviadas'
+    />
       
       }
             

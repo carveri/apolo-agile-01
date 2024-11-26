@@ -287,18 +287,21 @@ model Historia {
   descripcion3  String @default("-")
   discrepancia4 String @default("-")
   descripcion4  String @default("-")
-  tiempo1     Int @default(10)
+  
   peso1          Int @default(100)
-  presupuesto2     Int @default(10)
+ 
   peso2          Int @default(100)
-  equipo3     Int @default(10)
+  
   peso3          Int @default(100)
   posicion    Int @default(0)
            
   isActive      Boolean @default(true)
   status       String @default("Pendiente")
 
-
+  quiero     String 
+  como       String
+  para       String
+  //archivo   String @default("https://www.google.com/url?sa=i&url=https%3A%2F%2Fpixabay.com%2Fes%2Fvectors%2Ffoto-de-perfil-en-blanco-973460%2F&psig=AOvVaw3jWVjyVsqp30np_KLIL0OK&ust=1732742764070000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCKCFnPr3-okDFQAAAAAdAAAAABAE")
 
   createdAt String @map("created_at")
   horaAt String @map("hora_at")

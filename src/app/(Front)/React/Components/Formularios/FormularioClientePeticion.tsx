@@ -135,12 +135,12 @@ const FormularioClientePeticion = ({id, areaId, email}) => {
     const handleSumbitCliente =(e)=>{
         e.preventDefault()    
         const userId = id
-        const data = { nombreHistoria, equipo3, quiero, para, como, presupuestoHistoria, puntoHistoria, tiempoHistoria,  detalleHistoria, productBacklogId, caracterId, userId}
+        const data = { nombreHistoria, quiero, para, como, presupuestoHistoria, puntoHistoria, tiempoHistoria,  detalleHistoria, productBacklogId, caracterId, userId}
         console.log(data);
         
-        // const ruta = 'historia'
-        // postData({ruta, data})
-        // alert('Se guardo correctamente la historia')
+        const ruta = 'historia'
+        postData({ruta, data})
+        alert('Se guardo correctamente la historia')
         
     }
 
@@ -163,7 +163,7 @@ const FormularioClientePeticion = ({id, areaId, email}) => {
                         <header className='w-full h-[10%]  grid place-content-center text-xl'>
                             Información de la petición 
                         </header>
-                        <div className='w-full h-[80%] grid grid-rows-5 px-8 mt-4'>
+                        <div className='w-full h-[80%] grid grid-rows-4 px-8 mt-4'>
                             {/* <article className='flex w-full h-14  justify-end gap-x-10 text-colorTextoTitulo1 items-center font-semibold pr-4'>
                                 <div>
                                     {dia}
@@ -197,12 +197,12 @@ const FormularioClientePeticion = ({id, areaId, email}) => {
                                     
                                 <input name="para" onChange={handleChangeCliente} className="pl-3 py-4 rounded-md bg-white border border-gray-200   grid content-center" type="text" placeholder="Filtrar vacaciones de empleados entre las fechas..."/>
                             </article>
-                            <article className='grid grid-rows-2 pb-3'>
+                            {/* <article className='grid grid-rows-2 pb-3'>
                                 <label  htmlFor="">Archivo Explicativo (Opcional):</label>
                                     
                                     
                                 <input name="archivo" onChange={handleChangeCliente} className="pl-1 rounded-md bg-white    grid content-center" type="file" placeholder="Filtrar vacaciones de empleados entre las fechas..."/>
-                            </article>
+                            </article> */}
                             
                         </div>
                         

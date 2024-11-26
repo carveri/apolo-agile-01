@@ -7,6 +7,7 @@ import { useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
 import { useHistoriaPo } from "../../../[stores]/poStore";
 import { format } from "date-fns";
+import BadgeNoAun from "@/app/(Front)/React/Components/BadgeNoAun/BadgeNoAun";
 //import { getData } from '@/app/(Front)/React/Fetch/getData';
 //import { useHistoriaPo, usePoStore } from '../../../[stores]/poStore';
 
@@ -102,9 +103,11 @@ const page = () => {
               </tbody>
           </table>
             </div>: 
-            <div className='w-full h-[95%]  grid place-content-center text-xl'>
-              No tienes nuevas historias.
-            </div>
+            <div className='w-full h-[60%]  grid place-content-center text-xl'>
+            <BadgeNoAun
+              nombre = ''
+            />
+          </div>
         
         }
           
