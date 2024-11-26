@@ -3,10 +3,12 @@
 import {useState, useEffect} from 'react'
 import { format } from "date-fns";
 import { useRouter, useSearchParams } from "next/navigation";
-import { getDataLista } from '@/app/(Front)/React/Fetch/getDataLista';
 import { useHistoriaPo } from '../../../../[stores]/poStore';
 import { getDataCompleja } from '@/app/(Front)/React/Fetch/getDataCompleja';
 //import { format } from "date-fns";
+import Image  from "next/image";
+
+import diagramaVacio from "../../../../../React/Assets/Icons/diagramaVacio2.png";
 
 
 
@@ -115,8 +117,8 @@ const page = () => {
                       </td>
                       
                       <td className='grid place-items-center pt-2 pr-2'>
-                        <button onClick={()=>handleClickVerResolucionHistoria(id)} className='w-[70px] h-10 ml-3 mr-3 bg-colorBotonVer rounded text-colorTextoBoton'>
-                          ver
+                        <button onClick={()=>handleClickVerResolucionHistoria(id)} className='w-[70px] h-10 ml-3 mr-3 bg-colorBotonVer rounded text-colorTextoBotonVer'>
+                          Ver
                         </button>
                       </td>
                       
@@ -131,9 +133,19 @@ const page = () => {
       
         </main>
     </section>: 
-    <div className='w-full h-full grid content-end justify-center text-xl'>
-      Aún no hay Historias Retornadas
-    </div>
+          <div className='w-full h-[130%] grid content-end justify-center text-xl '>
+                <div className='flex justify-center'>
+                  <Image
+                    src={diagramaVacio}
+                    width={120}
+                    height={120}
+                    alt='s'
+                  />
+                </div>
+                <div>
+                  Aún no hay Historias Retornadas
+                </div>
+          </div>
       
       }
             

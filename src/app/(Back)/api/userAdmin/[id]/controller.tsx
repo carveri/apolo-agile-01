@@ -24,7 +24,7 @@ class UserAdmin {
                         }
                     }
                 }
-            }
+            },
             orderBy:{
                 apellidoPaterno: 'asc'
             }

@@ -3,7 +3,7 @@
 import { format } from "date-fns";
 import {useState, useEffect} from 'react'
 import FormRegistro from './Components/FormRegistro'
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { postData } from '../../React/Fetch/postData';
 import Image from 'next/image';
 
@@ -11,8 +11,6 @@ import logoPrincipal from "./../../React/Assets/Icons/logoPricipal2.png";
 import { dataRegistro } from '../../React/Utils/dataRegistro';
 import Link from 'next/link';
 import { dataEmpresas } from '../../React/Utils/dataEmpresas';
-import { postData2 } from '../../React/Fetch/postData2';
-import { getData } from "../../React/Fetch/getData";
 import { getDataLista } from "../../React/Fetch/getDataLista";
 
 
@@ -152,10 +150,10 @@ const page = () => {
                 />
               </header> 
               <p className='text-2xl '>
-                Apolo Scrum
+                Apolo Agile
               </p>
             </article>
-          <ul className='text-xl bg-white '>
+          <ul className='text-xl bg-white h-[65%]'>
             {dataRegistro.map((el)=>{
               return <li key={el.id} className='flex pb-3'>
                 <header className='w-[10%]  grid justify-items-center pt-1'>

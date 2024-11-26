@@ -25,11 +25,12 @@ const config: Config = {
         'colorTextoAceptada': 'rgb(1, 224, 1)',
         'colorTextoRetornada': 'rgb(217, 8, 214)',
         'colorTextoContraOferta': '#ff5b08',
+        'colorTextoBotonVer': 'black',
 
         
         // Componentes
         'colorNavbar': '#ffffff',
-        'colorFormularioLogin': 'rgb(73, 61, 163)',
+        'colorFormularioLogin': 'rgb(103, 119, 198)',
         'colorSidebar': 'rgb(146, 153, 255)',
         'colorBarraBaja': 'rgb(95, 103, 210)',
         'hoverColorSidebar': 'rgb(134, 141, 236)',

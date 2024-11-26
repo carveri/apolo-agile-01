@@ -24,8 +24,14 @@ export const dataRegistro = [
     {
         id:4,
         icono: alerta,
-        titulo: 'La capa gratuita es permanente',
-        descripcion: 'La capa gratuita de Apolo Scrum ES permanete y vas a poder agregar productos de pago de acuerdo a tus necesidades durante el tiempo.'
+        titulo: 'La capa gratuita es por el primer mes',
+        descripcion: 'La capa gratuita de Apolo Scrum es por el primer mes y vas a poder agregar pluggins de pago de acuerdo a tus necesidades'
+    },
+    {
+        id:5,
+        icono: alerta,
+        titulo: 'No es necesario tarjeta de credito ni ningun otro metodo de pago.',
+        descripcion: ''
     },
     
 ]

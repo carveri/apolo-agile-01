@@ -54,10 +54,16 @@ export default async function RootLayout({children,}: Readonly<{children: React.
 const linksDevs = [
   {
       id:1,
-      href: '/dashboard/devs',
+      href: '/dashboard/devs/backend',
       nombre: 'Home',
       icono: homeDev
   },
+  {
+    id:2,
+    href: '/dashboard/devs/backend/diagrama',
+    nombre: 'Diagrama',
+    icono: miEquipoDev
+},
   
 ]
 

@@ -78,8 +78,8 @@ const linksSm = [
   return (
     <div className="w-screen h-screen flex">
       <section className="w-[280px] h-full bg-[--verdecito] ">
-        <header className="h-12 w-full bg-gray-500 grid place-content-center text-[#00ff08]">
-          Apolo Scrum
+        <header className="h-12 w-full bg-colorCajaLogo grid place-content-center text-colorTextoCaja">
+          Apolo Agile
         </header>
         <aside className="w-full h-[820px] bg-gray-100 ">
          

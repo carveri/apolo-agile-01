@@ -104,7 +104,7 @@ const page = () => {
                   {status}
                 </td>
                 <td className='w-full h-full  '>
-                  <button onClick={()=>handleClickVerAliderTecnico(id)} className='w-[70%] h-10 bg-violet-300 rounded'>
+                  <button onClick={()=>handleClickVerAliderTecnico(id)} className='w-[70%] h-10 bg-colorBotonVer rounded'>
                       Ver
                   </button>
                 </td>

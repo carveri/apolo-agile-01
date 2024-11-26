@@ -10,7 +10,7 @@ export const dataHistoricoDaily = [
         duracion: 15,
     },
     {
-        id:1,
+        id:2,
         daily: 1,
         fecha: '22-10-2020',
         equipo: 1,
@@ -18,7 +18,7 @@ export const dataHistoricoDaily = [
         duracion: 15,
     },
     {
-        id:1,
+        id:3,
         daily: 1,
         fecha: '22-10-2020',
         equipo: 1,
@@ -26,7 +26,7 @@ export const dataHistoricoDaily = [
         duracion: 15,
     },
     {
-        id:1,
+        id:4,
         daily: 1,
         fecha: '22-10-2020',
         equipo: 1,
@@ -34,7 +34,7 @@ export const dataHistoricoDaily = [
         duracion: 15,
     },
     {
-        id:1,
+        id:5,
         daily: 1,
         fecha: '22-10-2020',
         equipo: 1,
@@ -42,7 +42,7 @@ export const dataHistoricoDaily = [
         duracion: 15,
     },
     {
-        id:1,
+        id:6,
         daily: 1,
         fecha: '22-10-2020',
         equipo: 1,
@@ -50,7 +50,7 @@ export const dataHistoricoDaily = [
         duracion: 15,
     },
     {
-        id:1,
+        id:7,
         daily: 1,
         fecha: '22-10-2020',
         equipo: 1,
@@ -58,7 +58,7 @@ export const dataHistoricoDaily = [
         duracion: 15,
     },
     {
-        id:1,
+        id:8,
         daily: 1,
         fecha: '22-10-2020',
         equipo: 1,
@@ -66,7 +66,7 @@ export const dataHistoricoDaily = [
         duracion: 15,
     },
     {
-        id:1,
+        id:9,
         daily: 1,
         fecha: '22-10-2020',
         equipo: 1,
@@ -74,7 +74,7 @@ export const dataHistoricoDaily = [
         duracion: 15,
     },
     {
-        id:1,
+        id:10,
         daily: 1,
         fecha: '22-10-2020',
         equipo: 1,
@@ -82,7 +82,7 @@ export const dataHistoricoDaily = [
         duracion: 15,
     },
     {
-        id:1,
+        id:11,
         daily: 1,
         fecha: '22-10-2020',
         equipo: 1,
@@ -90,7 +90,7 @@ export const dataHistoricoDaily = [
         duracion: 15,
     },
     {
-        id:1,
+        id:12,
         daily: 1,
         fecha: '22-10-2020',
         equipo: 1,
@@ -98,7 +98,7 @@ export const dataHistoricoDaily = [
         duracion: 15,
     },
     {
-        id:1,
+        id:13,
         daily: 1,
         fecha: '22-10-2020',
         equipo: 1,
@@ -106,7 +106,7 @@ export const dataHistoricoDaily = [
         duracion: 15,
     },
     {
-        id:1,
+        id:14,
         daily: 1,
         fecha: '22-10-2020',
         equipo: 1,
@@ -114,7 +114,7 @@ export const dataHistoricoDaily = [
         duracion: 15,
     },
     {
-        id:1,
+        id:15,
         daily: 1,
         fecha: '22-10-2020',
         equipo: 1,
@@ -122,7 +122,7 @@ export const dataHistoricoDaily = [
         duracion: 15,
     },
     {
-        id:1,
+        id:16,
         daily: 1,
         fecha: '22-10-2020',
         equipo: 1,
@@ -130,7 +130,7 @@ export const dataHistoricoDaily = [
         duracion: 15,
     },
     {
-        id:1,
+        id:17,
         daily: 1,
         fecha: '22-10-2020',
         equipo: 1,
@@ -138,7 +138,7 @@ export const dataHistoricoDaily = [
         duracion: 15,
     },
     {
-        id:1,
+        id:18,
         daily: 1,
         fecha: '22-10-2020',
         equipo: 1,

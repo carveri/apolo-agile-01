@@ -138,7 +138,7 @@ const page = () => {
     const url = idHistoria
     deleteData({ruta, url})
     alert('La tarea se borro correctamente')
-    router.push('/dashboard/cliente/clienteResolucionTarea')
+    router.push('/dashboard/cliente/comercial/clienteResolucionTarea')
     
   }
 

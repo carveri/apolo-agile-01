@@ -7,8 +7,18 @@ const page = () => {
     <div className='w-full h-full bg-white grid place-items-center' >
         <section  className='w-[99%] h-[99%]  '>
             <main className='py-2 px-4 w-full h-[99%] '>
-                <div className='h-14  bg-gray-100 grid place-content-center '>
-                    Historical Retrospective meeting
+            <div className='h-14  bg-colorBarraSuperiorTablas text-colorTextoBarraAlta font-semibold flex'>
+                    <div className='w-[55%]  grid place-content-end py-3 text-base'>
+                    Retrospecive meeting Historica
+                    </div>
+                    <header className='w-[45%] h-[7%]  flex justify-end items-center  py-8 font-bold mb-1 pr-6   '>
+                      <div className='pr-3 '>
+                        Fecha Actual:
+                      </div>
+                      <div>
+                        {format(new Date(), 'dd/MM/yyyy')}
+                      </div>
+                  </header>
                 </div>
                 <div className='w-[1625px] h-[90%] z-30  top-20 left-3/5 max-h-[650px] overflow-auto'>
                     <table className='border border-gray-200   w-[100%]  '>

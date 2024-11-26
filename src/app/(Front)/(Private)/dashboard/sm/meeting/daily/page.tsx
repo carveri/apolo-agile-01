@@ -1,27 +1,26 @@
-import React from 'react'
-import Link from "next/link";
-import { dataTablaClientes } from '@/app/(Front)/React/Utils/dataTablaClientes';
 import { dataAsistenteDaily } from '@/app/(Front)/React/Utils/dataAsistentesDaily';
-
+import { format } from "date-fns";
 
 const page = () => {
   return (
-    <div className='w-full h-full bg-white grid place-items-center' >
+    <div className='w-full h-full bg-white grid place-items-center mt-1'  >
         <section  className='w-[99%] h-[99%]  '>
             <main className='py-2 px-4 w-full h-[99%] '>
-                <div className='h-14  bg-gray-100 grid place-content-center '>
+                <div className='h-14  bg-colorBarraSuperiorTablas text-colorTextoBarraAlta font-semibold flex'>
+                    <div className='w-[55%]  grid place-content-end py-3 text-base'>
                     Nueva Daily meeting
+                    </div>
+                    <header className='w-[45%] h-[7%]  flex justify-end items-center  py-8 font-bold mb-1 pr-6   '>
+                      <div className='pr-3 '>
+                        Fecha Actual:
+                      </div>
+                      <div>
+                        {format(new Date(), 'dd/MM/yyyy')}
+                      </div>
+                  </header>
                 </div>
-                <header className='w-full h-[7%]  flex justify-end items-center  py-3 font-bold mb-1 pr-6  text-violet-800 '>
-                 
-                  <div className='pr-3 '>
-                    Fecha Actual:
-                  </div>
-                  <div>
-                    24-10-2024
-                  </div>
-                </header>
-                <div className='w-[1625px] z-30  top-28 left-3/5 max-h-[520px] overflow-auto'>
+                
+                <div className='w-[1625px] z-30  top-28 left-3/5 max-h-[573px] overflow-auto'>
                   <table className='border border-gray-200   w-[100%]  '>
                     <tr className='h-14'>
                       <td className='w-[5%] pl-3'>Numero</td>
@@ -70,8 +69,8 @@ const page = () => {
                       })}
                 </table>
           </div>
-          <div className='w-full h-24  grid justify-end items-center pr-4 '>
-          <button className='bg-violet-600 w-32 h-[50%] rounded text-white font-semibold hover:bg-violet-700'>
+          <div className='w-full h-20  grid justify-end items-center pr-4 '>
+          <button className='bg-colorBotonPrincipal hover:bg-hoverColorBotonPrincipal w-32 h-[60%] rounded text-white font-semibold '>
             Guardar
           </button>
           </div>

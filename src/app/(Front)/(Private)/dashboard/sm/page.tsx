@@ -12,7 +12,7 @@ const page = () => {
           <main className='w-full h-[95%]  px-5 pt-5'>
             <header className='w-full h-[9%]  flex gap-x-16 px-8 '>
               {dataHomeSm.map((el)=>{
-                return <article className='w-full h-full  rounded-md flex bg-gray-50 border border-violet-50 shadow-md'>
+                return <article key={el} className='w-full h-full  rounded-md flex bg-gray-50 border border-violet-50 shadow-md'>
                   <div className='h-full w-[20%] grid place-content-center'>
                     <Image
                       width={50}

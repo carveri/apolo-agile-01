@@ -12,8 +12,7 @@ class HistoriaStatusCargo {
         const userId = url.searchParams.get("id")
         const status = url.searchParams.get("status")
         console.log(userId, status);
-        
-    }
+        }
     }
 
    

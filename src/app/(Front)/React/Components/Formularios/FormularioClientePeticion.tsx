@@ -240,7 +240,7 @@ const FormularioClientePeticion = ({id, areaId, email}) => {
                                 <input name="tiempoHistoria" onChange={handleChangeCliente} className="pl-3 py-4 rounded-md bg-white border border-gray-200 cursor-pointer  grid content-center" type="number" placeholder="7"/>
                             </article>
                             <article className='grid  pb-3  h-28'>
-                                <label className="h-7 "  htmlFor="">Detalle de la petición:</label>
+                                <label className="h-7 "  htmlFor="">Detalle de la petición (Criterios de Aceptación):</label>
                                     
                                     
                                 <input name="detalleHistoria" onChange={handleChangeCliente} className="pl-3  h-24 rounded-md bg-white border border-gray-200 cursor-pointer  grid content-center" type="text" placeholder="Se requiere un calendario de color azul..."/>
