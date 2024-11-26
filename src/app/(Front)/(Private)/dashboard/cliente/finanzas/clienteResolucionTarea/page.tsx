@@ -6,9 +6,10 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { getDataLista } from '@/app/(Front)/React/Fetch/getDataLista';
 import { useHistoriaPo } from '../../../../[stores]/poStore';
 import { getDataCompleja } from '@/app/(Front)/React/Fetch/getDataCompleja';
+import Image from 'next/image';
 //import { format } from "date-fns";
 
-
+import diagramaVacio from "../../../../../React/Assets/Icons/diagramaVacio2.png";
 
 const page = () => {
   const { idHistoria, cambiarIdHistoria} = useHistoriaPo()
@@ -133,9 +134,19 @@ const page = () => {
       
         </main>
     </section>: 
-    <div className='w-full h-full grid content-end justify-center text-xl'>
-      Aún no hay Historias Retornadas
-    </div>
+     <div className='w-full h-[130%] grid content-end justify-center text-xl '>
+     <div className='flex justify-center'>
+       <Image
+         src={diagramaVacio}
+         width={120}
+         height={120}
+         alt='s'
+       />
+     </div>
+     <div>
+       Aún no hay Historias Retornadas
+     </div>
+</div>
       
       }
             

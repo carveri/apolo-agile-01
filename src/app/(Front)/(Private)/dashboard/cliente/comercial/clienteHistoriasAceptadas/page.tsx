@@ -128,7 +128,7 @@ const page = () => {
         />
       </div>
       <div>
-        Aún no hay Historias Retornadas
+        Aún no hay Historias Aceptadas
       </div>
     </div>
       

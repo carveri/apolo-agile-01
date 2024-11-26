@@ -6,7 +6,8 @@ import { format } from "date-fns";
 import { useHistoriaPo } from "@/app/(Front)/(Private)/[stores]/poStore";
 import Image from "next/image";
 
-import iconoVacio from "../../../../../React/Assets/Icons/iconoVacio.png";
+//import iconoVacio from "../../../../../React/Assets/Icons/iconoVacio.png";
+import diagramaVacio from "../../../../../React/Assets/Icons/diagramaVacio2.png";
 
 const page = () => {
 
@@ -118,10 +119,19 @@ const page = () => {
       
         </main>
     </section>: 
-    <div className='w-full h-full grid content-end justify-center text-xl'>
-     
-      <p>Aún no hay historias Aceptadas</p>
+    <div className='w-full h-[130%] grid content-end justify-center text-xl '>
+    <div className='flex justify-center'>
+      <Image
+        src={diagramaVacio}
+        width={120}
+        height={120}
+        alt='s'
+      />
     </div>
+    <div>
+      Aún no hay Historias Aceptadas
+    </div>
+  </div>
       
       }
             
