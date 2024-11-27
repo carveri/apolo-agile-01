@@ -40,7 +40,7 @@ const page = () => {
     
   }, [])
 
-  console.log('histo unica:', historia);
+  console.log('histo unica po contra:', historia);
 
 
   // activos
@@ -99,18 +99,18 @@ const page = () => {
     const pesoTotal =  pesoTiempo + pesoPresupuesto
   
 
-  const handleClickAgregarAlProductBacklog =(e)=>{
-    const status = 'Aceptada'
-    // renombrar los estados 
-    const tiempoHistoria = ptiempo
-    const presupuestoHistoria = pPresupuesto
-    const equipo3 = pEquipo
-    const data = {tiempoHistoria, presupuestoHistoria, equipo3, status}
-    const ruta = 'historia'
-    const id = idHistoria
-    updateData({data, ruta, id})
-    alert('Se guardo la historia en el PB')
-  }
+  // const handleClickAgregarAlProductBacklog =(e)=>{
+  //   const status = 'Aceptada'
+  //   // renombrar los estados 
+  //   const tiempoHistoria = ptiempo
+  //   const presupuestoHistoria = pPresupuesto
+  //   const equipo3 = pEquipo
+  //   const data = {tiempoHistoria, presupuestoHistoria, equipo3, status}
+  //   const ruta = 'historia'
+  //   const id = idHistoria
+  //   updateData({data, ruta, id})
+  //   alert('Se guardo la historia en el PB')
+  // }
 
   const handleClickAgregarAlProductBacklogContra =()=>{
     const status = 'Aceptada'
@@ -182,22 +182,22 @@ const page = () => {
                             <div className='h-20 grid place-content-center'>
                               {historia?.discrepancia2} (Clp)
                             </div>
-                            <div className='h-20 grid place-content-center'>
+                            {/* <div className='h-20 grid place-content-center'>
                               {historia?.discrepancia3} (personas)
-                            </div>
+                            </div> */}
                             
 
                           </td>
                           <td className='pl-8'>
                             <div className='h-20 grid place-content-center'>
-                              {historia?.tiempo1}
+                              {historia?.tiempoHistoria}
                             </div>
                             <div className='h-20 grid place-content-center'>
-                              {historia?.presupuesto2}
+                              {historia?.presupuestoHistoria}
                             </div>
-                            <div className='h-20 grid place-content-center'>
+                            {/* <div className='h-20 grid place-content-center'>
                               {historia?.equipo3}
-                            </div>
+                            </div> */}
 
                           </td>
                           

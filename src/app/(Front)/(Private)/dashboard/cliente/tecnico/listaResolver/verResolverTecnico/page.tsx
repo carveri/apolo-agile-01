@@ -27,6 +27,8 @@ const page = () => {
     traerHistorias()
     
   }, [])
+  console.log('historia del tecnico:', historia);
+  
 
   console.log('idHisto ver lider tecnico:', idHistoria);
 
@@ -56,7 +58,7 @@ const page = () => {
             <header className='bg-colorBarraSuperiorTablas h-12 grid place-content-center text-colorTextoBarraAlta font-semibold  '>
               Resolver Historia Tecnica
             </header>
-            <table className='border border-gray-200 h-[40%]  w-[47%] mt-5   ml-[450px]'>
+            <table className='border border-gray-200 h-[60%]  w-[47%] mt-5   ml-[450px]'>
                     <thead>
                       <tr className='h-14'>
                         <td className='w-[7%]  pl-3'>Numero</td>
@@ -85,22 +87,22 @@ const page = () => {
                             <div className='h-20 grid place-content-center'>
                               {historia?.discrepancia2} (Clp)
                             </div>
-                            <div className='h-20 grid place-content-center'>
+                            {/* <div className='h-20 grid place-content-center'>
                               {historia?.discrepancia3} (personas)
-                            </div>
+                            </div> */}
                             
 
                           </td>
                           <td className='pl-8'>
                             <div className='h-20 grid place-content-center'>
-                              {historia?.tiempo1}
+                              {historia?.tiempoHistoria}
                             </div>
                             <div className='h-20 grid place-content-center'>
-                              {historia?.presupuesto2}
+                              {historia?.presupuestoHistoria}
                             </div>
-                            <div className='h-20 grid place-content-center'>
+                            {/* <div className='h-20 grid place-content-center'>
                               {historia?.equipo3}
-                            </div>
+                            </div> */}
 
                           </td>                      
                         </tr>
@@ -110,7 +112,7 @@ const page = () => {
                 <div className='w-full h-[100%]'>
 
                 </div>
-                <div className='w-full h-[10%]  grid justify-end pt-7 pr-7 font-bold text-lg'>
+                <div className='w-full h-[50%]  grid justify-end pt-7 pr-7 font-bold text-lg'>
                   
                 </div>
                 <div className='w-full h-[10%]  flex justify-end gap-x-2 pr-3'>

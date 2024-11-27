@@ -91,9 +91,9 @@ const page = () => {
     else if(e.target.name === 'presupuesto'){
       setPPresupuesto(e.target.valueAsNumber)
     }
-    else if(e.target.name === 'equipo'){
-      setPEquipo(e.target.valueAsNumber)
-    }
+    // else if(e.target.name === 'equipo'){
+    //   setPEquipo(e.target.valueAsNumber)
+    // }
     else {
       console.log('sd');
       
@@ -166,18 +166,27 @@ const page = () => {
             Dashboard {'>'} Clientes {'>'} Comercial {'>'} Resolucion Tarea {'>'} Ver
           </header>
           <main className='w-full h-[95%] '>
-            <header className='bg-gray-100 h-12 grid place-content-center '>
-              Resolucion de Historia retornada
+          <div className='h-14  bg-colorBarraSuperiorTablas grid place-content-center text-colorTextoBarraAlta font-semibold'>
+                Resolución de Historia Retornada
+            </div>
+            <header className='w-full h-[7%] -mt-12 flex justify-end items-center  pb-3 font-bold mb-1 pr-6  text-colorTextoBarraAlta '>
+             
+              <div className='pr-3 '>
+                Fecha Actual
+              </div>
+              <div>
+                {format(new Date(), 'dd/MM/yyyy')}
+              </div>
             </header>
-            <table className='border border-gray-200 h-[40%]  w-[97%] mt-5  ml-6'>
+            <table className='border border-gray-200 h-[40%]  w-[97%]  ml-6'>
                     <thead>
                       <tr className='h-14'>
                         <td className='w-[7%]  pl-3'>Numero</td>
                         <td className='w-[10%] pl-8'>Nombre Historia</td>
                         <td className='w-[13%] text-center'>Discrepancias</td>
-                        <td className='w-[10%] text-center'>Propuesta del Po</td>
+                        <td className='w-[10%] text-center'>Propuesta del Po($)</td>
                         
-                        <td className='w-[10%] text-center'>Nueva oferta</td>
+                        <td className='w-[10%] text-center'>Nueva oferta($)</td>
                         <td className='w-[10%] text-center'>Peso Oferta</td>
                         <td className='w-[10%] text-center'>Peso Discrepancia (%)</td>
                         <td className='w-[27%] text-center'>Descripciónes</td>
@@ -201,34 +210,28 @@ const page = () => {
                             <div className='h-20 grid place-content-center'>
                               {historia?.discrepancia2} (Clp)
                             </div>
-                            <div className='h-20 grid place-content-center'>
-                              {historia?.discrepancia3} (personas)
-                            </div>
+                            
                             
 
                           </td>
                           <td className='pl-8'>
                             <div className='h-20 grid place-content-center'>
-                              {historia?.tiempo1}
+                              {historia?.tiempoHistoria}
                             </div>
                             <div className='h-20 grid place-content-center'>
-                              {historia?.presupuesto2}
+                              {historia?.presupuestoHistoria}
                             </div>
-                            <div className='h-20 grid place-content-center'>
-                              {historia?.equipo3}
-                            </div>
+                            
 
                           </td>
                           <td>
                               <div className='h-20 grid place-content-center'>
-                                <input name='tiempo'  onChange={handleChangeVerResuTarea} type="number" className='rounded w-24 h-8 pl-10 border border-gray-200 ' placeholder='4'/>
+                                {peso2 !== 100 && <input name='tiempo'  onChange={handleChangeVerResuTarea} type="number" className='rounded w-24 h-8 pl-10 border border-gray-200 ' placeholder='4'/>}
                               </div>
                               <div className='h-20 grid place-content-center'>
-                                <input name='presupuesto'  onChange={handleChangeVerResuTarea}  type="number" className='rounded w-24 h-8 pl-3 border border-gray-200' placeholder='$100.000'/>
+                                {peso1 !== 100 && <input name='presupuesto'  onChange={handleChangeVerResuTarea}  type="number" className='rounded w-24 h-8 pl-3 border border-gray-200' placeholder='100.000'/>} 
                               </div>
-                              <div className='h-20 grid place-content-center'>
-                                <input name='equipo'  onChange={handleChangeVerResuTarea}  type="number" className='rounded w-24 h-8 pl-5 border border-gray-200' placeholder='43434'/>
-                              </div>
+                             
                               
                             
                           </td>
@@ -241,9 +244,7 @@ const page = () => {
                             <div className='h-20 grid place-content-center font-bold'>
                             {Math.round(pesoPresupuesto)}
                             </div>
-                            <div className='h-20 grid place-content-center font-bold'>
-                            {Math.round(pesoEquipo)}
-                            </div>
+                            
                           </td>
                           <td className='pl-8'>
                             <div className='h-20 grid place-content-center'>
@@ -252,9 +253,7 @@ const page = () => {
                             <div className='h-20 grid place-content-center'>
                             {historia?.peso2}
                             </div>
-                            <div className='h-20 grid place-content-center'>
-                            {historia?.peso3}
-                            </div>
+                            
                           </td>
                           
                           
@@ -267,9 +266,7 @@ const page = () => {
                             <div className='h-20 grid place-content-center'>
                               {historia?.descripcion2}
                             </div>
-                            <div className='h-20 grid place-content-center'>
-                              {historia?.descripcion3}
-                            </div>
+                            
                           </td>
                           
 

@@ -127,7 +127,7 @@ const page = () => {
         const data = {id, status,tiempoHistoria, presupuestoHistoria, peso1,  peso2, discrepancia1, descripcion1, discrepancia2, descripcion2, discrepancia3}
         updateData({ruta, id, data})
         alert('Se enviaron las dicrepancias')
-
+        location.reload();
 
             
         
@@ -276,7 +276,7 @@ const page = () => {
                    <div className='w-full h-[10%]  flex justify-end pr-9'>
                         <article className='w-[15%]  grid place-items-center'>
                             {checked1 && pesototal === 100 && paramTiempo !== 0 && pesoTiempo !== 0  &&
-                            <button  onClick={handleClickEnviarDiscrepancia} className='w-[95%] h-[60%] bg-violet-500 rounded text-white font-semibold hover:bg-violet-600'>
+                            <button  onClick={handleClickEnviarDiscrepancia} className='w-[95%] h-[60%] bg-colorBotonPrincipal rounded text-white font-semibold hover:bg-hoverColorBotonPrincipal'>
                                 Enviar discrepancias
                             </button>
                             
