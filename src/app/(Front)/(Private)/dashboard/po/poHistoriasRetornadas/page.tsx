@@ -50,19 +50,23 @@ const page = () => {
                 <thead>
                 <tr className='h-14'>
                   <td className='w-[10%] pl-3'>Numero</td>
-                  <td className='w-[15%]'>Historia</td>
+                  <td className='w-[12%]'>Historia</td>
                   <td className='w-[10%]'>Fecha Petición </td>
-                  <td className='w-[10%]'>Hora petición</td>
-                  <td className='w-[12%]'>Presupuesto (CLP)</td>
-                  <td className='w-[12%]'>Tiempo(Dias) </td>
-                  <td className='w-[12%]'>Status </td>
-                  <td className='w-[20%]'>Descripción </td>
+                  <td className='w-[10%]'>Hora Petición</td>
+                  <td className='w-[10%]'>Fecha Retorno </td>
+                  <td className='w-[10%]'>Hora Retorno</td>
+                  <td className='w-[10%]'>Presupuesto (CLP)</td>
+                  <td className='w-[10%]'>Tiempo(Dias) </td>
+                  <td className='w-[10%]'>Status </td>
+                  <td className='w-[10%]'>Descripción </td>
                   
                 </tr>
                 </thead>
                 <tbody>
                 {historiaStatusRetornada.map((el, index)=>{
-                  const {id,nombreHistoria, createdAt, horaAt, presupuestoHistoria, tiempoHistoria, detalleHistoria, status} = el
+                  const {id,nombreHistoria, createdAt, horaAt, updatedAt, presupuestoHistoria, tiempoHistoria, detalleHistoria, status} = el
+                  const updatedAt2 = format(new Date(updatedAt), 'dd/MM/yyyy')
+                  const updatedPintar = format(new Date(updatedAt), 'H:mm')
                     return <tr key={id} className='border border-gray-200 h-14  cursor-pointer '>
                       <td className='pl-8'>
                         {index + 1}
@@ -75,6 +79,12 @@ const page = () => {
                       </td>
                       <td >
                         {horaAt}
+                      </td>
+                      <td >
+                        {updatedAt2}
+                      </td>
+                      <td >
+                        {updatedPintar}
                       </td>
                       <td>
                         {presupuestoHistoria}

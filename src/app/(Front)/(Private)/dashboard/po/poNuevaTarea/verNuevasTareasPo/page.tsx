@@ -9,66 +9,35 @@ import { getDataLista } from '@/app/(Front)/React/Fetch/getDataLista';
 
 const page = () => {
 
+    // ACTIVOS 
     const [activoDiscrepancia, setActivoDiscrepancia] = useState(false)
     const [activoDiscrepancia2, setActivoDiscrepancia2] = useState(false)
-    const [activoDiscrepancia3, setActivoDiscrepancia3] = useState(false)
-    const [activoDiscrepancia4, setActivoDiscrepancia4] = useState(false)
-
-    const [activoTiempo, setActivoTiempo] = useState(false)
-    const [activoPeso, setActivoPeso] = useState(false)
-
-    const [activoPresupuesto, setActivoPresupuesto] = useState(false)
-    const [activoPeso2, setActivoPeso2] = useState(false)
-
-    const [activoEquipo, setActivoEquipo] = useState(false)
-    const [activoPeso3, setActivoPeso3] = useState(false)
-
-    // inicial
-    const [discrepancia1I, setDiscrepancia1I] = useState('Tiempo')
-    const [discrepancia2I, setDiscrepancia2I] = useState('Presupuesto')
-    const [discrepancia3I, setDiscrepancia3I] = useState('Equipo')
+    //const [activoDiscrepancia3, setActivoDiscrepancia3] = useState(false)
     
 
-    const [tiempo1I, setTiempo1I] = useState(10)
-    const [peso1I, setPeso1I] = useState(100)
+    // INICIAL
+    const [discrepancia1I, setDiscrepancia1I] = useState('Tiempo')
+    const [discrepancia2I, setDiscrepancia2I] = useState('Presupuesto')
+    //const [discrepancia3I, setDiscrepancia3I] = useState('Equipo')
+    
+    const [descTiempo, setDescTiempo] = useState('-')
+    const [descPresupuesto, setDescPresupuesto] = useState('-')
+    //const [descEquipo, setDescEquipo] = useState('-')
 
-    const [presupuesto1I, setPresupuesto1I] = useState(19822)
-    const [peso2I, setPeso2I] = useState(100)
-
-    const [equipo1I, setEquipo1I] = useState(69)
-    const [peso3I, setPeso3I] = useState(100)
-
-    // nombre
-    const [discrepancia1, setDiscrepancia1] = useState('-')
-    const [discrepancia2, setDiscrepancia2] = useState('-')
-    const [discrepancia3, setDiscrepancia3] = useState('-')
-    const [discrepancia4, setDiscrepancia4] = useState('-')
-
-    // descripciones
-    const [descripcion1, setDescripcion1] = useState("-")
-    const [descripcion2, setDescripcion2] = useState("-")
-    const [descripcion3, setDescripcion3] = useState("-")
-    const [descripcion4, setDescripcion4] = useState("-")
 
     // historiaporId
     const [historiaporId, setHistoriaporId] = useState({})
 
-    // estado de los inputs
 
-    const [descTiempo, setDescTiempo] = useState('-')
-    const [descPresupuesto, setDescPresupuesto] = useState('-')
-    const [descEquipo, setDescEquipo] = useState('-')
-
-    const [paramTiempo, setParamTiempo] = useState(0)
-    const [paramPresupuesto, setParamPresupuesto] = useState(0)
-    const [paramEquipo, setParamEquipo] = useState(0)
+    const {tiempoHistoria, presupuestoHistoria} = historiaporId
+    const [paramTiempo, setParamTiempo] = useState(tiempoHistoria)
+    const [paramPresupuesto, setParamPresupuesto] = useState(presupuestoHistoria)
+    //const [paramEquipo, setParamEquipo] = useState(0)
 
     const [pesoTiempo, setPesoTiempo] = useState(0)
     const [pesoPresupuesto, setPesoPresupuesto] = useState(0)
-    const [pesoEquipo, setPesoEquipo] = useState(0)
+    //const [pesoEquipo, setPesoEquipo] = useState(0)
 
-
-    // const discrepancia1 = 
 
 
     const handleClickVerNuevasTareas1 =()=>{
@@ -79,53 +48,11 @@ const page = () => {
         setActivoDiscrepancia2(!activoDiscrepancia2)
     }
 
-    const handleClickVerNuevasTareas3 =()=>{
-        setActivoDiscrepancia3(!activoDiscrepancia3)
-    }
-
-    const handleClickVerNuevasTareas4 =()=>{
-        setActivoDiscrepancia4(!activoDiscrepancia4)
-    }
+    // const handleClickVerNuevasTareas3 =()=>{
+    //     setActivoDiscrepancia3(!activoDiscrepancia3)
+    // }
 
 
-    // importante
-    const discrepancia1h =(id, discrepancia)=>{
-        setDiscrepancia1(discrepancia)
-        setDiscrepancia1I(discrepancia)
-        setActivoDiscrepancia(false)
-    }
-
-    const discrepancia2h =(id, discrepancia)=>{
-        setDiscrepancia2(discrepancia)
-        setDiscrepancia2I(discrepancia)
-        setActivoDiscrepancia2(false)
-    }
-    const discrepancia3h =(id, discrepancia)=>{
-        setDiscrepancia3(discrepancia)
-        setDiscrepancia3I(discrepancia)
-        setActivoDiscrepancia3(false)
-    }
-    const discrepancia4h =(id, discrepancia)=>{
-        setDiscrepancia4(discrepancia)
-        setDiscrepancia4I(discrepancia)
-        setActivoDiscrepancia4(false)
-    }
-
-    // tomar los datos de los inputs
-    const handleChangeDiscrepancia =(e)=>{
-        if(e.target.name === 'discrepancia1'){
-            setDescripcion1(e.target.value)
-        }
-        else if(e.target.name === 'discrepancia2'){
-            setDescripcion2(e.target.value)
-        }
-        else if(e.target.name === 'discrepancia3'){
-            setDescripcion3(e.target.value)
-        }
-        else if(e.target.name === 'discrepancia4'){
-            setDescripcion4(e.target.value)
-        }
-    }
 
     const { idHistoria} = useHistoriaPo()
 
@@ -144,9 +71,9 @@ const page = () => {
         setDescPresupuesto(e.target.value)
     }
 
-    const changeDesEquipo =(e)=>{
-        setDescEquipo(e.target.value)
-    }
+    // const changeDesEquipo =(e)=>{
+    //     setDescEquipo(e.target.value)
+    // }
 
     // handlechange parametero
     const changeParamTiempo = (e)=>{
@@ -157,9 +84,9 @@ const page = () => {
         setParamPresupuesto(e.target.valueAsNumber)
     }
 
-    const changeParamEquipo = (e)=>{
-        setParamEquipo(e.target.valueAsNumber)
-    }
+    // const changeParamEquipo = (e)=>{
+    //     setParamEquipo(e.target.valueAsNumber)
+    // }
     
 
     // handlechange peso 
@@ -172,11 +99,11 @@ const page = () => {
         setPesoPresupuesto(e.target.valueAsNumber)
     }
 
-    const changePesoEquipo = (e)=>{
-        setPesoEquipo(e.target.valueAsNumber)
-    }
+    // const changePesoEquipo = (e)=>{
+    //     setPesoEquipo(e.target.valueAsNumber)
+    // }
 
-        
+    
     
     
 
@@ -188,28 +115,21 @@ const page = () => {
         const discrepancia1 = 'Tiempo'
         const discrepancia2 = 'Presupuesto'
         const discrepancia3 = 'Equipo'
-        const tiempoHistoria = paramTiempo
-        const presupuestoHistoria = paramPresupuesto
+        let tiempoHistoria = paramTiempo !==0 && paramTiempo 
+        let presupuestoHistoria = paramPresupuesto !== 0 && paramPresupuesto
         const descripcion1 = descTiempo
         const descripcion2 = descPresupuesto
-        const descripcion3 = descEquipo
-        const tiempo1 = paramTiempo
-        const presupuesto2 = paramPresupuesto
-        const equipo3 = paramEquipo
         const peso1 = pesoTiempo
         const peso2 = pesoPresupuesto
-        const peso3 = pesoEquipo
         const ruta = 'historia'
         
-        
-        const data = {id, status,tiempoHistoria, presupuestoHistoria, tiempo1, peso1, presupuesto2, peso2, equipo3, peso3, discrepancia1, descripcion1, discrepancia2, descripcion2, discrepancia3, descripcion3}
-        console.log('data:', data);
-        //console.log('id:', id);
-        
-        
+
+        const data = {id, status,tiempoHistoria, presupuestoHistoria, peso1,  peso2, discrepancia1, descripcion1, discrepancia2, descripcion2, discrepancia3}
         updateData({ruta, id, data})
         alert('Se enviaron las dicrepancias')
-        location.reload();
+
+
+            
         
     }
 
@@ -221,16 +141,7 @@ const page = () => {
         const ruta = 'historia'
         const status = status2
         const data = {status}
-        // console.log('destiem:', descTiempo);
-        // console.log('despresu:', descPresupuesto);
-        // console.log('desequi:', descEquipo);
-        // console.log('paratiem:', paramTiempo);
-        // console.log('parapresu:', paramPresupuesto);
-        // console.log('paraequi:', paramEquipo);
-        // console.log('tiem:', pesoTiempo);
-        // console.log('presu:', pesoPresupuesto);
-        // console.log('equi:', pesoEquipo);
-        console.log(data);
+        //console.log(data);
         
         updateData({ruta, id, data})
         alert('Se guardo la historia en el ProductBacklog')
@@ -238,50 +149,12 @@ const page = () => {
         
     }
 
-    const handleClickTiempo =()=>{
-        setActivoTiempo(!activoTiempo)
-    }
-
-    const handleClickPeso =()=>{
-        setActivoPeso(!activoPeso)
-    }
-
 
     // estados de los checkbox
     const [checked1, setChecked1] = useState(false)
     const [checked2, setChecked2] = useState(false)
-    const [checked3, setChecked3] = useState(false)
-    const [checked4, setChecked4] = useState(false)
+    //const [checked3, setChecked3] = useState(false)
     
-    const tiempo1h =(id, tiempo)=>{
-        setTiempo1I(tiempo)
-        setActivoTiempo(false)
-    }
-
-    const peso1h = (id, nombrePeso)=>{
-        setPeso1I(nombrePeso)
-        setActivoPeso(false)
-    }
-
-    const presupuesto1h =(id, presupuesto)=>{
-        setPresupuesto1I(presupuesto)
-        setActivoPresupuesto(false)
-    }
-    const peso2h = (id, nombrePeso)=>{
-        setPeso1I(nombrePeso)
-        setActivoPeso(false)
-    }
-
-
-
-    const equipo1h =(id, equipo)=>{
-        setEquipo1I(equipo)
-        setActivoEquipo(false)
-    }
-    const peso3h = (id, nombrePeso)=>{
-        setPeso1I(nombrePeso)
-        setActivoPeso(false)
-    }
 
 
     // cosas a enviar 
@@ -303,8 +176,9 @@ const page = () => {
         titulo3: 'Peso de discrepancia (%)'
     }
 
-    const mt1 = 96
-    const mt2 = 96
+    // const mt1 = 96
+    // const mt2 = 96
+    
 
     useEffect(()=>{
         const traerHistoriaPorId = async()=>{
@@ -316,18 +190,12 @@ const page = () => {
         traerHistoriaPorId()
     }, [])
 
-    const {tiempoHistoria, presupuestoHistoria, equipo3} = historiaporId
-    console.log('hiXid:', historiaporId);
+    
+    //console.log('hiXid:', historiaporId);
 
     
-    const pesototal = pesoTiempo + pesoPresupuesto + pesoEquipo
-    //console.log('pesoTotal:', pesototal);
+    const pesototal = pesoTiempo + pesoPresupuesto
 
-    
-    
-    
-
-    
     
   return (
     <div className='w-full h-full bg-white grid place-items-center' >
@@ -348,18 +216,7 @@ const page = () => {
                                         setChecked = {setChecked1}
                                         handleClickVerNuevasTareas={handleClickVerNuevasTareas1}
                                         discrepanciaI={discrepancia1I}
-                                        handleChangeDiscrepancia={handleChangeDiscrepancia}
-                                        handleClickTiempo={handleClickTiempo}
-                                        tiempoI={tiempo1I}
-                                        activoTiempo={activoTiempo}
-                                        tiempoh={tiempo1h}
-                                        handleClickPeso={handleClickPeso}
-                                        pesoI={peso1I}
-                                        activoPeso={activoPeso}
-                                        pesoh={peso1h}
                                         dis={dis1}
-                                        top1 = {mt1}
-                                        top2 = {mt2}
                                         parame = {tiempoHistoria}
                                         handleChangeDes={changeDesTiempo}
                                         handleChangeInputPeso = {changePesoTiempo}
@@ -373,18 +230,7 @@ const page = () => {
                                         setChecked = {setChecked2}
                                         handleClickVerNuevasTareas={handleClickVerNuevasTareas2}
                                         discrepanciaI={discrepancia2I}
-                                        handleChangeDiscrepancia={handleChangeDiscrepancia}
-                                        handleClickTiempo={handleClickTiempo}
-                                        tiempoI={presupuesto1I}
-                                        activoTiempo={activoPresupuesto}
-                                        tiempoh={presupuesto1I}
-                                        handleClickPeso={handleClickPeso}
-                                        pesoI={peso2I}
-                                        activoPeso={activoPeso2}
-                                        pesoh={peso2h}
                                         dis={dis2}
-                                        top1 = {mt1}
-                                        top2 = {mt2}
                                         parame = {presupuestoHistoria}
                                         handleChangeDes={changeDescPresupuesto}
                                         handleChangeInputPeso = {changePesoPresupuesto}
@@ -392,53 +238,32 @@ const page = () => {
                                         
                                     />
 
-                                    <BadgeDiscrepancia
+                                    {/* <BadgeDiscrepancia
                                         numero = '3'
                                         checked = {checked3}
                                         setChecked = {setChecked3}
                                         handleClickVerNuevasTareas={handleClickVerNuevasTareas3}
                                         discrepanciaI={discrepancia3I}
-                                        handleChangeDiscrepancia={handleChangeDiscrepancia}
-                                        handleClickTiempo={handleClickTiempo}
-                                        tiempoI={tiempo1I}
-                                        activoTiempo={activoTiempo}
-                                        tiempoh={tiempo1h}
-                                        handleClickPeso={handleClickPeso}
-                                        pesoI={peso1I}
-                                        activoPeso={activoPeso}
-                                        pesoh={peso1h}
                                         dis={dis3}
-                                        top1 = {mt1}
-                                        top2 = {mt2}
                                         parame = {equipo3}
                                         handleChangeDes={changeDesEquipo}
                                         handleChangeInputPeso = {changePesoEquipo}
                                         handleChangeInputParam={changeParamEquipo}
-                                    />
+                                    /> */}
                             </main>
                         </section>
                         <section className='h-[10%] w-full grid  justify-end pt-6 pr-12 font-bold text-lg'>
                             {pesototal >100 &&
                                 <div className='flex flex-col  text-center'>
-                                    {/* <span>Peso total: {pesototal} %</span> */}
                                     <span>Peso total: {pesototal} %</span>
                                     <span className='text-red-600 text-sm'>Supera el 100%</span>
-                                    
                                 </div> 
-                                // <div>
-                                //     Peso total: {pesototal} %
-                                // </div>
-                        
                             }
                             {pesototal <100 &&
                                 <div className='flex flex-col  text-center'>
-                                    {/* <span>Peso total: {pesototal} %</span> */}
                                     <span>Peso total: {pesototal} %</span>
                                     <span className='text-cyan-600 text-sm'>No es igual a 100%</span>
                                 </div> 
-                                // <div className='bg-yellow-300'>
-                                //     Peso total: {pesototal} %
-                                // </div>
                         
                             }
                             {pesototal ===100 &&
@@ -457,7 +282,7 @@ const page = () => {
                             
                         }
                         </article>
-                        {descTiempo  === '-' && descPresupuesto  === '-' && descEquipo  === '-'  && paramTiempo === 0 && pesoTiempo === 0 && pesoPresupuesto === 0 && pesoEquipo === 0 && paramPresupuesto === 0 && paramEquipo === 0 &&
+                        {descTiempo  === '-' && descPresupuesto  === '-' &&   pesoTiempo === 0 && pesoPresupuesto === 0 && paramTiempo === 0 && paramPresupuesto === 0 &&  
                             <article className='w-[15%]  grid place-items-center'>
                                 <button onClick={handleClickAgregarAlPb} className='w-[95%] h-[60%] bg-[#00ff08] rounded text-white font-semibold hover:bg-[#00dd07]'>
                                     Agregar al product Backlog

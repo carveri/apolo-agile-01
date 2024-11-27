@@ -58,18 +58,19 @@ const page = () => {
               <thead>
               <tr className='h-14'>
                 <td className='w-[10%] pl-3'>Numero</td>
-                <td className='w-[15%]'>Historia</td>
+                <td className='w-[10%]'>Historia</td>
                 <td className='w-[10%]'>Fecha Petición </td>
                 <td className='w-[10%]'>Hora petición</td>
                 <td className='w-[12%]'>Presupuesto (CLP)</td>
                 <td className='w-[12%]'>Tiempo(Dias) </td>
+                <td className='w-[15%]'>Para </td>
                 <td className='w-[20%]'>Descripción </td>
                 
               </tr>
               </thead>
               <tbody>
               {historiaStatus.map((el, index)=>{
-                const {id,nombreHistoria, createdAt, horaAt, presupuestoHistoria, tiempoHistoria, detalleHistoria} = el
+                const {id,nombreHistoria, createdAt, para, horaAt, presupuestoHistoria, tiempoHistoria, detalleHistoria} = el
                   return <tr key={id} className='border border-gray-200 h-14  cursor-pointer '>
                     <td className='pl-8'>
                       {index + 1}
@@ -80,7 +81,7 @@ const page = () => {
                     <td >
                       {createdAt}
                     </td>
-                    <td >
+                    <td className="pl-4">
                       {horaAt}
                     </td>
                     <td>
@@ -88,6 +89,9 @@ const page = () => {
                     </td>
                     <td>
                       {tiempoHistoria}
+                    </td>
+                    <td>
+                      {para}
                     </td>
                     <td>
                       {detalleHistoria}
