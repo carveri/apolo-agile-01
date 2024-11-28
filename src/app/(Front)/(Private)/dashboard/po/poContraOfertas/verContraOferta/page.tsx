@@ -2,31 +2,24 @@
 
 import { getDataLista } from '@/app/(Front)/React/Fetch/getDataLista'
 import {useState, useEffect} from 'react'
-import { format } from "date-fns";
-import { dataTiempoHistoria } from '@/app/(Front)/React/Utils/dataTiempoHistoria';
-//import { useHistoriaPo } from '../../../[stores]/poStore';
 import { updateData } from '@/app/(Front)/React/Fetch/updateData';
 import { useHistoriaPo } from '@/app/(Front)/(Private)/[stores]/poStore';
+import { IHistoria } from '@/app/Interfaces/IGeneral';
+import { useRouter } from "next/navigation";
 
 const page = () => {
 
+  const router = useRouter()
+
   const { idHistoria} = useHistoriaPo()
 
-  const [historia, setHistoria] = useState({})
+  const [historia, setHistoria] = useState<IHistoria>({})
 
   // estados de los inputs
   const [ptiempo, setPtiempo] = useState(0)
   const [pPresupuesto, setPPresupuesto] = useState(0)
-  const [pEquipo, setPEquipo] = useState(0)
+  const [setPEquipo] = useState(0)
 
-  //const {historiaStatus, getHistoriaStatus} = useHistoriaPo
-  // useEffect(()=>{
-  //   cambiarIdHistoria()
-  // }, [])
-
-
-  console.log('idHistopintar:', idHistoria);
-  
 
   useEffect(()=>{
     //cambiarIdHistoria()
@@ -40,27 +33,9 @@ const page = () => {
     
   }, [])
 
-  console.log('histo unica po contra:', historia);
+ 
 
-
-  // activos
-  const [tiempoActivo, setTiempoActivo] = useState(false)
-  const [presupuestoActivo, setPresupuestoActivo] = useState(false)
-  const [equipoActivo, setEquipoActivo] = useState(false)
-  
-  const handleClickTiempo =()=>{
-    setTiempoActivo(!tiempoActivo)
-  }
-
-  const handleClickPresupuesto =()=>{
-    setPresupuestoActivo(!presupuestoActivo)
-  }
-
-  const handleClickEquipo = ()=>{
-    setEquipoActivo(!equipoActivo)
-  }
-
-  const {tiempoHistoria, presupuestoHistoria, equipo3, peso1, peso2, peso3} = historia
+  const {tiempoHistoria, presupuestoHistoria, peso1, peso2} = historia
   //const of1 = 
 
   const calculoPesoOferta =(oferta1 = 0, oferta2 = 0  , peso = 0 )=>{
@@ -84,9 +59,7 @@ const page = () => {
     else if(e.target.name === 'presupuesto'){
       setPPresupuesto(e.target.valueAsNumber)
     }
-    else if(e.target.name === 'equipo'){
-      setPEquipo(e.target.valueAsNumber)
-    }
+    
     else {
       console.log('sd');
       
@@ -95,22 +68,9 @@ const page = () => {
 
     let pesoTiempo = calculoPesoOferta(tiempoHistoria, ptiempo, peso1) 
     let pesoPresupuesto = calculoPesoOferta(presupuestoHistoria, pPresupuesto, peso2) 
-    let pesoEquipo = 0
+    //let pesoEquipo = 0
     const pesoTotal =  pesoTiempo + pesoPresupuesto
   
-
-  // const handleClickAgregarAlProductBacklog =(e)=>{
-  //   const status = 'Aceptada'
-  //   // renombrar los estados 
-  //   const tiempoHistoria = ptiempo
-  //   const presupuestoHistoria = pPresupuesto
-  //   const equipo3 = pEquipo
-  //   const data = {tiempoHistoria, presupuestoHistoria, equipo3, status}
-  //   const ruta = 'historia'
-  //   const id = idHistoria
-  //   updateData({data, ruta, id})
-  //   alert('Se guardo la historia en el PB')
-  // }
 
   const handleClickAgregarAlProductBacklogContra =()=>{
     const status = 'Aceptada'
@@ -119,7 +79,7 @@ const page = () => {
     const data = {status}
     updateData({data, ruta, id})
     alert('Se Guardo la tarea en el ProductBacklog')
-    
+    router.push('/dashboard/po/poHistoriasRetornadas')
   }
 
   const handleClickEnviarAlLiderTecnico=()=>{
@@ -129,19 +89,17 @@ const page = () => {
     const data = {status}
     updateData({data, ruta, id})
     alert('Se Envio la historia al lider tecnico')
-    
+    router.push('/dashboard/po/poHistoriasRetornadas')
   }
 
 
-  if(equipo3 === 0 ){
-      pesoEquipo = 0
-  }
-  else if(tiempoHistoria === 0){
-      pesoTiempo = 0
+  if(tiempoHistoria === 0 ){
+    pesoTiempo = 0
   }
   else if(presupuestoHistoria === 0){
-      pesoEquipo = 0
+    pesoPresupuesto = 0
   }
+ 
     
 
   return (
@@ -160,9 +118,6 @@ const page = () => {
                         <td className='w-[10%] pl-8'>Nombre Historia</td>
                         <td className='w-[13%] text-center'>Discrepancias</td>
                         <td className='w-[10%] text-center'>Contraoferta del cliente</td>
-                        
-                        
-                        
                       </tr>
                     </thead>
                     <tbody>
@@ -182,10 +137,6 @@ const page = () => {
                             <div className='h-20 grid place-content-center'>
                               {historia?.discrepancia2} (Clp)
                             </div>
-                            {/* <div className='h-20 grid place-content-center'>
-                              {historia?.discrepancia3} (personas)
-                            </div> */}
-                            
 
                           </td>
                           <td className='pl-8'>
@@ -195,21 +146,8 @@ const page = () => {
                             <div className='h-20 grid place-content-center'>
                               {historia?.presupuestoHistoria}
                             </div>
-                            {/* <div className='h-20 grid place-content-center'>
-                              {historia?.equipo3}
-                            </div> */}
 
                           </td>
-                          
-
-                          
-                          
-                          
-                          
-                          
-                          
-                          
-                          
                         </tr>
                       
                     </tbody>

@@ -1,9 +1,15 @@
-import { dataPesoHistoria } from '@/app/(Front)/React/Utils/dataPesoHistoria'
-import { dataTiempoHistoria } from '@/app/(Front)/React/Utils/dataTiempoHistoria'
 import React from 'react'
 
+// interface IBadgeDiscrepancia {
+//     dis: 
+// }
+
 const BadgeDiscrepancia = ({dis, numero, checked, setChecked, handleClickVerNuevasTareas, discrepanciaI, handleChangeDes,  parame, handleChangeInputParam,handleChangeInputPeso}) => {
-  return (
+  
+    console.log('BADGEDISDCREPP:', dis, numero, checked, setChecked, handleClickVerNuevasTareas, discrepanciaI, handleChangeDes, parame, handleChangeInputParam, handleChangeInputPeso);
+    
+  
+    return (
     <>
         <label  className='flex content-center '  htmlFor=""> 
             <div className='mr-1 pt-2'>

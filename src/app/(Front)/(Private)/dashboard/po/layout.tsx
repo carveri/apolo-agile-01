@@ -18,7 +18,6 @@ import historiRetornadas from "../../../React/Assets/Icons/logoHistoriaREtornada
 import Sidebar from '@/app/(Front)/React/Components/Sidebar';
 import Navbar from '@/app/(Front)/React/Components/Navbar';
 import {  useHistoriaPo, usePoStore, useSessionPo } from '../../[stores]/poStore';
-import { getData } from '@/app/(Front)/React/Fetch/getData';
 import { getDataLista } from '@/app/(Front)/React/Fetch/getDataLista';
   
 export const metadata: Metadata = {
@@ -42,7 +41,7 @@ export default async function RootLayout({children,}: Readonly<{children: React.
   const ruta = 'historiaStatus'
   const url = 'Pendiente'
   const historias = await getDataLista({ruta, url})
-  console.log('histo del layout solo pendiente:', historias);
+  //console.log('histo del layout solo pendiente:', historias);
   
 
     

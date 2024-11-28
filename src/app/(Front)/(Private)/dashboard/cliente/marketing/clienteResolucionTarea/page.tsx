@@ -2,13 +2,9 @@
 
 import {useState, useEffect} from 'react'
 import { format } from "date-fns";
-import { useRouter, useSearchParams } from "next/navigation";
-import { getDataLista } from '@/app/(Front)/React/Fetch/getDataLista';
+import { useRouter } from "next/navigation";
 import { useHistoriaPo } from '../../../../[stores]/poStore';
 import { getDataCompleja } from '@/app/(Front)/React/Fetch/getDataCompleja';
-import Image from 'next/image';
-//import { format } from "date-fns";
-import diagramaVacio from "../../../../../React/Assets/Icons/diagramaVacio2.png";
 import BadgeNoAun from '@/app/(Front)/React/Components/BadgeNoAun/BadgeNoAun';
 
 
@@ -41,7 +37,7 @@ const page = () => {
     route.push('/dashboard/cliente/marketing/verResolucionTarea')
   }
 
-  console.log('historietasvolao: ', historias);
+  //console.log('historietasvolao: ', historias);
   
   
 

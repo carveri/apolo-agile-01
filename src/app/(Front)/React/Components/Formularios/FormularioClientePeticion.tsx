@@ -7,8 +7,18 @@ import { getDataLista } from "../../Fetch/getDataLista";
 import { format } from "date-fns";
 import { postData } from "../../Fetch/postData";
 
+interface IFormularioClientePeticion{
+    id: string
+    areaId: string
+    email: string
+}
 
-const FormularioClientePeticion = ({id, areaId, email}) => {
+interface IHandleClickCliente4{
+    id: string
+    nombreCaracter: string
+}
+
+const FormularioClientePeticion = ({id, areaId, email}:IFormularioClientePeticion) => {
   
     const [activoDepto, setActivoDepto] = useState(false)
     const [activoCargo, setActivoCargo] = useState(false)
@@ -88,7 +98,7 @@ const FormularioClientePeticion = ({id, areaId, email}) => {
         setActivoProblema(!activoProblema)
     }
 
-    const handleChangeCliente =(e)=>{
+    const handleChangeCliente =(e:React.ChangeEvent<HTMLInputElement>)=>{
         if(e.target.name === 'nombreHistoria'){
             setNombreHistoria(e.target.value)
         }
@@ -126,13 +136,13 @@ const FormularioClientePeticion = ({id, areaId, email}) => {
     const equipo3 = 6
 
 
-    const handleClickCliente4 =(id, nombreCaracter)=>{
+    const handleClickCliente4 =(id:string, nombreCaracter:string)=>{
         setCaracterId(id)
         setCaracterI(nombreCaracter)
         setActivoCaracter(false)
     }
 
-    const handleSumbitCliente =(e)=>{
+    const handleSumbitCliente =(e:React.FormEvent<HTMLFormElement>)=>{
         e.preventDefault()    
         const userId = id
         const data = { nombreHistoria, quiero, para, como, presupuestoHistoria, puntoHistoria, tiempoHistoria,  detalleHistoria, productBacklogId, caracterId, userId}
@@ -146,15 +156,8 @@ const FormularioClientePeticion = ({id, areaId, email}) => {
 
     const dia =format(new Date(), 'dd/MM/yyyy')
     const hora = format(new Date(), 'H:mm')
-    // console.log('idDElUsuario:', id);
-    // console.log('IDDELAREA:', areaId);
-    
-    
-    
-    // console.log('cargoPOrUsuario:', cargo);
-    
-    
-  
+ 
+ 
     return (
     <form onSubmit={handleSumbitCliente} action="" className=' w-full h-full '>
 
@@ -164,14 +167,6 @@ const FormularioClientePeticion = ({id, areaId, email}) => {
                             Información de la petición 
                         </header>
                         <div className='w-full h-[80%] grid grid-rows-4 px-8 mt-4'>
-                            {/* <article className='flex w-full h-14  justify-end gap-x-10 text-colorTextoTitulo1 items-center font-semibold pr-4'>
-                                <div>
-                                    {dia}
-                                </div>
-                                <div>
-                                    {hora}
-                                </div>
-                            </article> */}
                             <article className='grid grid-rows-2 pb-3'>
                                 <label  htmlFor="">Nombre de la petición (Historia de usuario):</label>
                                     
@@ -197,12 +192,6 @@ const FormularioClientePeticion = ({id, areaId, email}) => {
                                     
                                 <input name="para" onChange={handleChangeCliente} className="pl-3 py-4 rounded-md bg-white border border-gray-200   grid content-center" type="text" placeholder="Filtrar vacaciones de empleados entre las fechas..."/>
                             </article>
-                            {/* <article className='grid grid-rows-2 pb-3'>
-                                <label  htmlFor="">Archivo Explicativo (Opcional):</label>
-                                    
-                                    
-                                <input name="archivo" onChange={handleChangeCliente} className="pl-1 rounded-md bg-white    grid content-center" type="file" placeholder="Filtrar vacaciones de empleados entre las fechas..."/>
-                            </article> */}
                             
                         </div>
                         

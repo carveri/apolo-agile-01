@@ -28,16 +28,6 @@ const page = () => {
     traerHistoriasStatusCargo()
   }, [])
 
-  const router = useRouter()
-
-  console.log('serian las histo pendiente del user cliente1:', histouseridcargo);
-  
-  const handleClickVerResolucionHistoria =(id)=>{
-    console.log('idHisto:', id);
-    cambiarIdHistoria(id)
-    console.log('idzusthistoria:', idHistoria);
-    router.push('/dashboard/cliente/verResolucionTarea')
-  }
 
   return (
     <div className='w-full h-full   ' >
@@ -106,12 +96,6 @@ const page = () => {
                       <td className={`pl-6 ${status === 'Pendiente' ? 'text-yellow-400' : 'text-green-500'}`}>
                         {status}
                       </td>
-                      
-                      
-                      
-                      
-                      
-                      
                     </tr>
                   })}
                 </tbody>

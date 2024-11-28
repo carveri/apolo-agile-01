@@ -22,8 +22,7 @@ const page = () => {
                         <td className='w-[10%] text-center'>Status</td>
                         <td className='w-[15%] text-center'>Discrepancia 1</td>
                         <td className='w-[15%] text-center'>Discrepancia 2</td>
-                        <td className='w-[15%] text-center'>Discrepancia 3</td>
-                        <td className='w-[15%] text-center'>Discrepancia 4</td>
+                        
                       </tr>
                     </thead>
                       <tbody>
@@ -51,12 +50,8 @@ const page = () => {
                           <td >
                             {el.discrepancia2}
                           </td>
-                          <td >
-                            {el.discrepancia3}
-                          </td>
-                          <td >
-                            {el.discrepancia4}
-                          </td>
+                          
+                          
                             
                             
                             

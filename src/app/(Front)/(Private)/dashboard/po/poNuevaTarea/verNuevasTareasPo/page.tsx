@@ -6,8 +6,11 @@ import { updateData } from '@/app/(Front)/React/Fetch/updateData';
 import { useHistoriaPo } from '@/app/(Front)/(Private)/[stores]/poStore';
 import BadgeDiscrepancia from './Componentes/BadgeDiscrepancia';
 import { getDataLista } from '@/app/(Front)/React/Fetch/getDataLista';
+import { useRouter } from "next/navigation";
 
 const page = () => {
+
+    const router = useRouter()
 
     // ACTIVOS 
     const [activoDiscrepancia, setActivoDiscrepancia] = useState(false)
@@ -48,10 +51,6 @@ const page = () => {
         setActivoDiscrepancia2(!activoDiscrepancia2)
     }
 
-    // const handleClickVerNuevasTareas3 =()=>{
-    //     setActivoDiscrepancia3(!activoDiscrepancia3)
-    // }
-
 
 
     const { idHistoria} = useHistoriaPo()
@@ -63,53 +62,38 @@ const page = () => {
     
 
     // handlechange descripciones 
-    const changeDesTiempo =(e)=>{
+    const changeDesTiempo =(e:React.ChangeEvent<HTMLInputElement>)=>{
         setDescTiempo(e.target.value)
     }
 
-    const changeDescPresupuesto =(e)=>{
+    const changeDescPresupuesto =(e:React.ChangeEvent<HTMLInputElement>)=>{
         setDescPresupuesto(e.target.value)
     }
 
-    // const changeDesEquipo =(e)=>{
-    //     setDescEquipo(e.target.value)
-    // }
+
 
     // handlechange parametero
-    const changeParamTiempo = (e)=>{
+    const changeParamTiempo = (e:React.ChangeEvent<HTMLInputElement>)=>{
         setParamTiempo(e.target.valueAsNumber)
     }
 
-    const changeParamPresupuesto = (e)=>{
+    const changeParamPresupuesto = (e:React.ChangeEvent<HTMLInputElement>)=>{
         setParamPresupuesto(e.target.valueAsNumber)
     }
 
-    // const changeParamEquipo = (e)=>{
-    //     setParamEquipo(e.target.valueAsNumber)
-    // }
-    
 
-    // handlechange peso 
-
-    const changePesoTiempo = (e)=>{
+    const changePesoTiempo = (e:React.ChangeEvent<HTMLInputElement>)=>{
         setPesoTiempo(e.target.valueAsNumber)
     }
 
-    const changePesoPresupuesto = (e)=>{
+    const changePesoPresupuesto = (e:React.ChangeEvent<HTMLInputElement>)=>{
         setPesoPresupuesto(e.target.valueAsNumber)
     }
-
-    // const changePesoEquipo = (e)=>{
-    //     setPesoEquipo(e.target.valueAsNumber)
-    // }
-
-    
-    
-    
+        
 
    // boton enviar discrepancias
 
-    const handleClickEnviarDiscrepancia =(e)=>{
+    const handleClickEnviarDiscrepancia =(e:React.MouseEvent<HTMLButtonElement>)=>{
         e.preventDefault()
         const id = idHistoria
         const discrepancia1 = 'Tiempo'
@@ -128,25 +112,21 @@ const page = () => {
         updateData({ruta, id, data})
         alert('Se enviaron las dicrepancias')
         location.reload();
-
-            
-        
+        //router.push('/dashboard/po/poHistoriasRetornadas')
     }
 
     
     // boton enviar al pb
 
-    const handleClickAgregarAlPb =(e)=>{
+    const handleClickAgregarAlPb =(e:React.MouseEvent<HTMLButtonElement>)=>{
         e.preventDefault()
         const ruta = 'historia'
         const status = status2
         const data = {status}
-        //console.log(data);
-        
         updateData({ruta, id, data})
         alert('Se guardo la historia en el ProductBacklog')
         location.reload();
-        
+        //router.push('/dashboard/po/poHistoriasRetornadas')
     }
 
 
@@ -170,14 +150,8 @@ const page = () => {
         titulo3: 'Peso de discrepancia (%)'
     }
 
-    const dis3 = {
-        titulo1: 'Equipo actual para el trabajo',
-        titulo2: 'Equipo propuesto extra(N°)',
-        titulo3: 'Peso de discrepancia (%)'
-    }
+    
 
-    // const mt1 = 96
-    // const mt2 = 96
     
 
     useEffect(()=>{
@@ -190,10 +164,7 @@ const page = () => {
         traerHistoriaPorId()
     }, [])
 
-    
-    //console.log('hiXid:', historiaporId);
-
-    
+        
     const pesototal = pesoTiempo + pesoPresupuesto
 
     
@@ -238,18 +209,7 @@ const page = () => {
                                         
                                     />
 
-                                    {/* <BadgeDiscrepancia
-                                        numero = '3'
-                                        checked = {checked3}
-                                        setChecked = {setChecked3}
-                                        handleClickVerNuevasTareas={handleClickVerNuevasTareas3}
-                                        discrepanciaI={discrepancia3I}
-                                        dis={dis3}
-                                        parame = {equipo3}
-                                        handleChangeDes={changeDesEquipo}
-                                        handleChangeInputPeso = {changePesoEquipo}
-                                        handleChangeInputParam={changeParamEquipo}
-                                    /> */}
+                                    
                             </main>
                         </section>
                         <section className='h-[10%] w-full grid  justify-end pt-6 pr-12 font-bold text-lg'>

@@ -1,11 +1,10 @@
 'use client'
 
 import { dataHomePo } from '@/app/(Front)/React/Utils/dataHomePo'
-import {useState, useEffect} from 'react'
+import { useEffect} from 'react'
 import Image from "next/image";
-import { usePoStore, useHistoriaPo } from '../../[stores]/poStore';
-import grafico1Po from "../../dashboard/../../React/Assets/Images/grafico3Po.png";
-//import Image from "next/image";
+import {  useHistoriaPo } from '../../[stores]/poStore';
+
 
 const page = () => {
 
@@ -17,11 +16,6 @@ const page = () => {
     getHistorias()
   }, [])
  
-  console.log('historiasZus:', historias);
-  
-  
-  
-  
 
   return (
     <div className='w-full h-full bg-white grid place-items-center' >

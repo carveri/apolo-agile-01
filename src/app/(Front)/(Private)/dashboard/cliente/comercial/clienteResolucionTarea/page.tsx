@@ -39,7 +39,6 @@ const page = () => {
     route.push('/dashboard/cliente/comercial/verResolucionTarea')
   }
 
-  console.log('historietasvolao: ', historias);
   
   
 
@@ -73,13 +72,13 @@ const page = () => {
                     
                     <td className='w-[10%] text-center'>Discrepancia 1</td>
                     <td className='w-[10%] text-center'>Discrepancia 2</td>
-                    <td className='w-[10%] text-center'>Discrepancia 3</td>
+                    
                     
                   </tr>
                 </thead>
                 <tbody>
                 {histouseridcargo?.map((el, index)=>{
-                  const {id, nombreHistoria, createdAt, status ,updatedAt, discrepancia1, discrepancia2, discrepancia3} = el
+                  const {id, nombreHistoria, createdAt, status ,updatedAt, discrepancia1, discrepancia2} = el
                     const updatedAt2 = format(new Date(updatedAt), 'dd/MM/yyyy')
                     const updatedPintar = format(new Date(updatedAt), 'H:mm')
                     return <tr key={id} className='border border-gray-200 h-14  cursor-pointer w-full '>
@@ -109,9 +108,7 @@ const page = () => {
                       <td className='pl-8'>
                         {discrepancia2}
                       </td>
-                      <td className='pl-8'>
-                        {discrepancia3}
-                      </td>
+                      
                       
                       <td className='grid place-items-center pt-2 pr-2'>
                         <button onClick={()=>handleClickVerResolucionHistoria(id)} className='w-[70px] h-10 ml-3 mr-3 bg-colorBotonVer rounded text-colorTextoBotonVer'>

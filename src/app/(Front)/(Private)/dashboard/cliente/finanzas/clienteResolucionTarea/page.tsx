@@ -42,8 +42,6 @@ const page = () => {
     route.push('/dashboard/cliente/finanzas/verResolucionTarea')
   }
 
-  console.log('historietasvolao: ', historias);
-  
   
 
   return (

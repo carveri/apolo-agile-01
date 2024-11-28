@@ -57,9 +57,6 @@ const page = () => {
                           <td >
                             {el.discrepancia4}
                           </td>
-                            
-                            
-                            
                           </tr>
                         })}
                       </tbody>

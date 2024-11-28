@@ -130,7 +130,7 @@ const page = () => {
     const id = idHistoria
     updateData({data, ruta, id})
     alert('Se envio la controferta al po')
-    
+    router.push('/dashboard/cliente/visionario/clienteResolucionTarea')
   }
 
   const handleClickEliminarTareaCliente=()=>{
@@ -138,7 +138,7 @@ const page = () => {
     const url = idHistoria
     deleteData({ruta, url})
     alert('La tarea se borro correctamente')
-    router.push('/dashboard/cliente/clienteResolucionTarea')
+    router.push('/dashboard/cliente/visionario/clienteResolucionTarea')
     
   }
 

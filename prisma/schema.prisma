@@ -283,10 +283,7 @@ model Historia {
   descripcion1  String @default("-")
   discrepancia2 String @default("-")
   descripcion2  String @default("-")
-  discrepancia3 String @default("-")
-  descripcion3  String @default("-")
-  discrepancia4 String @default("-")
-  descripcion4  String @default("-")
+  
   
   peso1          Int @default(100)
  

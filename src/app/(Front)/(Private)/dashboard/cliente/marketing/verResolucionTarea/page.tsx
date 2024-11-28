@@ -3,12 +3,11 @@
 import { getDataLista } from '@/app/(Front)/React/Fetch/getDataLista'
 import {useState, useEffect} from 'react'
 import { format } from "date-fns";
-import { dataTiempoHistoria } from '@/app/(Front)/React/Utils/dataTiempoHistoria';
-//import { useHistoriaPo } from '../../../[stores]/poStore';
 import { updateData } from '@/app/(Front)/React/Fetch/updateData';
 import { deleteData } from '@/app/(Front)/React/Fetch/deleteData';
 import {useRouter} from "next/navigation";
 import { useHistoriaPo } from '@/app/(Front)/(Private)/[stores]/poStore';
+import { IHistoria } from '@/app/Interfaces/IGeneral';
 
 const page = () => {
 
@@ -16,20 +15,13 @@ const page = () => {
 
   const { idHistoria} = useHistoriaPo()
 
-  const [historia, setHistoria] = useState({})
+  const [historia, setHistoria] = useState<IHistoria>({})
 
   // estados de los inputs
   const [ptiempo, setPtiempo] = useState(0)
   const [pPresupuesto, setPPresupuesto] = useState(0)
   const [pEquipo, setPEquipo] = useState(0)
 
-  //const {historiaStatus, getHistoriaStatus} = useHistoriaPo
-  // useEffect(()=>{
-  //   cambiarIdHistoria()
-  // }, [])
-
-
-  console.log('idHistopintar:', idHistoria);
   
 
   useEffect(()=>{
@@ -44,27 +36,8 @@ const page = () => {
     
   }, [])
 
-  console.log('histo unica:', historia);
-
-
-  // activos
-  const [tiempoActivo, setTiempoActivo] = useState(false)
-  const [presupuestoActivo, setPresupuestoActivo] = useState(false)
-  const [equipoActivo, setEquipoActivo] = useState(false)
   
-  const handleClickTiempo =()=>{
-    setTiempoActivo(!tiempoActivo)
-  }
-
-  const handleClickPresupuesto =()=>{
-    setPresupuestoActivo(!presupuestoActivo)
-  }
-
-  const handleClickEquipo = ()=>{
-    setEquipoActivo(!equipoActivo)
-  }
-
-  const {tiempoHistoria, presupuestoHistoria, equipo3, peso1, peso2, peso3} = historia
+  const {tiempoHistoria, presupuestoHistoria, peso1, peso2} = historia
   //const of1 = 
 
   const calculoPesoOferta =(oferta1 = 0, oferta2 = 0  , peso = 0 )=>{
@@ -80,7 +53,7 @@ const page = () => {
   const limite = 80
   const limiteInferior = 40
 
-  const handleChangeVerResuTarea =(e)=>{
+  const handleChangeVerResuTarea =(e:React.ChangeEvent<HTMLInputElement>)=>{
     e.preventDefault()
     if(e.target.name === 'tiempo'){
       setPtiempo(e.target.valueAsNumber)
@@ -88,9 +61,7 @@ const page = () => {
     else if(e.target.name === 'presupuesto'){
       setPPresupuesto(e.target.valueAsNumber)
     }
-    else if(e.target.name === 'equipo'){
-      setPEquipo(e.target.valueAsNumber)
-    }
+    
     else {
       console.log('sd');
       
@@ -140,15 +111,13 @@ const page = () => {
   }
 
 
-  if(equipo3 === 0 ){
-      pesoEquipo = 0
-  }
-  else if(tiempoHistoria === 0){
+  if(tiempoHistoria === 0 ){
       pesoTiempo = 0
   }
   else if(presupuestoHistoria === 0){
-      pesoEquipo = 0
-  }
+    pesoPresupuesto = 0
+}
+  
   
 
 
@@ -207,9 +176,7 @@ const page = () => {
                             <div className='h-20 grid place-content-center'>
                               {historia?.discrepancia2} (Clp)
                             </div>
-                            {/* <div className='h-20 grid place-content-center'>
-                              {historia?.discrepancia3} (personas)
-                            </div> */}
+
                             
 
                           </td>
@@ -220,9 +187,7 @@ const page = () => {
                             <div className='h-20 grid place-content-center'>
                               {historia?.presupuestoHistoria}
                             </div>
-                            {/* <div className='h-20 grid place-content-center'>
-                              {historia?.equipo3}
-                            </div> */}
+
 
                           </td>
                           <td>
@@ -232,9 +197,6 @@ const page = () => {
                               <div className='h-20 grid place-content-center'>
                                 {peso1 !== 100 && <input name='presupuesto'  onChange={handleChangeVerResuTarea}  type="number" className='rounded w-24 h-8 pl-3 border border-gray-200' placeholder='100.000'/>} 
                               </div>
-                              {/* <div className='h-20 grid place-content-center'>
-                                <input name='equipo'  onChange={handleChangeVerResuTarea}  type="number" className='rounded w-24 h-8 pl-5 border border-gray-200' placeholder='43434'/>
-                              </div> */}
                               
                             
                           </td>
@@ -247,9 +209,7 @@ const page = () => {
                             <div className='h-20 grid place-content-center font-bold'>
                             {Math.round(pesoPresupuesto)}
                             </div>
-                            {/* <div className='h-20 grid place-content-center font-bold'>
-                            {Math.round(pesoEquipo)}
-                            </div> */}
+                            
                           </td>
                           <td className='pl-8'>
                             <div className='h-20 grid place-content-center'>
@@ -258,9 +218,7 @@ const page = () => {
                             <div className='h-20 grid place-content-center'>
                             {historia?.peso2}
                             </div>
-                            {/* <div className='h-20 grid place-content-center'>
-                            {historia?.peso3}
-                            </div> */}
+                          
                           </td>
                           
                           
@@ -273,20 +231,9 @@ const page = () => {
                             <div className='h-20 grid place-content-center'>
                               {historia?.descripcion2}
                             </div>
-                            {/* <div className='h-20 grid place-content-center'>
-                              {historia?.descripcion3}
-                            </div> */}
+                          
                           </td>
-                          
 
-                          
-                          
-                          
-                          
-                          
-                          
-                          
-                          
                         </tr>
                       
                     </tbody>

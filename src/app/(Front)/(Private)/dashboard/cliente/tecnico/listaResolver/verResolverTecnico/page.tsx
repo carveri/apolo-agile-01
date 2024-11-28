@@ -6,6 +6,7 @@ import { getDataLista } from '@/app/(Front)/React/Fetch/getDataLista'
 import { updateData } from '@/app/(Front)/React/Fetch/updateData'
 import {useState, useEffect} from 'react'
 import { useRouter } from "next/navigation";
+//import { useRouter } from "next/navigation";
 
 const page = () => {
 
@@ -40,7 +41,7 @@ const page = () => {
     const data = {status}
     updateData({ruta, id, data})
     alert('Se agrego correctamente la historia al Productbacklog')
-    
+    router.push('/dashboard/cliente/tecnico/listaResolver')
   }
 
   const handleClickEliminarTareaClienteT =()=>{

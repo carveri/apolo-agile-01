@@ -1,9 +1,8 @@
 'use client'
-import React, { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { useHistoriaPo } from '../../../[stores]/poStore';
 import { useRouter } from "next/navigation";
 import { format } from "date-fns";
-import { getDataLista } from '@/app/(Front)/React/Fetch/getDataLista';
 import BadgeNoAun from '@/app/(Front)/React/Components/BadgeNoAun/BadgeNoAun';
 
 const page = () => {
@@ -16,18 +15,8 @@ const page = () => {
       getHistoriaContraOferta()
     }, [])
    
-    console.log('historiasZusRETOENADA:', historiaContraOferta);
-    
-    
-  
     const router = useRouter()
-    const handleClickVerNuevasTareasPo =()=>{
-      router.push('/dashboard/po/poNuevaTarea/verNuevasTareasPo')
-    }
-  
-    const num = 15
-
-
+    
     const handleClickVerContraoferta =(id)=>{
       console.log('idHisto:', id);
         cambiarIdHistoria(id)

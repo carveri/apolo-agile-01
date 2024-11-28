@@ -1,15 +1,10 @@
 'use client'
 
-import { getDataLista } from "@/app/(Front)/React/Fetch/getDataLista";
-// import { dataTareaPo } from '@/app/(Front)/React/Utils/dataTareaPo'
-// import {useState, useEffect} from 'react'
 import { useRouter } from "next/navigation";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { useHistoriaPo } from "../../../[stores]/poStore";
 import { format } from "date-fns";
 import BadgeNoAun from "@/app/(Front)/React/Components/BadgeNoAun/BadgeNoAun";
-//import { getData } from '@/app/(Front)/React/Fetch/getData';
-//import { useHistoriaPo, usePoStore } from '../../../[stores]/poStore';
 
 const page = () => {
 
@@ -20,7 +15,7 @@ const page = () => {
     getHistoriaStatus()
   }, [])
  
-  console.log('historiasZusRETOENADA:', historiaStatus);
+  //console.log('historiasZusRETOENADA:', historiaStatus);
   
   
 

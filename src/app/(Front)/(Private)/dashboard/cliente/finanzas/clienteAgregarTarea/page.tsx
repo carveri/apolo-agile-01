@@ -34,27 +34,6 @@ const {id, name, email} = user
                 id={id}
                 areaId={name}
                 email={email}
-                //areaId = {name}
-                // handleSumbitCliente = {handleSumbitCliente}
-                // dia = {dia}
-                // hora = {hora} 
-                // cargoI = {cargoI} 
-                // activoCargo = {activoCargo}
-                // cargo = {cargo}
-                // handleClickCargo = {handleClickCargo}
-                // handleClickCliente2 = {handleClickCliente2}
-                // userI = {userI}
-                // activoSolicitante = {activoSolicitante}
-                // user = {user}
-                // handleClickCliente3 = {handleClickCliente3}
-                // handleChangeCliente = {handleChangeCliente}
-                // caracterI = {caracterI}
-                // activoCaracter = {activoCaracter}
-                // handleClickCaracter = {handleClickCaracter}
-                // caracter = {caracter}
-                // handleClickCliente4 = {handleClickCliente4}
-                // handleClickSolicitante = {handleClickSolicitante}
-            
             />
         </main>
         </section>
