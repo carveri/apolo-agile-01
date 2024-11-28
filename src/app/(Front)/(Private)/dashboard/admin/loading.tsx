@@ -1,9 +1,10 @@
+import BadgeLoading from "@/app/(Front)/React/Components/BadgeLoading/BadgeLoading"
+
+
 const loading = () => {
   return (
-    <div className='w-full h-screen grid place-content-center text-xl '>
-        Cargando...
-    </div>
-  )
+    <BadgeLoading />
+    )
 }
 
 export default loading

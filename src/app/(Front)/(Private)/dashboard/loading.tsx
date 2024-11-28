@@ -1,8 +1,8 @@
+import BadgeLoading from "../../React/Components/BadgeLoading/BadgeLoading"
+
 const loading = () => {
   return (
-    <div className='w-full h-[810px] grid place-content-center text-xl '>
-        Cargando...
-    </div>
+    <BadgeLoading />
   )
 }
 

@@ -1,15 +1,17 @@
+'use client'
+
 import { logicaTabla } from '@/app/(Front)/React/Components/Tablas/logicaTabla'
 import Tabla from '@/app/(Front)/React/Components/Tablas/Tabla'
-import { getDataLista } from '@/app/(Front)/React/Fetch/getDataLista'
-import { dataTablaSm } from '@/app/(Front)/React/Utils/dataTablaSm'
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useHistoriaAdmin } from '../../../[stores]/adminStore'
 
-const page = async() => {
+const page = () => {
 
-  const ruta = 'userArea'
-  const url = 'a73e8ba6-6e6b-4cd7-90a4-925101ea7ffa'
-  const usuarios = await getDataLista({ruta, url})
-  //console.log('resultado del po:', usuariosSm);
+  const {usuarios, getUsuariosSm} = useHistoriaAdmin()
+
+    useEffect(()=>{
+      getUsuariosSm()
+    }, [])
 
 
   return (

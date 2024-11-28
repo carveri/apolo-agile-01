@@ -8,6 +8,7 @@ import Image from 'next/image';
 import flechaAbajo from "./../../../React/Assets/Icons/flechaAbajo4.png";
 import { getDataLista } from '../../Fetch/getDataLista';
 import { postData } from '../../Fetch/postData';
+import ModalAviso from '../ModalAviso/ModalAviso';
 
 
 
@@ -16,7 +17,8 @@ const Formulario = ({id}) => {
     //console.log('id del usuario:', id);
 
     
-    
+    // ACTIVO MODAL
+    const [activoModal, setActivoModal] = useState(false)
 
     // ESTADOS DE ONCHANGE
     const [primerNombre, setPrimerNombre] = useState('')
@@ -196,18 +198,9 @@ const Formulario = ({id}) => {
     
 
  
-
-    
-    
-   
-    
-    
-    // console.log('iddepto:', parametros1Id);
-    // console.log('idCargo:', parametros2Id);
-    // console.log('deptos::', parametros1);
-    // console.log('cargos::', parametros2);
-
-    // console.log('nombredpro:', parametro1);
+    // MENSAJES DE MODAL
+    const mensajePositivo = 'El Usuario se agrego correctamente'
+    const mensajeNegativo = 'Ocurrio un error y el usuario no guardo!'
 
     const handleSubmitAdmin =(e)=>{
         e.preventDefault()
@@ -231,8 +224,15 @@ const Formulario = ({id}) => {
 
             const ruta = 'user'
 
-            postData({ruta, data})
-            alert('Se guardo correctamente el nuevo usuario')
+            try {
+                postData({ruta, data})
+                
+                setActivoModal(true)
+            } catch (error) {
+                setActivoModal(true)
+            }
+            //alert('Se guardo correctamente el nuevo usuario')
+
         
     }
  
@@ -455,6 +455,11 @@ const Formulario = ({id}) => {
                         Guardar
                     </button>
                 </div>
+                <ModalAviso 
+                    isOpen = {activoModal}
+                    onClose = {()=>setActivoModal(false)}
+                    
+                />
             </form>
         </main>
         </section>

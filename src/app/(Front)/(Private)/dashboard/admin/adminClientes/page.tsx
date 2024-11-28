@@ -1,19 +1,23 @@
-import { logicaTabla } from '@/app/(Front)/React/Components/Tablas/logicaTabla'
-import Tabla from '@/app/(Front)/React/Components/Tablas/Tabla'
-import { getData } from '@/app/(Front)/React/Fetch/getData'
-import { getDataLista } from '@/app/(Front)/React/Fetch/getDataLista'
-import { dataTablaClientes } from '@/app/(Front)/React/Utils/dataTablaClientes'
-import React from 'react'
+'use client'
 
-const page = async() => {
+import { useEffect } from "react";
+import { useHistoriaAdmin } from "../../../[stores]/adminStore";
+import Tabla from "@/app/(Front)/React/Components/Tablas/Tabla";
+import { logicaTabla } from "@/app/(Front)/React/Components/Tablas/logicaTabla";
 
-  const ruta = 'userArea'
-  const url = '12b87914-ed8c-4411-931e-7b9b567d7117'
-  const usuarios = await getDataLista({ruta, url})
 
-  //logicaTabla
-  console.log('usu:', usuarios);
-  
+
+const page = () => {
+
+ 
+    const {usuarios, getUsuariosClientes} = useHistoriaAdmin()
+
+    useEffect(()=>{
+      getUsuariosClientes()
+    }, [])
+
+    //console.log('histotablaadmin:', usuarios);
+    
 
   return (
     <div className='w-full h-full bg-white grid place-items-center' >

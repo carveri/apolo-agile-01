@@ -1,7 +1,8 @@
+
 import iconoLoading from "../../../React/Assets/Icons/iconoLoading.png";
 import Image from "next/image";
 
-const loading = () => {
+const BadgeLoading = () => {
   return (
     <div className="w-full h-[810px] bg-gray-100 grid place-content-center">
       <Image
@@ -11,11 +12,11 @@ const loading = () => {
         src={iconoLoading}
         alt="sd"
       />
-      <div className="mt-3 text-lg">
+      <div className="mt-3 -ml-3 text-lg">
         Cargando...
       </div>
     </div>
-    )
+  )
 }
 
-export default loading
+export default BadgeLoading
