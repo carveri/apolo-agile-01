@@ -10,12 +10,7 @@ import { redirect } from 'next/navigation'
    //import homeClientes from "../../../React/Assets/Icons/homeClientes.png";
    import homeClientes from "../../../../React/Assets/Icons/homeClientes.png";
    import agregarTareasClientes from "../../../../React/Assets/Icons/agregarTareaCliente3.png";
-   //import agregarTareasClientes from "../../../React/Assets/Icons/agregarTareaCliente2.png";
-   import historiasEnviadasClientes from "../../../../React/Assets/Icons/logoPricipal3.png";
-   //import historiasEnviadasClientes from "../../../React/Assets/Icons/logoPricipal3.png";
-   import resolucionTareasClientes from "../../../../React/Assets/Icons/resolucionTareaClientes.png";
-   //import resolucionTareasClientes from "../../../React/Assets/Icons/resolucionTareaClientes.png";
-   import resolucionTareasClientesAceptadas from "../../../../React/Assets/Icons/gestionTareasPo.png";
+   import iconoConfig from "../../../../React/Assets/Icons/iconoConfig.png";
 
 
 
@@ -47,6 +42,12 @@ const linksTecnico = [
       href: '/dashboard/cliente/tecnico/listaResolver',
       nombre: 'Resolver Historias',
       icono: agregarTareasClientes
+  },
+  {
+      id:3,
+      href: '/dashboard/cliente/tecnico/configuraciones',
+      nombre: 'Configuraciones',
+      icono: iconoConfig
   },
   
  

@@ -50,7 +50,7 @@ const FormLogin = () => {
 
   return (
     <div className='w-3/5 h-4/5 grid place-items-center '>
-          <form onSubmit={handleSubmitLogin} className='w-2/6 h-5/6 bg-colorFormularioLogin px-8 rounded-md ' action="">
+          <form onSubmit={handleSubmitLogin} className='w-2/6 h-5/6 bg-colorFormularioLogin px-8 rounded-md shadow-xl'>
               <header className='w-full h-1/5 grid place-content-center text-xl text-white font-semibold'>
                 Inicio de Sesion
               </header>

@@ -1,12 +1,9 @@
-//import Navbar from "../../React/Components/Navbar";
-//import Sidebar from "../../React/Components/Sidebar";
-import { getServerSession } from 'next-auth'
-import { authOptions } from '@/app/(Back)/api/auth/[...nextauth]/route'
-import { redirect } from 'next/navigation'
+  // GENERAL
+  import { getServerSession } from 'next-auth'
+  import { authOptions } from '@/app/(Back)/api/auth/[...nextauth]/route'
+  import { redirect } from 'next/navigation'
 
 // // IMAGENES 
-  
-//   // imagenes admin
   import nuevoUsuarioAdmin from "../../../React/Assets/Icons/nuevoUsuarioAdmin.png";
   import clientesAdmin from "../../../React/Assets/Icons/adminClientes2.png";
   import poAdmin from "../../../React/Assets/Icons/poAdmin2.png";
@@ -14,11 +11,9 @@ import { redirect } from 'next/navigation'
   import devsAdmin from "../../../React/Assets/Icons/devsAdmin2.png";
   import adminAdmin from "../../../React/Assets/Icons/adminAdmin6.png";
 
-
-
-
-import Sidebar from '@/app/(Front)/React/Components/Sidebar';
-import Navbar from '@/app/(Front)/React/Components/Navbar';
+  // COMPONENTES
+  import Sidebar from '@/app/(Front)/React/Components/Sidebar';
+  import Navbar from '@/app/(Front)/React/Components/Navbar';
   
 
 
@@ -29,18 +24,7 @@ export default async function RootLayout({children,}: Readonly<{children: React.
    if(!session){
     redirect('/api/auth/signin')
   }
-
   const {user}= session
-
-  //console.log('sesiones:', user);
-  
-
-  
-  const palanca = user?.name
-  //console.log('palanquita bonita del sm:', palanca);
-  
-  
-  
 
 
 const linksAdmin = [
@@ -90,13 +74,10 @@ const linksAdmin = [
         <header className="h-12 w-full bg-colorCajaLogo grid place-content-center text-colorTextoCaja">
           Apolo Agile
         </header>
-        <aside className="w-full h-[820px] bg-gray-100 ">
-         
+        <aside className="w-full h-[820px] bg-gray-100 "> 
         <Sidebar
-        links={linksAdmin}
-      />
-         
-          
+          links={linksAdmin}
+      />  
         </aside>
       </section>
       <section className="w-full h-full  ">

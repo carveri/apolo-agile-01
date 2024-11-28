@@ -2,6 +2,7 @@ import { create } from "zustand";
 import { getDataLista } from "../../React/Fetch/getDataLista";
 
 
+
 export const useHistoriaAdmin = create((set)=>
 ({
     usuarios: [],

@@ -1,17 +1,18 @@
 'use client'
 import { getDataCompleja } from "@/app/(Front)/React/Fetch/getDataCompleja";
-import { useRouter, useSearchParams } from "next/navigation";
 import { useState, useEffect } from "react";
 import { format } from "date-fns";
 import { useHistoriaPo } from "@/app/(Front)/(Private)/[stores]/poStore";
-import Image from "next/image";
-
-import diagramaVacio from "../../../../../React/Assets/Icons/diagramaVacio2.png";
 import BadgeNoAun from "@/app/(Front)/React/Components/BadgeNoAun/BadgeNoAun";
+
+interface IAlgo {
+  idHistoria: string
+  cambiarIdHistoria: ()=> Promise<void>
+}
 
 const page = () => {
 
-  const { idHistoria, cambiarIdHistoria} = useHistoriaPo()
+  const { idHistoria, cambiarIdHistoria}:IAlgo  = useHistoriaPo()
 
   const [histouseridcargo, setHistouseridcargo] = useState([])  
 
@@ -27,16 +28,6 @@ const page = () => {
     traerHistoriasStatusCargo()
   }, [])
 
-  const router = useRouter()
-
-  console.log('serian las histo pendiente del user cliente1:', histouseridcargo);
-  
-  const handleClickVerResolucionHistoria =(id)=>{
-    console.log('idHisto:', id);
-    cambiarIdHistoria(id)
-    console.log('idzusthistoria:', idHistoria);
-    router.push('/dashboard/cliente/verResolucionTarea')
-  }
 
   return (
     <div className='w-full h-full   ' >
@@ -74,7 +65,7 @@ const page = () => {
                 </thead>
                 <tbody>
                 {histouseridcargo?.map((el, index)=>{
-                  const {id, nombreHistoria, createdAt, status ,updatedAt, horaAt, puntoHistoria, tiempoHistoria, presupuestoHistoria} = el
+                  const {id, nombreHistoria, createdAt, status ,updatedAt, puntoHistoria, tiempoHistoria, presupuestoHistoria} = el
                     const updatedAt2 = format(new Date(updatedAt), 'dd/MM/yyyy')
                     const updatedPintar = format(new Date(updatedAt), 'H:mm')
                     return <tr key={id} className='border border-gray-200 h-14  cursor-pointer w-full '>
@@ -105,12 +96,6 @@ const page = () => {
                       <td className={`pl-6 ${status === 'Pendiente' ? 'text-yellow-400' : 'text-green-500'}`}>
                         {status}
                       </td>
-                      
-                      
-                      
-                      
-                      
-                      
                     </tr>
                   })}
                 </tbody>

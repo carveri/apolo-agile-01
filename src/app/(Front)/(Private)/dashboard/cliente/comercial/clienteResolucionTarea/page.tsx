@@ -2,13 +2,9 @@
 
 import {useState, useEffect} from 'react'
 import { format } from "date-fns";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { useHistoriaPo } from '../../../../[stores]/poStore';
 import { getDataCompleja } from '@/app/(Front)/React/Fetch/getDataCompleja';
-//import { format } from "date-fns";
-import Image  from "next/image";
-
-import diagramaVacio from "../../../../../React/Assets/Icons/diagramaVacio2.png";
 import BadgeNoAun from '@/app/(Front)/React/Components/BadgeNoAun/BadgeNoAun';
 
 
@@ -36,7 +32,7 @@ const page = () => {
 
   const route = useRouter()
 
-  const handleClickVerResolucionHistoria =(id)=>{
+  const handleClickVerResolucionHistoria =(id:React.MouseEvent<HTMLButtonElement>)=>{
     console.log('idHisto:', id);
     cambiarIdHistoria(id)
     console.log('idzusthistoria:', idHistoria);
@@ -83,7 +79,7 @@ const page = () => {
                 </thead>
                 <tbody>
                 {histouseridcargo?.map((el, index)=>{
-                  const {id, nombreHistoria, createdAt, status ,updatedAt, horaAt, discrepancia1, discrepancia2, discrepancia3, discrepancia4} = el
+                  const {id, nombreHistoria, createdAt, status ,updatedAt, discrepancia1, discrepancia2, discrepancia3} = el
                     const updatedAt2 = format(new Date(updatedAt), 'dd/MM/yyyy')
                     const updatedPintar = format(new Date(updatedAt), 'H:mm')
                     return <tr key={id} className='border border-gray-200 h-14  cursor-pointer w-full '>

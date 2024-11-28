@@ -2,6 +2,7 @@
 
 import { authOptions } from "@/app/(Back)/api/auth/[...nextauth]/route";
 import FormularioClientePeticion from "@/app/(Front)/React/Components/Formularios/FormularioClientePeticion"
+import { ISession } from "@/app/Interfaces/ISession";
 import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
 
@@ -9,7 +10,7 @@ import { redirect } from "next/navigation";
 
 const page = async() => {
 
-  const session = await getServerSession(authOptions)
+  const session:ISession | null = await getServerSession(authOptions)
 // validacion
 if(!session){
  redirect('/api/auth/signin')

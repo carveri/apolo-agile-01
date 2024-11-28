@@ -3,13 +3,86 @@
 import { getDataLista } from '@/app/(Front)/React/Fetch/getDataLista'
 import {useState, useEffect} from 'react'
 import { format } from "date-fns";
-import { dataTiempoHistoria } from '@/app/(Front)/React/Utils/dataTiempoHistoria';
-//import { useHistoriaPo } from '../../../[stores]/poStore';
 import { updateData } from '@/app/(Front)/React/Fetch/updateData';
 import { deleteData } from '@/app/(Front)/React/Fetch/deleteData';
 import {useRouter} from "next/navigation";
 import { useHistoriaPo } from '@/app/(Front)/(Private)/[stores]/poStore';
-import { getDataCompleja } from '@/app/(Front)/React/Fetch/getDataCompleja';
+
+// interface Historia{
+//   caracterId: string
+//   como: string
+//   createdAt: string
+//   descripcion1: string
+//   descripcion2: string
+//   descripcion3: string
+//   descripcion4: "-"
+// detalleHistoria
+// : 
+// "dedede"
+// discrepancia1
+// : 
+// "Tiempo"
+// discrepancia2
+// : 
+// "Presupuesto"
+// discrepancia3
+// : 
+// "Equipo"
+// discrepancia4
+// : 
+// "-"
+// horaAt
+// : 
+// "14:33"
+// id
+// : 
+// "3340cf31-496c-4f2c-90fb-bdbca3c77bc5"
+// isActive
+// : 
+// true
+// nombreHistoria
+// : 
+// "hist7, com1"
+// para
+// : 
+// "p7"
+// peso1
+// : 
+// 100
+// peso2
+// : 
+// 0
+// peso3
+// : 
+// 100
+// posicion
+// : 
+// 0
+// presupuestoHistoria
+// : 
+// 160000
+// productBacklogId
+// : 
+// "1af659a1-06b9-46e7-94fb-2220d8f5f0b8"
+// puntoHistoria
+// : 
+// 7
+// quiero
+// : 
+// "q7"
+// status
+// : 
+// "Retornada"
+// tiempoHistoria
+// : 
+// 11
+// updatedAt
+// : 
+// "2024-11-27T17:43:24.669Z"
+// userId
+// : 
+// "f72d2f55-fe11-4b72-ae67-1bcc35b4d95f"
+// }
 
 const page = () => {
 
@@ -17,23 +90,12 @@ const page = () => {
 
   const { idHistoria, cambiarIdHistoria} = useHistoriaPo()
 
-  const [histouseridcargo, setHistouseridcargo] = useState([]) 
-
   const [historia, setHistoria] = useState({})
 
   // estados de los inputs
   const [ptiempo, setPtiempo] = useState(0)
   const [pPresupuesto, setPPresupuesto] = useState(0)
   const [pEquipo, setPEquipo] = useState(0)
-
-  //const {historiaStatus, getHistoriaStatus} = useHistoriaPo
-  // useEffect(()=>{
-  //   cambiarIdHistoria()
-  // }, [])
-
-
-  console.log('idHistopintar:', idHistoria);
-  
 
   useEffect(()=>{
     //cambiarIdHistoria()
@@ -47,28 +109,17 @@ const page = () => {
     
   }, [])
 
-  console.log('histo unica:', historia);
-
 
   // activos
   const [tiempoActivo, setTiempoActivo] = useState(false)
   const [presupuestoActivo, setPresupuestoActivo] = useState(false)
   const [equipoActivo, setEquipoActivo] = useState(false)
   
-  const handleClickTiempo =()=>{
-    setTiempoActivo(!tiempoActivo)
-  }
-
-  const handleClickPresupuesto =()=>{
-    setPresupuestoActivo(!presupuestoActivo)
-  }
-
-  const handleClickEquipo = ()=>{
-    setEquipoActivo(!equipoActivo)
-  }
+ 
 
   const {tiempoHistoria, presupuestoHistoria, equipo3, peso1, peso2, peso3} = historia
-  //const of1 = 
+  console.log('HISTORIA!!!:', historia);
+  
 
   const calculoPesoOferta =(oferta1 = 0, oferta2 = 0  , peso = 0 )=>{
     // oferta1 es la que me mando el po

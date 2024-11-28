@@ -1,10 +1,11 @@
 
+import { IParams } from "@/app/Interfaces/IParams"
 import prisma from "@/libs/prisma"
 
 class UserArea {
 
     // metodo
-    getUserArea = async(req:Request, {params})=>{
+    getUserArea = async(req:Request, {params}:IParams)=>{
         const {id} = params
         const getOneUserArea = await prisma.user.findMany({
             where:{

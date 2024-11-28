@@ -1,9 +1,10 @@
 
+import { IParams } from "@/app/Interfaces/IParams"
 import prisma from "@/libs/prisma"
 
 class CargoPorDepto {
     // metodo
-    getCargoPorDepto = async(req:Request, {params})=>{
+    getCargoPorDepto = async(req:Request, {params}:IParams)=>{
         const {id} = params
         const getcargopordepto = await prisma.cargo.findMany({
             where:{
@@ -21,10 +22,10 @@ class CargoPorDepto {
                         }
                     }
                 }
+            },
+            orderBy:{
+                nombreCargo: 'asc'
             }
-            // orderBy:{
-            //     nombreDepartamento: 'asc'
-            // }
         })
         return getcargopordepto
     }

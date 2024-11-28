@@ -1,8 +1,9 @@
 import { authOptions } from "@/app/(Back)/api/auth/[...nextauth]/route";
 import Formulario from "@/app/(Front)/React/Components/Formularios/Formulario";
+import { ISession } from "@/app/Interfaces/ISession";
 import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
-//import { useUserStore } from "../../[stores]/userStore";
+
 
 const page = async() => {
 
@@ -15,10 +16,6 @@ const page = async() => {
   
   const {user}= session
   const {id, name, email, image} = user
-  
-
-  //console.log('datauser del admin:', user);
-  
   
 
   return (

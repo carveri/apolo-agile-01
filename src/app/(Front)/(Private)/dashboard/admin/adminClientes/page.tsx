@@ -4,19 +4,23 @@ import { useEffect } from "react";
 import { useHistoriaAdmin } from "../../../[stores]/adminStore";
 import Tabla from "@/app/(Front)/React/Components/Tablas/Tabla";
 import { logicaTabla } from "@/app/(Front)/React/Components/Tablas/logicaTabla";
+import { IUsuarios } from "@/app/Interfaces/IGeneral";
 
-
+interface IUseHistoriaAdmin {
+  usuarios: IUsuarios[]
+  getUsuariosClientes: ()=>void
+}
 
 const page = () => {
 
  
-    const {usuarios, getUsuariosClientes} = useHistoriaAdmin()
+    const {usuarios, getUsuariosClientes}:IUseHistoriaAdmin = useHistoriaAdmin()
 
     useEffect(()=>{
       getUsuariosClientes()
     }, [])
 
-    //console.log('histotablaadmin:', usuarios);
+    //console.log('USUARIOSS:', usuarios);
     
 
   return (

@@ -1,31 +1,24 @@
 import { authOptions } from "@/app/(Back)/api/auth/[...nextauth]/route";
 import FormularioClientePeticion from "@/app/(Front)/React/Components/Formularios/FormularioClientePeticion"
+import { ISession } from "@/app/Interfaces/ISession";
 import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
 
 
+
+
 const page = async() => {
 
-    const session = await getServerSession(authOptions)
+const session:ISession | null = await getServerSession(authOptions)
 // validacion
 if(!session){
  redirect('/api/auth/signin')
 }
-//console.log(user);
-
-// NAME => AREAID
-
 
 const {user}= session
-const {id, name, email} = user
-//console.log('datauserpal cliente:', user.name);
-// console.log('areaaid:', name);
-// console.log('emaialal:', email);
+const {id, name, email}  = user
 
 
-
-
-    
 
   return (
     <div className='w-full h-full bg-white grid place-items-center' >

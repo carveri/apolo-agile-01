@@ -1,8 +1,22 @@
 import React from 'react'
 import MiBoton from '../MiBoton/MiBoton'
+import { IUsuarios } from '@/app/Interfaces/IGeneral'
 
+interface ITd{
+  td1:string
+  td2:string
+  td3:string
+  td4:string
+  td5:string
+  td6:string
+}
 
-const Tabla = ({logicaTabla, usuarios}) => {
+interface ITablaAdmin {
+  logicaTabla: ITd
+  usuarios: IUsuarios[]
+}
+
+const Tabla = ({logicaTabla, usuarios}:ITablaAdmin) => {
 
 
     const {td1, td2, td3, td4, td5, td6} = logicaTabla

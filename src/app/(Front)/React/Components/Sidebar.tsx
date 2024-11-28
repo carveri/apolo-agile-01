@@ -30,13 +30,13 @@ const Sidebar = ({links}) => {
                 }
                 ${pathname===href? `border-1 bg-colorSidebar duration-75  text-white`: ``}
                 `}>
-                <Link className=' hover:text-gray-100  py-4 flex' href={href}>
+                <Link className=' hover:text-gray-100   py-4 flex' href={href}>
                   <Image
                     src={icono}
                     alt='d'
                     width={45}
                     height={45}
-                    className='pr-5'
+                    className='pr-5 '
                   />
                   <div>
                     {nombre}

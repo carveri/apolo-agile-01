@@ -7,16 +7,14 @@ import Image from 'next/image';
 
 import flechaAbajo from "./../../../React/Assets/Icons/flechaAbajo4.png";
 import { getDataLista } from '../../Fetch/getDataLista';
-import { postData } from '../../Fetch/postData';
 import ModalAviso from '../ModalAviso/ModalAviso';
+import { IId } from '@/app/Interfaces/IUsers';
+import { IEmpresa, IParametro3, ISelectForm, ISelectForm2, ISelectForm3 } from '@/app/Interfaces/IformAdmin';
 
 
 
-const Formulario = ({id}) => {
 
-    //console.log('id del usuario:', id);
-
-    
+const Formulario = ({id}:IId) => {
     // ACTIVO MODAL
     const [activoModal, setActivoModal] = useState(false)
 
@@ -51,12 +49,7 @@ const Formulario = ({id}) => {
     const [activoParametro3, setActivoParametro3] = useState(false)
 
     // estado traer las cosas de la empresa con el id del useer
-    const [empresa, setEmpresa] = useState([])
-
-
-
-    //console.log('info de la empresa: ', empresa);
-    
+    const [empresa, setEmpresa] = useState<IEmpresa[]>([])
     
 
     // traer datos de los departamentos
@@ -70,8 +63,7 @@ const Formulario = ({id}) => {
         traerParametros()
         //location.reload();
     }, []);
-
-        
+ 
 
     // traer datos de los cargos
         useEffect(()=>{
@@ -83,9 +75,6 @@ const Formulario = ({id}) => {
             }    
             traerParametros()
         }, [parametros1Id])
-    
-    
-    
     
 
     // traer datos de los equipos
@@ -116,7 +105,7 @@ const Formulario = ({id}) => {
     
 
     // DEPARTAMENTO
-    const handleClickSelectForm =({id,nombreDepartamento})=>{
+    const handleClickSelectForm =({id,nombreDepartamento}:ISelectForm)=>{
         setParametros1Id(id)
         
         setParametro1(nombreDepartamento)
@@ -131,10 +120,8 @@ const Formulario = ({id}) => {
     }
 
     
-    
-    
     // CARGO
-    const handleClickSelectForm2 =({id,nombreCargo})=>{
+    const handleClickSelectForm2 =({id,nombreCargo}:ISelectForm2)=>{
         setParametros2Id(id)
         
         setParametro2(nombreCargo)
@@ -146,7 +133,7 @@ const Formulario = ({id}) => {
     }
 
     // EQUIPO 
-    const handleClickSelectForm3 =({id, nombreEquipo})=>{
+    const handleClickSelectForm3 =({id, nombreEquipo}:ISelectForm3)=>{
         setParametros3Id(id)
         
         setParametro3(nombreEquipo)
@@ -159,17 +146,16 @@ const Formulario = ({id}) => {
 
     //console.log('equipos:', parametros3);
 
-    const filtrarEquiposDevs =()=>{
-        const res = parametros3?.filter((el)=> el?.nombreEquipo.at(0) === 'D')
+    const filtrarEquiposDevs =(param:IParametro3[])=>{
+        const res = param?.filter((el)=> el?.nombreEquipo.at(0) === 'D')
         return res
     }
 
-
-    //console.log('filtro:', filtrarEquiposDevs());
+    console.log('empresa:', empresa);
     
 
     // CAMBIAR ESTADO DEL ONCHANGE
-    const handleChangeAdmin =(e)=>{
+    const handleChangeAdmin =(e:React.ChangeEvent<HTMLInputElement>)=>{
         if(e.target.name === 'primerNombre'){
             setPrimerNombre(e.target.value)
         }
@@ -199,10 +185,10 @@ const Formulario = ({id}) => {
 
  
     // MENSAJES DE MODAL
-    const mensajePositivo = 'El Usuario se agrego correctamente'
-    const mensajeNegativo = 'Ocurrio un error y el usuario no guardo!'
+    // const mensajePositivo = 'El Usuario se agrego correctamente'
+    // const mensajeNegativo = 'Ocurrio un error y el usuario no guardo!'
 
-    const handleSubmitAdmin =(e)=>{
+    const handleSubmitAdmin =(e:React.FormEvent<HTMLFormElement>)=>{
         e.preventDefault()
         const data = {
             primerNombre, 
@@ -210,7 +196,6 @@ const Formulario = ({id}) => {
             apellidoPaterno, 
             apellidoMaterno, 
             rutPersonal, 
-            //parametros1Id,
             empresaId: empresa.at(0)?.id,
             cargoId: parametros2Id,
             equipoId: parametros3Id ? parametros3Id : '1c3eb8cf-684c-49d4-90da-6698060cbe54',
@@ -218,21 +203,7 @@ const Formulario = ({id}) => {
             password, 
             confirmPassword}
             console.log(data);
-
-            //console.log(data);
-            
-
-            const ruta = 'user'
-
-            try {
-                postData({ruta, data})
-                
-                setActivoModal(true)
-            } catch (error) {
-                setActivoModal(true)
-            }
-            //alert('Se guardo correctamente el nuevo usuario')
-
+            setActivoModal(true)
         
     }
  
@@ -396,7 +367,7 @@ const Formulario = ({id}) => {
                                 {activoParametro3 &&
                                     <div className={` mt-[75px] w-[380px] z-50 absolute left-3/5 max-h-[120px] overflow-auto `}>
                                                     
-                                        {filtrarEquiposDevs()?.map((el)=>{
+                                        {filtrarEquiposDevs(parametros3)?.map((el)=>{
                                             const {id, nombreEquipo} = el
                                                 return  (<button name='equipoId' onClick={()=>handleClickSelectForm3({id, nombreEquipo})} className='w-[365px] text-start cursor-pointer h-10 bg-white hover:bg-violet-200  pl-4' key={id}>
                                                     {nombreEquipo}
@@ -408,19 +379,6 @@ const Formulario = ({id}) => {
                                     </article>
                             }
                             
-
-
-
-
-
-
-
-
-
-
-
-
-
                             {/* EMAIL */}
                             <InputFormulario
                                 texto = 'Email:'

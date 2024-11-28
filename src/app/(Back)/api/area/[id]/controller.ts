@@ -1,16 +1,17 @@
 
 
+import { IParams } from "@/app/Interfaces/IParams"
 import prisma from "@/libs/prisma"
 
 
 class AreaDetalle {
 
     // metodo get
-    getAreaDetalle = async(req:Request, {params})=>{
-        const {nombreArea} = params
+    getAreaDetalle = async(req:Request, {params}:IParams)=>{
+        const {id} = params
         const getOneArea = await prisma.area.findFirst({
             where:{
-                nombreArea:nombreArea
+                nombreArea:id
             },include:{
                 equipos:{
                     include:{
@@ -30,7 +31,7 @@ class AreaDetalle {
     }
 
     // metodo put
-    putArea = async(req:Request, {params})=>{
+    putArea = async(req:Request, {params}:IParams)=>{
         const {id} = params
         const {nombreArea} = await req.json()
         const updatedArea = await prisma.area.update({
