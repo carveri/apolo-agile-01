@@ -1,9 +1,19 @@
 import { create } from "zustand";
 import { getDataLista } from "../../React/Fetch/getDataLista";
+import { IUsuarios } from "@/app/Interfaces/IGeneral";
 
 
 
-export const useHistoriaAdmin = create((set)=>
+interface IAdminStore {
+    usuarios: IUsuarios[]
+    getUsuariosClientes: ()=>void
+    getUsuariosDevs: ()=>void
+    getUsuariosPo: ()=>void
+    getUsuariosSm: ()=>void
+    getUsuariosAdmin: ()=>void
+}
+
+export const useHistoriaAdmin = create<IAdminStore>((set)=>
 ({
     usuarios: [],
 

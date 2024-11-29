@@ -12,7 +12,7 @@ const page = () => {
   return (
     <div className='w-full h-full flex px-8'>
       <section className='w-[43%] h-auto  grid place-items-center'>
-        <div className='w-5/6 h-3/5   '>
+        <div className='w-5/6 h-3/5   mt-9'>
           <article className='w-full h-12 text-xl flex'>
             <header className='pr-2'>
               <Image
@@ -47,8 +47,8 @@ const page = () => {
             <div>
                 <Image
                     src={imagenDashboard2}
-                    width={750}
-                    height={650}
+                    width={720}
+                    height={620}
                     alt="Picture of the author"
                     className=' -mt-16 '
                 />

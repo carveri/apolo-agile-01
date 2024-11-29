@@ -1,16 +1,17 @@
 
+import { IUserParams } from "@/app/Interfaces/IParams"
 import prisma from "@/libs/prisma"
 
 class EmpresaPorUsuario {
 
     // metodo get
-    getEmpresaPorUsuario = async(req:Request, {params})=>{
-        const {id} = params
+    getEmpresaPorUsuario = async(req:Request, {params}:IUserParams)=>{
+        const {userId} = await params
         const getEmpresaPorUsuario = await prisma.empresa.findMany({
             where:{
                 usuarios:{
                     some:{
-                        id: id
+                        id: userId
                     }
                 }
             }

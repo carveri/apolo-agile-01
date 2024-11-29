@@ -7,7 +7,7 @@ import { redirect } from "next/navigation";
 
 const page = async() => {
 
-  const session = await getServerSession(authOptions)
+  const session:ISession | null = await getServerSession(authOptions)
    // validacion
    if(!session){
     redirect('/api/auth/signin')

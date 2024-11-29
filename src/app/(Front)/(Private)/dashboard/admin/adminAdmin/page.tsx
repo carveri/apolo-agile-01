@@ -13,7 +13,6 @@ const page = () => {
       getUsuariosAdmin()
     }, [])
 
- 
 
   return (
     <div className='w-full h-full bg-white grid place-items-center' >

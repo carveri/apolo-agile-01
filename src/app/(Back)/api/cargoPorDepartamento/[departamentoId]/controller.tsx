@@ -1,15 +1,15 @@
 
-import { IParams } from "@/app/Interfaces/IParams"
+import { IDepartamentoParams } from "@/app/Interfaces/IParams"
 import prisma from "@/libs/prisma"
 
 class CargoPorDepto {
     // metodo
-    getCargoPorDepto = async(req:Request, {params}:IParams)=>{
-        const {id} = params
+    getCargoPorDepto = async(req:Request, {params}:IDepartamentoParams)=>{
+        const {departamentoId} = await params
         const getcargopordepto = await prisma.cargo.findMany({
             where:{
                 departamentoId: {
-                    equals: id
+                    equals: departamentoId
                 }
             },
             include:{
