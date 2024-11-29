@@ -20,7 +20,7 @@ const Sidebar = ({links}) => {
 
   return (
     <aside className='w-full h-full rounded'>
-        <header className='h-12 bg-blue-100 grid place-content-center rounded'>
+        <header className='h-12 bg-blue-100 grid place-content-center rounded text-sm'>
              <p className='pr-1'>Dashboard</p> 
         </header>
         <ul className='w-full h-[43%] grid grid-rows-6 '>
@@ -34,11 +34,11 @@ const Sidebar = ({links}) => {
                   <Image
                     src={icono}
                     alt='d'
-                    width={45}
-                    height={45}
+                    width={40}
+                    height={40}
                     className='pr-5 '
                   />
-                  <div>
+                  <div className='text-sm'>
                     {nombre}
                   </div>
                   {coso &&

@@ -15,7 +15,7 @@ const page = async() => {
   //console.log(user);
   
   const {user}= session
-  console.log('userPagPivoteCliente2222:', user);
+  //console.log('userPagPivoteCliente2222:', user);
 
   
   // user.image es el cargoId

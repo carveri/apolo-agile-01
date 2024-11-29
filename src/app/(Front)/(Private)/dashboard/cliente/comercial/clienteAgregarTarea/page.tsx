@@ -23,7 +23,7 @@ const {id, name, email}  = user
   return (
     <div className='w-full h-full bg-white grid place-items-center' >
         <section className='w-[99%] h-[99%] bg-gray-50 rounded '>
-            <header className='w-full h-[5%] py-4 pl-4 '>
+            <header className='w-full h-[5%] py-4 pl-4 text-sm'>
                 Dashboard Cliente {'>'} Clientes {'>'} Comercial {'>'} Agregar Tarea
             </header>
             <main className='w-full h-[95%] '>

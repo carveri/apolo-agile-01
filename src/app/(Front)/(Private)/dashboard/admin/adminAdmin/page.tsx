@@ -19,10 +19,10 @@ const page = () => {
     <div className='w-full h-full bg-white grid place-items-center' >
         <section className='w-[99%] h-[99%] bg-gray-50 rounded '>
           <header className='w-full h-[5%] bg-white py-4 pl-4'>
-            Dashboard {'>'} Admin {'>'} Administracion
+            Dashboard {'>'} Admin {'>'} Administración
           </header>
           <div className='w-[1625px] z-30 absolute top-28 left-3/5 max-h-[730px] overflow-auto'>
-            <section className='bg-colorBarraSuperiorTablas w-[98%] h-[50px] text-lg grid place-content-center ml-8 text-white'>
+            <section className='bg-colorBarraSuperiorTablas w-[98%] h-[50px] text-base grid place-content-center ml-8 text-white '>
             Administradores de Hilti
             </section>
             <Tabla

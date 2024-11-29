@@ -210,17 +210,17 @@ const Formulario = ({id}:IId) => {
     
 
   return (
-    <div className='w-full h-full bg-white grid place-items-center' >
+    <div className='w-full h-full bg-white grid place-items-center '  >
         <section className='w-[99%] h-[90%] bg-gray-50 rounded '>
             <header className='w-full h-[3%] mb-14 pl-4 -mt-5'>
-                Dashboard Cliente {'>'} Admin {'>'} Agregar Usuario
+                Dashboard {'>'} Cliente {'>'} Admin {'>'} Agregar Usuario
             </header>
             <main className='w-full h-[99%] -mt-6'>
             <form  onSubmit={handleSubmitAdmin} className=' w-full h-[700px]'>
 
                 <div className='flex h-[95%]   place-content-center  mt-8  px-72 gap-x-10 '>
                     <section className='w-[48%] h-[95%] border border-gray-200 bg-white px-4 mr-10 pt-5  rounded shadow-lg'>
-                        <header className='w-full h-[10%]  grid place-content-center text-xl'>
+                        <header className='w-full h-[10%]  grid place-content-center text-base'>
                             Datos Personales
                         </header>
                         <div className='w-full h-[80%] grid grid-rows-5 px-8 '>
@@ -272,8 +272,8 @@ const Formulario = ({id}:IId) => {
 
 
 
-                    <section className='w-[46%] h-[95%] border border-gray-200 bg-white  mr-4 pt-5 px-8 rounded shadow-lg '>
-                        <header className='w-full h-[10%]  grid place-content-center text-xl ' >
+                    <section className='w-[46%] h-[95%] border border-gray-200 bg-white  mr-4 pt-5 px-8 rounded shadow-lg  '>
+                        <header className='w-full h-[10%]  grid place-content-center  text-base' >
                             Datos Laborales
                         </header>
                         <div className='w-full h-[80%] grid grid-rows-6 px-8 mt-2 '>

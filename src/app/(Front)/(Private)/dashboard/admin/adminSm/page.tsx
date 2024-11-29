@@ -23,7 +23,7 @@ const page = () => {
         </section><section className='w-[99%] h-[99%]  '>
           
           <div className='w-[1625px] z-30 absolute top-28 left-3/5 max-h-[730px] overflow-auto'>
-          <section className='bg-colorBarraSuperiorTablas w-[98%] h-[50px] text-lg grid place-content-center ml-8 text-white'>
+          <section className='bg-colorBarraSuperiorTablas w-[98%] h-[50px] text-base grid place-content-center ml-8 text-white'>
             Scrum Master de Hilti
           </section>
           <Tabla

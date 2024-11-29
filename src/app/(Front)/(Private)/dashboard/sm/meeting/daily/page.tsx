@@ -10,7 +10,7 @@ const page = () => {
                     <div className='w-[55%]  grid place-content-end py-3 text-base'>
                     Nueva Daily meeting
                     </div>
-                    <header className='w-[45%] h-[7%]  flex justify-end items-center  py-8 font-bold mb-1 pr-6   '>
+                    <header className='w-[45%] h-[7%]  flex justify-end items-center  py-8 font-bold mb-1 pr-6  text-base '>
                       <div className='pr-3 '>
                         Fecha Actual:
                       </div>

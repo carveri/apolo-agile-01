@@ -9,7 +9,7 @@ import { redirect } from 'next/navigation'
 //   // imagenes clientes
    //import homeClientes from "../../../React/Assets/Icons/homeClientes.png";
    import homeClientes from "../../../../React/Assets/Icons/homeClientes.png";
-   import agregarTareasClientes from "../../../../React/Assets/Icons/agregarTareaCliente3.png";
+   import agregarTareasClientes from "../../../../React/Assets/Icons/agregarTareaCliente8.png";
    //import agregarTareasClientes from "../../../React/Assets/Icons/agregarTareaCliente2.png";
    import historiasEnviadasClientes from "../../../../React/Assets/Icons/logoPricipal3.png";
    //import historiasEnviadasClientes from "../../../React/Assets/Icons/logoPricipal3.png";
@@ -75,7 +75,7 @@ const linksTecnico = [
   return (
     <div className="w-screen h-screen flex">
       <section className="w-[280px] h-full bg-[--verdecito] ">
-        <header className="h-12 w-full bg-gray-500 grid place-content-center text-[#00ff08]">
+        <header className="h-12 w-full bg-colorCajaLogo grid place-content-center text-colorTextoCaja">
           Apolo Scrum
         </header>
         <aside className="w-full h-[820px] bg-gray-100 ">
@@ -90,10 +90,10 @@ const linksTecnico = [
         <header className="h-12 bg-gray-100">
           <Navbar />
         </header>
-        <main className="w-full h-[828px]  rounded">
+        <main className="w-full h-[828px]  rounded text-tamañoLetra">
           {children}
         </main>
-        <div className=' h-7 flex items-center pl-4  bg-colorBarraBaja  mt-1'>
+        <div className=' h-7 flex items-center pl-4  bg-colorBarraBaja  mt-1 text-tamañoLetra'>
           <section className="w-4/6  bg-colorBarraBaja text-white">
           {session.user?.email}
           </section>

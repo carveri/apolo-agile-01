@@ -7,6 +7,7 @@ import { getDataCompleja } from '@/app/(Front)/React/Fetch/getDataCompleja';
 import { useRouter } from 'next/navigation';
 import { useHistoriaPo } from '@/app/(Front)/(Private)/[stores]/poStore';
 import { getDataLista } from '@/app/(Front)/React/Fetch/getDataLista';
+import BadgeNoAun from '@/app/(Front)/React/Components/BadgeNoAun/BadgeNoAun';
 
 const page = () => {
 
@@ -117,9 +118,9 @@ const page = () => {
             })}
           </tbody>
       </table>: 
-      <div className='w-full h-96 grid content-end justify-center text-xl '>
-      Aún no hay historias a resolver
-    </div>
+      <BadgeNoAun
+      nombre = 'Aceptadas'
+  />
         }
       </div>
   )

@@ -1,5 +1,5 @@
 
-import iconoLoading from "../../../React/Assets/Icons/iconoLoading.png";
+import iconoLoading from "../../../React/Assets/Icons/iconoLoading3.png";
 import Image from "next/image";
 
 const BadgeLoading = () => {

@@ -15,14 +15,14 @@ const config: Config = {
         'colorFondoChico': '#ffffff',
 
         // textos
-        'colorTextoNavbar': 'rgb(78, 81, 142)',
+        'colorTextoNavbar': 'rgb(78, 92, 159)',
         'colorTextoTitulo1': 'rgb(95, 103, 210)',
         'colorTextoTitulo2': 'rgb(36, 28, 34)',
         'colorTextoBarraAlta': 'white',
         'colorTextoBarraBaja': 'white',
         'colorTextoBoton': 'white',
         'colorTextoCaja': 'white',
-        'colorTextoAceptada': 'rgb(1, 224, 1)',
+        'colorTextoAceptada': 'rgb(0, 255, 0)',
         'colorTextoRetornada': 'rgb(217, 8, 214)',
         'colorTextoContraOferta': '#ff5b08',
         'colorTextoBotonVer': 'black',
@@ -30,7 +30,7 @@ const config: Config = {
         
         // Componentes
         'colorNavbar': '#ffffff',
-        'colorFormularioLogin': 'rgb(103, 119, 198)',
+        'colorFormularioLogin': 'rgb(78, 92, 159)',
         'colorSidebar': 'rgb(146, 153, 255)',
         'colorBarraBaja': 'rgb(95, 103, 210)',
         'hoverColorSidebar': 'rgb(134, 141, 236)',
@@ -54,11 +54,15 @@ const config: Config = {
         'colorCajaBloqueda': '#b4b0b0',
         'bgBloqueado': '#a4a1a1',
         
-        
+       
 
 
       },
+        fontSize:{
+          'tamañoLetra': '0.875rem'
+        }
     },
+    
   },
   plugins: [],
 };

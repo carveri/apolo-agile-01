@@ -49,9 +49,9 @@ const FormLogin = () => {
   }
 
   return (
-    <div className='w-3/5 h-4/5 grid place-items-center '>
-          <form onSubmit={handleSubmitLogin} className='w-2/6 h-5/6 bg-colorFormularioLogin px-8 rounded-md shadow-xl'>
-              <header className='w-full h-1/5 grid place-content-center text-xl text-white font-semibold'>
+    <div className='w-3/5 h-4/5 grid place-items-center text-tamañoLetra'>
+          <form onSubmit={handleSubmitLogin} className='w-2/6 h-5/6 bg-colorFormularioLogin px-8 rounded-md shadow-2xl'>
+              <header className='w-full h-1/5 grid place-content-center text-base text-white font-semibold'>
                 Inicio de Sesion
               </header>
               <main className='h-3/6'>
@@ -74,7 +74,7 @@ const FormLogin = () => {
                 Ingresar
               </button>
               <div className='h-1/6 pt-6 text-white pl-1'>
-                ¿Eres nuevo en Apolo? <Link className='text-[#00ff08] hover:underline font-semibold pl-2' href={'/auth/registro'}>Crear una cuenta</Link>
+                ¿Eres nuevo en Apolo Agile? <Link className='text-[#00ff08] hover:underline font-semibold pl-2' href={'/auth/registro'}>Crear una cuenta</Link>
               </div>
           </form>
         </div>

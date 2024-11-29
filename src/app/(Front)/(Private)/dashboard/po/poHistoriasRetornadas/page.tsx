@@ -1,8 +1,7 @@
 'use client'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { useHistoriaPo } from '../../../[stores]/poStore';
 import { useRouter } from "next/navigation";
-import { getDataLista } from '@/app/(Front)/React/Fetch/getDataLista';
 import { format } from "date-fns";
 import BadgeNoAun from '@/app/(Front)/React/Components/BadgeNoAun/BadgeNoAun';
 
@@ -45,8 +44,8 @@ const page = () => {
               </div>
             </header>
           {historiaStatusRetornada.length !== 0  ?
-              <div className='w-[1625px] mt-8 z-30 absolute top-32 left-3/5 max-h-[730px] overflow-auto'>
-              <table className='border border-gray-200   w-[98%] ml-8 '>
+              <div className='w-[1625px] mt-8 z-30 absolute top-32 left-3/5 max-h-[625px] overflow-auto'>
+              <table className='border border-gray-200   w-[98%] ml-8 mt-1 '>
                 <thead>
                 <tr className='h-14'>
                   <td className='w-[10%] pl-3'>Numero</td>

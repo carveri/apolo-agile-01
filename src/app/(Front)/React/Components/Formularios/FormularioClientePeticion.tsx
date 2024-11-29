@@ -161,12 +161,12 @@ const FormularioClientePeticion = ({id, areaId, email}:IFormularioClientePeticio
     return (
     <form onSubmit={handleSumbitCliente} action="" className=' w-full h-full '>
 
-                <div className='flex h-[85%]  place-content-center  mt-8 px-64 gap-x-16'>
+                <div className='flex h-[85%]  place-content-center  mt-8 px-64 gap-x-16 '>
                     <section className='w-[48%] h-[95%] border border-gray-200 px-4 mr-10 pt-5 bg-white rounded shadow-md'>
-                        <header className='w-full h-[10%]  grid place-content-center text-xl'>
+                        <header className='w-full h-[10%]  grid place-content-center text-base'>
                             Información de la petición 
                         </header>
-                        <div className='w-full h-[80%] grid grid-rows-4 px-8 mt-4'>
+                        <div className='w-full h-[70%] grid grid-rows-4 px-8 mt-4'>
                             <article className='grid grid-rows-2 pb-3'>
                                 <label  htmlFor="">Nombre de la petición (Historia de usuario):</label>
                                     
@@ -201,7 +201,7 @@ const FormularioClientePeticion = ({id, areaId, email}:IFormularioClientePeticio
 
 
                     <section className='w-[48%] h-[95%] border border-gray-200 bg-white  mr-4 pt-5  px-8 shadow-md'>
-                        <header className='w-full h-[10%]  grid place-content-center text-xl pb-2' >
+                        <header className='w-full h-[10%]  grid place-content-center text-base pb-2' >
                             Detalles de la petición
                         </header>
                         <div className='w-full h-[80%] grid grid-rows-5 px-8 mt-2 '>

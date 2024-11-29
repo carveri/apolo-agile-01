@@ -14,7 +14,7 @@ const BadgeNoAun = ({nombre}) => {
           alt='s'
         />
       </div>
-      <div>
+      <div className='text-tamañoLetra'>
         Aún no hay Historias {nombre}
       </div>
     </div>

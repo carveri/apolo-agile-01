@@ -3,7 +3,7 @@ import FormLogin from './Components/FormLogin'
 
 const page = () => {
   return (
-    <div className='w-screen h-screen grid place-items-center bg-gray-100'>
+    <div className='w-screen h-screen grid place-items-center bg-white '>
        
           <FormLogin />
         

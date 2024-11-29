@@ -114,7 +114,7 @@ const page = () => {
                       
                       <td className='grid place-items-center pt-2 pr-2'>
                         <button onClick={()=>handleClickVerResolucionHistoria(id)} className='w-[100px] h-10 bg-violet-200 rounded text-violet-900'>
-                          ver
+                          Ver
                         </button>
                       </td>
                     </tr>

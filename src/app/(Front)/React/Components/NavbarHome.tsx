@@ -16,7 +16,7 @@ const NavbarHome = () => {
             {dataNavHome.map((el)=>{
                 const {id, href, texto} = el
                 return (
-                    <Link className=' h-full text-colorTextoNavbar  grid content-center'  href={href} key={id}>
+                    <Link className=' h-full text-colorTextoNavbar  grid content-center text-tamañoLetra font-semibold'  href={href} key={id}>
                         {texto}
                     </Link>
                 )

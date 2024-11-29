@@ -9,7 +9,7 @@ import { redirect } from 'next/navigation'
 //   // imagenes clientes
    //import homeClientes from "../../../React/Assets/Icons/homeClientes.png";
    import homeClientes from "../../../../React/Assets/Icons/homeClientes.png";
-   import agregarTareasClientes from "../../../../React/Assets/Icons/agregarTareaCliente3.png";
+   import agregarTareasClientes from "../../../../React/Assets/Icons/agregarTareaCliente8.png";
    //import agregarTareasClientes from "../../../React/Assets/Icons/agregarTareaCliente2.png";
    import historiasEnviadasClientes from "../../../../React/Assets/Icons/logoPricipal3.png";
    //import historiasEnviadasClientes from "../../../React/Assets/Icons/logoPricipal3.png";
@@ -90,15 +90,15 @@ const linksTecnico = [
         <header className="h-12 bg-gray-100">
           <Navbar />
         </header>
-        <main className="w-full h-[828px]  rounded">
+        <main className="w-full h-[828px]  rounded text-tamañoLetra">
           {children}
         </main>
-        <div className=' h-7 flex items-center pl-4  bg-colorBarraBaja  mt-1'>
+        <div className=' h-7 flex items-center pl-4  bg-colorBarraBaja  mt-1 text-sm'>
           <section className="w-4/6  bg-colorBarraBaja text-white">
-          {session.user?.email}
+            {session.user?.email}
           </section>
           <div className="text-white">
-          {user?.name}
+            {user?.name}
           </div>
       </div>
       </section>

@@ -149,7 +149,7 @@ const page = () => {
                     alt="Picture of the author"
                 />
               </header> 
-              <p className='text-2xl '>
+              <p className='text-lg '>
                 Apolo Agile
               </p>
             </article>
@@ -164,7 +164,7 @@ const page = () => {
                       alt="Picture of the author"
                   />
                 </header>
-                <main className='w-[90%] '>
+                <main className='w-[90%] text-tamañoLetra'>
                   <header className='font-bold text-blue-800 pb-1'>
                     {el.titulo}
                   </header>
@@ -176,7 +176,7 @@ const page = () => {
             })}
           </ul>
           <div className=' h-[20%] grid place-content-end '>
-            <Link className='text-[#00ff08] hover:underline font-semibold pl-2 text-lg' href={'/api/auth/login'}>Volver al login</Link>
+            <Link className='text-[#00ff08] hover:underline font-semibold pl-2 text-base' href={'/api/auth/login'}>Volver al login</Link>
           </div>
         </article>
         <article className='grid justify-items-center'>

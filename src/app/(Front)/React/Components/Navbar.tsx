@@ -16,13 +16,13 @@ const Navbar = () => {
 
   return (
     <nav className='w-full h-full  grid justify-items-end '>
-        <ul className='w-52 h-full  grid grid-cols-3 place-items-center pr-16 text-colorTextoNavbar font-medium '>
+        <ul className='w-44  h-full  grid grid-cols-3 place-items-center pr-16 text-colorTextoNavbar font-medium '>
             <li >
             <Link href={'/dashboard/perfil'}>
                     <Image 
                         src={campana}
-                        width={30}
-                        height={30}
+                        width={25}
+                        height={25}
                         alt='campanita'
                         
                         />
@@ -32,15 +32,15 @@ const Navbar = () => {
                 <Link href={'/dashboard/perfil'}>
                     <Image 
                         src={perfil}
-                        width={30}
-                        height={30}
+                        width={25}
+                        height={25}
                         alt='campanita'
                         
                         />
                 </Link>
             </li>
             <div>
-                <button className=' hover:underline py-2 px-1 font-semibold' onClick={handleClickLogOut}>
+                <button className=' hover:underline py-2 px-1 font-semibold text-sm' onClick={handleClickLogOut}>
                     Salir
                 </button>
             </div>
