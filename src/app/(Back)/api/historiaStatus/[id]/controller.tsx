@@ -7,7 +7,7 @@ class HistoriaStatus {
     // el param es el status
     getHistoriaStatus = async(req:Request, {params})=>{
         const {id} = params
-        console.log('statusito', id);
+        //console.log('statusito', id);
         
         const getHistoriaStatus = await prisma.historia.findMany({
             where:{

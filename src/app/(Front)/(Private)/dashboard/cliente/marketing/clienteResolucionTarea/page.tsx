@@ -11,8 +11,6 @@ import BadgeNoAun from '@/app/(Front)/React/Components/BadgeNoAun/BadgeNoAun';
 const page = () => {
   const { idHistoria, cambiarIdHistoria} = useHistoriaPo()
 
-  const [historias, setHistorias] = useState([])
-  //const {historiaStatus, getHistoriaStatus} = useHistoriaPo
   const [histouseridcargo, setHistouseridcargo] = useState([])
 
   useEffect(()=>{
@@ -30,16 +28,13 @@ const page = () => {
 
   const route = useRouter()
 
-  const handleClickVerResolucionHistoria =(id)=>{
-    console.log('idHisto:', id);
+  const handleClickVerResolucionHistoria =(id:string)=>{
+    //console.log('idHisto:', id);
     cambiarIdHistoria(id)
-    console.log('idzusthistoria:', idHistoria);
+    //console.log('idzusthistoria:', idHistoria);
     route.push('/dashboard/cliente/marketing/verResolucionTarea')
   }
 
-  //console.log('historietasvolao: ', historias);
-  
-  
 
   return (
     <div className='w-full h-full   ' >
@@ -72,13 +67,13 @@ const page = () => {
                     
                     <td className='w-[10%] text-center'>Discrepancia 1</td>
                     <td className='w-[10%] text-center'>Discrepancia 2</td>
-                    <td className='w-[10%] text-center'>Discrepancia 3</td>
+            
                     
                   </tr>
                 </thead>
                 <tbody>
                 {histouseridcargo?.map((el, index)=>{
-                  const {id, nombreHistoria, createdAt, status ,updatedAt, horaAt, discrepancia1, discrepancia2, discrepancia3, discrepancia4} = el
+                  const {id, nombreHistoria, createdAt, status ,updatedAt, discrepancia1, discrepancia2} = el
                     const updatedAt2 = format(new Date(updatedAt), 'dd/MM/yyyy')
                     const updatedPintar = format(new Date(updatedAt), 'H:mm')
                     return <tr key={id} className='border border-gray-200 h-14  cursor-pointer w-full '>
@@ -109,13 +104,11 @@ const page = () => {
                       <td className='pl-8'>
                         {discrepancia2}
                       </td>
-                      <td className='pl-8'>
-                        {discrepancia3}
-                      </td>
+                      
                       
                       <td className='grid place-items-center pt-2 pr-2'>
                         <button onClick={()=>handleClickVerResolucionHistoria(id)} className='w-[100px] h-10 bg-violet-200 rounded text-violet-900'>
-                          ver
+                          Ver
                         </button>
                       </td>
                       

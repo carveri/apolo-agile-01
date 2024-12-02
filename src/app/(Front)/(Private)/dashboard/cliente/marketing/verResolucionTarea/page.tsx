@@ -7,7 +7,7 @@ import { updateData } from '@/app/(Front)/React/Fetch/updateData';
 import { deleteData } from '@/app/(Front)/React/Fetch/deleteData';
 import {useRouter} from "next/navigation";
 import { useHistoriaPo } from '@/app/(Front)/(Private)/[stores]/poStore';
-import { IHistoria } from '@/app/Interfaces/IGeneral';
+import { IHistoria, OIHistoria } from '@/app/Interfaces/IGeneral';
 
 const page = () => {
 
@@ -74,7 +74,7 @@ const page = () => {
     const pesoTotal =  pesoTiempo + pesoPresupuesto
   
 
-  const handleClickAgregarAlProductBacklog =(e)=>{
+  const handleClickAgregarAlProductBacklog =(e:React.MouseEvent<HTMLButtonElement>)=>{
     const status = 'Aceptada'
     // renombrar los estados 
     const tiempoHistoria = ptiempo
@@ -85,6 +85,7 @@ const page = () => {
     const id = idHistoria
     updateData({data, ruta, id})
     alert('Se guardo la historia en el PB')
+    router.push('/dashboard/cliente/marketing/clienteHistoriasAceptadas')
   }
 
   const handleClickEnviarContraoferta =()=>{
@@ -98,7 +99,7 @@ const page = () => {
     const id = idHistoria
     updateData({data, ruta, id})
     alert('Se envio la controferta al po')
-    
+    router.push('/dashboard/cliente/marketing/clienteHistoriasAceptadas')
   }
 
   const handleClickEliminarTareaCliente=()=>{
@@ -122,6 +123,7 @@ const page = () => {
 
 
  
+console.log('histt:', historia);
 
   
   

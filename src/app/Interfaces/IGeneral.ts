@@ -56,6 +56,8 @@ export interface IUsua{
     cargo:  ICargo
   }
 
+  
+
   export interface IHistoria{
     id: string
     nombreHistoria: string
@@ -86,4 +88,8 @@ export interface IUsua{
     como: string
     para: string
     quiero: string
+  }
+
+  export interface OIHistoria {
+    historia: IHistoria
   }

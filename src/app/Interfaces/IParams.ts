@@ -33,3 +33,22 @@ interface DepartamentoParams{
 export interface IDepartamentoParams{
     params: DepartamentoParams
 }
+
+// HISTORIA
+interface HistoriaParams{
+    historiaId: string
+}
+
+export interface IHistoriaParams{
+    params: HistoriaParams
+}
+
+
+// CARGOPORUSUARIO
+interface CargoPorUsuarioParams{
+    usuarioId: string
+}
+
+export interface ICargoPorUsuarioParams{
+    params: CargoPorUsuarioParams
+}

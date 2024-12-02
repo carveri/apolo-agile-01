@@ -8,7 +8,7 @@ import BadgeNoAun from "@/app/(Front)/React/Components/BadgeNoAun/BadgeNoAun";
 
 const page = () => {
 
-  const { idHistoria, cambiarIdHistoria} = useHistoriaPo()
+  //const { idHistoria, cambiarIdHistoria} = useHistoriaPo()
 
   const [histouseridcargo, setHistouseridcargo] = useState([])  
 

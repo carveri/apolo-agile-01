@@ -61,7 +61,7 @@ const page = () => {
                 </thead>
                 <tbody>
                 {histouseridcargo?.map((el, index)=>{
-                  const {id, nombreHistoria, createdAt, status ,updatedAt, horaAt, puntoHistoria, tiempoHistoria, presupuestoHistoria} = el
+                  const {id, nombreHistoria, createdAt, status ,updatedAt, puntoHistoria, tiempoHistoria, presupuestoHistoria} = el
                     const updatedAt2 = format(new Date(updatedAt), 'dd/MM/yyyy')
                     return <tr key={id} className='border border-gray-200 h-14  cursor-pointer w-full '>
                       <td className='pl-8'>

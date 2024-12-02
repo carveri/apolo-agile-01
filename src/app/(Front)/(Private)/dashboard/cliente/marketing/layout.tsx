@@ -79,7 +79,7 @@ const linksTecnico = [
     <div className="w-screen h-screen flex">
       <section className="w-[280px] h-full bg-[--verdecito] ">
         <header className="h-12 w-full bg-colorCajaLogo grid place-content-center text-white">
-          Apolo Scrum
+          Apolo Agile
         </header>
         <aside className="w-full h-[820px] bg-gray-100 ">
          

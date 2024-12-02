@@ -33,9 +33,9 @@ const page = () => {
   const route = useRouter()
 
   const handleClickVerResolucionHistoria =(id:React.MouseEvent<HTMLButtonElement>)=>{
-    console.log('idHisto:', id);
+    //console.log('idHisto:', id);
     cambiarIdHistoria(id)
-    console.log('idzusthistoria:', idHistoria);
+    //console.log('idzusthistoria:', idHistoria);
     route.push('/dashboard/cliente/comercial/verResolucionTarea')
   }
 

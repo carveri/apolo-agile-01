@@ -1,26 +1,19 @@
-//import Navbar from "../../React/Components/Navbar";
-//import Sidebar from "../../React/Components/Sidebar";
 import { getServerSession } from 'next-auth'
 import { authOptions } from '@/app/(Back)/api/auth/[...nextauth]/route'
 import { redirect } from 'next/navigation'
 
 // // IMAGENES 
-  
-//   // imagenes clientes
-   //import homeClientes from "../../../React/Assets/Icons/homeClientes.png";
+   // imagenes clientes
    import homeClientes from "../../../../React/Assets/Icons/homeClientes.png";
    import agregarTareasClientes from "../../../../React/Assets/Icons/agregarTareaCliente8.png";
-   //import agregarTareasClientes from "../../../React/Assets/Icons/agregarTareaCliente2.png";
    import historiasEnviadasClientes from "../../../../React/Assets/Icons/logoPricipal3.png";
-   //import historiasEnviadasClientes from "../../../React/Assets/Icons/logoPricipal3.png";
    import resolucionTareasClientes from "../../../../React/Assets/Icons/resolucionTareaClientes.png";
-   //import resolucionTareasClientes from "../../../React/Assets/Icons/resolucionTareaClientes.png";
    import resolucionTareasClientesAceptadas from "../../../../React/Assets/Icons/gestionTareasPo.png";
 
 
 
-import Navbar from '@/app/(Front)/React/Components/Navbar';
-import Sidebar from '@/app/(Front)/React/Components/Sidebar';
+  import Navbar from '@/app/(Front)/React/Components/Navbar';
+  import Sidebar from '@/app/(Front)/React/Components/Sidebar';
   
 
 

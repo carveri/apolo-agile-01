@@ -3,12 +3,11 @@
 import { getDataLista } from '@/app/(Front)/React/Fetch/getDataLista'
 import {useState, useEffect} from 'react'
 import { format } from "date-fns";
-import { dataTiempoHistoria } from '@/app/(Front)/React/Utils/dataTiempoHistoria';
-//import { useHistoriaPo } from '../../../[stores]/poStore';
 import { updateData } from '@/app/(Front)/React/Fetch/updateData';
 import { deleteData } from '@/app/(Front)/React/Fetch/deleteData';
 import {useRouter} from "next/navigation";
 import { useHistoriaPo } from '@/app/(Front)/(Private)/[stores]/poStore';
+import { IHistoria } from '@/app/Interfaces/IGeneral';
 
 const page = () => {
 
@@ -16,22 +15,14 @@ const page = () => {
 
   const { idHistoria} = useHistoriaPo()
 
-  const [historia, setHistoria] = useState({})
+  const [historia, setHistoria] = useState<IHistoria>({})
 
   // estados de los inputs
   const [ptiempo, setPtiempo] = useState(0)
   const [pPresupuesto, setPPresupuesto] = useState(0)
   const [pEquipo, setPEquipo] = useState(0)
 
-  //const {historiaStatus, getHistoriaStatus} = useHistoriaPo
-  // useEffect(()=>{
-  //   cambiarIdHistoria()
-  // }, [])
-
-
-  console.log('idHistopintar:', idHistoria);
   
-
   useEffect(()=>{
     //cambiarIdHistoria()
     const traerHistorias = async()=>{
@@ -45,26 +36,8 @@ const page = () => {
   }, [])
 
   console.log('histo unica:', historia);
-
-
-  // activos
-  const [tiempoActivo, setTiempoActivo] = useState(false)
-  const [presupuestoActivo, setPresupuestoActivo] = useState(false)
-  const [equipoActivo, setEquipoActivo] = useState(false)
   
-  const handleClickTiempo =()=>{
-    setTiempoActivo(!tiempoActivo)
-  }
-
-  const handleClickPresupuesto =()=>{
-    setPresupuestoActivo(!presupuestoActivo)
-  }
-
-  const handleClickEquipo = ()=>{
-    setEquipoActivo(!equipoActivo)
-  }
-
-  const {tiempoHistoria, presupuestoHistoria, equipo3, peso1, peso2, peso3} = historia
+  const {tiempoHistoria, presupuestoHistoria, peso1, peso2} = historia
   //const of1 = 
 
   const calculoPesoOferta =(oferta1 = 0, oferta2 = 0  , peso = 0 )=>{
@@ -99,7 +72,6 @@ const page = () => {
 
     let pesoTiempo = calculoPesoOferta(tiempoHistoria, ptiempo, peso1) 
     let pesoPresupuesto = calculoPesoOferta(presupuestoHistoria, pPresupuesto, peso2) 
-    let pesoEquipo = 0
     const pesoTotal =  pesoTiempo + pesoPresupuesto
   
 
@@ -140,21 +112,12 @@ const page = () => {
   }
 
 
-  if(equipo3 === 0 ){
-      pesoEquipo = 0
-  }
-  else if(tiempoHistoria === 0){
-      pesoTiempo = 0
+  if(tiempoHistoria === 0){
+    pesoTiempo = 0
   }
   else if(presupuestoHistoria === 0){
-      pesoEquipo = 0
+    pesoPresupuesto = 0
   }
-  
-
-
- 
-
-  
   
   
   return (

@@ -15,8 +15,6 @@ const page = async() => {
   //console.log(user);
   
   const {user}= session
-
-  //console.log('cositas del user:', user);
   
   return (
     <div className='w-full h-full bg-white grid place-items-center' >

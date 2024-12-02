@@ -2,23 +2,15 @@
 
 import {useState, useEffect} from 'react'
 import { format } from "date-fns";
-import { useRouter, useSearchParams } from "next/navigation";
-import { getDataLista } from '@/app/(Front)/React/Fetch/getDataLista';
+import { useRouter } from "next/navigation";
 import { useHistoriaPo } from '../../../../[stores]/poStore';
 import { getDataCompleja } from '@/app/(Front)/React/Fetch/getDataCompleja';
-import Image from 'next/image';
-//import { format } from "date-fns";
-
-import diagramaVacio from "../../../../../React/Assets/Icons/diagramaVacio2.png";
 import BadgeNoAun from '@/app/(Front)/React/Components/BadgeNoAun/BadgeNoAun';
 
 const page = () => {
-  const { idHistoria, cambiarIdHistoria} = useHistoriaPo()
-
-  const [historias, setHistorias] = useState([])
-  //const {historiaStatus, getHistoriaStatus} = useHistoriaPo
+  const { cambiarIdHistoria} = useHistoriaPo()
   const [histouseridcargo, setHistouseridcargo] = useState([])
-  //const {historiaStatus, getHistoriaStatus} = useHistoriaPo
+
 
   useEffect(()=>{
     const traerHistoriasStatusCargo = async()=>{
@@ -35,10 +27,10 @@ const page = () => {
 
   const route = useRouter()
 
-  const handleClickVerResolucionHistoria =(id)=>{
-    console.log('idHisto:', id);
+  const handleClickVerResolucionHistoria =(id:string)=>{
+    //console.log('idHisto:', id);
     cambiarIdHistoria(id)
-    console.log('idzusthistoria:', idHistoria);
+    //console.log('idzusthistoria:', idHistoria);
     route.push('/dashboard/cliente/finanzas/verResolucionTarea')
   }
 
@@ -75,13 +67,13 @@ const page = () => {
                     
                     <td className='w-[10%] text-center'>Discrepancia 1</td>
                     <td className='w-[10%] text-center'>Discrepancia 2</td>
-                    <td className='w-[10%] text-center'>Discrepancia 3</td>
+                    
                     
                   </tr>
                 </thead>
                 <tbody>
                 {histouseridcargo?.map((el, index)=>{
-                  const {id, nombreHistoria, createdAt, status ,updatedAt, horaAt, discrepancia1, discrepancia2, discrepancia3, discrepancia4} = el
+                  const {id, nombreHistoria, createdAt, status ,updatedAt, discrepancia1, discrepancia2} = el
                     const updatedAt2 = format(new Date(updatedAt), 'dd/MM/yyyy')
                     const updatedPintar = format(new Date(updatedAt), 'H:mm')
                     return <tr key={id} className='border border-gray-200 h-14  cursor-pointer w-full '>
@@ -112,13 +104,11 @@ const page = () => {
                       <td className='pl-8'>
                         {discrepancia2}
                       </td>
-                      <td className='pl-8'>
-                        {discrepancia3}
-                      </td>
+                      
                       
                       <td className='grid place-items-center pt-2 pr-2'>
                         <button onClick={()=>handleClickVerResolucionHistoria(id)} className='w-[100px] h-10 bg-violet-200 rounded text-violet-900'>
-                          ver
+                          Ver
                         </button>
                       </td>
                       

@@ -1,5 +1,5 @@
 
-export interface IUserSession{
+interface IUserSession{
     name: string 
     email: string 
     image: string 

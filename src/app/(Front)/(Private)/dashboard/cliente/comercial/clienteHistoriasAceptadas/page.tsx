@@ -2,17 +2,10 @@
 import { getDataCompleja } from "@/app/(Front)/React/Fetch/getDataCompleja";
 import { useState, useEffect } from "react";
 import { format } from "date-fns";
-import { useHistoriaPo } from "@/app/(Front)/(Private)/[stores]/poStore";
 import BadgeNoAun from "@/app/(Front)/React/Components/BadgeNoAun/BadgeNoAun";
 
-interface IAlgo {
-  idHistoria: string
-  cambiarIdHistoria: ()=> Promise<void>
-}
 
 const page = () => {
-
-  const { idHistoria, cambiarIdHistoria}:IAlgo  = useHistoriaPo()
 
   const [histouseridcargo, setHistouseridcargo] = useState([])  
 

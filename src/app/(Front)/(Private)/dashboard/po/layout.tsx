@@ -4,9 +4,6 @@ import { getServerSession } from 'next-auth'
 import { authOptions } from '@/app/(Back)/api/auth/[...nextauth]/route'
 import { redirect } from 'next/navigation'
 
-// // IMAGENES 
-  
-
 //   // imagenes po
 import homePo from "../../../React/Assets/Icons/homePo.png";
 import nuevasTareasPo from "../../../React/Assets/Icons/nuevasTareasPo.png";
@@ -17,7 +14,6 @@ import historiRetornadas from "../../../React/Assets/Icons/logoHistoriaREtornada
 
 import Sidebar from '@/app/(Front)/React/Components/Sidebar';
 import Navbar from '@/app/(Front)/React/Components/Navbar';
-import {  useHistoriaPo, usePoStore, useSessionPo } from '../../[stores]/poStore';
 import { getDataLista } from '@/app/(Front)/React/Fetch/getDataLista';
   
 export const metadata: Metadata = {
@@ -41,11 +37,7 @@ export default async function RootLayout({children,}: Readonly<{children: React.
   const ruta = 'historiaStatus'
   const url = 'Pendiente'
   const historias = await getDataLista({ruta, url})
-  //console.log('histo del layout solo pendiente:', historias);
-  
 
-    
-  
 
 const linksPo = [
   {
