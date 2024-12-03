@@ -4,7 +4,7 @@ const ComLayoutResolucionTarea = ({handleClickMeeting1, handleClickMeeting2, chi
   return (
     <div  className='w-full h-full bg-white grid justify-items-center'>
       <section className='w-[99%] h-[98%]  '>
-          <header className='w-full h-[5%] bg-white py-4 pl-4 '>
+          <header className='w-full h-[5%] bg-white py-4 pl-6 '>
             Dashboard {'>'} Clientes {'>'} {nombre} {'>'} Historias Retornadas
           </header>
       </section>

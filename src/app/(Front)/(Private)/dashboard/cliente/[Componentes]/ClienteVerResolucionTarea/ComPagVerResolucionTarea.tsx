@@ -4,14 +4,14 @@ import TablaVerResolucionTarea from "./TablaVerResolucionTarea";
 const ComPagVerResolucionTarea = ({nombre, historia, peso1, peso2, handleChangeVerResuTarea, pesoTiempo, pesoPresupuesto, pesoTotal, limite, handleClickAgregarAlProductBacklog, limiteInferior, handleClickEnviarContraoferta, handleClickEliminarTareaCliente}) => {
   return (
     <div className='w-full h-full '>
-        <header className='w-full h-[5%] bg-white py-4 pb-10 pl-4 '>
+        <header className='w-full h-[5%] bg-white py-4 pb-10 pl-6 '>
             Dashboard {'>'} Clientes {'>'} {nombre} {'>'} Resolucion Tarea {'>'} Ver
           </header>
           <main className='w-full h-[95%] '>
-          <div className='h-14  bg-colorBarraSuperiorTablas grid place-content-center text-colorTextoBarraAlta font-semibold'>
+            <div className='h-14 mx-6 bg-colorBarraSuperiorTablas grid place-content-center text-colorTextoBarraAlta font-semibold'>
                 Resolución de Historia Retornada
             </div>
-            <header className='w-full h-[7%] -mt-12 flex justify-end items-center  pb-3 font-bold mb-1 pr-6  text-colorTextoBarraAlta '>
+            <header className='w-full h-[7%] -mt-12 flex justify-end items-center  pb-3 font-bold mb-1 pr-10  text-colorTextoBarraAlta '>
              
               <div className='pr-3 '>
                 Fecha Actual

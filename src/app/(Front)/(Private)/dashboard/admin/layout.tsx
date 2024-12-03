@@ -25,7 +25,7 @@ export default async function RootLayout({children,}: Readonly<{children: React.
     redirect('/api/auth/signin')
   }
   const {user}= session
-  console.log('userrr:', user);
+  //console.log('userrr:', user);
   
 
 
@@ -87,9 +87,9 @@ const linksAdmin = [
           <Navbar />
         </header>
 
-        <main className="w-full  h-[807px]  rounded text-tamañoLetra">
+        <main className="w-full  h-[807px]  rounded text-tamañoLetra pl-2">
           <header className='w-full h-[4%]  pl-4 mt-5'>
-                Dashboard {'>'} Admin 
+                Dashboard {'>'} Administrador
             </header>
             {children}
         </main>

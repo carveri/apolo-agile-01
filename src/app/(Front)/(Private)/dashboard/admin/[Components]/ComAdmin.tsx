@@ -22,7 +22,7 @@ const ComAdmin = ({logicaTabla, usuarios, nombre}) => {
                 {format(new Date(), 'dd/MM/yyyy')}
               </div>
             </header>
-            <div className='w-[1625px] mt-1 z-30  top-28 left-3/5 max-h-[617px] overflow-auto'>
+            <div className='w-[1620px] mt-1 z-30  top-28 left-3/5 max-h-[617px] overflow-auto'>
             <Tabla
                 logicaTabla ={logicaTabla}
                 usuarios={usuarios}

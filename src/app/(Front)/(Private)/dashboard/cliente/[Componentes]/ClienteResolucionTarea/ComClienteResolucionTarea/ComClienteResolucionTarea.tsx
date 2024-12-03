@@ -6,7 +6,7 @@ const ComClienteResolucionTarea = ({histouseridcargo, handleClickVerResolucionHi
   return (
     <div className='w-full h-full   ' >
         {histouseridcargo.length !== 0 ?
-        <section  className='w-[99%] h-[99%]  '>
+        <section  className='w-[99%] h-[99%]  ml-3'>
         <main className='py-2 px-4 w-full h-[99%] '>
             <div className='h-14  bg-colorBarraSuperiorTablas grid place-content-center text-colorTextoBarraAlta font-semibold'>
                 Historias Retornadas

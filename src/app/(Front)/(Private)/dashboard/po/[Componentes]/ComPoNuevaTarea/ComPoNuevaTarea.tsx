@@ -12,7 +12,7 @@ const ComPoNuevaTarea = ({historiaStatus, handleClickVerNuevasTareasPo, nombre})
           <div className='h-14 w-[96%] ml-8 bg-colorBarraSuperiorTablas grid place-content-center text-colorTextoBarraAlta font-semibold'>
                Nuevas Historias
             </div>
-            <header className='w-full h-[7%] -mt-7 flex justify-end items-center  pb-3 font-bold mb-1 pr-12  text-colorTextoBarraAlta'>
+            <header className='w-full h-[7%] -mt-8 flex justify-end items-center  pb-3 font-bold mb-1 pr-12  text-colorTextoBarraAlta'>
              
               <div className='pr-6 -mt-9'>
                 Fecha Actual

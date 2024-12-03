@@ -113,7 +113,7 @@ const page = () => {
         alert('Se enviaron las dicrepancias')
         
         location.reload()
-        router.push('/dashboard/po/poNuevaTarea')
+        //router.push('/dashboard/po/poHistoriasRetornadas')
     }
 
     
@@ -126,8 +126,8 @@ const page = () => {
         const data = {status}
         updateData({ruta, id, data})
         alert('Se guardo la historia en el ProductBacklog')
-        location.reload();
-        //router.push('/dashboard/po/poHistoriasRetornadas')
+        router.push('/dashboard/po')
+        location.reload()
     }
 
 
@@ -243,7 +243,7 @@ const page = () => {
                             
                         }
                         </article>
-                        {descTiempo  === '-' && descPresupuesto  === '-' &&   pesoTiempo === 0 && pesoPresupuesto === 0 && paramTiempo === 0 && paramPresupuesto === 0 &&  
+                        {pesototal === 0 &&  
                             <article className='w-[15%]  grid place-items-center'>
                                 <button onClick={handleClickAgregarAlPb} className='w-[95%] h-[60%] bg-[#00ff08] rounded text-white font-semibold hover:bg-[#00dd07]'>
                                     Agregar al product Backlog

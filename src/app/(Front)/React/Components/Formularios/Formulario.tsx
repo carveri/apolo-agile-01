@@ -218,8 +218,8 @@ const Formulario = ({id}:IId) => {
     
 
   return (
-    <div className='w-full h-full bg-white grid place-items-center '  >
-        <section className='w-[99%] h-[90%] bg-gray-50 rounded '>
+    <div className='w-full h-full bg-white grid place-items-center'  >
+        <section className='w-[100%] h-[90%] bg-gray-50 rounded '>
             
             <main className='w-full h-[99%] -mt-10'>
             <form  onSubmit={handleSubmitAdmin} className=' w-full h-[700px]'>
