@@ -1,4 +1,3 @@
-
 import { getServerSession } from "next-auth/next";
 import { authOptions } from '@/app/(Back)/api/auth/[...nextauth]/route';
 
@@ -16,6 +15,11 @@ const page = async() => {
   
   const {user}= session
   // user.name es el areaId
+  // user.emial es el email del user
+  // user.image es el cargoId
+  // user.id es el userId
+  //console.log('del user:', user);
+  
 
   if(user?.name === 'a73e8ba6-6e6b-4cd7-90a4-925101ea7ffa'){
     redirect('/dashboard/sm')

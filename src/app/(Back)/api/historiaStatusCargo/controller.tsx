@@ -26,6 +26,9 @@ class HistoriaStatusCargo {
                         }
                     }
                 }
+            },
+            orderBy:{
+                updatedAt: 'desc'
             }
         })
         return getHistoriaStatusCargo

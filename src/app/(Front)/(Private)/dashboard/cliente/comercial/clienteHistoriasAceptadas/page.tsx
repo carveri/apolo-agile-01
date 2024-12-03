@@ -8,6 +8,8 @@ const page = () => {
 
   const [histouseridcargo, setHistouseridcargo] = useState([])  
 
+  console.log('hissts:', histouseridcargo);
+  
 
   useEffect(()=>{
     const traerHistoriasStatusCargo = async()=>{
