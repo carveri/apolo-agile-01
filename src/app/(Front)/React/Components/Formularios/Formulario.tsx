@@ -220,10 +220,8 @@ const Formulario = ({id}:IId) => {
   return (
     <div className='w-full h-full bg-white grid place-items-center '  >
         <section className='w-[99%] h-[90%] bg-gray-50 rounded '>
-            <header className='w-full h-[3%] mb-14 pl-4 -mt-5'>
-                Dashboard {'>'} Cliente {'>'} Admin {'>'} Agregar Usuario
-            </header>
-            <main className='w-full h-[99%] -mt-6'>
+            
+            <main className='w-full h-[99%] -mt-10'>
             <form  onSubmit={handleSubmitAdmin} className=' w-full h-[700px]'>
 
                 <div className='flex h-[95%]   place-content-center  mt-8  px-72 gap-x-10 '>

@@ -22,7 +22,7 @@ const Tabla = ({logicaTabla, usuarios}:ITablaAdmin) => {
     const {td1, td2, td3, td4, td5, td6} = logicaTabla
 
   return (
-    <table className='border border-gray-200   w-[98%] ml-8 '>
+    <table className='border border-gray-200   w-[100%]  '>
             <thead>
               <tr className='h-14'>
                 <td className='w-[10%] pl-3'>{td1}</td>

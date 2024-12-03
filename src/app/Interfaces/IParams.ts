@@ -52,3 +52,13 @@ interface CargoPorUsuarioParams{
 export interface ICargoPorUsuarioParams{
     params: CargoPorUsuarioParams
 }
+
+
+// HISTORIASTATUS
+interface HistoriaStatusParams{
+    status: string
+}
+
+export interface IHistoriaStatusParams{
+    params: HistoriaStatusParams
+}
