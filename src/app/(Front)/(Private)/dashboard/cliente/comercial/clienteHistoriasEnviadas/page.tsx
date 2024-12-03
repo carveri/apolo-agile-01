@@ -26,7 +26,7 @@ const page = () => {
 
 
   return (
-    <div className='w-full h-full   ' >
+    <div className='w-full h-full ' >
         {histouseridcargo.length !== 0 ?
         <section  className='w-[99%] h-[99%]  '>
         <main className='py-2 px-4 w-full h-[99%] '>
@@ -46,14 +46,14 @@ const page = () => {
               <table className='border border-gray-200   w-[100%]  '>
                 <thead>
                   <tr className='h-14'>
-                    <td className='w-[7%] pl-3'>Numero</td>
-                    <td className='w-[20%] pl-8'>Nombre Historia</td>
-                    <td className='w-[10%] pl-8'>Fecha Ingreso</td>
-                    <td className='w-[10%] pl-8'>Hora Ingreso</td>
-                    <td className='w-[12%] pl-8'>Punto Historia</td>
-                    <td className='w-[12%] pl-8'>Tiempo Historia</td>
-                    <td className='w-[12%] pl-8'>Presupuesto Historia </td>
-                    <td className='w-[12%] pl-8'>Status</td>
+                    <td className='w-[7%] text-center'>Numero</td>
+                    <td className='w-[20%] text-center'>Nombre Historia</td>
+                    <td className='w-[10%] text-center'>Fecha Ingreso</td>
+                    <td className='w-[10%] text-center'>Hora Ingreso</td>
+                    <td className='w-[12%] text-center'>Punto Historia</td>
+                    <td className='w-[12%] text-center'>Tiempo Historia</td>
+                    <td className='w-[12%] text-center'>Presupuesto Historia </td>
+                    <td className='w-[12%] text-center'>Status</td>
                     
                     
                   </tr>
@@ -63,28 +63,28 @@ const page = () => {
                   const {id, nombreHistoria, createdAt, status ,updatedAt, horaAt, puntoHistoria, tiempoHistoria, presupuestoHistoria} = el
                     const updatedAt2 = format(new Date(updatedAt), 'dd/MM/yyyy')
                     return <tr key={id} className='border border-gray-200 h-14  cursor-pointer w-full '>
-                      <td className='pl-8'>
+                      <td className='text-center'>
                         {index + 1}
                       </td>
-                      <td className='pl-8'>
+                      <td className='text-center'>
                         {nombreHistoria}
                       </td>
-                      <td className='pl-10'>
+                      <td className='text-center'>
                         {createdAt}
                       </td>
-                      <td className='pl-14'>
+                      <td className='text-center'>
                         {horaAt}
                       </td>
-                      <td className='pl-20'>
+                      <td className='text-center'>
                         {puntoHistoria}
                       </td>
-                      <td className='pl-20'>
+                      <td className='text-center'>
                         {tiempoHistoria}
                       </td>
-                      <td className='pl-20'>
+                      <td className='text-center'>
                         {presupuestoHistoria}
                       </td>
-                      <td className={`pl-6 ${status === 'Pendiente' ? 'text-yellow-400' : 'text-green-500'}`}>
+                      <td className={`text-center pl-6 ${status === 'Pendiente' ? 'text-yellow-400' : 'text-green-500'}`}>
                         {status}
                       </td>
                       
@@ -102,7 +102,7 @@ const page = () => {
         </main>
     </section>: 
     <BadgeNoAun
-    nombre = 'Enviada'
+    nombre = 'Enviadas'
   />
       
       }

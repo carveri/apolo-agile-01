@@ -10,6 +10,7 @@ import { getDataLista } from '../../Fetch/getDataLista';
 import ModalAviso from '../ModalAviso/ModalAviso';
 import { IId } from '@/app/Interfaces/IUsers';
 import { IEmpresa, IParametro3, ISelectForm, ISelectForm2, ISelectForm3 } from '@/app/Interfaces/IformAdmin';
+import { postData } from '../../Fetch/postData';
 
 
 
@@ -151,7 +152,7 @@ const Formulario = ({id}:IId) => {
         return res
     }
 
-    console.log('empresa:', empresa);
+    //console.log('empresa:', empresa);
     
 
     // CAMBIAR ESTADO DEL ONCHANGE
@@ -201,9 +202,16 @@ const Formulario = ({id}:IId) => {
             equipoId: parametros3Id ? parametros3Id : '1c3eb8cf-684c-49d4-90da-6698060cbe54',
             email, 
             password, 
-            confirmPassword}
+            confirmPassword
+        }
             console.log(data);
-            setActivoModal(true)
+            const ruta = 'user'
+            postData({ruta, data})
+            alert('EL usuario se agrego correctamente!')
+
+            
+
+            
         
     }
  
@@ -259,7 +267,7 @@ const Formulario = ({id}:IId) => {
                             />
                             {/* RUT PERSONAL */}
                             <InputFormulario
-                                texto = 'Rut Personal:'
+                                texto = 'Rut Personal (Con puntos y guion):'
                                 nombre = 'rutPersonal'
                                 tipo = 'text'
                                 placeholder = '11.111.111-1'

@@ -48,14 +48,14 @@ const page = () => {
               <table className='border border-gray-200   w-[98%] ml-8 '>
                 <thead>
                 <tr className='h-14'>
-                  <td className='w-[10%] pl-3'>Numero</td>
-                  <td className='w-[15%]'>Historia</td>
-                  <td className='w-[10%]'>Fecha Contraoferta</td>
-                  <td className='w-[10%]'>Hora Contraoferta</td>
-                  <td className='w-[10%]'>Presupuesto (CLP)</td>
-                  <td className='w-[10%]'>Tiempo(Dias) </td>
-                  <td className='w-[10%]'>Status </td>
-                  <td className='w-[18%]'>Descripción </td>
+                  <td className='w-[10%] text-center'>Numero</td>
+                  <td className='w-[15%] text-center'>Historia</td>
+                  <td className='w-[10%] text-center'>Fecha Contraoferta</td>
+                  <td className='w-[10%] text-center'>Hora Contraoferta</td>
+                  <td className='w-[10%] text-center'>Presupuesto (CLP)</td>
+                  <td className='w-[10%] text-center'>Tiempo(Dias) </td>
+                  <td className='w-[10%] text-center'>Status </td>
+                  <td className='w-[18%] text-center'>Descripción </td>
                   
                 </tr>
                 </thead>
@@ -65,28 +65,28 @@ const page = () => {
                   const updatedAt2 = format(new Date(updatedAt), 'dd/MM/yyyy')
                   const updatedPintar = format(new Date(updatedAt), 'H:mm')
                     return <tr key={id} className='border border-gray-200 h-14  cursor-pointer '>
-                      <td className='pl-8'>
+                      <td className='text-center'>
                         {index + 1}
                       </td>
-                      <td >
+                      <td className='text-center'>
                         {nombreHistoria}
                       </td>
-                      <td className='pl-8'>
+                      <td className='text-center'>
                         {updatedAt2}
                       </td>
-                      <td className='pl-8'>
+                      <td className='text-center'>
                         {updatedPintar}
                       </td>
-                      <td className='pl-8'>
+                      <td className='text-center'>
                         {presupuestoHistoria}
                       </td>
-                      <td className='pl-8'>
+                      <td className='text-center'>
                         {tiempoHistoria}
                       </td>
-                      <td className={` ${status === 'ContraOferta' ? 'text-colorTextoContraOferta' : 'text-green-500'}`}>
+                      <td className={`text-center  ${status === 'ContraOferta' ? 'text-colorTextoContraOferta' : 'text-green-500'}`}>
                         {status}
                       </td>
-                      <td>
+                      <td className='text-center'>
                         {detalleHistoria}
                       </td>
                        <td className=' h-full '>

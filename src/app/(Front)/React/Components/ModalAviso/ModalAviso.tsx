@@ -6,7 +6,7 @@ const ModalAviso = ({isOpen, onClose}) => {
   
     return (createPortal(
     <>
-    <div className='w-[400px] h-24  fixed top-4 left-[45%] rounded-md border border-gray-300 bg-white'>
+    <div className='w-[400px] h-24  fixed top-4 left-[45%] rounded-md border border-gray-300 bg-white '>
         <main className='w-full h-full grid justify-center mt-3 pb-2'>
             <header className='w-full h-[30%] text-lg text-center '>
                 El Usuario se Agrego con exito

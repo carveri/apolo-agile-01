@@ -190,7 +190,7 @@ const FormularioClientePeticion = ({id, areaId, email}:IFormularioClientePeticio
                                 <label  htmlFor="">Para:</label>
                                     
                                     
-                                <input name="para" onChange={handleChangeCliente} className="pl-3 py-4 rounded-md bg-white border border-gray-200   grid content-center" type="text" placeholder="Filtrar vacaciones de empleados entre las fechas..."/>
+                                <input name="para" onChange={handleChangeCliente} className="pl-3 py-4 rounded-md bg-white border border-gray-200   grid content-center" type="text" placeholder="Filtrar vacaciones de empleados entre dos fechas dadas."/>
                             </article>
                             
                         </div>

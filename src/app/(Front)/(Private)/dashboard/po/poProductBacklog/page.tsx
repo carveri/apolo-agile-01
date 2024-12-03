@@ -72,10 +72,10 @@ console.log('histodraw', historiaDraw);
             </div>
             <header className='w-full h-[7%] -mt-7 flex justify-end items-center  pb-3 font-bold mb-1 pr-12  text-colorTextoBarraAlta'>
              
-              <div className='pr-6 -mt-9'>
+              <div className='pr-6 -mt-11'>
                 Fecha Actual:
               </div>
-              <div className="-mt-9">
+              <div className="-mt-11">
                 {format(new Date(), 'dd/MM/yyyy')}
               </div>
             </header>
@@ -84,16 +84,16 @@ console.log('histodraw', historiaDraw);
           <table className='border border-gray-200   w-[98%] ml-8 '>
             <thead>
               <tr className='h-14'>
-                <td className='w-[8%] pl-3'>Posición</td>
-                <td className='w-[20%]'>Nombre Historia</td>
+                <td className='w-[8%] text-center'>Posición</td>
+                <td className='w-[20%] text-center'>Nombre Historia</td>
               
-                <td className='w-[10%]'>Fecha Ingreso </td>
-                <td className='w-[10%]'>Hora Ingreso</td>
-                <td className='w-[10%]'>Status </td>
+                <td className='w-[10%] text-center'>Fecha Ingreso </td>
+                <td className='w-[10%] text-center'>Hora Ingreso</td>
+                <td className='w-[10%] text-center'>Status </td>
                 
-                <td className='w-[10%]'>Tiempo(dias) </td>
-                <td className='w-[10%]'>Presupuesto (Clp) </td>
-                <td className='w-[10%]'>Sprint </td>
+                <td className='w-[10%] text-center'>Tiempo(dias) </td>
+                <td className='w-[10%] text-center'>Presupuesto (Clp) </td>
+                <td className='w-[10%] text-center'>Sprint </td>
                 
               </tr>
             </thead>

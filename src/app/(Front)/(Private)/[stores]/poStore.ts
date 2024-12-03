@@ -15,19 +15,26 @@ export const usePoStore = create<IusePoStore>(()=>({
     cosa: 'weas',
 }))
 
-// interface IUseHistoriaPo {
-//     resHistoria: number
-//     idHistoria: string
-//     //historiaContraOferta: 
+interface IUseHistoriaPo {
+    resHistoria: number
+    idHistoria: string
+    historiaStatus: IHistoria[]
+    historiaStatusRetornada: IHistoria[],
+    historiaContraOferta: IHistoria[],
+    historiaBacklog: IHistoria[],
+    historias: IHistoria[]
 
-//     historias: IHistoria[]
-//     getHistorias: ()=>void
-//     cambiarIdHistoria: (id:string)=>void
-// }
+    getHistorias: ()=>void
+    cambiarIdHistoria: (id:string)=>void
+    getHistoriaStatus:()=>void
+    getHistoriaStatusRetornada:()=>void
+    getHistoriaContraOferta: ()=>void
+    getHistoriaBacklog:()=>void
+}
 
 
 
-export const useHistoriaPo = create((set)=>
+export const useHistoriaPo = create<IUseHistoriaPo>((set)=>
 ({
     resHistoria: 4,
     idHistoria: '',
@@ -35,7 +42,6 @@ export const useHistoriaPo = create((set)=>
     historiaStatusRetornada:[],
     historiaContraOferta: [],
     historiaBacklog:[],
-
     historias: [],
     getHistorias: async()=>{
         const ruta = 'historia'

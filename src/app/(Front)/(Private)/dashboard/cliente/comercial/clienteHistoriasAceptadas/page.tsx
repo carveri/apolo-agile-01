@@ -23,7 +23,7 @@ const page = () => {
 
 
   return (
-    <div className='w-full h-full   ' >
+    <div className='w-full h-full ' >
         {histouseridcargo.length !== 0 ?
         <section  className='w-[99%] h-[99%]  '>
         <main className='py-2 px-4 w-full h-[99%] '>
