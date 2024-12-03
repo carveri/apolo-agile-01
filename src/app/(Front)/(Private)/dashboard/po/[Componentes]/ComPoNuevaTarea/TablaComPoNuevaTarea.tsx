@@ -9,11 +9,12 @@ const TablaComPoNuevaTarea = ({historiaStatus, handleClickVerNuevasTareasPo}) =>
               <tr className='h-14'>
                 <td className='w-[7%] text-center'>Numero</td>
                 <td className='w-[15%] text-center'>Nombre Historia</td>
-                <td className='w-[15%] text-center'>Pedido por:</td>
+                <td className='w-[12%] text-center'>Cargo del Solicitante</td>
                 <td className='w-[8%] text-center'>Fecha Petición </td>
                 <td className='w-[8%] text-center'>Hora petición</td>
-                <td className='w-[12%] text-center'>Presupuesto (CLP)</td>
+                <td className='w-[10%] text-center'>Presupuesto (CLP)</td>
                 <td className='w-[8%] text-center'>Tiempo(Dias) </td>
+                <td className='w-[10%] text-center'>Status </td>
                 <td className='w-[10%] text-center'>Para </td>
                 <td className='w-[15%] text-center'>Descripción </td>
                 
@@ -21,8 +22,8 @@ const TablaComPoNuevaTarea = ({historiaStatus, handleClickVerNuevasTareasPo}) =>
               </thead>
               <tbody>
               {historiaStatus.map((el, index)=>{
-                const {id,nombreHistoria, createdAt, para, user, horaAt, presupuestoHistoria, tiempoHistoria, detalleHistoria} = el
-                  return <tr key={id} className='border border-gray-200 h-14  cursor-pointer '>
+                const {id,nombreHistoria, createdAt, para, status, user, horaAt, presupuestoHistoria, tiempoHistoria, detalleHistoria} = el
+                  return <tr key={id} className='border border-gray-200 h-14   '>
                     <td className='text-center'>
                       {index + 1}
                     </td>
@@ -43,6 +44,9 @@ const TablaComPoNuevaTarea = ({historiaStatus, handleClickVerNuevasTareasPo}) =>
                     </td>
                     <td className="text-center">
                       {tiempoHistoria}
+                    </td>
+                    <td className={`text-center pl-6 ${status === 'Pendiente' ? 'text-yellow-400' : 'text-green-500'}`}>
+                      {status}
                     </td>
                     <td className="text-center">
                       {para}

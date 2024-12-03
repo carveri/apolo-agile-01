@@ -55,7 +55,7 @@ const page = () => {
   // const style = {
   //   transform: CSS.Transform.toString(transform)
   // }
-console.log('histodraw', historiaDraw);
+//console.log('histodraw', historiaDraw);
   
   
 
@@ -85,8 +85,8 @@ console.log('histodraw', historiaDraw);
             <thead>
               <tr className='h-14'>
                 <td className='w-[8%] text-center'>Posición</td>
-                <td className='w-[20%] text-center'>Nombre Historia</td>
-              
+                <td className='w-[15%] text-center'>Nombre Historia</td>
+                <td className='w-[12%] text-center'>Cargo del Solicitante</td>
                 <td className='w-[10%] text-center'>Fecha Ingreso </td>
                 <td className='w-[10%] text-center'>Hora Ingreso</td>
                 <td className='w-[10%] text-center'>Status </td>
@@ -100,7 +100,7 @@ console.log('histodraw', historiaDraw);
             <tbody>
             {historiaDraw?.map((el, index)=>{
               
-              const {id, nombreHistoria, createdAt, updatedAt, horaAt, tiempoHistoria, presupuestoHistoria, status} = el
+              const {id, nombreHistoria, createdAt, updatedAt, user, horaAt, tiempoHistoria, presupuestoHistoria, status} = el
               
               
               const updatedAt2 = format(new Date(updatedAt), 'dd/MM/yyyy')
@@ -118,6 +118,7 @@ console.log('histodraw', historiaDraw);
                     index = {index}
                     updatedAt2 = {updatedAt2}
                     updatedPintar = {updatedPintar}
+                    user={user}
                   
                   />
                 </SortableContext>

@@ -101,6 +101,7 @@ const page = () => {
     pesoPresupuesto = 0
   }
  
+    console.log('histocontra:', historia);
     
 
   return (

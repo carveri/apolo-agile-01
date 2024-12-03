@@ -112,9 +112,7 @@ const page = () => {
         const data = {id, status,tiempoHistoria, presupuestoHistoria, peso1,  peso2, discrepancia1, descripcion1, discrepancia2, descripcion2, discrepancia3}
         updateData({ruta, id, data})
         alert('Se enviaron las dicrepancias')
-        
-        //location.reload()
-        //router.push('/dashboard/po/poHistoriasRetornadas')
+        router.back()
     }
 
     
@@ -127,10 +125,7 @@ const page = () => {
         const data = {status}
         updateData({ruta, id, data})
         alert('Se guardo la historia en el ProductBacklog')
-        // location.reload()
-        
         router.back()
-        //await router.push('/dashboard/po/poNuevaTarea')
     }
 
 
@@ -144,7 +139,7 @@ const page = () => {
     // cosas a enviar 
     const dis1 = {
         titulo1: 'Tiempo propuesto por el cliente (Días)',
-        titulo2: 'Tiempo propuesto (Días)',
+        titulo2: 'Tiempo propuesto por el PO (Días)',
         titulo3: 'Peso de discrepancia (%)'
     }
 

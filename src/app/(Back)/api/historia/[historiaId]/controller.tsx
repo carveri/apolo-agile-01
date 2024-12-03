@@ -51,8 +51,22 @@ class HistoriaOne {
             where:{
                 id:{
                     equals: historiaId
+                },
+                
+            },include:{
+                user:{
+                    include:{
+                        cargo:{
+                            select:{
+                                nombreCargo:true
+                            }
+                        }
+                    }
                 }
             },
+            orderBy:{
+                updatedAt:'desc'
+            }
             
         })
         return getOneHistoria

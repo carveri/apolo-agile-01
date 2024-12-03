@@ -11,6 +11,9 @@ class UserDetalle {
             where:{
                 email:email
             },
+            orderBy:{
+                updatedAt:'desc'
+            }
             
         })
         return getOneUser

@@ -24,6 +24,9 @@ const page = () => {
         router.push('/dashboard/po/poContraOfertas/verContraOferta')
     }
 
+    console.log('contra.', historiaContraOferta);
+    
+
   return (
     <ComPoContraOferta 
       historiaContraOferta={historiaContraOferta}

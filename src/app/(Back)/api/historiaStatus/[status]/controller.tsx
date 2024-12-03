@@ -24,9 +24,13 @@ class HistoriaStatus {
                         }
                     }
                 }
+            },
+            orderBy:{
+                updatedAt:'desc'
             }
             
         })
+        
         return getHistoriaStatus
     }
     }

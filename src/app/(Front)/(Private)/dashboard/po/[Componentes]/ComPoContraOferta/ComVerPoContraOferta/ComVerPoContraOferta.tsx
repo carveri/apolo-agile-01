@@ -4,11 +4,11 @@ import TablaComVerPoContraOferta from './TablaComVerPoContraOferta'
 const ComVerPoContraOferta = ({nombre, historia, handleClickAgregarAlProductBacklogContra, handleClickEnviarAlLiderTecnico}) => {
   return (
     <div className='w-full h-full '>
-        <header className='w-full h-[5%] bg-white py-4 pb-10 pl-4 '>
+        <header className='w-full h-[5%] bg-white py-4 pb-10 pl-6 '>
             Dashboard {'>'} {nombre} {'>'} Resolucion Tarea {'>'} Ver
           </header>
           <main className='w-full h-[95%] '>
-            <header className='bg-gray-100 h-12 grid place-content-center '>
+            <header className='bg-colorBarraSuperiorTablas text-colorTextoBarraAlta h-12 grid place-content-center font-semibold mx-6 '>
               Resolucion de ContraOfertas
             </header>
                 <TablaComVerPoContraOferta

@@ -3,7 +3,7 @@
 import { CSS } from "@dnd-kit/utilities";
 import { useSortable} from "@dnd-kit/sortable";
 
-const TablaPo = ({id, nombreHistoria, updatedAt2, updatedPintar, tiempoHistoria, presupuestoHistoria, status, index, createdAt, updatedAt, horaAt}) => {
+const TablaPo = ({id, nombreHistoria, updatedAt2, updatedPintar, tiempoHistoria, user, presupuestoHistoria, status, index, createdAt, updatedAt, horaAt}) => {
     
   
     const {attributes, listeners, setNodeRef, transform, transition} = useSortable({id: id})
@@ -15,6 +15,9 @@ const TablaPo = ({id, nombreHistoria, updatedAt2, updatedPintar, tiempoHistoria,
                   </td>
                   <td className='text-center'>
                     {nombreHistoria}
+                  </td>
+                  <td className='text-center'>
+                    {user?.cargo?.nombreCargo}
                   </td>
                   
                   <td className='text-center'>

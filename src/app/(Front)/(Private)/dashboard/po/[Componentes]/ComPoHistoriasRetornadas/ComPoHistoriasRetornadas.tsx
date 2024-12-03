@@ -26,29 +26,33 @@ const ComPoHistoriasRetornadas = ({historiaStatusRetornada, nombre}) => {
                 <thead>
                 <tr className='h-14'>
                   <td className='w-[6%] text-center'>Numero</td>
-                  <td className='w-[16%] text-center'>Historia</td>
+                  <td className='w-[12%] text-center'>Nombre Historia</td>
+                  <td className='w-[10%] text-center'>Cargo del Solicitante</td>
                   <td className='w-[8%] text-center'>Fecha Petición </td>
                   <td className='w-[8%] text-center'>Hora Petición</td>
                   <td className='w-[8%] text-center'>Fecha Retorno </td>
                   <td className='w-[8%] text-center'>Hora Retorno</td>
-                  <td className='w-[10%] text-center'>Presupuesto (CLP)</td>
+                  <td className='w-[8%] text-center'>Presupuesto (CLP)</td>
                   <td className='w-[8%] text-center'>Tiempo(Dias) </td>
                   <td className='w-[8%] text-center'>Status </td>
-                  <td className='w-[16%] text-center'>Descripción </td>
+                  
                   
                 </tr>
                 </thead>
                 <tbody>
                 {historiaStatusRetornada.map((el, index)=>{
-                  const {id,nombreHistoria, createdAt, horaAt, updatedAt, presupuestoHistoria, tiempoHistoria, detalleHistoria, status} = el
+                  const {id,nombreHistoria, createdAt, horaAt, user, updatedAt, presupuestoHistoria, tiempoHistoria, detalleHistoria, status} = el
                   const updatedAt2 = format(new Date(updatedAt), 'dd/MM/yyyy')
                   const updatedPintar = format(new Date(updatedAt), 'H:mm')
-                    return <tr key={id} className='border border-gray-200 h-14  cursor-pointer '>
+                    return <tr key={id} className='border border-gray-200 h-14   '>
                       <td className='text-center'>
                         {index + 1}
                       </td>
                       <td className='text-center'>
                         {nombreHistoria}
+                      </td>
+                      <td className='text-center'>
+                        {user?.cargo?.nombreCargo}
                       </td>
                       <td className='text-center'>
                         {createdAt}
@@ -71,9 +75,7 @@ const ComPoHistoriasRetornadas = ({historiaStatusRetornada, nombre}) => {
                       <td className={`text-center ${status === 'Retornada' ? 'text-colorTextoRetornada' : 'text-green-500'}`}>
                         {status}
                       </td>
-                      <td className='text-center'>
-                        {detalleHistoria}
-                      </td>
+                      
                        
                      
                     </tr>
