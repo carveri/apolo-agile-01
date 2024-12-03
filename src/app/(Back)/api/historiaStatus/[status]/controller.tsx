@@ -13,6 +13,17 @@ class HistoriaStatus {
         const getHistoriaStatus = await prisma.historia.findMany({
             where:{
                 status: status
+            },
+            include:{
+                user:{
+                    include:{
+                        cargo:{
+                            select:{
+                                nombreCargo: true
+                            }
+                        }
+                    }
+                }
             }
             
         })

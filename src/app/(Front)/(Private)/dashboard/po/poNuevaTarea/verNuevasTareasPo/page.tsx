@@ -7,6 +7,7 @@ import { useHistoriaPo } from '@/app/(Front)/(Private)/[stores]/poStore';
 import BadgeDiscrepancia from './Componentes/BadgeDiscrepancia';
 import { getDataLista } from '@/app/(Front)/React/Fetch/getDataLista';
 import { useRouter } from "next/navigation";
+//import { useRouter } from "next/router";
 
 const page = () => {
 
@@ -112,22 +113,24 @@ const page = () => {
         updateData({ruta, id, data})
         alert('Se enviaron las dicrepancias')
         
-        location.reload()
+        //location.reload()
         //router.push('/dashboard/po/poHistoriasRetornadas')
     }
 
     
     // boton enviar al pb
 
-    const handleClickAgregarAlPb =(e:React.MouseEvent<HTMLButtonElement>)=>{
+    const handleClickAgregarAlPb = (e:React.MouseEvent<HTMLButtonElement>)=>{
         e.preventDefault()
         const ruta = 'historia'
         const status = status2
         const data = {status}
         updateData({ruta, id, data})
         alert('Se guardo la historia en el ProductBacklog')
-        router.push('/dashboard/po')
-        location.reload()
+        // location.reload()
+        
+        router.back()
+        //await router.push('/dashboard/po/poNuevaTarea')
     }
 
 

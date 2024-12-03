@@ -1,30 +1,36 @@
-import React from 'react'
-
 const TablaComPoNuevaTarea = ({historiaStatus, handleClickVerNuevasTareasPo}) => {
+  
+  console.log('histt:', historiaStatus);
+  
+  
   return (
     <table className='border border-gray-200   w-[98%] ml-8 '>
               <thead>
               <tr className='h-14'>
-                <td className='w-[10%] text-center'>Numero</td>
-                <td className='w-[15%] text-center'>Historia</td>
-                <td className='w-[10%] text-center'>Fecha Petición </td>
-                <td className='w-[10%] text-center'>Hora petición</td>
+                <td className='w-[7%] text-center'>Numero</td>
+                <td className='w-[15%] text-center'>Nombre Historia</td>
+                <td className='w-[15%] text-center'>Pedido por:</td>
+                <td className='w-[8%] text-center'>Fecha Petición </td>
+                <td className='w-[8%] text-center'>Hora petición</td>
                 <td className='w-[12%] text-center'>Presupuesto (CLP)</td>
-                <td className='w-[12%] text-center'>Tiempo(Dias) </td>
-                <td className='w-[15%] text-center'>Para </td>
+                <td className='w-[8%] text-center'>Tiempo(Dias) </td>
+                <td className='w-[10%] text-center'>Para </td>
                 <td className='w-[15%] text-center'>Descripción </td>
                 
               </tr>
               </thead>
               <tbody>
               {historiaStatus.map((el, index)=>{
-                const {id,nombreHistoria, createdAt, para, horaAt, presupuestoHistoria, tiempoHistoria, detalleHistoria} = el
+                const {id,nombreHistoria, createdAt, para, user, horaAt, presupuestoHistoria, tiempoHistoria, detalleHistoria} = el
                   return <tr key={id} className='border border-gray-200 h-14  cursor-pointer '>
                     <td className='text-center'>
                       {index + 1}
                     </td>
                     <td className="text-center">
                       {nombreHistoria}
+                    </td>
+                    <td className="text-center ">
+                      {user?.cargo?.nombreCargo}
                     </td>
                     <td className="text-center ">
                       {createdAt}

@@ -1,20 +1,27 @@
 'use client'
 
 import { useRouter } from "next/navigation";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useHistoriaPo } from "../../../[stores]/poStore";
 import ComPoNuevaTarea from "../[Componentes]/ComPoNuevaTarea/ComPoNuevaTarea";
+import { getDataCompleja } from "@/app/(Front)/React/Fetch/getDataCompleja";
 
 const page = () => {
 
   const { getHistoriaStatus, historiaStatus, cambiarIdHistoria, idHistoria} = useHistoriaPo()
 
+ 
 
   useEffect(()=>{
     getHistoriaStatus()
   }, [])
  
-  //console.log('historiasZusRETOENADA:', historiaStatus);
+  // HACE UN REFRESH PARA ACTUALIZAR EL SIDEBAR, DEL NUMERO DE HISTORIAS
+  useEffect(()=>{
+    router.refresh()
+  }, [])
+  
+
   
   
 

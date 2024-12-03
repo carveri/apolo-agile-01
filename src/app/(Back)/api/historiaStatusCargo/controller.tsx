@@ -15,6 +15,17 @@ class HistoriaStatusCargo {
             where:{
                 userId: userId,
                 status: status
+            },
+            include:{
+                user:{
+                    include:{
+                        cargo:{
+                            select:{
+                                nombreCargo: true
+                            }
+                        }
+                    }
+                }
             }
         })
         return getHistoriaStatusCargo
