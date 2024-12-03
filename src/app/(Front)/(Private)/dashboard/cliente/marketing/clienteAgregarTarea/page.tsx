@@ -3,6 +3,7 @@ import FormularioClientePeticion from "@/app/(Front)/React/Components/Formulario
 import { ISession } from "@/app/Interfaces/ISession";
 import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
+import ComAgregarTarea from "../../[Componentes]/ClienteAgregarTarea/ComAgregarTarea";
 
 
 
@@ -21,22 +22,12 @@ const page = async() => {
    
 
   return (
-    <div className='w-full h-full bg-white grid place-items-center' >
-        <section className='w-[99%] h-[99%] bg-gray-50 rounded '>
-            <header className='w-full h-[5%] py-4 pl-4 '>
-                Dashboard Cliente {'>'} Clientes {'>'} Marketing {'>'} Agregar Tarea
-            </header>
-            <main className='w-full h-[95%] '>
-            <FormularioClientePeticion
-                id={id}
-                areaId={name}
-                email = {email}
-
-            />
-        </main>
-        </section>
-        
-    </div>
+    <ComAgregarTarea
+      id={id}
+      areaId={name}
+      email={email}
+      nombre= 'Marketing'
+    />
   )
 }
 
