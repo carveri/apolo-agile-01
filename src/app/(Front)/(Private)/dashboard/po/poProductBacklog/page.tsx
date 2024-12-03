@@ -100,14 +100,13 @@ console.log('histodraw', historiaDraw);
             <tbody>
             {historiaDraw?.map((el, index)=>{
               
-              const {id, nombreHistoria, createdAt, updatedAt,  horaAt, tiempoHistoria, presupuestoHistoria, status} = el
+              const {id, nombreHistoria, createdAt, updatedAt, horaAt, tiempoHistoria, presupuestoHistoria, status} = el
               
               
               const updatedAt2 = format(new Date(updatedAt), 'dd/MM/yyyy')
               const updatedPintar = format(new Date(updatedAt), 'H:mm')
                 return <SortableContext key={id} items={historiaDraw} strategy={verticalListSortingStrategy}>
-                  <TablaPo
-                    
+                  <TablaPo                  
                     id = {id}
                     nombreHistoria = {nombreHistoria}
                     createdAt = {createdAt} 

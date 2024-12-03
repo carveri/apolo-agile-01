@@ -3,8 +3,7 @@
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 import { useHistoriaPo } from "../../../[stores]/poStore";
-import { format } from "date-fns";
-import BadgeNoAun from "@/app/(Front)/React/Components/BadgeNoAun/BadgeNoAun";
+import ComPoNuevaTarea from "../[Componentes]/ComPoNuevaTarea/ComPoNuevaTarea";
 
 const page = () => {
 
@@ -30,88 +29,11 @@ const page = () => {
 
 
   return (
-    <div className='w-full h-full bg-white grid place-items-center' >
-        <section className='w-[99%] h-[99%]  '>
-          <header className='w-full h-[6%] bg-white py-4 pl-4 '>
-            Dashboard {'>'} Product Owner {'>'} Nuevas Tareas
-          </header>
-          <div className='h-14 w-[96%] ml-8 bg-colorBarraSuperiorTablas grid place-content-center text-colorTextoBarraAlta font-semibold'>
-               Nuevas Historias
-            </div>
-            <header className='w-full h-[7%] -mt-7 flex justify-end items-center  pb-3 font-bold mb-1 pr-12  text-colorTextoBarraAlta'>
-             
-              <div className='pr-6 -mt-9'>
-                Fecha Actual
-              </div>
-              <div className="-mt-9">
-                {format(new Date(), 'dd/MM/yyyy')}
-              </div>
-            </header>
-          {historiaStatus.length !==0 ? 
-            <div className='w-[1625px] mt-8 z-30 absolute top-32 left-3/5 max-h-[730px] overflow-auto'>
-            <table className='border border-gray-200   w-[98%] ml-8 '>
-              <thead>
-              <tr className='h-14'>
-                <td className='w-[10%] text-center'>Numero</td>
-                <td className='w-[15%] text-center'>Historia</td>
-                <td className='w-[10%] text-center'>Fecha Petición </td>
-                <td className='w-[10%] text-center'>Hora petición</td>
-                <td className='w-[12%] text-center'>Presupuesto (CLP)</td>
-                <td className='w-[12%] text-center'>Tiempo(Dias) </td>
-                <td className='w-[15%] text-center'>Para </td>
-                <td className='w-[15%] text-center'>Descripción </td>
-                
-              </tr>
-              </thead>
-              <tbody>
-              {historiaStatus.map((el, index)=>{
-                const {id,nombreHistoria, createdAt, para, horaAt, presupuestoHistoria, tiempoHistoria, detalleHistoria} = el
-                  return <tr key={id} className='border border-gray-200 h-14  cursor-pointer '>
-                    <td className='text-center'>
-                      {index + 1}
-                    </td>
-                    <td className="text-center">
-                      {nombreHistoria}
-                    </td>
-                    <td className="text-center ">
-                      {createdAt}
-                    </td>
-                    <td className="text-center">
-                      {horaAt}
-                    </td>
-                    <td className="text-center">
-                      {presupuestoHistoria}
-                    </td>
-                    <td className="text-center">
-                      {tiempoHistoria}
-                    </td>
-                    <td className="text-center">
-                      {para}
-                    </td>
-                    <td className="text-center">
-                      {detalleHistoria}
-                    </td>
-                     <td className='text-center '>
-                      <button onClick={()=>handleClickVerNuevasTareasPo(id)} className='bg-violet-100 grid place-content-center border border-gray-200 w-[70%] h-[80%] py-1 px-8 rounded hover:bg-violet-200'>
-                        Ver
-                      </button>
-                    </td>
-                   
-                  </tr>
-                })}
-              </tbody>
-          </table>
-            </div>: 
-            <div className='w-full h-[60%]  grid place-content-center text-xl'>
-            <BadgeNoAun
-              nombre = ''
-            />
-          </div>
-        
-        }
-          
-        </section>
-    </div>
+    <ComPoNuevaTarea
+      historiaStatus={historiaStatus}
+      handleClickVerNuevasTareasPo={handleClickVerNuevasTareasPo}
+      nombre='Product Owner'
+    />
   )
 }
 
