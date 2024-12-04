@@ -62,3 +62,12 @@ interface HistoriaStatusParams{
 export interface IHistoriaStatusParams{
     params: HistoriaStatusParams
 }
+
+// PERMISO
+interface PermisoParams{
+    id: string
+}
+
+export interface IPermisoParams{
+    params: PermisoParams
+}

@@ -17,6 +17,13 @@ class Cargo {
 
     getCargo =async(req:Request)=>{
         const getAllCargo = await prisma.cargo.findMany({
+            include:{
+                permisos:{
+                    select:{
+                        nombrePermiso: true
+                    }
+                }
+            },
             orderBy:{
                 nombreCargo: 'asc'
             }
