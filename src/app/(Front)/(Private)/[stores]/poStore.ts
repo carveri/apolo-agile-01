@@ -30,6 +30,7 @@ interface IUseHistoriaPo {
     getHistoriaStatusRetornada:()=>void
     getHistoriaContraOferta: ()=>void
     getHistoriaBacklog:()=>void
+    updatedHistoriaProductBacklog:(setHistoriaBacklog:[])=>void
 }
 
 
@@ -102,6 +103,11 @@ export const useHistoriaPo = create<IUseHistoriaPo>((set)=>
             ...state, 
             historiaBacklog
         }))
+    },
+
+    // actualizar la historia del backlog
+    updatedHistoriaProductBacklog: (setHistoriaBacklog)=>{
+        set(()=>({historiaBacklog:setHistoriaBacklog}))
     }
 
 }))

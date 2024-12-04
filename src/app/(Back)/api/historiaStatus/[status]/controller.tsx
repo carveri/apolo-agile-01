@@ -25,9 +25,9 @@ class HistoriaStatus {
                     }
                 }
             },
-            orderBy:{
-                updatedAt:'desc'
-            }
+            // orderBy:{
+            //     updatedAt:'desc'
+            // }
             
         })
         
