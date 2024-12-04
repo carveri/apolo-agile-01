@@ -23,13 +23,13 @@ const TablaPo = ({id, nombreHistoria, updatedAt2, updatedPintar, tiempoHistoria,
                   <td className='text-center'>
                     {updatedAt2}
                   </td>
-                  <td className='text-center'>
+                  {/* <td className='text-center'>
                     {updatedPintar}
-                  </td>
+                  </td> */}
                   <td className='text-center text-colorTextoAceptada'>
                     {status}
                   </td>
-                  <td className='text-center'>
+                  {/* <td className='text-center'>
                     {tiempoHistoria}
                   </td>
                   <td className='text-center'>
@@ -37,12 +37,10 @@ const TablaPo = ({id, nombreHistoria, updatedAt2, updatedPintar, tiempoHistoria,
                   </td>
                   <td className='text-center'>
                     11
-                  </td>
-                   <td className='text-center'>
-                    <button className='bg-colorBotonVer grid place-content-center border border-gray-200 w-[50%] h-[80%] py-1 px-8 rounded hover:bg-violet-200'>
-                      Ver
-                    </button>
-                  </td>
+                  </td> */}
+                   {/* <td className='text-center'>
+                    <input type="checkbox" aria-valuenow={1} className="w-4 h-4"/>
+                  </td> */}
                  
                 </tr>
   )
