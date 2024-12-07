@@ -2,7 +2,6 @@
 
 import { useEffect } from "react";
 import { useHistoriaAdmin } from "../../../[stores]/adminStore";
-import Tabla from "@/app/(Front)/React/Components/Tablas/Tabla";
 import { logicaTabla } from "@/app/(Front)/React/Components/Tablas/logicaTabla";
 import { IUsuarios } from "@/app/Interfaces/IGeneral";
 import ComAdmin from "../[Components]/ComAdmin";

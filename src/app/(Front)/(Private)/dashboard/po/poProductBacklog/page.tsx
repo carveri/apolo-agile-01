@@ -9,7 +9,6 @@ import { DndContext, closestCenter } from "@dnd-kit/core";
 import { SortableContext , verticalListSortingStrategy, } from "@dnd-kit/sortable";
 
 import TablaPo from './components/TablaPo'
-import TablaResolucion from './components/TablaResolucion';
 
 const page = () => {
 
@@ -21,10 +20,6 @@ const page = () => {
     getHistoriaBacklog()
   }, [])
   
- //const newHistoriaDraw = updatedHistoriaProductBacklog()
-  // logica del draw and drop
-  //const [historiaDraw, setHistoriaDraw] = useState(historiaBacklog)
-  //console.log('historiaapintar1:', historiaBacklog);
   const handleDrawEnd =(e)=>{
     const {active, over} = e
     const oldIndex = historiaBacklog.findIndex((el)=> el?.id === active?.id)
@@ -34,13 +29,6 @@ const page = () => {
     updatedHistoriaProductBacklog(newOrder)  
        
   }
-
-  // console.log('historiaBacklog:', historiaBacklog);
-  // console.log('historiaapintar2:', historiaBacklog);
-
-  // useEffect(()=>{
-  //   router.refresh()
-  // }, [historiaDraw])
   console.log('histoFinal:', historiaBacklog);
   
 
@@ -53,7 +41,7 @@ const page = () => {
         <header className='w-full h-[6%] bg-white py-4 pl-4'>
           Dashboard {'>'} Product Owner {'>'} Product Backlog
         </header>
-          <div className='h-14 w-[48%] ml-8 bg-colorBarraSuperiorTablas grid place-content-center text-colorTextoBarraAlta font-semibold'>
+          <div className='h-14 w-[96%] ml-8 bg-colorBarraSuperiorTablas grid place-content-center text-colorTextoBarraAlta font-semibold'>
              Product Backlog
           </div>
           <header className='w-full h-[7%] -mt-7 flex justify-end items-center  pb-3 font-bold mb-1 pr-12  text-colorTextoBarraAlta'>
@@ -68,72 +56,25 @@ const page = () => {
           <div className='flex'>
 
           
-        <div className='w-[830px] h-[90%]  z-30  top-32 left-3/5 max-h-[618px] overflow-auto -mt-8 '>
+        <div className='w-[98%] h-[90%]  z-30  top-32 left-3/5 max-h-[618px] overflow-auto -mt-8 '>
         
-        <table className='border border-gray-200   w-[96%] ml-8 '>
+        <table className='border border-gray-200   w-[98%] ml-8 '>
           <thead>
             <tr className='h-14'>
               <td className='w-[8%] text-center'>Posición</td>
               <td className='w-[15%] text-center'>Nombre Historia</td>
               <td className='w-[12%] text-center'>Cargo del Solicitante</td>
               <td className='w-[10%] text-center'>Fecha Ingreso </td>
-              <td className='w-[11%] text-center'>Status </td>
-              {/* <td className='w-[10%] text-center'>Hora Ingreso</td> */}
-              {/* <td className='w-[11%] text-center'>Status </td> */}
-              {/* <td className='w-[10%] text-center'>Tiempo(dias) </td>
+              <td className='w-[10%] text-center'>Hora Ingreso </td>
+             
+              <td className='w-[8%] text-center'>Status </td>
+              <td className='w-[8%] text-center'>Tiempo(dias) </td>
               <td className='w-[10%] text-center'>Presupuesto (Clp) </td>
-              <td className='w-[10%] text-center'>Proximo Sprint </td> */}
+              <td className='w-[10%] text-center'>Proximo Sprint </td> 
             </tr>
           </thead>
           <tbody>
           {historiaBacklog?.map((el, index)=>{
-            
-            const {id, nombreHistoria, createdAt, updatedAt, user, horaAt, tiempoHistoria, presupuestoHistoria, status} = el
-            
-            
-            const updatedAt2 = format(new Date(updatedAt), 'dd/MM/yyyy')
-            const updatedPintar = format(new Date(updatedAt), 'H:mm')
-              return <SortableContext key={id} items={historiaBacklog} strategy={verticalListSortingStrategy}>
-                <TablaPo                  
-                  id = {id}
-                  nombreHistoria = {nombreHistoria}
-                  createdAt = {createdAt} 
-                  updatedAt = {updatedAt}  
-                  horaAt = {horaAt}
-                  tiempoHistoria = {tiempoHistoria} 
-                  presupuestoHistoria = {presupuestoHistoria}
-                  status = {status}
-                  index = {index}
-                  updatedAt2 = {updatedAt2}
-                  updatedPintar = {updatedPintar}
-                  user={user}
-                
-                />
-              </SortableContext>
-            })}
-          </tbody>  
-        </table>
-      </div>
-      <div className='w-[800px] h-[90%]  z-30  top-32 left-3/5 max-h-[618px] overflow-auto -mt-[90px] '>
-        <div className='h-14 w-[96%] ml-8 bg-colorBarraSuperiorTablas grid place-content-center text-colorTextoBarraAlta font-semibold'>
-             Sprint Backlog
-          </div>
-        <table className='border border-gray-200   w-[96%] ml-8 '>
-          <thead>
-            <tr className='h-14'>
-              <td className='w-[8%] text-center'>Posición</td>
-              <td className='w-[15%] text-center'>Nombre Historia</td>
-              <td className='w-[12%] text-center'>Cargo del Solicitante</td>
-              <td className='w-[10%] text-center'>Fecha Ingreso </td>
-              <td className='w-[10%] text-center'>Hora Ingreso</td>
-              {/* <td className='w-[11%] text-center'>Status </td> */}
-              {/* <td className='w-[10%] text-center'>Tiempo(dias) </td>
-              <td className='w-[10%] text-center'>Presupuesto (Clp) </td>
-              <td className='w-[10%] text-center'>Proximo Sprint </td> */}
-            </tr>
-          </thead>
-          <tbody>
-          {historiaBacklog?.splice(0,0).map((el, index)=>{
             
             const {id, nombreHistoria, createdAt, updatedAt, user, horaAt, tiempoHistoria, presupuestoHistoria, status} = el
             

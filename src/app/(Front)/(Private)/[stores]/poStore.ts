@@ -108,6 +108,7 @@ export const useHistoriaPo = create<IUseHistoriaPo>((set)=>
     // actualizar la historia del backlog
     updatedHistoriaProductBacklog: (setHistoriaBacklog)=>{
         set(()=>({historiaBacklog:setHistoriaBacklog}))
+        
     }
 
 }))

@@ -1,21 +1,25 @@
-'use client'
 
-import {useState} from 'react'
-import { format } from "date-fns";
+
+
+import { format, addBusinessDays } from "date-fns";
+//import {addBusinessDays}  from "date-fns/addBusinessDays";
 import { dataAsistenteDailyHoy } from '@/app/(Front)/React/Utils/dataAsistentesDailyHoy';
-import "react-day-picker/style.css";
+//import "react-day-picker/style.css";
 
 
 const page = () => {
 
 
-  const [selected, setSelected] = useState<Date>();
+  // const [selected, setSelected] = useState();
 
-  const [activarCalendario, setActivarCalendario] = useState(false)
+  // const [activarCalendario, setActivarCalendario] = useState(false)
 
-  const handleClickCalendarioPlanning =()=>{
-    setActivarCalendario(!activarCalendario)
-  }
+  // const handleClickCalendarioPlanning =()=>{
+  //   setActivarCalendario(!activarCalendario)
+  // }
+
+
+  const result = addBusinessDays(new Date(2019, 8, 1), 10)
 
   return (
     <div className='w-full h-full bg-white grid place-items-center'>
@@ -36,55 +40,46 @@ const page = () => {
                 </div>
                 <div className='w-[1625px] z-30  top-28 left-3/5 max-h-[520px] overflow-auto'>
                   <table className='border border-gray-200   w-[100%]  '>
-                    <tr className='h-14'>
-                      <td className='w-[5%] pl-3'>Numero</td>
-                      
-                      <td className='w-[10%] text-center'>Inicio Sprint</td>
-                      <td className='w-[10%] text-center'>Dias Sprint</td>
-                      <td className='w-[10%] text-center'>Final Sprint</td>
-                      <td className='w-[10%]'>N° Sprint</td>
-                      
-                     
-                      <td className='w-[15%]'>Historias</td>
-                      <td className='w-[15%]'>Objetivo Sprint</td>
-                      <td className='w-[15%]'>Temas tratados</td>
-                      
-                    </tr>
+                    <thead className='h-14'>
+                      <th className='w-[5%] text-center'>Numero</th>                      
+                      <th className='w-[10%] text-center'>Inicio Sprint</th>
+                      <th className='w-[10%] text-center'>Dias Sprints</th>
+                      <th className='w-[10%] text-center'>Final Sprint</th>
+                      <th className='w-[10%] text-center'>N° Sprint</th>
+                      <th className='w-[15%] text-center'>Historias</th>
+                      <th className='w-[15%] text-center'>Objetivo Sprint</th>
+                      <th className='w-[15%] text-center'>Temas tratados</th>  
+                    </thead>
+                    <tbody>
                     {dataAsistenteDailyHoy.map((el)=>{
                         return <tr key={el.id} className='border border-gray-200 h-14   w-full '>
-                          <td className='pl-8'>
+                          <td className='text-center'>
                             {el.id}
                           </td>
-                          
-                          <td className='text-violet-500 font-bold text-center'>
-                          {format(new Date(), 'dd/MM/yyyy')}
-                          </td>
-                          <td >
-                            <input className='w-[100px] py-2 text-center ml-8 border border-gray-200 ' placeholder='14' type="text" />
-                          </td>
-                          
-                          
                           <td className='text-violet-500 font-bold text-center'>
                             {format(new Date(), 'dd/MM/yyyy')}
                           </td>
-                          <td className='pl-6'>
+                          <td className='h-14 grid self-center py-2'>
+                            <input className='w-[110px] py-2 text-center ml-6 border border-gray-200 ' placeholder='14' type="text" />
+                          </td>
+                          <td className='text-violet-500 font-bold text-center'>
+                            {format(new Date(), 'dd/MM/yyyy')}
+                          </td>
+                          <td className='text-center'>
                             7
+                          </td>  
+                          <td className='text-center'>
+                            12 - 17
                           </td>
-                          
-                          <td >
-                            12 y 13
+                          <td className='grid place-content-center '>
+                            <input className='w-[150px] py-2 text-center border border-gray-200 ' placeholder='14' type="text" />
                           </td>
-                          <td >
-                            <input className='w-[200px] py-2 text-center  border border-gray-200 ' placeholder='14' type="text" />
-                          </td>
-                          <td >
+                          <td className='text-center'>
                             <input className='w-[500px] py-2 border border-gray-200 ' type="text" />
                           </td>
-                          
-                          
-                          
                         </tr>
                       })}
+                    </tbody>
                 </table>
           </div>
           <div className='w-full h-24  grid justify-end items-center pr-4 '>

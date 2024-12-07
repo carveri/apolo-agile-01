@@ -7,7 +7,7 @@ const ComAdmin = ({logicaTabla, usuarios, nombre}) => {
   return (
     <div className='w-full h-full ' >
         {usuarios.length !== 0 ?
-        <section  className='w-[99%] h-[99%]  '>
+        <section  className='w-[99%] h-[99%] '>
           
         <main className=' px-4 w-full h-[99%] '>
             <div className='h-14  bg-colorBarraSuperiorTablas grid place-content-center text-colorTextoBarraAlta font-semibold'>

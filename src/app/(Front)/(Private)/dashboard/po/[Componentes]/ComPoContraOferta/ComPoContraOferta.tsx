@@ -28,7 +28,7 @@ const ComPoContraOferta = ({historiaContraOferta, handleClickVerContraoferta, no
                 handleClickVerContraoferta={handleClickVerContraoferta}
               />
               </div>: 
-              <div className='w-full h-[60%]  grid place-content-center text-xl'>
+              <div className='w-full h-[40%]  grid place-content-center text-xl'>
               <BadgeNoAun
                 nombre = 'ContraOfertadas'
               />

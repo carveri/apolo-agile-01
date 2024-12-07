@@ -4,20 +4,24 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import React from 'react'
 import Image from "next/image";
+//import { StaticImport } from 'next/dist/shared/lib/get-img-props';
 
-const Sidebar = ({links}) => {
+interface IOLinks {
+    id: number
+    href: string
+    nombre: string
+    icono?: string | any
+    coso?: string
+}
+interface ILinks {
+  links: IOLinks[]
+}
 
-  
-     
-    //console.log(session);
-    
+const Sidebar = ({links}:ILinks) => {
+
 
     const pathname = usePathname()
     
-
-    
-
-
   return (
     <aside className='w-full h-full rounded'>
         <header className='h-12 bg-blue-100 grid place-content-center rounded text-sm'>
