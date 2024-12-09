@@ -1,13 +1,33 @@
 'use client'
 
 import Tabla from '@/app/(Front)/React/Components/Tablas/Tabla'
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { format } from "date-fns";
 import BadgeNoAun from '@/app/(Front)/React/Components/BadgeNoAun/BadgeNoAun';
 import { IComAdmin } from '@/app/Interfaces/IComAdmin';
 import { useHistoriaAdmin } from '../../../[stores]/adminStore';
+//import { getData } from '@/app/(Front)/React/Fetch/getData';
+import { getDataLista } from '@/app/(Front)/React/Fetch/getDataLista';
 
-const ComAdmin = ({logicaTabla,nombre, url, empresaId}:IComAdmin) => {
+const ComAdmin = ({logicaTabla,nombre, url, id, res}:IComAdmin) => {
+
+  // const [empresId, setEmpresId] = useState('')
+
+  // // traer el empresaId
+  // useEffect(()=>{
+  //   const traerEmpresaId = async()=>{
+  //     const ruta = 'empresaPorUser'
+  //     const url = id
+  //     const res = await getDataLista({ruta, url})
+  //     setEmpresId(res)
+  //   }
+  //   traerEmpresaId()
+  // }, [])
+
+  console.log('erer:', res);
+  
+
+  let empresaId =  res.at(0)?.id
   useEffect(()=>{
     getUsuarios(url, empresaId)
   }, [])
@@ -42,7 +62,7 @@ const ComAdmin = ({logicaTabla,nombre, url, empresaId}:IComAdmin) => {
         </main>
     </section>: 
     <BadgeNoAun
-        nombre = 'Aceptadas'
+        nombre = {nombre}
     />
       }      
     </div>

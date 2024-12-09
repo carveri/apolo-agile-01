@@ -1,23 +1,38 @@
 import { logicaTabla } from "@/app/(Front)/React/Components/Tablas/logicaTabla";
 import ComAdmin from "../[Components]/ComAdmin";
-//import { useHistoriaAdmin } from "../../../[stores]/adminStore";
+import { ISession } from "@/app/Interfaces/ISession";
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/app/(Back)/api/auth/[...nextauth]/route";
+import { redirect } from "next/navigation";
+import { getDataLista } from "@/app/(Front)/React/Fetch/getDataLista";
 
-const page = () => {   
+const page = async() => {   
 
-  // const {usuarios, getUsuarios} = useHistoriaAdmin()
-  // const  url = '8bf1bf40-b55e-4000-a0c5-8e1b8e0ba477'
-  // await getUsuarios(url)
-
-  // //const {usuarios, getUsuarios} = useHistoriaAdmin()
+  const session:ISession | null = await getServerSession(authOptions)
+   // validacion
+   if(!session){
+    redirect('/api/auth/signin')
+  }
+  //console.log(user);
   
-  // console.log('usua:', usuarios);
+  const {user}= session
+  const {id, name, email, image} = user
+
+  const ruta = 'empresaPorUser'
+ const url = id
+ const res = await getDataLista({ruta, url})
+ console.log('res;', res);
+  
+  //console.log('uss:', user);
 
   return (
     <ComAdmin
       logicaTabla={logicaTabla}
       nombre = 'Clientes'
       url = '12b87914-ed8c-4411-931e-7b9b567d7117'
-      empresaId = 'e5e58171-f26d-4e8d-8600-264ad4c40032'
+      //empresaId = 'e5e58171-f26d-4e8d-8600-264ad4c40032'
+      id= {id}
+      res={res}
     />
   )
 }

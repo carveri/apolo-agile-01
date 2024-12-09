@@ -17,7 +17,7 @@ const page = async() => {
   const {user}= session
   const {id, name, email, image} = user
   
-  console.log('uss:', user);
+  //console.log('uss:', user);
   
 
   return (

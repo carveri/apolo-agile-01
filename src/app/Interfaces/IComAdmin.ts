@@ -13,5 +13,6 @@ export interface IComAdmin {
     //usuarios: IUsuarios[]
     nombre: string
     url: string
-    empresaId: string
+    id: string
+    //empresaId: string
   }
