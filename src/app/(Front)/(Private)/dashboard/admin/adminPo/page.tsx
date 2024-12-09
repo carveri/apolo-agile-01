@@ -1,25 +1,12 @@
-'use client'
-
 import { logicaTabla } from '@/app/(Front)/React/Components/Tablas/logicaTabla'
-import Tabla from '@/app/(Front)/React/Components/Tablas/Tabla'
-import React, { useEffect } from 'react'
-import { useHistoriaAdmin } from '../../../[stores]/adminStore'
 import ComAdmin from '../[Components]/ComAdmin'
 
 const page = () => {
-
-  const {usuarios, getUsuariosPo} = useHistoriaAdmin()
-
-    useEffect(()=>{
-      getUsuariosPo()
-    }, [])
-
-
-  return (
+return (
     <ComAdmin
-      logicaTabla={logicaTabla}
-      usuarios={usuarios}
-      nombre = 'Product Owner'
+    logicaTabla={logicaTabla}
+    nombre = 'Product Owner'
+    url = '2cbca9d4-f9c2-4f8e-a8e3-a04212e901d6'
     />
   )
 }

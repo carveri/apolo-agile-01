@@ -1,9 +1,22 @@
+'use client'
+
 import Tabla from '@/app/(Front)/React/Components/Tablas/Tabla'
-import React from 'react'
+import React, { useEffect } from 'react'
 import { format } from "date-fns";
 import BadgeNoAun from '@/app/(Front)/React/Components/BadgeNoAun/BadgeNoAun';
+import { IComAdmin } from '@/app/Interfaces/IComAdmin';
+import { useHistoriaAdmin } from '../../../[stores]/adminStore';
 
-const ComAdmin = ({logicaTabla, usuarios, nombre}) => {
+
+
+const ComAdmin = ({logicaTabla,nombre, url}:IComAdmin) => {
+  useEffect(()=>{
+    getUsuarios(url)
+  }, [])
+
+  const {usuarios, getUsuarios} = useHistoriaAdmin()
+  
+
   return (
     <div className='w-full h-full ' >
         {usuarios.length !== 0 ?
@@ -11,7 +24,7 @@ const ComAdmin = ({logicaTabla, usuarios, nombre}) => {
           
         <main className=' px-4 w-full h-[99%] '>
             <div className='h-14  bg-colorBarraSuperiorTablas grid place-content-center text-colorTextoBarraAlta font-semibold'>
-               {nombre} de empresa Hilti
+               {nombre} de Hilti
             </div>
             <header className='w-full h-[7%] -mt-12 flex justify-end items-center  pb-3 font-bold mb-1 pr-6  text-colorTextoBarraAlta'>
              
@@ -26,8 +39,6 @@ const ComAdmin = ({logicaTabla, usuarios, nombre}) => {
             <Tabla
                 logicaTabla ={logicaTabla}
                 usuarios={usuarios}
-          
-
             />
       </div>
       
