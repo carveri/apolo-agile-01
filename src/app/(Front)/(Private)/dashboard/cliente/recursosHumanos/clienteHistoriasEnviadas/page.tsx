@@ -1,36 +1,33 @@
-'use client'
-import { getDataCompleja } from "@/app/(Front)/React/Fetch/getDataCompleja";
-import { useRouter } from "next/navigation";
-import { useState, useEffect } from "react";
-import { format } from "date-fns";
-import { useHistoriaPo } from "@/app/(Front)/(Private)/[stores]/poStore";
-import BadgeNoAun from "@/app/(Front)/React/Components/BadgeNoAun/BadgeNoAun";
-import ComPageHistoriasAceptadas from "../../[Componentes]/ClienteHistoriasAceptadas/ComPageHistoriasAceptadas/ComPageHistoriasAceptadas";
+
 import ComPageHistoriasEnviadas from "../../[Componentes]/ClienteHistoriasEnviadas/ComPageHistoriasEnviadas/ComPageHistoriasEnviadas";
+import { ISession } from "@/app/Interfaces/ISession";
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/app/(Back)/api/auth/[...nextauth]/route";
+import { redirect } from "next/navigation";
+import { getDataLista } from "@/app/(Front)/React/Fetch/getDataLista";
 
-const page = () => {
+const page = async() => {
 
-  const { idHistoria, cambiarIdHistoria} = useHistoriaPo()
+  const session:ISession | null = await getServerSession(authOptions)
+  // validacion
+  if(!session){
+   redirect('/api/auth/signin')
+ }
+ //console.log(user);
+ 
+ const {user}= session
+ const {id, name, email, image} = user
 
-  const [histouseridcargo, setHistouseridcargo] = useState([])  
-
-
-  useEffect(()=>{
-    const traerHistoriasStatusCargo = async()=>{
-        const ruta = 'historiaStatusCargo' 
-        const param1 = '897abc28-2c33-4f67-b272-f6b70b9b33ad'
-        const param2 = 'Pendiente'
-        const res = await getDataCompleja({ruta, param1, param2})
-        setHistouseridcargo(res)
-    }
-    traerHistoriasStatusCargo()
-  }, [])
+ const ruta = 'empresaPorUser'
+ const url = id
+ const res = await getDataLista({ruta, url})
 
   
 
   return (
     <ComPageHistoriasEnviadas
-    histouseridcargo={histouseridcargo}
+      id={id}
+      resul={res}
 
     />
   )

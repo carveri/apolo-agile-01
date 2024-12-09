@@ -1,33 +1,33 @@
-'use client'
-import { getDataCompleja } from "@/app/(Front)/React/Fetch/getDataCompleja";
-import { useState, useEffect } from "react";
-import { format } from "date-fns";
-import { useHistoriaPo } from "@/app/(Front)/(Private)/[stores]/poStore";
-import BadgeNoAun from "@/app/(Front)/React/Components/BadgeNoAun/BadgeNoAun";
+import { redirect } from "next/navigation";
+import { ISession } from "@/app/Interfaces/ISession";
 import ComPageHistoriasAceptadas from "../../[Componentes]/ClienteHistoriasAceptadas/ComPageHistoriasAceptadas/ComPageHistoriasAceptadas";
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/app/(Back)/api/auth/[...nextauth]/route";
+import { getDataLista } from "@/app/(Front)/React/Fetch/getDataLista";
 
-const page = () => {
+const page = async() => {
 
-  //const { idHistoria, cambiarIdHistoria} = useHistoriaPo()
+  const session:ISession | null = await getServerSession(authOptions)
+  // validacion
+  if(!session){
+   redirect('/api/auth/signin')
+ }
+ //console.log(user);
+ 
+ const {user}= session
+ const {id, name, email, image} = user
 
-  const [histouseridcargo, setHistouseridcargo] = useState([])  
+ const ruta = 'empresaPorUser'
+ const url = id
+ const res = await getDataLista({ruta, url})
 
-
-  useEffect(()=>{
-    const traerHistoriasStatusCargo = async()=>{
-        const ruta = 'historiaStatusCargo' 
-        const param1 = 'eaefa4b5-a5e8-4ed4-a3ca-1ae450242c1c'
-        const param2 = 'Aceptada'
-        const res = await getDataCompleja({ruta, param1, param2})
-        setHistouseridcargo(res)
-    }
-    traerHistoriasStatusCargo()
-  }, [])
+  
 
 
   return (
     <ComPageHistoriasAceptadas
-      histouseridcargo={histouseridcargo}
+      id={id}
+      resul={res}
     />
   )
 }

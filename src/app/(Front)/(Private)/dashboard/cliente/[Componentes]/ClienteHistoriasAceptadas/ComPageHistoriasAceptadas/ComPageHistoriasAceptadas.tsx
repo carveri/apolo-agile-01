@@ -11,9 +11,9 @@ const ComPageHistoriasAceptadas = ({id, resul}) => {
   const [histouseridcargo, setHistouseridcargo] = useState([])  
 
   //console.log('hissts:', histouseridcargo);
-  console.log('iddd;', id);
-  console.log('resss;', resul);
-  console.log('ress arre;', resul[0]?.id);
+  // console.log('iddd;', id);
+  // console.log('resss;', resul);
+  // console.log('ress arre;', resul[0]?.id);
   
   
   
