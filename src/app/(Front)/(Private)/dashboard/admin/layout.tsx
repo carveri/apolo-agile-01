@@ -14,7 +14,7 @@
   // COMPONENTES
   import Sidebar from '@/app/(Front)/React/Components/Sidebar';
   import Navbar from '@/app/(Front)/React/Components/Navbar';
-  
+
 
 
 export default async function RootLayout({children,}: Readonly<{children: React.ReactNode;}>) 
@@ -73,7 +73,7 @@ const linksAdmin = [
   return (
     <div className="w-screen h-screen flex">
       <section className="w-[280px] h-full bg-[--verdecito] ">
-        <header className="h-12 w-full bg-colorCajaLogo grid place-content-center text-colorTextoCaja">
+        <header className="h-12 w-full bg-colorCajaLogo grid place-content-center text-colorTextoCaja ">
           Apolo Agile
         </header>
         <aside className="w-full h-[820px] bg-gray-100 "> 

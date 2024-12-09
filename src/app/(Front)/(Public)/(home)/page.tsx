@@ -1,7 +1,6 @@
 
 import Image from "next/image";
 
-
 import logoPrincipal from "../../React/Assets/Icons/logoPricipal2.png";
 import imagenDashboard2 from "./../../React/Assets/Icons/dashboard4.png";
 import MiBoton from "../../React/Components/MiBoton/MiBoton";
@@ -9,8 +8,10 @@ import MiBoton from "../../React/Components/MiBoton/MiBoton";
 
 const page = () => {
 
+  
+
   return (
-    <div className='w-full h-full flex px-8'>
+    <div className='w-full h-full flex px-12 '>
       <section className='w-[43%] h-auto  grid place-items-center'>
         <div className='w-5/6 h-3/5   mt-9'>
           <article className='w-full h-12 text-xl flex'>

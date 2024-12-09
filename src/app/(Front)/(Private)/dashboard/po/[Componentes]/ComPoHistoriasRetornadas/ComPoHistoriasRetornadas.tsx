@@ -8,10 +8,10 @@ const ComPoHistoriasRetornadas = ({historiaStatusRetornada, nombre}) => {
           <header className='w-full h-[6%] bg-white py-4 pl-4'>
             Dashboard {'>'} {nombre} {'>'} Historias Retornadas 
           </header>
-          <div className='h-14 w-[96%] ml-8 bg-colorBarraSuperiorTablas grid place-content-center text-colorTextoBarraAlta font-semibold'>
+            <div className='h-14 w-[96%] ml-8 bg-colorBarraSuperiorTablas grid place-content-center text-colorTextoBarraAlta font-semibold'>
                Historias Retornadas
             </div>
-            <header className='w-full h-[7%] -mt-7 flex justify-end items-center  pb-3 font-bold mb-1 pr-12  text-colorTextoBarraAlta'>
+            <header className='w-full h-[7%] -mt-7 flex justify-end items-center  pb-3 font-bold  pr-12  text-colorTextoBarraAlta'>
              
               <div className='pr-6 -mt-9'>
                 Fecha Actual
@@ -22,36 +22,34 @@ const ComPoHistoriasRetornadas = ({historiaStatusRetornada, nombre}) => {
             </header>
           {historiaStatusRetornada.length !== 0  ?
               <div className='w-[1625px] mt-8 z-30 absolute top-32 left-3/5 max-h-[625px] overflow-auto'>
-              <table className='border border-gray-200   w-[98%] ml-8 mt-1 '>
-                <thead>
-                <tr className='h-14'>
-                  <td className='w-[6%] text-center'>Numero</td>
-                  <td className='w-[12%] text-center'>Nombre Historia</td>
-                  <td className='w-[10%] text-center'>Cargo del Solicitante</td>
-                  <td className='w-[8%] text-center'>Fecha Petición </td>
-                  <td className='w-[8%] text-center'>Hora Petición</td>
-                  <td className='w-[8%] text-center'>Fecha Retorno </td>
-                  <td className='w-[8%] text-center'>Hora Retorno</td>
-                  <td className='w-[8%] text-center'>Presupuesto (CLP)</td>
-                  <td className='w-[8%] text-center'>Tiempo(Dias) </td>
-                  <td className='w-[8%] text-center'>Status </td>
-                  
-                  
-                </tr>
+              <table className='border border-gray-200   w-[98%] ml-8 '>
+                <thead className="fixed   bg-yellow-500 w-[82%] ">
+                  <tr className='h-14 '>
+                    <td className='w-[6%] text-center'>Numero</td>
+                    <td className='w-[12%] text-center'>Nombre Historia</td>
+                    <td className='w-[10%] text-center'>Cargo del Solicitante</td>
+                    <td className='w-[8%] text-center'>Fecha Petición </td>
+                    <td className='w-[8%] text-center'>Hora Petición</td>
+                    <td className='w-[8%] text-center'>Fecha Retorno </td>
+                    <td className='w-[8%] text-center'>Hora Retorno</td>
+                    <td className='w-[8%] text-center'>Presupuesto (CLP)</td>
+                    <td className='w-[8%] text-center'>Tiempo(Dias) </td>
+                    <td className='w-[8%] text-center'>Status </td>
+                  </tr>
                 </thead>
-                <tbody>
+                <tbody className=" ">
                 {historiaStatusRetornada.map((el, index)=>{
                   const {id,nombreHistoria, createdAt, horaAt, user, updatedAt, presupuestoHistoria, tiempoHistoria, detalleHistoria, status} = el
                   const updatedAt2 = format(new Date(updatedAt), 'dd/MM/yyyy')
                   const updatedPintar = format(new Date(updatedAt), 'H:mm')
-                    return <tr key={id} className='border border-gray-200 h-14   '>
-                      <td className='text-center'>
+                    return <tr key={id} className='border border-gray-200 h-14 bg-orange-400 '>
+                      <td className='text-center w-[6%]'>
                         {index + 1}
                       </td>
-                      <td className='text-center'>
+                      <td className='text-center w-[12%] bg-red-400'>
                         {nombreHistoria}
                       </td>
-                      <td className='text-center'>
+                      <td className='text-center w-[10%]'>
                         {user?.cargo?.nombreCargo}
                       </td>
                       <td className='text-center'>

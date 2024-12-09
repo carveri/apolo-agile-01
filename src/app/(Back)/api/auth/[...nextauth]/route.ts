@@ -38,11 +38,7 @@ export const authOptions: AuthOptions = {
                   }
                 }
               }
-              
-            
-            
-            
-              
+           
             })
             if(!userFound) return null
             //console.log('df', userFound);

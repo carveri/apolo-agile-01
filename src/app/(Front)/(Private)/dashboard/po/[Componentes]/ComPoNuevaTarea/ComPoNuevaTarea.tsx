@@ -5,12 +5,6 @@ import TablaComPoNuevaTarea from "./TablaComPoNuevaTarea";
 
 const ComPoNuevaTarea = ({historiaStatus, handleClickVerNuevasTareasPo, nombre}) => {
 
-
-  // const ruta = 'cargoPorUsuario'
-  // const url = 
-  // const res = await getDataLista()
-
-
   return (
     <div className='w-full h-full bg-white grid place-items-center' >
         <section className='w-[99%] h-[99%]  '>
