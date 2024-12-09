@@ -10,11 +10,16 @@ class HistoriaStatusCargo {
 
         const userId = url.searchParams.get("userId")
         const status = url.searchParams.get("status")
+        const empresaId = url.searchParams.get("empresaId")
         //console.log('cosas:', userId, status);
         const getHistoriaStatusCargo = await prisma.historia.findMany({
             where:{
                 userId: userId,
-                status: status
+                status: status,
+                user:{
+                    empresaId:empresaId
+                }
+
             },
             include:{
                 user:{

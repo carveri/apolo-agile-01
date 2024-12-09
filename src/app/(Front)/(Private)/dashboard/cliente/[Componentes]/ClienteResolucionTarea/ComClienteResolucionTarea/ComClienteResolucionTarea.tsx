@@ -1,8 +1,48 @@
+'use client'
+
 import BadgeNoAun from "@/app/(Front)/React/Components/BadgeNoAun/BadgeNoAun";
 import { format } from "date-fns";
 import TablaResolucionTareas from "./TablaResolucionTareas";
+import { useHistoriaPo } from "@/app/(Front)/(Private)/[stores]/poStore";
+import { useEffect, useState } from "react";
+import { getDataCompleja } from "@/app/(Front)/React/Fetch/getDataCompleja";
+import { useRouter } from "next/navigation";
 
-const ComClienteResolucionTarea = ({histouseridcargo, handleClickVerResolucionHistoria}) => {
+const ComClienteResolucionTarea = ({id, resul}) => {
+
+  const { idHistoria, cambiarIdHistoria} = useHistoriaPo()
+
+  const [historias, setHistorias] = useState([])
+  //const {historiaStatus, getHistoriaStatus} = useHistoriaPo
+  const [histouseridcargo, setHistouseridcargo] = useState([])
+  //const {historiaStatus, getHistoriaStatus} = useHistoriaPo
+
+  useEffect(()=>{
+    const traerHistoriasStatusCargo = async()=>{
+        const ruta = 'historiaStatusCargo' 
+        const param1 = id
+        const param2 = 'Retornada'
+        const param3 = resul.at(0)?.id
+        const res = await getDataCompleja({ruta, param1, param2, param3})
+        setHistouseridcargo(res)
+    }
+    traerHistoriasStatusCargo()
+  }, [])
+
+  console.log('idhist;', idHistoria);
+  
+
+  
+
+  const route = useRouter()
+
+  const handleClickVerResolucionHistoria =(id:React.MouseEvent<HTMLButtonElement>)=>{
+    //console.log('idHisto:', id);
+    cambiarIdHistoria(id)
+    //console.log('idzusthistoria:', idHistoria);
+    route.push('/dashboard/cliente/comercial/verResolucionTarea')
+  }
+
   return (
     <div className='w-full h-full   ' >
         {histouseridcargo.length !== 0 ?

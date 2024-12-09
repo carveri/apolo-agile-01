@@ -1,8 +1,28 @@
+'use client'
+
 import BadgeNoAun from "@/app/(Front)/React/Components/BadgeNoAun/BadgeNoAun";
 import { format } from "date-fns";
 import TablaHistoriasEnviadas from "./TablaHistoriasEnviadas";
+import { useEffect, useState } from "react";
+import { getDataCompleja } from "@/app/(Front)/React/Fetch/getDataCompleja";
 
-const ComPageHistoriasEnviadas = ({histouseridcargo }) => {
+const ComPageHistoriasEnviadas = ({id, resul}) => {
+
+  const [histouseridcargo, setHistouseridcargo] = useState([])  
+
+
+  useEffect(()=>{
+    const traerHistoriasStatusCargo = async()=>{
+        const ruta = 'historiaStatusCargo' 
+        const param1 = id
+        const param2 = 'Pendiente'
+        const param3 = resul.at(0)?.id
+        const res = await getDataCompleja({ruta, param1, param2, param3})
+        setHistouseridcargo(res)
+    }
+    traerHistoriasStatusCargo()
+  }, [])
+
   return (
     <div className='w-full h-full ' >
         {histouseridcargo.length !== 0 ?

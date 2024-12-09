@@ -1,49 +1,34 @@
-'use client'
-
-import {useState, useEffect} from 'react'
-
-import { useRouter } from "next/navigation";
-import { useHistoriaPo } from '../../../../[stores]/poStore';
-import { getDataCompleja } from '@/app/(Front)/React/Fetch/getDataCompleja';
+import { ISession } from '@/app/Interfaces/ISession';
 import ComClienteResolucionTarea from '../../[Componentes]/ClienteResolucionTarea/ComClienteResolucionTarea/ComClienteResolucionTarea';
+import { getServerSession } from 'next-auth';
+import { authOptions } from '@/app/(Back)/api/auth/[...nextauth]/route';
+import { redirect } from "next/navigation";
+import { getDataLista } from '@/app/(Front)/React/Fetch/getDataLista';
 
 
 
-const page = () => {
-  const { idHistoria, cambiarIdHistoria} = useHistoriaPo()
+const page = async() => {
 
-  const [historias, setHistorias] = useState([])
-  //const {historiaStatus, getHistoriaStatus} = useHistoriaPo
-  const [histouseridcargo, setHistouseridcargo] = useState([])
-  //const {historiaStatus, getHistoriaStatus} = useHistoriaPo
+  const session:ISession | null = await getServerSession(authOptions)
+  // validacion
+  if(!session){
+   redirect('/api/auth/signin')
+ }
+ //console.log(user);
+ 
+ const {user}= session
+ const {id, name, email, image} = user
 
-  useEffect(()=>{
-    const traerHistoriasStatusCargo = async()=>{
-        const ruta = 'historiaStatusCargo' 
-        const param1 = 'f72d2f55-fe11-4b72-ae67-1bcc35b4d95f'
-        const param2 = 'Retornada'
-        const res = await getDataCompleja({ruta, param1, param2})
-        setHistouseridcargo(res)
-    }
-    traerHistoriasStatusCargo()
-  }, [])
-
+ const ruta = 'empresaPorUser'
+ const url = id
+ const res = await getDataLista({ruta, url})
   
-
-  const route = useRouter()
-
-  const handleClickVerResolucionHistoria =(id:React.MouseEvent<HTMLButtonElement>)=>{
-    //console.log('idHisto:', id);
-    cambiarIdHistoria(id)
-    //console.log('idzusthistoria:', idHistoria);
-    route.push('/dashboard/cliente/comercial/verResolucionTarea')
-  }
 
 
   return (
     <ComClienteResolucionTarea
-      histouseridcargo={histouseridcargo}
-      handleClickVerResolucionHistoria={handleClickVerResolucionHistoria}
+    id={id}
+    resul={res}
     />
   )
 }
