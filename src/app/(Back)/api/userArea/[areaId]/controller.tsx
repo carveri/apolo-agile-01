@@ -1,9 +1,10 @@
 import { IAreaParams } from "@/app/Interfaces/IParams"
 import prisma from "@/libs/prisma"
+import { NextRequest } from "next/server"
 
 class UserArea {
 
-    // metodo
+    // // metodo
     getUserArea = async(req:Request, {params}:IAreaParams)=>{
         const {areaId} = await params
         const getOneUserArea = await prisma.user.findMany({
@@ -43,6 +44,8 @@ class UserArea {
         })
         return getOneUserArea
     }
+
+    
 }
 
 
