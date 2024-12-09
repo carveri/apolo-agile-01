@@ -19,9 +19,9 @@ const page = async() => {
   const {id, name, email, image} = user
 
   const ruta = 'empresaPorUser'
- const url = id
- const res = await getDataLista({ruta, url})
- console.log('res;', res);
+  const url = id
+  const res = await getDataLista({ruta, url})
+  //console.log('res;', res);
   
   //console.log('uss:', user);
 

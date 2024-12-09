@@ -21,14 +21,14 @@ const page = async() => {
   const ruta = 'empresaPorUser'
  const url = id
  const res = await getDataLista({ruta, url})
- console.log('res;', res);
+ //console.log('res;', res);
   
   //console.log('uss:', user);
 
   return (
     <ComAdmin
       logicaTabla={logicaTabla}
-      nombre = 'Administración'
+      nombre = 'Administradores'
       url = '8bf1bf40-b55e-4000-a0c5-8e1b8e0ba477'
       id= {id}
       res={res}

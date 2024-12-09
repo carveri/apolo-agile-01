@@ -21,7 +21,7 @@ const page = async() => {
  const ruta = 'empresaPorUser'
  const url = id
  const res = await getDataLista({ruta, url})
- console.log('res;', res);
+ //console.log('res;', res);
  
 
   return (

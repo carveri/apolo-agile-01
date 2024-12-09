@@ -1,31 +1,17 @@
 'use client'
 
 import Tabla from '@/app/(Front)/React/Components/Tablas/Tabla'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { format } from "date-fns";
 import BadgeNoAun from '@/app/(Front)/React/Components/BadgeNoAun/BadgeNoAun';
 import { IComAdmin } from '@/app/Interfaces/IComAdmin';
 import { useHistoriaAdmin } from '../../../[stores]/adminStore';
-//import { getData } from '@/app/(Front)/React/Fetch/getData';
-import { getDataLista } from '@/app/(Front)/React/Fetch/getDataLista';
 
 const ComAdmin = ({logicaTabla,nombre, url, id, res}:IComAdmin) => {
 
-  // const [empresId, setEmpresId] = useState('')
-
-  // // traer el empresaId
-  // useEffect(()=>{
-  //   const traerEmpresaId = async()=>{
-  //     const ruta = 'empresaPorUser'
-  //     const url = id
-  //     const res = await getDataLista({ruta, url})
-  //     setEmpresId(res)
-  //   }
-  //   traerEmpresaId()
-  // }, [])
-
-  console.log('erer:', res);
+  console.log('resllega;', res);
   
+
 
   let empresaId =  res.at(0)?.id
   useEffect(()=>{
@@ -34,16 +20,13 @@ const ComAdmin = ({logicaTabla,nombre, url, id, res}:IComAdmin) => {
 
   const {usuarios, getUsuarios} = useHistoriaAdmin()
   
-  //console.log('usua:', usuarios);
-  
-
   return (
     <div className='w-full h-full ' >
         {usuarios.length !== 0 ?
         <section  className='w-[99%] h-[99%] '> 
         <main className=' px-4 w-full h-[99%] '>
             <div className='h-14  bg-colorBarraSuperiorTablas grid place-content-center text-colorTextoBarraAlta font-semibold'>
-               {nombre} de Hilti
+               {nombre} {res.at(0)?.nombreEmpresa}
             </div>
             <header className='w-full h-[7%] -mt-12 flex justify-end items-center  pb-3 font-bold mb-1 pr-6  text-colorTextoBarraAlta'>
               <div className='pr-3 '>
