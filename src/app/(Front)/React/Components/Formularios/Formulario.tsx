@@ -183,6 +183,8 @@ const Formulario = ({id}:IId) => {
         }
     }
     
+    console.log('idempresaHIjo:', empresa.at(0)?.id);
+    
 
  
     // MENSAJES DE MODAL

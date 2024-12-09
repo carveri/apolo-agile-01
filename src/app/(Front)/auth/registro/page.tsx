@@ -47,13 +47,12 @@ const page = () => {
       traerEmpresas()
     }, [rutEmpresa])
 
-    //console.log('nombreempresa:', nombreEmpresa);
+    console.log('rutempr:', rutEmpresa);
     
-    //console.log('nombre empres');
+    console.log('emp:', empresa);
     
-    
-
-    const handleChangeRegistro = (e)=>{
+        
+    const handleChangeRegistro = (e:React.ChangeEvent<HTMLInputElement>)=>{
         if(e.target.name === 'primerNombre'){
           setPrimerNombre(e.target.value)
         }
@@ -80,12 +79,8 @@ const page = () => {
           const res = dataEmpresas.find((el)=>{
             return el.rutEmpresa === e.target.value
           })
-          // console.log(res.nombreEmpresa);
-          //setNombreEmpresa(res?.nombreEmpresa)
           setRutEmpresa(e.target.value)
-          // const ruta = 'empresa'
-          // const url = e.target.value
-          // getDataLista({ruta, url})
+          
         }
         
         else if(e.target.name === 'password'){
@@ -109,27 +104,33 @@ const page = () => {
     const empresaId =  empresa?.id
     const equipoId = "8045c1d8-1162-4537-9dac-2e89b42a8100"  
 
-    const handleSubmitRegistro =(e)=>{
+    const handleSubmitRegistro =(e:React.FormEvent<HTMLFormElement>)=>{
         e.preventDefault()
-        const ruta = 'user'
+        
         //const ruta2 = 'empresa'
         const data = {primerNombre, segundoNombre, apellidoPaterno, apellidoMaterno, email, rutPersonal, password, confirmPassword, createdAt, horaAt, cargoId, empresaId, equipoId}
         //const data2 = {rutEmpresa, nombreEmpresa}
         if(primerNombre === '' || segundoNombre === '' || apellidoPaterno === '' || apellidoMaterno === '' || email === '' || rutEmpresa === '' || rutPersonal=== '' || nombreEmpresa === '' ||  password ==='' || confirmPassword ===''){
           alert('Tienes que completar todos los campos :)')
+          return
         }
         if(password !== confirmPassword){
           alert('Las contraseñas no son iguales, intentalo otravez :)')
+          return
+        }
+        if(empresa === null){
+          alert("El rut de la empresa no tiene una compañia asociada, favor reintentar")
+          return
         }
         //console.log(primerNombre, segundoNombre, apellidoPaterno, apellidoMaterno,  email, rutEmpresa,  password, confirmPassword);
-        
+        const ruta = 'user'
         postData({ruta, data})
-        console.log('cargoId:', cargoId);
-        console.log('equipoId:', equipoId);
+        // console.log('cargoId:', cargoId);
+        // console.log('equipoId:', equipoId);
         
-        console.log('rut empresa:', rutEmpresa);
-        console.log('nombre de empresa:', nombreEmpresa);
-        console.log('empresa:', empresa);
+        // console.log('rut empresa:', rutEmpresa);
+        // console.log('nombre de empresa:', nombreEmpresa);
+        // console.log('empresa:', empresa);
         
         
         //postData2({ruta2, data2})
@@ -159,8 +160,8 @@ const page = () => {
                 <header className='w-[10%]  grid justify-items-center pt-1'>
                   <Image
                       src={el.icono}
-                      width={25}
-                      height={25}
+                      width={20}
+                      height={20}
                       alt="Picture of the author"
                   />
                 </header>

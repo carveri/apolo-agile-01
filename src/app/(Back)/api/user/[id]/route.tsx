@@ -12,9 +12,18 @@ export const GET = async(req:Request, {params})=>{
 }
 
 //ruta delete
-export const DELETE = async(req:Request, {params}: InterParams)=>{
+export const DELETE = async(req:Request, {params})=>{
     try {
         return NextResponse.json(await user1.deleteUser(req, {params}))
+    } catch (error) {
+        return NextResponse.json(error)
+    }
+}
+
+//ruta delete
+export const PUT = async(req:Request, {params})=>{
+    try {
+        return NextResponse.json(await user1.putUserDetalle(req, {params}))
     } catch (error) {
         return NextResponse.json(error)
     }
