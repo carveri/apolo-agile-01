@@ -5,7 +5,7 @@ import { getDataCompleja2 } from "../../React/Fetch/getDataCompleja2";
 
 interface IAdminStore {
     usuarios: IUsuarios[]
-    getUsuarios: (url:string, empresaId: string)=>void
+    getUsuarios: (url:string, empresaId: string | undefined)=>void
 }
 
 
@@ -23,15 +23,4 @@ export const useHistoriaAdmin = create<IAdminStore>((set)=>
             usuarios
         }))
     }
-
-    // getUsuarios: async(url)=>{
-    //     const ruta = 'userArea'
-    //     //const url = url
-    //     const usuarios = await getDataLista({ruta, url})
-    //     set(state => ({
-    //         ...state, 
-    //         usuarios
-    //     }))
-    // }
-
 }))

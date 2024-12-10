@@ -399,7 +399,7 @@ const Formulario = ({id}:IId) => {
                             <InputFormulario
                                 texto = 'Password:'
                                 nombre = 'password'
-                                tipo = 'text'
+                                tipo = 'password'
                                 placeholder = '************'
                                 handleChangeAdmin={handleChangeAdmin}
                             />
@@ -407,7 +407,7 @@ const Formulario = ({id}:IId) => {
                             <InputFormulario
                                 texto = 'Confirmar Password:'
                                 nombre = 'confirmPassword'
-                                tipo = 'text'
+                                tipo = 'password'
                                 placeholder = '************'
                                 handleChangeAdmin={handleChangeAdmin}
                              />

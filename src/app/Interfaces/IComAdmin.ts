@@ -1,4 +1,4 @@
-import { IUsuarios } from "./IGeneral"
+import { IEmpresa, IUsuarios } from "./IGeneral"
 
 
 export interface IComAdmin {
@@ -14,5 +14,5 @@ export interface IComAdmin {
     nombre: string
     url: string
     id: string
-    //empresaId: string
+    res: IEmpresa[]
   }

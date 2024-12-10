@@ -55,6 +55,7 @@ const linksPo = [
 ]
 
 
+    //console.log('ressiiiina;', res.at(0)?.usuarios);
     
 
   return (
@@ -84,7 +85,7 @@ const linksPo = [
             {session.user?.email}
           </section>
           <div className="text-white">
-            {user?.name}
+            sdsd
           </div>
       </div>
       </section>

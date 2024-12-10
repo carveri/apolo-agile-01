@@ -90,6 +90,16 @@ export interface IUsua{
     quiero: string
   }
 
+  export interface IEmpresa {
+    createdAt: string
+    horaAt: string
+    id: string
+    isActive: boolean
+    nombreEmpresa: string
+    rutEmpresa: string
+    updatedAt: string
+  }
+
   export interface OIHistoria {
     historia: IHistoria
   }

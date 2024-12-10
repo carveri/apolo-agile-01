@@ -1,8 +1,3 @@
-  // GENERAL
-  import { getServerSession } from 'next-auth'
-  import { authOptions } from '@/app/(Back)/api/auth/[...nextauth]/route'
-  import { redirect } from 'next/navigation'
-
 // // IMAGENES 
   import nuevoUsuarioAdmin from "../../../React/Assets/Icons/nuevoUsuarioAdmin.png";
   import clientesAdmin from "../../../React/Assets/Icons/adminClientes2.png";
@@ -10,11 +5,10 @@
   import smAdmin from "../../../React/Assets/Icons/smAdmin2.png";
   import devsAdmin from "../../../React/Assets/Icons/devsAdmin2.png";
   import adminAdmin from "../../../React/Assets/Icons/adminAdmin6.png";
-
   // COMPONENTES
   import Sidebar from '@/app/(Front)/React/Components/Sidebar';
   import Navbar from '@/app/(Front)/React/Components/Navbar';
-import { getNombreEmpresaLayout } from '@/app/(Front)/[Funciones]/getNombreEmpresaLayout';
+  import { getNombreEmpresaLayout } from '@/app/(Front)/[Funciones]/getNombreEmpresaLayout';
 
 
 
@@ -22,8 +16,6 @@ export default async function RootLayout({children,}: Readonly<{children: React.
 {
   const {res, historias, session, user} = await getNombreEmpresaLayout()
   
-
-
 const linksAdmin = [
     {
         id:1,

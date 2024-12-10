@@ -7,18 +7,18 @@ import BadgeNoAun from '@/app/(Front)/React/Components/BadgeNoAun/BadgeNoAun';
 import { IComAdmin } from '@/app/Interfaces/IComAdmin';
 import { useHistoriaAdmin } from '../../../[stores]/adminStore';
 
-const ComAdmin = ({logicaTabla,nombre, url, id, res}:IComAdmin) => {
+const ComAdmin = ({logicaTabla,nombre, url,res}:IComAdmin) => {
 
-  console.log('resllega;', res);
+  //console.log('resllega;', res);
+  const {usuarios, getUsuarios} = useHistoriaAdmin()
   
-
-
   let empresaId =  res.at(0)?.id
+
   useEffect(()=>{
     getUsuarios(url, empresaId)
   }, [])
 
-  const {usuarios, getUsuarios} = useHistoriaAdmin()
+  
   
   return (
     <div className='w-full h-full ' >

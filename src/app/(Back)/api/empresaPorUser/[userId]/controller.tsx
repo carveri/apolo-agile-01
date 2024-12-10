@@ -14,7 +14,14 @@ class EmpresaPorUsuario {
                         id: userId
                     }
                 }
-            }
+            },
+            // include:{
+            //     usuarios:{
+            //         where:{
+            //             id: userId
+            //         }
+            //     }
+            // }
             
         })
         return getEmpresaPorUsuario
