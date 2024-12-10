@@ -8,7 +8,6 @@ import PoHome from './[Componentes]/PoHome/PoHome';
 
 const page = () => {
 
-  // traigo datos desde la store
   const { getHistorias} = useHistoriaPo()
 
 
@@ -16,11 +15,6 @@ const page = () => {
     getHistorias()
   }, [])
  
-  //
-  // useEffect(()=>{
-  //   location.reload()
-  // }, [])
-
   return (
     <PoHome
       dataHomePo={dataHomePo}

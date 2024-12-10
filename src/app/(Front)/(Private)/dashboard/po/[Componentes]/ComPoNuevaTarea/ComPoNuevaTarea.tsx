@@ -1,9 +1,38 @@
+'use client'
+
 import BadgeNoAun from "@/app/(Front)/React/Components/BadgeNoAun/BadgeNoAun";
 import { format } from "date-fns";
 import TablaComPoNuevaTarea from "./TablaComPoNuevaTarea";
-//import { getDataLista } from "@/app/(Front)/React/Fetch/getDataLista";
+import { useHistoriaPo } from "@/app/(Front)/(Private)/[stores]/poStore";
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
 
-const ComPoNuevaTarea = ({historiaStatus, handleClickVerNuevasTareasPo, nombre}) => {
+
+const ComPoNuevaTarea = ({nombre, id, resul}) => {
+
+  const { getHistoriaStatus, historiaStatus, cambiarIdHistoria, idHistoria,historiaStatusEmpresa, getHistoriaStatusEmpresa } = useHistoriaPo()
+
+  useEffect(()=>{
+    getHistoriaStatusEmpresa(resul)
+  }, [])
+ 
+  // HACE UN REFRESH PARA ACTUALIZAR EL SIDEBAR, DEL NUMERO DE HISTORIAS
+  useEffect(()=>{
+    router.refresh()
+  }, [])
+  
+
+  const router = useRouter()
+  const handleClickVerNuevasTareasPo =(id:string)=>{
+    cambiarIdHistoria(id)
+    router.push('/dashboard/po/poNuevaTarea/verNuevasTareasPo')
+  }
+
+  console.log('histostatusEmpresa;', historiaStatusEmpresa);
+  console.log('resul;', resul);
+  
+  
+  
 
   return (
     <div className='w-full h-full bg-white grid place-items-center' >
@@ -23,10 +52,10 @@ const ComPoNuevaTarea = ({historiaStatus, handleClickVerNuevasTareasPo, nombre})
                 {format(new Date(), 'dd/MM/yyyy')}
               </div>
             </header>
-          {historiaStatus.length !==0 ? 
+          {historiaStatusEmpresa.length !==0 ? 
             <div className='w-[1625px] mt-8 z-30 absolute top-32 left-3/5 max-h-[730px] overflow-auto'>
             <TablaComPoNuevaTarea
-                historiaStatus={historiaStatus}
+                historiaStatus={historiaStatusEmpresa}
                 handleClickVerNuevasTareasPo={handleClickVerNuevasTareasPo}
             />
             </div>: 

@@ -1,25 +1,9 @@
-import { redirect } from "next/navigation";
-import { ISession } from "@/app/Interfaces/ISession";
 import ComPageHistoriasAceptadas from "../../[Componentes]/ClienteHistoriasAceptadas/ComPageHistoriasAceptadas/ComPageHistoriasAceptadas";
-import { getServerSession } from "next-auth";
-import { authOptions } from "@/app/(Back)/api/auth/[...nextauth]/route";
-import { getDataLista } from "@/app/(Front)/React/Fetch/getDataLista";
+import { logicaTraerIdYres } from "../../[Funciones]/logicaTraerIdYRes";
 
 const page = async() => {
 
-  const session:ISession | null = await getServerSession(authOptions)
-  // validacion
-  if(!session){
-   redirect('/api/auth/signin')
- }
- //console.log(user);
- 
- const {user}= session
- const {id, name, email, image} = user
-
- const ruta = 'empresaPorUser'
- const url = id
- const res = await getDataLista({ruta, url})
+  const {id, res}= await logicaTraerIdYres()
  
 
   return (

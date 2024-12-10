@@ -11,31 +11,32 @@ class HistoriaStatusEmpresa {
         //const userId = url.searchParams.get("userId")
         const status = url.searchParams.get("status")
         const empresaId = url.searchParams.get("empresaId")
-        //console.log('cosas:', userId, status);
-        const getHistoriaStatusCargo = await prisma.historia.findMany({
+        const getHistoriaStatusEmpresa = await prisma.historia.findMany({
             where:{
+                // userId: userId,
                 //userId: userId,
                 status: status,
+                // status: status,
                 user:{
                     empresaId: empresaId
                 },
             },
-            include:{
-                user:{
-                    include:{
-                        cargo:{
-                            select:{
-                                nombreCargo: true
-                            }
-                        }
-                    }
-                }
-            },
+            // include:{
+            //     user:{
+            //         include:{
+            //             cargo:{
+            //                 select:{
+            //                     nombreCargo: true
+            //                 }
+            //             }
+            //         }
+            //     }
+            // },
             orderBy:{
                 updatedAt: 'desc'
             }
         })
-        return getHistoriaStatusCargo
+        return getHistoriaStatusEmpresa
     }
     }
 

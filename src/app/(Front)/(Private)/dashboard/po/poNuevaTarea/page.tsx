@@ -1,45 +1,31 @@
-'use client'
-
-import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
-import { useHistoriaPo } from "../../../[stores]/poStore";
+import { ISession } from "@/app/Interfaces/ISession";
 import ComPoNuevaTarea from "../[Componentes]/ComPoNuevaTarea/ComPoNuevaTarea";
-import { getDataCompleja } from "@/app/(Front)/React/Fetch/getDataCompleja";
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/app/(Back)/api/auth/[...nextauth]/route";
+import { redirect } from "next/navigation";
+import { getDataLista } from "@/app/(Front)/React/Fetch/getDataLista";
 
-const page = () => {
+const page = async() => {
 
-  const { getHistoriaStatus, historiaStatus, cambiarIdHistoria, idHistoria} = useHistoriaPo()
-
+  const session:ISession | null = await getServerSession(authOptions)
+  // validacion
+  if(!session){
+   redirect('/api/auth/signin')
+ }
+ //console.log(user);
  
+ const {user}= session
+ const {id, name, email, image} = user
 
-  useEffect(()=>{
-    getHistoriaStatus()
-  }, [])
- 
-  // HACE UN REFRESH PARA ACTUALIZAR EL SIDEBAR, DEL NUMERO DE HISTORIAS
-  useEffect(()=>{
-    router.refresh()
-  }, [])
-  
-
-  
-  
-
-  const router = useRouter()
-  const handleClickVerNuevasTareasPo =(id)=>{
-    console.log('idHisto:', id);
-    cambiarIdHistoria(id)
-    console.log('idzusthistoria:', idHistoria);
-     //idHistoria
-    router.push('/dashboard/po/poNuevaTarea/verNuevasTareasPo')
-  }
-
+ const ruta = 'empresaPorUser'
+ const url = id
+ const res = await getDataLista({ruta, url})
 
   return (
     <ComPoNuevaTarea
-      historiaStatus={historiaStatus}
-      handleClickVerNuevasTareasPo={handleClickVerNuevasTareasPo}
       nombre='Product Owner'
+      id={id}
+      resul={res}
     />
   )
 }
