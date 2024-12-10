@@ -21,17 +21,17 @@ class HistoriaStatusEmpresa {
                     empresaId: empresaId
                 },
             },
-            // include:{
-            //     user:{
-            //         include:{
-            //             cargo:{
-            //                 select:{
-            //                     nombreCargo: true
-            //                 }
-            //             }
-            //         }
-            //     }
-            // },
+            include:{
+                user:{
+                    include:{
+                        cargo:{
+                            select:{
+                                nombreCargo: true
+                            }
+                        }
+                    }
+                }
+            },
             orderBy:{
                 updatedAt: 'desc'
             }

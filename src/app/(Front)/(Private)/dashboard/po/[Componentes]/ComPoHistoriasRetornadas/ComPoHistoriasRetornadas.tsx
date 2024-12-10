@@ -1,7 +1,28 @@
+'use client'
+
+import { useHistoriaPo } from "@/app/(Front)/(Private)/[stores]/poStore";
 import BadgeNoAun from "@/app/(Front)/React/Components/BadgeNoAun/BadgeNoAun";
 import { format } from "date-fns";
+import { useEffect } from "react";
 
-const ComPoHistoriasRetornadas = ({historiaStatusRetornada, nombre}) => {
+const ComPoHistoriasRetornadas = ({nombre, id, resul}) => {
+
+
+  const { getHistoriaStatusRetornada, historiaStatusRetornada} = useHistoriaPo()
+
+
+  useEffect(()=>{
+    getHistoriaStatusRetornada(resul)
+  }, [])
+
+  console.log('id', id);
+  console.log('resull:', resul);
+
+  console.log('histostarturresul:', historiaStatusRetornada)
+  
+  
+  
+
   return (
     <div className='w-full h-full bg-white grid place-items-center' >
         <section className='w-[99%] h-[99%]  '>
@@ -23,7 +44,7 @@ const ComPoHistoriasRetornadas = ({historiaStatusRetornada, nombre}) => {
           {historiaStatusRetornada.length !== 0  ?
               <div className='w-[1625px] mt-8 z-30 absolute top-32 left-3/5 max-h-[625px] overflow-auto'>
               <table className='border border-gray-200   w-[98%] ml-8 '>
-                <thead className="fixed   bg-yellow-500 w-[82%] ">
+                <thead className="    w-[82%] ">
                   <tr className='h-14 '>
                     <td className='w-[6%] text-center'>Numero</td>
                     <td className='w-[12%] text-center'>Nombre Historia</td>
@@ -42,11 +63,11 @@ const ComPoHistoriasRetornadas = ({historiaStatusRetornada, nombre}) => {
                   const {id,nombreHistoria, createdAt, horaAt, user, updatedAt, presupuestoHistoria, tiempoHistoria, detalleHistoria, status} = el
                   const updatedAt2 = format(new Date(updatedAt), 'dd/MM/yyyy')
                   const updatedPintar = format(new Date(updatedAt), 'H:mm')
-                    return <tr key={id} className='border border-gray-200 h-14 bg-orange-400 '>
+                    return <tr key={id} className='border border-gray-200 h-14  '>
                       <td className='text-center w-[6%]'>
                         {index + 1}
                       </td>
-                      <td className='text-center w-[12%] bg-red-400'>
+                      <td className='text-center w-[12%] '>
                         {nombreHistoria}
                       </td>
                       <td className='text-center w-[10%]'>

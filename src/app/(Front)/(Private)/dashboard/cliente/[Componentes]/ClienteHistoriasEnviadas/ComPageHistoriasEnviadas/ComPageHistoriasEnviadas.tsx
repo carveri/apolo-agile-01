@@ -5,27 +5,25 @@ import { format } from "date-fns";
 import TablaHistoriasEnviadas from "./TablaHistoriasEnviadas";
 import { useEffect, useState } from "react";
 import { getDataCompleja } from "@/app/(Front)/React/Fetch/getDataCompleja";
+import { useHistoriaCliente } from "@/app/(Front)/(Private)/[stores]/clienteStore";
 
 const ComPageHistoriasEnviadas = ({id, resul}) => {
 
   const [histouseridcargo, setHistouseridcargo] = useState([])  
 
+  const {historiasEnviadas, getHistoriasEnviadas} = useHistoriaCliente()
 
   useEffect(()=>{
-    const traerHistoriasStatusCargo = async()=>{
-        const ruta = 'historiaStatusCargo' 
-        const param1 = id
-        const param2 = 'Pendiente'
-        const param3 = resul.at(0)?.id
-        const res = await getDataCompleja({ruta, param1, param2, param3})
-        setHistouseridcargo(res)
-    }
-    traerHistoriasStatusCargo()
+    getHistoriasEnviadas(resul, id)
   }, [])
+
+  console.log('sdsd', historiasEnviadas);
+  
+  
 
   return (
     <div className='w-full h-full ' >
-        {histouseridcargo.length !== 0 ?
+        {historiasEnviadas.length !== 0 ?
         <section  className='w-[99%] h-[99%]   ml-3'>
         <main className='py-2 px-4 w-full h-[99%] '>
             <div className='h-14  bg-colorBarraSuperiorTablas grid place-content-center text-colorTextoBarraAlta font-semibold'>
@@ -42,7 +40,7 @@ const ComPageHistoriasEnviadas = ({id, resul}) => {
             </header>
             <div className='w-[1625px] z-30 mt-3  top-28 left-3/5 max-h-[563px] overflow-auto'>
               <TablaHistoriasEnviadas
-                histouseridcargo={histouseridcargo}
+                histouseridcargo={historiasEnviadas}
 
               />
       </div>

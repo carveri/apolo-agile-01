@@ -1,6 +1,3 @@
-import { getServerSession } from 'next-auth'
-import { authOptions } from '@/app/(Back)/api/auth/[...nextauth]/route'
-import { redirect } from 'next/navigation'
 
 // // IMAGENES 
    // imagenes clientes
@@ -9,24 +6,16 @@ import { redirect } from 'next/navigation'
    import historiasEnviadasClientes from "../../../../React/Assets/Icons/logoPricipal3.png";
    import resolucionTareasClientes from "../../../../React/Assets/Icons/resolucionTareaClientes.png";
    import resolucionTareasClientesAceptadas from "../../../../React/Assets/Icons/gestionTareasPo.png";
-
-
-
   import Navbar from '@/app/(Front)/React/Components/Navbar';
   import Sidebar from '@/app/(Front)/React/Components/Sidebar';
+  import { getNombreEmpresaLayout } from '@/app/(Front)/[Funciones]/getNombreEmpresaLayout';
   
 
 
 export default async function RootLayout({children,}: Readonly<{children: React.ReactNode;}>) 
 {
 
-  const session = await getServerSession(authOptions)
-   // validacion
-   if(!session){
-    redirect('/api/auth/signin')
-  }
-
-  const {user}= session
+  const {res, historias, session, user} = await getNombreEmpresaLayout()
   
 const linksTecnico = [
   {
@@ -69,7 +58,7 @@ const linksTecnico = [
     <div className="w-screen h-screen flex">
       <section className="w-[280px] h-full bg-[--verdecito] ">
         <header className="h-12 w-full bg-colorCajaLogo grid place-content-center text-white">
-          Apolo Agile
+        <div className="text-sm text-center">Apolo Agile</div> <div className="text-[9px]  text-white">{res.at(0)?.nombreEmpresa}</div>
         </header>
         <aside className="w-full h-[820px] bg-gray-100 ">
          

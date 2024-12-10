@@ -15,12 +15,16 @@ interface IOLinks {
 }
 interface ILinks {
   links: IOLinks[]
+  //nombreEmpresa: string
 }
 
 const Sidebar = ({links}:ILinks) => {
 
 
     const pathname = usePathname()
+
+   // console.log('nombreEMpre;', nombreEmpresa);
+    
     
   return (
     <aside className='w-full h-full rounded'>
@@ -54,6 +58,9 @@ const Sidebar = ({links}:ILinks) => {
                 </Link>
             </li>
             })}
+            {/* <div className=' w-full h-[490px] grid items-end justify-center text-colorTextoNavbar font-semibold text-tamañoLetra'>
+              {nombreEmpresa}
+            </div> */}
         </ul>
         
             

@@ -1,8 +1,34 @@
+'use client'
+
 import BadgeNoAun from "@/app/(Front)/React/Components/BadgeNoAun/BadgeNoAun";
 import { format } from "date-fns";
 import TablaComPoContraOferta from "./TablaComPoContraOferta";
+import { useEffect } from "react";
+import { useHistoriaPo } from "@/app/(Front)/(Private)/[stores]/poStore";
+import { useRouter } from "next/navigation";
 
-const ComPoContraOferta = ({historiaContraOferta, handleClickVerContraoferta, nombre}) => {
+const ComPoContraOferta = ({nombre, id, resul}) => {
+
+  const {getHistoriaContraOferta, historiaContraOferta, cambiarIdHistoria, idHistoria} = useHistoriaPo()
+
+
+  useEffect(()=>{
+    getHistoriaContraOferta(resul)
+  }, [])
+ 
+  const router = useRouter()
+  
+  const handleClickVerContraoferta =(id)=>{
+      cambiarIdHistoria(id)
+      router.push('/dashboard/po/poContraOfertas/verContraOferta')
+  }
+
+  console.log('contra.', historiaContraOferta);
+  console.log('idd', id);
+  console.log('ress', resul);
+  
+  
+
   return (
     <div className='w-full h-full bg-white grid place-items-center' >
         <section className='w-[99%] h-[99%]  '>

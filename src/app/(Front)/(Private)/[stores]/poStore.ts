@@ -9,15 +9,6 @@ import { getDataCompleja2 } from "../../React/Fetch/getDataCompleja2";
 import { getDataCompleja3 } from "../../React/Fetch/getDataCompleja3";
 
 
-interface IusePoStore {
-    cosa: string
-}
-
-export const usePoStore = create<IusePoStore>(()=>({
-    
-    cosa: 'weas',
-}))
-
 interface IUseHistoriaPo {
     resHistoria: number
     idHistoria: string
@@ -31,9 +22,9 @@ interface IUseHistoriaPo {
     getHistorias: ()=>void
     cambiarIdHistoria: (id:string)=>void
     getHistoriaStatus:()=>void
-    getHistoriaStatusRetornada:()=>void
-    getHistoriaContraOferta: ()=>void
-    getHistoriaBacklog:()=>void
+    getHistoriaStatusRetornada:(resul:[])=>void
+    getHistoriaContraOferta: (resul:[])=>void
+    getHistoriaBacklog:(resul:[])=>void
     getHistoriaStatusEmpresa:(resul:[])=>void
     updatedHistoriaProductBacklog:(setHistoriaBacklog:[])=>void
 
@@ -51,6 +42,7 @@ export const useHistoriaPo = create<IUseHistoriaPo>((set)=>
     historiaBacklog:[],
     historias: [],
     historiaStatusEmpresa:[],
+    
 
     getHistorias: async()=>{
         const ruta = 'historia'
@@ -69,17 +61,6 @@ export const useHistoriaPo = create<IUseHistoriaPo>((set)=>
         }))
     },
 
-
-    // // pendientes
-    // getHistoriaStatus: async()=>{
-    //     const ruta = 'historiaStatus'
-    //     const url = 'Pendiente'
-    //     const historiaStatus = await getDataLista({ruta, url})
-    //     set(state =>({
-    //         ...state, 
-    //         historiaStatus
-    //     }))
-    // },
     getHistoriaStatus: async()=>{
             const ruta = 'historiaStatus'
             const param1 = 'Pendiente'
@@ -105,10 +86,11 @@ export const useHistoriaPo = create<IUseHistoriaPo>((set)=>
 
 
     // retornadas
-    getHistoriaStatusRetornada: async()=>{
+    getHistoriaStatusRetornada: async(resul)=>{
         const ruta = 'historiaStatus'
-        const url = 'Retornada'
-        const historiaStatusRetornada = await getDataLista({ruta, url})
+        const param1 = 'Retornada'
+        const param2 = resul.at(0)?.id
+        const historiaStatusRetornada = await getDataCompleja3({ruta, param1, param2})
         set(state =>({
             ...state, 
             historiaStatusRetornada
@@ -116,10 +98,11 @@ export const useHistoriaPo = create<IUseHistoriaPo>((set)=>
     },
 
     // contraoferta
-    getHistoriaContraOferta: async()=>{
+    getHistoriaContraOferta: async(resul)=>{
         const ruta = 'historiaStatus'
-        const url = 'ContraOferta'
-        const historiaContraOferta = await getDataLista({ruta, url})
+        const param1 = 'ContraOferta'
+        const param2 = resul.at(0)?.id
+        const historiaContraOferta = await getDataCompleja3({ruta, param1, param2})
         set(state =>({
             ...state, 
             historiaContraOferta
@@ -127,10 +110,11 @@ export const useHistoriaPo = create<IUseHistoriaPo>((set)=>
     },
 
     // backlog
-    getHistoriaBacklog: async()=>{
+    getHistoriaBacklog: async(resul)=>{
         const ruta = 'historiaStatus'
-        const url = 'Aceptada'
-        const historiaBacklog = await getDataLista({ruta, url})
+        const param1 = 'Aceptada'
+        const param2 = resul.at(0)?.id
+        const historiaBacklog = await getDataCompleja3({ruta, param1, param2})
         set(state =>({
             ...state, 
             historiaBacklog

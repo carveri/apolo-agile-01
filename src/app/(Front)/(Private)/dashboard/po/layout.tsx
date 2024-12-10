@@ -1,20 +1,13 @@
 import type { Metadata } from "next";
-
-import { getServerSession } from 'next-auth'
-import { authOptions } from '@/app/(Back)/api/auth/[...nextauth]/route'
-import { redirect } from 'next/navigation'
-
 //   // imagenes po
 import homePo from "../../../React/Assets/Icons/homePo.png";
 import nuevasTareasPo from "../../../React/Assets/Icons/nuevasTareasPo.png";
 import gestionTareasPo from "../../../React/Assets/Icons/gestionTareasPo.png";
 import productBacklogPo from "../../../React/Assets/Icons/productBacklogPo.png";
 import historiRetornadas from "../../../React/Assets/Icons/logoHistoriaREtornada2.png";
-
-
 import Sidebar from '@/app/(Front)/React/Components/Sidebar';
 import Navbar from '@/app/(Front)/React/Components/Navbar';
-import { getDataLista } from '@/app/(Front)/React/Fetch/getDataLista';
+import { getNombreEmpresaLayout } from "@/app/(Front)/[Funciones]/getNombreEmpresaLayout";
   
 export const metadata: Metadata = {
   title: "(2) Product Owner",
@@ -23,21 +16,7 @@ export const metadata: Metadata = {
 
 export default async function RootLayout({children,}: Readonly<{children: React.ReactNode;}>) 
 {
-
-  
-
-  const session = await getServerSession(authOptions)
-   // validacion
-   if(!session){
-    redirect('/api/auth/signin')
-  }
-
-  const {user}= session
-
-  const ruta = 'historiaStatus'
-  const url = 'Pendiente'
-  const historias = await getDataLista({ruta, url})
-
+  const {res, historias, session, user} = await getNombreEmpresaLayout()
 
 const linksPo = [
   {
@@ -81,13 +60,14 @@ const linksPo = [
   return (
     <div className="w-screen h-screen flex">
       <section className="w-[280px] h-full bg-[--verdecito] ">
-        <header className="h-12 w-full bg-colorCajaLogo grid place-content-center text-colorTextoCaja">
-          Apolo Agile
+        <header className="h-12 w-full bg-colorCajaLogo  place-content-center text-colorTextoCaja text-center">
+        <div className="text-sm text-center">Apolo Agile</div> <div className="text-[9px]  text-white">{res.at(0)?.nombreEmpresa}</div>
         </header>
         <aside className="w-full h-[820px] bg-gray-100 ">
          
         <Sidebar
         links={linksPo}
+        //nombreEmpresa={res.at(0)?.nombreEmpresa}
       />
           
         </aside>

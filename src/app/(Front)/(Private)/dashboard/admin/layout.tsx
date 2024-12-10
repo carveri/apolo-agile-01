@@ -14,18 +14,13 @@
   // COMPONENTES
   import Sidebar from '@/app/(Front)/React/Components/Sidebar';
   import Navbar from '@/app/(Front)/React/Components/Navbar';
+import { getNombreEmpresaLayout } from '@/app/(Front)/[Funciones]/getNombreEmpresaLayout';
 
 
 
 export default async function RootLayout({children,}: Readonly<{children: React.ReactNode;}>) 
 {
-  const session = await getServerSession(authOptions)
-   // validacion
-   if(!session){
-    redirect('/api/auth/signin')
-  }
-  const {user}= session
-  //console.log('userrr:', user);
+  const {res, historias, session, user} = await getNombreEmpresaLayout()
   
 
 
@@ -76,7 +71,7 @@ const linksAdmin = [
     <div className="w-screen h-screen flex">
       <section className="w-[280px] h-full bg-[--verdecito] ">
         <header className="h-12 w-full bg-colorCajaLogo grid place-content-center text-colorTextoCaja ">
-          Apolo Agile
+        <div className="text-sm text-center">Apolo Agile</div> <div className="text-[9px]  text-white">{res.at(0)?.nombreEmpresa}</div>
         </header>
         <aside className="w-full h-[820px] bg-gray-100 "> 
         <Sidebar

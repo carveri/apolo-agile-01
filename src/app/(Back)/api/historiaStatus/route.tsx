@@ -1,10 +1,10 @@
 import { NextResponse } from "next/server"
-import { historiaStatusEmpresa } from "./controller"
+import { historiaStatus } from "./controller"
 
 // tuta get
 export const GET = async(req:Request)=>{
     try {
-        return NextResponse.json(await historiaStatusEmpresa.getHistoriaStatusEmpresa(req, {params}))
+        return NextResponse.json(await historiaStatus.getHistoriaStatus(req))
     } catch (error) {
         return NextResponse.json(error)
     }

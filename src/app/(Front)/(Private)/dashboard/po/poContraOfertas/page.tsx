@@ -1,37 +1,15 @@
-'use client'
-import { useEffect } from 'react'
-import { useHistoriaPo } from '../../../[stores]/poStore';
-import { useRouter } from "next/navigation";
 import ComPoContraOferta from '../[Componentes]/ComPoContraOferta/ComPoContraOferta';
+import { logicaTraerIdYres } from '../[Funciones]/logicaTraerIdYRes';
 
-const page = () => {
+const page = async() => {
 
-
-    const {getHistoriaContraOferta, historiaContraOferta, cambiarIdHistoria, idHistoria} = useHistoriaPo()
-
-
-    useEffect(()=>{
-      getHistoriaContraOferta()
-    }, [])
-   
-    const router = useRouter()
-    
-    const handleClickVerContraoferta =(id)=>{
-      console.log('idHisto:', id);
-        cambiarIdHistoria(id)
-        console.log('idzusthistoria:', idHistoria);
-        //idHistoria
-        router.push('/dashboard/po/poContraOfertas/verContraOferta')
-    }
-
-    console.log('contra.', historiaContraOferta);
-    
+  const {id, res}= await logicaTraerIdYres()
 
   return (
     <ComPoContraOferta 
-      historiaContraOferta={historiaContraOferta}
-      handleClickVerContraoferta={handleClickVerContraoferta}
       nombre='Product Owner'
+      id={id}
+      resul={res}
 
     />
   )

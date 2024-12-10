@@ -1,6 +1,10 @@
 import { format } from "date-fns";
 
 const TablaHistoriasEnviadas = ({histouseridcargo}) => {
+
+  console.log('histoquemellega:', histouseridcargo);
+  
+
   return (
     <table className='border border-gray-200   w-[100%]  '>
                 <thead>

@@ -1,18 +1,18 @@
 import prisma from "@/libs/prisma"
 import { NextRequest, NextResponse } from "next/server";
 
-class HistoriaStatusEmpresa {
+class HistoriaStatus {
     
     // metodo get
     // el param es el status
-    getHistoriaStatusEmpresa = async(req:NextRequest)=>{
+    getHistoriaStatus = async(req:NextRequest)=>{
         const url = new URL(req.url)
 
         //const userId = url.searchParams.get("userId")
         const status = url.searchParams.get("status")
         const empresaId = url.searchParams.get("empresaId")
         //console.log('cosas:', userId, status);
-        const getHistoriaStatusCargo = await prisma.historia.findMany({
+        const getHistoriaStatus = await prisma.historia.findMany({
             where:{
                 //userId: userId,
                 status: status,
@@ -35,11 +35,11 @@ class HistoriaStatusEmpresa {
                 updatedAt: 'desc'
             }
         })
-        return getHistoriaStatusCargo
+        return getHistoriaStatus
     }
     }
 
    
 
 
-export const historiaStatusEmpresa = new HistoriaStatusEmpresa()
+export const historiaStatus = new HistoriaStatus()
