@@ -1,14 +1,13 @@
 'use client'
 
-import { getDataLista } from '@/app/(Front)/React/Fetch/getDataLista'
 import {useState, useEffect} from 'react'
 
 import { updateData } from '@/app/(Front)/React/Fetch/updateData';
 import { deleteData } from '@/app/(Front)/React/Fetch/deleteData';
 import {useRouter} from "next/navigation";
 import { useHistoriaPo } from '@/app/(Front)/(Private)/[stores]/poStore';
-import { IHistoria } from '@/app/Interfaces/IGeneral';
 import ComPagVerResolucionTarea from '../../[Componentes]/ClienteVerResolucionTarea/ComPagVerResolucionTarea';
+import { useHistoriaCliente } from '@/app/(Front)/(Private)/[stores]/clienteStore';
 
 
 
@@ -18,27 +17,22 @@ const page = () => {
 
   const { idHistoria, cambiarIdHistoria} = useHistoriaPo()
 
-  const [historia, setHistoria] = useState<IHistoria>({})
 
   // estados de los inputs
   const [ptiempo, setPtiempo] = useState(0)
   const [pPresupuesto, setPPresupuesto] = useState(0)
   const [pEquipo, setPEquipo] = useState(0)
 
+
+  const {historia, getHistoria} = useHistoriaCliente()
+
   useEffect(()=>{
-    //cambiarIdHistoria()
-    const traerHistorias = async()=>{
-      const ruta = 'historia'
-      const url = idHistoria
-      const res = await getDataLista({ruta, url})
-      setHistoria(res)
-    }
-    traerHistorias()
-    
+    getHistoria(idHistoria)
   }, [])
+  
 
    
-  const {tiempoHistoria, presupuestoHistoria, peso1, peso2} = historia 
+  const {tiempoHistoria , presupuestoHistoria,  peso1, peso2} = historia
 
   const calculoPesoOferta =(oferta1 = 0, oferta2 = 0  , peso = 0 )=>{
     // oferta1 es la que me mando el po
@@ -83,6 +77,7 @@ const page = () => {
     const id = idHistoria
     updateData({data, ruta, id})
     alert('Se guardo la historia en el PB')
+    router.push('/dashboard/cliente/comercial/clienteResolucionTarea')
   }
 
   const handleClickEnviarContraoferta =()=>{
@@ -95,6 +90,7 @@ const page = () => {
     const id = idHistoria
     updateData({data, ruta, id})
     alert('Se envio la controferta al po')
+    router.push('/dashboard/cliente/comercial/clienteResolucionTarea')
     
   }
 

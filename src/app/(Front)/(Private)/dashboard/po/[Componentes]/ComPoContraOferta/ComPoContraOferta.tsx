@@ -6,8 +6,9 @@ import TablaComPoContraOferta from "./TablaComPoContraOferta";
 import { useEffect } from "react";
 import { useHistoriaPo } from "@/app/(Front)/(Private)/[stores]/poStore";
 import { useRouter } from "next/navigation";
+import { IComPoContraOferta } from "@/app/Interfaces/IPoContraOferta";
 
-const ComPoContraOferta = ({nombre, id, resul}) => {
+const ComPoContraOferta = ({nombre, id, resul}:IComPoContraOferta) => {
 
   const {getHistoriaContraOferta, historiaContraOferta, cambiarIdHistoria, idHistoria} = useHistoriaPo()
 
@@ -18,16 +19,11 @@ const ComPoContraOferta = ({nombre, id, resul}) => {
  
   const router = useRouter()
   
-  const handleClickVerContraoferta =(id)=>{
+  const handleClickVerContraoferta =(id:string)=>{
       cambiarIdHistoria(id)
       router.push('/dashboard/po/poContraOfertas/verContraOferta')
   }
 
-  console.log('contra.', historiaContraOferta);
-  console.log('idd', id);
-  console.log('ress', resul);
-  
-  
 
   return (
     <div className='w-full h-full bg-white grid place-items-center' >

@@ -1,26 +1,13 @@
 'use client'
-
-
 import { useState, useEffect } from "react";
 import { getData } from "../../Fetch/getData";
 import { getDataLista } from "../../Fetch/getDataLista";
-import { format } from "date-fns";
 import { postData } from "../../Fetch/postData";
+import { IFormularioClientePeticion } from "@/app/Interfaces/IAgregarTareas";
 
-interface IFormularioClientePeticion{
-    id: string
-    areaId: string
-    email: string
-}
-
-interface IHandleClickCliente4{
-    id: string
-    nombreCaracter: string
-}
 
 const FormularioClientePeticion = ({id, areaId, email}:IFormularioClientePeticion) => {
   
-    const [activoDepto, setActivoDepto] = useState(false)
     const [activoCargo, setActivoCargo] = useState(false)
     const [activoSolicitante, setActivoSolicitante] = useState(false)
     const [activoCaracter, setActivoCaracter] = useState(false)
@@ -36,8 +23,6 @@ const FormularioClientePeticion = ({id, areaId, email}:IFormularioClientePeticio
     const [para, setPara] = useState('')
 
 
-    // traer datos de la db
-    //const [departamento, setDepartamento] = useState([])
     const [cargo, setCargo] = useState({})
     const [user, setUser] = useState([])
     const [caracter, setCaracter] = useState([])
@@ -70,8 +55,6 @@ const FormularioClientePeticion = ({id, areaId, email}:IFormularioClientePeticio
             const res = await getData({ruta})
             setCaracter(res)
         }
-        //traerDepto()
-        //traerCargo()
         traerCargo2()
         traerUser()
         traerCaracter()
@@ -131,9 +114,9 @@ const FormularioClientePeticion = ({id, areaId, email}:IFormularioClientePeticio
         
     }
 
-    //const areaId = "12b87914-ed8c-4411-931e-7b9b567d7117"
+
     const productBacklogId = '1af659a1-06b9-46e7-94fb-2220d8f5f0b8'
-    const equipo3 = 6
+
 
 
     const handleClickCliente4 =(id:string, nombreCaracter:string)=>{
@@ -154,9 +137,6 @@ const FormularioClientePeticion = ({id, areaId, email}:IFormularioClientePeticio
         
     }
 
-    const dia =format(new Date(), 'dd/MM/yyyy')
-    const hora = format(new Date(), 'H:mm')
- 
  
     return (
     <form onSubmit={handleSumbitCliente} action="" className=' w-full h-full '>

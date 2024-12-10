@@ -2,7 +2,7 @@
 
 import { create } from "zustand";
 import { getData } from "../../React/Fetch/getData";
-import { IHistoria } from "@/app/Interfaces/IGeneral";
+import { IEmpresa, IHistoria } from "@/app/Interfaces/IGeneral";
 import { getDataLista } from "../../React/Fetch/getDataLista";
 import { getDataCompleja } from "../../React/Fetch/getDataCompleja";
 import { getDataCompleja2 } from "../../React/Fetch/getDataCompleja2";
@@ -22,10 +22,10 @@ interface IUseHistoriaPo {
     getHistorias: ()=>void
     cambiarIdHistoria: (id:string)=>void
     getHistoriaStatus:()=>void
-    getHistoriaStatusRetornada:(resul:[])=>void
-    getHistoriaContraOferta: (resul:[])=>void
-    getHistoriaBacklog:(resul:[])=>void
-    getHistoriaStatusEmpresa:(resul:[])=>void
+    getHistoriaStatusRetornada:(resul:IEmpresa[])=>void
+    getHistoriaContraOferta: (resul:IEmpresa[])=>void
+    getHistoriaBacklog:(resul:IEmpresa[])=>void
+    getHistoriaStatusEmpresa:(resul:IEmpresa[])=>void
     updatedHistoriaProductBacklog:(setHistoriaBacklog:[])=>void
 
 }

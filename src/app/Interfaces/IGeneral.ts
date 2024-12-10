@@ -88,6 +88,7 @@ export interface IUsua{
     como: string
     para: string
     quiero: string
+    user: ICargo[]
   }
 
   export interface IEmpresa {

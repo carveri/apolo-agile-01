@@ -1,6 +1,12 @@
+
+import { Ihistouseridcargo } from "@/app/Interfaces/IclientesHistoriasAceptadas";
 import { format } from "date-fns";
 
-const TablaHistoriasAceptadas = ({histouseridcargo}) => {
+const TablaHistoriasAceptadas = ({histouseridcargo}:Ihistouseridcargo) => {
+
+  console.log('historiaaa;', histouseridcargo);
+  
+
   return (
     <table className='border border-gray-200   w-[100%]  '>
                 <thead>

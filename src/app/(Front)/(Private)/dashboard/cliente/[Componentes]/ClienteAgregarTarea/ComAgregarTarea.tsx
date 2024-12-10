@@ -1,7 +1,8 @@
 import FormularioClientePeticion from '@/app/(Front)/React/Components/Formularios/FormularioClientePeticion'
+import { IAgregarTareas } from '@/app/Interfaces/IAgregarTareas'
 import React from 'react'
 
-const ComAgregarTarea = ({id, areaId, email, nombre}) => {
+const ComAgregarTarea = ({id, areaId, email, nombre}:IAgregarTareas) => {
   return (
     <div className='w-full h-full bg-white grid place-items-center' >
         <section className='w-[99%] h-[99%] bg-gray-50 rounded '>

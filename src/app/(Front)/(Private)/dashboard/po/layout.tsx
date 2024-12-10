@@ -10,7 +10,7 @@ import Navbar from '@/app/(Front)/React/Components/Navbar';
 import { getNombreEmpresaLayout } from "@/app/(Front)/[Funciones]/getNombreEmpresaLayout";
   
 export const metadata: Metadata = {
-  title: "(2) Product Owner",
+  title: "Product Owner",
   description: "ERP para StartApps",
 };
 
@@ -50,19 +50,14 @@ const linksPo = [
       nombre: 'Product Backlog',
       icono: productBacklogPo
   },
-  
-  
 ]
 
-
-    //console.log('ressiiiina;', res.at(0)?.usuarios);
-    
 
   return (
     <div className="w-screen h-screen flex">
       <section className="w-[280px] h-full bg-[--verdecito] ">
         <header className="h-12 w-full bg-colorCajaLogo  place-content-center text-colorTextoCaja text-center">
-        <div className="text-sm text-center">Apolo Agile</div> <div className="text-[9px]  text-white">{res.at(0)?.nombreEmpresa}</div>
+        <div className="text-sm text-center">Apolo Agile</div> <div className="text-[9px] text-center  text-white">{res.at(0)?.nombreEmpresa}</div>
         </header>
         <aside className="w-full h-[820px] bg-gray-100 ">
          

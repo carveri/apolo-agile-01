@@ -50,16 +50,10 @@ const page = () => {
                           <td >
                             {el.discrepancia2}
                           </td>
-                          
-                          
-                            
-                            
-                            
                           </tr>
                         })}
                       </tbody>
                   </table>
-        
           </div>
             </main>
         </section>    

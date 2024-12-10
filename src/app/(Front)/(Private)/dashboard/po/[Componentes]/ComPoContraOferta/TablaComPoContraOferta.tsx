@@ -1,6 +1,7 @@
+import { IHistoriaContraOferta } from "@/app/Interfaces/IPoHistoriasRetornadas";
 import { format } from "date-fns";
 
-const TablaComPoContraOferta = ({historiaContraOferta, handleClickVerContraoferta}) => {
+const TablaComPoContraOferta = ({historiaContraOferta, handleClickVerContraoferta}:IHistoriaContraOferta) => {
   return (
     <table className='border border-gray-200   w-[98%] ml-8 '>
                 <thead>

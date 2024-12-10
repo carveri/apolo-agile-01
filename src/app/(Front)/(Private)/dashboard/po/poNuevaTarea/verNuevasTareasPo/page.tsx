@@ -7,6 +7,7 @@ import { useHistoriaPo } from '@/app/(Front)/(Private)/[stores]/poStore';
 import BadgeDiscrepancia from './Componentes/BadgeDiscrepancia';
 import { getDataLista } from '@/app/(Front)/React/Fetch/getDataLista';
 import { useRouter } from "next/navigation";
+import { IHistoria } from '@/app/Interfaces/IGeneral';
 //import { useRouter } from "next/router";
 
 const page = () => {
@@ -30,12 +31,12 @@ const page = () => {
 
 
     // historiaporId
-    const [historiaporId, setHistoriaporId] = useState({})
+    const [historiaporId, setHistoriaporId] = useState< IHistoria>({})
 
 
-    const {tiempoHistoria, presupuestoHistoria} = historiaporId
-    const [paramTiempo, setParamTiempo] = useState(tiempoHistoria)
-    const [paramPresupuesto, setParamPresupuesto] = useState(presupuestoHistoria)
+    //const {tiempoHistoria, presupuestoHistoria} = historiaporId
+    const [paramTiempo, setParamTiempo] = useState(historiaporId?.tiempoHistoria)
+    const [paramPresupuesto, setParamPresupuesto] = useState(historiaporId?.presupuestoHistoria)
     //const [paramEquipo, setParamEquipo] = useState(0)
 
     const [pesoTiempo, setPesoTiempo] = useState(0)
@@ -52,6 +53,8 @@ const page = () => {
         setActivoDiscrepancia2(!activoDiscrepancia2)
     }
 
+    console.log('histoporid', historiaporId);
+    
 
 
     const { idHistoria} = useHistoriaPo()
@@ -187,7 +190,7 @@ const page = () => {
                                         handleClickVerNuevasTareas={handleClickVerNuevasTareas1}
                                         discrepanciaI={discrepancia1I}
                                         dis={dis1}
-                                        parame = {tiempoHistoria}
+                                        parame = {historiaporId?.tiempoHistoria}
                                         handleChangeDes={changeDesTiempo}
                                         handleChangeInputPeso = {changePesoTiempo}
                                         handleChangeInputParam={changeParamTiempo}
@@ -201,7 +204,7 @@ const page = () => {
                                         handleClickVerNuevasTareas={handleClickVerNuevasTareas2}
                                         discrepanciaI={discrepancia2I}
                                         dis={dis2}
-                                        parame = {presupuestoHistoria}
+                                        parame = {historiaporId?.presupuestoHistoria}
                                         handleChangeDes={changeDescPresupuesto}
                                         handleChangeInputPeso = {changePesoPresupuesto}
                                         handleChangeInputParam={changeParamPresupuesto}

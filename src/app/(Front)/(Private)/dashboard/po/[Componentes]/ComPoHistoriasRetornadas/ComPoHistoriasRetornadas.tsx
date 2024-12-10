@@ -2,10 +2,11 @@
 
 import { useHistoriaPo } from "@/app/(Front)/(Private)/[stores]/poStore";
 import BadgeNoAun from "@/app/(Front)/React/Components/BadgeNoAun/BadgeNoAun";
+import { IComPoHistoriasRetornadas } from "@/app/Interfaces/IPoHistoriasRetornadas";
 import { format } from "date-fns";
 import { useEffect } from "react";
 
-const ComPoHistoriasRetornadas = ({nombre, id, resul}) => {
+const ComPoHistoriasRetornadas = ({nombre, id, resul}:IComPoHistoriasRetornadas) => {
 
 
   const { getHistoriaStatusRetornada, historiaStatusRetornada} = useHistoriaPo()

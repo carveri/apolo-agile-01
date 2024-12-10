@@ -7,8 +7,12 @@
 import Navbar from '@/app/(Front)/React/Components/Navbar';
 import Sidebar from '@/app/(Front)/React/Components/Sidebar';
 import { getNombreEmpresaLayout } from '@/app/(Front)/[Funciones]/getNombreEmpresaLayout';
+import { Metadata } from "next";
   
-
+export const metadata: Metadata = {
+  title: "Cliente - Visionario",
+  description: "ERP para StartApps",
+};
 
 export default async function RootLayout({children,}: Readonly<{children: React.ReactNode;}>) 
 {
@@ -56,7 +60,7 @@ const linksTecnico = [
     <div className="w-screen h-screen flex">
       <section className="w-[280px] h-full bg-[--verdecito] ">
         <header className="h-12 w-full bg-colorCajaLogo grid place-content-center text-colorTextoCaja">
-        <div className="text-sm text-center">Apolo Agile</div> <div className="text-[9px]  text-white">{res.at(0)?.nombreEmpresa}</div>
+        <div className="text-sm text-center">Apolo Agile</div> <div className="text-[9px] text-center  text-white">{res.at(0)?.nombreEmpresa}</div>
         </header>
         <aside className="w-full h-[820px] bg-gray-100 ">
          

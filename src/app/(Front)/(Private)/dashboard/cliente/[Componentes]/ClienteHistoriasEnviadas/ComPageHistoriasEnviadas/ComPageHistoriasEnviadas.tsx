@@ -4,12 +4,12 @@ import BadgeNoAun from "@/app/(Front)/React/Components/BadgeNoAun/BadgeNoAun";
 import { format } from "date-fns";
 import TablaHistoriasEnviadas from "./TablaHistoriasEnviadas";
 import { useEffect, useState } from "react";
-import { getDataCompleja } from "@/app/(Front)/React/Fetch/getDataCompleja";
 import { useHistoriaCliente } from "@/app/(Front)/(Private)/[stores]/clienteStore";
+import { IComPageHistoriasEnviadas } from "@/app/Interfaces/IclientesHistoriasEnviadas";
 
-const ComPageHistoriasEnviadas = ({id, resul}) => {
+const ComPageHistoriasEnviadas = ({id, resul}:IComPageHistoriasEnviadas) => {
 
-  const [histouseridcargo, setHistouseridcargo] = useState([])  
+  //const [histouseridcargo, setHistouseridcargo] = useState([])  
 
   const {historiasEnviadas, getHistoriasEnviadas} = useHistoriaCliente()
 

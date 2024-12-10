@@ -12,14 +12,9 @@ const page = async() => {
    if(!session){
     redirect('/api/auth/signin')
   }
-  //console.log(user);
   
   const {user}= session
-  //console.log('userPagPivoteCliente2222:', user);
-
-  
-  // user.image es el cargoId
-
+ 
   if( user?.image === '1b16b7b1-df3f-4242-853c-8f12999bb2b8'){
     redirect('/dashboard/cliente/comercial')
   }else if(user?.image === '78509248-2aea-47a3-a4d2-68e210b270cd'){

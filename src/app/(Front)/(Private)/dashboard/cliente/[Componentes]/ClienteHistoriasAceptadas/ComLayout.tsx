@@ -1,6 +1,6 @@
-import React from 'react'
+import { IClientesHistoriasAceptadas } from '@/app/Interfaces/IclientesHistoriasAceptadas'
 
-const ComLayout = ({handleClickMeeting1, handleClickMeeting2, children, nombre}) => {
+const ComLayout = ({handleClickMeeting1, handleClickMeeting2, children, nombre}:IClientesHistoriasAceptadas) => {
   return (
     <div  className='w-full h-full bg-white grid justify-items-center'>
       <section className='w-[99%] h-[98%]  '>

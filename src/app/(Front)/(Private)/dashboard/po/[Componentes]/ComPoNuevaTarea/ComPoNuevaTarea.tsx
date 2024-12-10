@@ -6,21 +6,17 @@ import TablaComPoNuevaTarea from "./TablaComPoNuevaTarea";
 import { useHistoriaPo } from "@/app/(Front)/(Private)/[stores]/poStore";
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
+import { IPoNuevaTarea } from "@/app/Interfaces/IPoNuevaTarea";
 
 
-const ComPoNuevaTarea = ({nombre, id, resul}) => {
+const ComPoNuevaTarea = ({nombre, id, resul}:IPoNuevaTarea) => {
 
-  const { getHistoriaStatus, historiaStatus, cambiarIdHistoria, idHistoria,historiaStatusEmpresa, getHistoriaStatusEmpresa } = useHistoriaPo()
+  const { cambiarIdHistoria, historiaStatusEmpresa, getHistoriaStatusEmpresa } = useHistoriaPo()
 
   useEffect(()=>{
     getHistoriaStatusEmpresa(resul)
   }, [])
  
-  // HACE UN REFRESH PARA ACTUALIZAR EL SIDEBAR, DEL NUMERO DE HISTORIAS
-  useEffect(()=>{
-    router.refresh()
-  }, [])
-  
 
   const router = useRouter()
   const handleClickVerNuevasTareasPo =(id:string)=>{
@@ -28,11 +24,10 @@ const ComPoNuevaTarea = ({nombre, id, resul}) => {
     router.push('/dashboard/po/poNuevaTarea/verNuevasTareasPo')
   }
 
-  console.log('histostatusEmpresa;', historiaStatusEmpresa);
-  console.log('resul;', resul);
-  
-  
-  
+  // HACE UN REFRESH PARA ACTUALIZAR EL SIDEBAR, DEL NUMERO DE HISTORIAS
+  useEffect(()=>{
+    router.refresh()
+  }, [])
 
   return (
     <div className='w-full h-full bg-white grid place-items-center' >

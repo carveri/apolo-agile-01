@@ -1,19 +1,20 @@
+import { IBadgeDiscrepancia } from '@/app/Interfaces/IPoNuevaTarea';
 import React from 'react'
 
 // interface IBadgeDiscrepancia {
 //     dis: 
 // }
 
-const BadgeDiscrepancia = ({dis, numero, checked, setChecked, handleClickVerNuevasTareas, discrepanciaI, handleChangeDes,  parame, handleChangeInputParam,handleChangeInputPeso}) => {
+const BadgeDiscrepancia = ({dis, numero, checked, setChecked, handleClickVerNuevasTareas, discrepanciaI, handleChangeDes,  parame, handleChangeInputParam,handleChangeInputPeso}:IBadgeDiscrepancia) => {
   
-    console.log('BADGEDISDCREPP:', dis, numero, checked, setChecked, handleClickVerNuevasTareas, discrepanciaI, handleChangeDes, parame, handleChangeInputParam, handleChangeInputPeso);
+    //console.log('BADGEDISDCREPP:', dis, numero, checked, setChecked, handleClickVerNuevasTareas, discrepanciaI, handleChangeDes, parame, handleChangeInputParam, handleChangeInputPeso);
     
   
     return (
     <>
         <label  className='flex content-center '  htmlFor=""> 
             <div className='mr-1 pt-2'>
-                <input  type="checkbox" onChange={(e)=>setChecked(!checked)} />
+                <input  type="checkbox" className='cursor-pointer' onChange={(e)=>setChecked(!checked)} />
             </div>
             <div className='h-10 w-full pt-2 pl-2 mb-1 bg-gray-100'>
                 Discrepancia {numero}:

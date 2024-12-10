@@ -1,6 +1,7 @@
+import { IhistouseridcargoResoluciono } from "@/app/Interfaces/IclienteResolucionTarea";
 import { format } from "date-fns";
 
-const TablaResolucionTareas = ({histouseridcargo, handleClickVerResolucionHistoria}) => {
+const TablaResolucionTareas = ({histouseridcargo, handleClickVerResolucionHistoria}:IhistouseridcargoResoluciono) => {
   return (
     <table className='border border-gray-200   w-[100%]  '>
                 <thead>
@@ -10,12 +11,9 @@ const TablaResolucionTareas = ({histouseridcargo, handleClickVerResolucionHistor
                     <td className='w-[10%] pl-8'>Fecha Ingreso</td>
                     <td className='w-[12%] pl-8'>Fecha Respuesta</td>
                     <td className='w-[12%] pl-8'>Hora Respuesta</td>
-                    <td className='w-[8%] pl-8'>Status </td>
-                    
+                    <td className='w-[8%] pl-8'>Status </td>    
                     <td className='w-[10%] text-center'>Discrepancia 1</td>
                     <td className='w-[10%] text-center'>Discrepancia 2</td>
-                    
-                    
                   </tr>
                 </thead>
                 <tbody>
@@ -50,17 +48,11 @@ const TablaResolucionTareas = ({histouseridcargo, handleClickVerResolucionHistor
                       <td className='pl-8'>
                         {discrepancia2}
                       </td>
-                      
-                      
                       <td className='grid place-items-center pt-2 pr-2'>
                         <button onClick={()=>handleClickVerResolucionHistoria(id)} className='w-[70px] h-10 ml-3 mr-3 bg-colorBotonVer rounded text-colorTextoBotonVer'>
                           Ver
                         </button>
                       </td>
-                      
-                      
-                      
-                      
                     </tr>
                   })}
                 </tbody>

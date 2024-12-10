@@ -1,6 +1,13 @@
 import { logicaTabla } from '@/app/(Front)/React/Components/Tablas/logicaTabla'
 import ComAdmin from '../[Components]/ComAdmin'
 import { logicaTraerIdYres } from '../../cliente/[Funciones]/logicaTraerIdYRes'
+import { Metadata } from 'next';
+
+
+export const metadata: Metadata= {
+  title: "Administración - SM",
+  description: "ERP para StartApps",
+};
 
 const page = async() => {
 

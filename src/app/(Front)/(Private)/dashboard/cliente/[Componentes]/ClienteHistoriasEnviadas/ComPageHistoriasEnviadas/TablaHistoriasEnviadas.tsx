@@ -1,9 +1,7 @@
+import { IhistouseridcargoEnviada } from "@/app/Interfaces/IclientesHistoriasEnviadas";
 import { format } from "date-fns";
 
-const TablaHistoriasEnviadas = ({histouseridcargo}) => {
-
-  console.log('histoquemellega:', histouseridcargo);
-  
+const TablaHistoriasEnviadas = ({histouseridcargo}:IhistouseridcargoEnviada) => {
 
   return (
     <table className='border border-gray-200   w-[100%]  '>
@@ -48,12 +46,6 @@ const TablaHistoriasEnviadas = ({histouseridcargo}) => {
                       <td className={`text-center pl-6 ${status === 'Pendiente' ? 'text-yellow-400' : 'text-green-500'}`}>
                         {status}
                       </td>
-                      
-                      
-                      
-                      
-                      
-                      
                     </tr>
                   })}
                 </tbody>

@@ -4,48 +4,33 @@ import BadgeNoAun from "@/app/(Front)/React/Components/BadgeNoAun/BadgeNoAun";
 import { format } from "date-fns";
 import TablaResolucionTareas from "./TablaResolucionTareas";
 import { useHistoriaPo } from "@/app/(Front)/(Private)/[stores]/poStore";
-import { useEffect, useState } from "react";
-import { getDataCompleja } from "@/app/(Front)/React/Fetch/getDataCompleja";
+import { useEffect } from "react";
 import { useRouter } from "next/navigation";
+import { IComPageHistoriasResolucion } from "@/app/Interfaces/IclienteResolucionTarea";
+import { useHistoriaCliente } from "@/app/(Front)/(Private)/[stores]/clienteStore";
 
-const ComClienteResolucionTarea = ({id, resul}) => {
+
+const ComClienteResolucionTarea = ({id, resul}:IComPageHistoriasResolucion) => {
 
   const { idHistoria, cambiarIdHistoria} = useHistoriaPo()
-
-  const [historias, setHistorias] = useState([])
-  //const {historiaStatus, getHistoriaStatus} = useHistoriaPo
-  const [histouseridcargo, setHistouseridcargo] = useState([])
-  //const {historiaStatus, getHistoriaStatus} = useHistoriaPo
+ 
+  const {historiasRetornadas, getHistoriasRetornadas} = useHistoriaCliente()
 
   useEffect(()=>{
-    const traerHistoriasStatusCargo = async()=>{
-        const ruta = 'historiaStatusCargo' 
-        const param1 = id
-        const param2 = 'Retornada'
-        const param3 = resul.at(0)?.id
-        const res = await getDataCompleja({ruta, param1, param2, param3})
-        setHistouseridcargo(res)
-    }
-    traerHistoriasStatusCargo()
+    getHistoriasRetornadas(resul, id)
   }, [])
 
-  console.log('idhist;', idHistoria);
-  
-
-  
 
   const route = useRouter()
 
-  const handleClickVerResolucionHistoria =(id:React.MouseEvent<HTMLButtonElement>)=>{
-    //console.log('idHisto:', id);
+  const handleClickVerResolucionHistoria =(id:string):void=>{
     cambiarIdHistoria(id)
-    //console.log('idzusthistoria:', idHistoria);
     route.push('/dashboard/cliente/comercial/verResolucionTarea')
   }
 
   return (
     <div className='w-full h-full   ' >
-        {histouseridcargo.length !== 0 ?
+        {historiasRetornadas.length !== 0 ?
         <section  className='w-[99%] h-[99%]  ml-3'>
         <main className='py-2 px-4 w-full h-[99%] '>
             <div className='h-14  bg-colorBarraSuperiorTablas grid place-content-center text-colorTextoBarraAlta font-semibold'>
@@ -62,7 +47,7 @@ const ComClienteResolucionTarea = ({id, resul}) => {
             </header>
             <div className='w-[1625px] mt-3  z-30  top-28 left-3/5 max-h-[563px] overflow-auto'>
               <TablaResolucionTareas
-                histouseridcargo={histouseridcargo}
+                histouseridcargo={historiasRetornadas}
                 handleClickVerResolucionHistoria={handleClickVerResolucionHistoria}
               />
       </div>

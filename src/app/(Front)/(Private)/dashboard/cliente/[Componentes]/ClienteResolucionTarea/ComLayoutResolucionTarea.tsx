@@ -1,6 +1,6 @@
-import React from 'react'
+import { IComLayoutResolucionTarea } from '@/app/Interfaces/IclienteResolucionTarea'
 
-const ComLayoutResolucionTarea = ({handleClickMeeting1, handleClickMeeting2, children, nombre}) => {
+const ComLayoutResolucionTarea = ({handleClickMeeting1, handleClickMeeting2, children, nombre}:IComLayoutResolucionTarea) => {
   return (
     <div  className='w-full h-full bg-white grid justify-items-center'>
       <section className='w-[99%] h-[98%]  '>

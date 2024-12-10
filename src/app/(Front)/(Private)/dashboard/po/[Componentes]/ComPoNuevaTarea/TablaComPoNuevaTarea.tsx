@@ -1,7 +1,9 @@
-const TablaComPoNuevaTarea = ({historiaStatus, handleClickVerNuevasTareasPo}) => {
-  
-  console.log('histt:', historiaStatus);
-  
+import { IHistoria } from "@/app/Interfaces/IGeneral"
+import { ITablaComPoNuevaTarea } from "@/app/Interfaces/IPoNuevaTarea"
+
+
+
+const TablaComPoNuevaTarea = ({historiaStatus, handleClickVerNuevasTareasPo}:ITablaComPoNuevaTarea) => {
   
   return (
     <table className='border border-gray-200   w-[98%] ml-8 '>
@@ -21,7 +23,7 @@ const TablaComPoNuevaTarea = ({historiaStatus, handleClickVerNuevasTareasPo}) =>
               </tr>
               </thead>
               <tbody>
-              {historiaStatus.map((el, index)=>{
+              {historiaStatus.map((el:IHistoria, index:number)=>{
                 const {id,nombreHistoria, createdAt, para, status, user, horaAt, presupuestoHistoria, tiempoHistoria, detalleHistoria} = el
                   return <tr key={id} className='border border-gray-200 h-14   '>
                     <td className='text-center'>

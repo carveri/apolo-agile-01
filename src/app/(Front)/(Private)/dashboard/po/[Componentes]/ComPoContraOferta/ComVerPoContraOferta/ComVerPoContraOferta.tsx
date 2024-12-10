@@ -1,7 +1,8 @@
 import React from 'react'
 import TablaComVerPoContraOferta from './TablaComVerPoContraOferta'
+import { IComVerPoContraOferta } from '@/app/Interfaces/IPoContraOferta'
 
-const ComVerPoContraOferta = ({nombre, historia, handleClickAgregarAlProductBacklogContra, handleClickEnviarAlLiderTecnico}) => {
+const ComVerPoContraOferta = ({nombre, historia, handleClickAgregarAlProductBacklogContra, handleClickEnviarAlLiderTecnico}:IComVerPoContraOferta) => {
   return (
     <div className='w-full h-full '>
         <header className='w-full h-[5%] bg-white py-4 pb-10 pl-6 '>

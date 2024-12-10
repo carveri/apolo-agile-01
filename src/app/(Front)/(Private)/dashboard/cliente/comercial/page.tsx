@@ -12,7 +12,6 @@ const page = async() => {
    if(!session){
     redirect('/api/auth/signin')
   }
-  //console.log(user);
   
   const {user}= session
   
