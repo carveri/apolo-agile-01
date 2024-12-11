@@ -4,7 +4,6 @@ import { redirect } from 'next/navigation'
 import { getDataLista } from "../React/Fetch/getDataLista"
 import { getDataCompleja3 } from "../React/Fetch/getDataCompleja3"
 
-
 export const getNombreEmpresaLayout = async()=>{
     const session = await getServerSession(authOptions)
    // validacion
@@ -13,7 +12,7 @@ export const getNombreEmpresaLayout = async()=>{
   }
 
   const {user}= session
-  const {id, name, email, image} = user
+  const {id, name, email, image}:any = user
 
   const traersds =  async()=>{
     const ruta = 'empresaPorUser'
