@@ -9,7 +9,6 @@ import { IComPageHistoriasEnviadas } from "@/app/Interfaces/IclientesHistoriasEn
 
 const ComPageHistoriasEnviadas = ({id, resul}:IComPageHistoriasEnviadas) => {
 
-  //const [histouseridcargo, setHistouseridcargo] = useState([])  
 
   const {historiasEnviadas, getHistoriasEnviadas} = useHistoriaCliente()
 

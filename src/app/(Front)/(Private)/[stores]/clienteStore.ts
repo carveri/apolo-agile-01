@@ -1,6 +1,6 @@
 import { create } from "zustand";
 import { getDataCompleja } from "../../React/Fetch/getDataCompleja";
-import { IEmpresa } from "@/app/Interfaces/IGeneral";
+import { IEmpresa, IHistoria } from "@/app/Interfaces/IGeneral";
 import { getDataLista } from "../../React/Fetch/getDataLista";
 
 
@@ -8,7 +8,7 @@ interface IuseHistoriaCliente {
     historiasEnviadas: []
     historiasAceptas:[]
     historiasRetornadas: []
-    historia: []
+    historia: IHistoria[]
     getHistoriasEnviadas:(resul: IEmpresa[],id: string)=>void
     getHistoriasAceptadas:(resul: IEmpresa[],id: string)=>void
     getHistoriasRetornadas:(resul: IEmpresa[],id: string)=>void
