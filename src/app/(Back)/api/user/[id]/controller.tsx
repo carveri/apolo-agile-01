@@ -1,11 +1,12 @@
 
+import { IEmailEmpresaParams, IParams } from "@/app/Interfaces/IParams"
 import prisma from "@/libs/prisma"
 
 
 class UserDetalle {
 
     // metodo get
-    getUserDetalle = async(req:Request, {params})=>{
+    getUserDetalle = async(req:Request, {params}:IEmailEmpresaParams)=>{
         const {email} = params
         const getOneUser = await prisma.user.findFirst({
             where:{
@@ -20,7 +21,7 @@ class UserDetalle {
     }
 
     // metodo delete
-    deleteUser = async(req:Request, {params})=>{
+    deleteUser = async(req:Request, {params}:IParams)=>{
         const {id} = params
         const deleteUser = await prisma.user.delete({
             where:{
@@ -31,7 +32,7 @@ class UserDetalle {
     }
 
     // metodo put
-    putUserDetalle = async(req:Request, {params})=>{
+    putUserDetalle = async(req:Request, {params}:IParams)=>{
         const {id} = await params
         const {primerNombre,segundoNombre, apellidoPaterno, apellidoMaterno, rutPersonal, empresaId, cargoId, equipoId } = await req.json()
         const updatedUser = await prisma.user.update({

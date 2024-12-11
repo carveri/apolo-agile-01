@@ -1,11 +1,12 @@
+import { IRutEmpresaParams } from "@/app/Interfaces/IParams"
 import prisma from "@/libs/prisma"
 
 class EmpresaDetalle {
 
     // metodo get
-    getEmpresaDetalle = async(req:Request, {params})=>{
+    getEmpresaDetalle = async(req:Request, {params}:IRutEmpresaParams)=>{
         const {rutEmpresa} = await params
-        console.log('rutt:', rutEmpresa);
+        //console.log('rutt:', rutEmpresa);
         
         const getOneEmpresa = await prisma.empresa.findFirst({
             where:{

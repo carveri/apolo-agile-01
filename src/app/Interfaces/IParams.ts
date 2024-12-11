@@ -25,6 +25,15 @@ export interface IAreaParams{
     params: AreaParams
 }
 
+interface NombreAreaParams{
+    nombreArea: string
+}
+
+export interface INombreAreaParams {
+    params: NombreAreaParams
+}
+
+
 // DEPARTAMENTO
 interface DepartamentoParams{
     departamentoId: string
@@ -71,3 +80,32 @@ interface PermisoParams{
 export interface IPermisoParams{
     params: PermisoParams
 }
+
+
+// EMPRESA
+//id
+interface EmpresaParams{
+    id: string
+}
+
+export interface IEmpresaParams{
+    params: EmpresaParams
+}
+//rut
+interface RutEmpresaParams{
+    rutEmpresa: string
+}
+
+export interface IRutEmpresaParams{
+    params: RutEmpresaParams
+}
+
+//email
+interface EmailEmpresaParams{
+    email: string
+}
+
+export interface IEmailEmpresaParams{
+    params: EmailEmpresaParams
+}
+

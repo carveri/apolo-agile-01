@@ -3,9 +3,9 @@ import { equipoCargo } from "./controller";
 
 
 // ruta get one
-export const GET = async(req:Request, {params})=>{
+export const GET = async(req:Request)=>{
     try {
-        return NextResponse.json(await equipoCargo.getEquipoCargo(req, {params}))
+        return NextResponse.json(await equipoCargo.getEquipoCargo(req))
     } catch (error) {
         return NextResponse.json(error)
     }

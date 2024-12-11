@@ -13,7 +13,7 @@ export const POST = async(req:Request)=>{
 }
 
 // tuta get
-export const GET = async(req:Request)=>{
+export const GET = async(req:NextResponse)=>{
     try {
         return NextResponse.json(await permiso1.getPermiso(req))
     } catch (error) {

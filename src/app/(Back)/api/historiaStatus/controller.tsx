@@ -9,8 +9,8 @@ class HistoriaStatus {
         const url = new URL(req.url)
 
         //const userId = url.searchParams.get("userId")
-        const status = url.searchParams.get("status")
-        const empresaId = url.searchParams.get("empresaId")
+        const status:any = url.searchParams.get("status")
+        const empresaId:any = url.searchParams.get("empresaId")
         //console.log('cosas:', userId, status);
         const getHistoriaStatus = await prisma.historia.findMany({
             where:{

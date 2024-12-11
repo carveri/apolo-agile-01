@@ -8,8 +8,8 @@ class UserAreaEmpresa {
     getAreaEmpresa = async(req:NextRequest)=>{
         const url = new URL(req.url)
 
-        const areaId = url.searchParams.get("areaId")
-        const empresaId = url.searchParams.get("empresaId")
+        const areaId:any = url.searchParams.get("areaId")
+        const empresaId:any = url.searchParams.get("empresaId")
 
         const getAreaEmpresa = await prisma.user.findMany({
             where:{

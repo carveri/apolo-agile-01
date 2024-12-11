@@ -4,22 +4,15 @@ import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import React, { useState } from 'react'
 import { signIn } from "next-auth/react";
-//import { useSession } from "next-auth/react"
-
 
 const FormLogin = () => {
-
-  // const { data: session, status } = useSession()
-
-  // console.log('la data de la sesion para el front:', session);
-  
 
   const router = useRouter()
 
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
-  const handleChangeLogin =(e)=>{
+  const handleChangeLogin =(e:React.ChangeEvent<HTMLInputElement>)=>{
       if(e.target.name === 'email'){
           setEmail(e.target.value)
       }
@@ -31,7 +24,7 @@ const FormLogin = () => {
       }
   }
 
-  const handleSubmitLogin = async(e)=>{
+  const handleSubmitLogin = async(e:React.FormEvent<HTMLFormElement>)=>{
       e.preventDefault()
       const res = await signIn('credentials', {
           email: email,

@@ -1,10 +1,11 @@
+import { IParams } from "@/app/Interfaces/IParams"
 import prisma from "@/libs/prisma"
 
 
 class EquipoDetalle {
 
     // metodo get
-    getEquipoDetalle = async(req:Request, {params})=>{
+    getEquipoDetalle = async(req:Request, {params}:IParams)=>{
         const {id} = params
         const getOneEquipo = await prisma.equipo.findFirst({
             where:{
@@ -17,7 +18,7 @@ class EquipoDetalle {
         return getOneEquipo
     }
 
-    deleteEquipo = async(req:Request, {params})=>{
+    deleteEquipo = async(req:Request, {params}:IParams)=>{
         const {id} = params
         const deleteEquipo = await prisma.user.delete({
             where:{

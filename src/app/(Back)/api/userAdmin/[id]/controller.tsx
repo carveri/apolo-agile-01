@@ -1,10 +1,11 @@
 
+import { IParams } from "@/app/Interfaces/IParams"
 import prisma from "@/libs/prisma"
 
 class UserAdmin {
 
     // metodo
-    getUserAdmin = async(req:Request, {params})=>{
+    getUserAdmin = async(req:Request, {params}:IParams)=>{
         const {id} = params
         const getOneUserAdmin = await prisma.user.findMany({
             where:{

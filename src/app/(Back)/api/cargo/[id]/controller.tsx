@@ -1,9 +1,10 @@
 
+import { IParams } from "@/app/Interfaces/IParams"
 import prisma from "@/libs/prisma"
 
 class CargoDetalle {
     // metodo
-    getCargoDetalle = async(req:Request, {params})=>{
+    getCargoDetalle = async(req:Request, {params}:IParams)=>{
         const {id} = params
         const getOneCargo = await prisma.cargo.findFirst({
             where: {

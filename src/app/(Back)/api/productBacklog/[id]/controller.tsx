@@ -1,10 +1,11 @@
+import { IParams } from "@/app/Interfaces/IParams"
 import prisma from "@/libs/prisma"
 
 class Pb {
     // metodo 1
     
         // // metodo GET ONE
-    getOnePb = async(req:Request, {params})=>{
+    getOnePb = async(req:Request, {params}:IParams)=>{
         //const session = await getServerSession(authOptions)
         const {id} = params
         const getOnePb = await prisma.productBacklog.findUnique({

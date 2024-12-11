@@ -1,9 +1,10 @@
 
+import { INombreAreaParams } from "@/app/Interfaces/IParams"
 import prisma from "@/libs/prisma"
 
 class CargoDetalle {
     // metodo
-    getAreaDetalle = async(req:Request, {params})=>{
+    getAreaDetalle = async(req:Request, {params}:INombreAreaParams)=>{
         const {nombreArea} = params
         const getOneArea = await prisma.area.findFirst({
             where:{
