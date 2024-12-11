@@ -4,9 +4,9 @@ import { historiaStatus } from "./controller"
 import { IHistoriaStatusParams } from "@/app/Interfaces/IParams"
 
 // ruta put
-export const GET = async(req:Request, {params}:IHistoriaStatusParams)=>{
+export const GET = async({params}:IHistoriaStatusParams)=>{
     try {
-        return NextResponse.json(await historiaStatus.getHistoriaStatus(req, {params}))
+        return NextResponse.json(await historiaStatus.getHistoriaStatus({params}))
     } catch (error) {
         return NextResponse.json(error)
     }

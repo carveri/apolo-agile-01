@@ -15,7 +15,7 @@ class Cargo {
         return saveArea
     }
 
-    getCargo =async(req:Request)=>{
+    getCargo =async()=>{
         const getAllCargo = await prisma.cargo.findMany({
             include:{
                 permisos:{

@@ -27,7 +27,7 @@ class User {
         return saveUser
     }
 
-    getUser =async(req:Request)=>{
+    getUser =async()=>{
         const getUser = await prisma.user.findMany({
             orderBy: {
                 apellidoPaterno: 'asc'

@@ -26,7 +26,7 @@ class Historia {
         return saveHistoria
     }
 
-    getHistoria =async(req:Request)=>{
+    getHistoria =async()=>{
         const getAllHistoria = await prisma.historia.findMany({
             orderBy: {
                 nombreHistoria: 'asc'

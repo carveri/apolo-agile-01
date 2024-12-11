@@ -16,7 +16,7 @@ class Departamento {
         return saveDepartamento
     }
 
-    getDepartamento =async(req:Request)=>{
+    getDepartamento =async()=>{
         const getAllDepartamento = await prisma.departamento.findMany({
             orderBy:{
                 nombreDepartamento: 'asc'

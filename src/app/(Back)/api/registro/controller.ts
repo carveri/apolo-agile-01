@@ -24,7 +24,7 @@ class Registro {
     }
 
     // metodo get
-    getRegistro = async(req:Request)=>{
+    getRegistro = async()=>{
         const getAllUser = await prisma.user.findMany({
             orderBy:{
                 primerNombre: 'asc'

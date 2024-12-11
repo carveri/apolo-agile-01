@@ -17,7 +17,7 @@ class Equipo {
         return saveEquipo
     }
 
-    getEquipo =async(req:Request)=>{
+    getEquipo =async()=>{
         const getAllEquipo = await prisma.equipo.findMany({
             orderBy:{
                 nombreEquipo: 'asc'

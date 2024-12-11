@@ -16,7 +16,7 @@ class ProductBacklog {
         return saveProductBacklog
     }
 
-    getProductBacklog =async(req:Request)=>{
+    getProductBacklog =async()=>{
         const getAllProductBacklog = await prisma.productBacklog.findMany({
             orderBy:{
                 nombreProductBacklog: 'asc'

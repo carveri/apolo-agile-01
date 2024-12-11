@@ -6,7 +6,7 @@ class HistoriaStatus {
     
     // metodo get
     // el param es el status
-    getHistoriaStatus = async(req:Request, {params}:IHistoriaStatusParams)=>{
+    getHistoriaStatus = async({params}:IHistoriaStatusParams)=>{
         const {status} = await params
         //console.log('statusito', id);
         

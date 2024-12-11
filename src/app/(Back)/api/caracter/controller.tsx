@@ -16,7 +16,7 @@ class Caracter {
         return saveCaracter
     }
 
-    getCaracter =async(req:Request)=>{
+    getCaracter =async()=>{
         const getAllCaracter = await prisma.caracter.findMany({
             orderBy:{
                 nombreCaracter: 'asc'

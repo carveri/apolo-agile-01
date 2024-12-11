@@ -17,7 +17,7 @@ class SprintBacklog {
         return saveSprintBacklog
     }
 
-    getSprintBacklog =async(req:Request)=>{
+    getSprintBacklog =async()=>{
         const getAllSprintBacklog = await prisma.sprintBacklog.findMany({
             orderBy: {
                 nombreSprintBacklog: 'asc'

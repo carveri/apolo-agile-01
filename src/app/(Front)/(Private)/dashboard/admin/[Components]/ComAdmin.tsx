@@ -12,7 +12,7 @@ const ComAdmin = ({logicaTabla,nombre, url,res}:IComAdmin) => {
   //console.log('resllega;', res);
   const {usuarios, getUsuarios} = useHistoriaAdmin()
   
-  let empresaId =  res.at(0)?.id
+  const empresaId =  res.at(0)?.id
 
   useEffect(()=>{
     getUsuarios(url, empresaId)

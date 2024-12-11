@@ -21,7 +21,7 @@ class Tarea {
         return saveTarea
     }
 
-    getTarea =async(req:Request)=>{
+    getTarea =async()=>{
         const getAllTarea = await prisma.tarea.findMany({
             orderBy:{
                 nombreTarea:'asc'

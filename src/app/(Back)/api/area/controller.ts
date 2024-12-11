@@ -15,7 +15,7 @@ class Area {
     }
 
 
-    getArea =async(req:Request)=>{
+    getArea =async()=>{
         const getAllArea = await prisma.area.findMany({
             orderBy:{
                 nombreArea: 'asc'

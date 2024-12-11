@@ -3,7 +3,7 @@ import prisma from "@/libs/prisma"
 
 class EquipoCargo {
     // metodo
-    getEquipoCargo = async(req:Request)=>{
+    getEquipoCargo = async()=>{
         const getOneEquipoCargo = await prisma.equipo.findMany()
         return getOneEquipoCargo
     }

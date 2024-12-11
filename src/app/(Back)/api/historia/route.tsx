@@ -13,9 +13,9 @@ export const POST = async(req:Request)=>{
 }
 
 // tuta get
-export const GET = async(req:Request)=>{
+export const GET = async()=>{
     try {
-        return NextResponse.json(await historia1.getHistoria(req))
+        return NextResponse.json(await historia1.getHistoria())
     } catch (error) {
         return NextResponse.json(error)
     }

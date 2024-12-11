@@ -17,7 +17,7 @@ class Empresa {
         return saveEmpresa
     }
 
-    getEmpresa =async(req:Request)=>{
+    getEmpresa =async()=>{
         const getAllEmpresa = await prisma.empresa.findMany({
             orderBy:{
                 nombreEmpresa: 'asc'

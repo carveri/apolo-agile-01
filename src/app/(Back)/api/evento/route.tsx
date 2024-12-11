@@ -13,9 +13,9 @@ export const POST = async(req:Request)=>{
 }
 
 // tuta get
-export const GET = async(req:Request)=>{
+export const GET = async()=>{
     try {
-        return NextResponse.json(await evento1.getEvento(req))
+        return NextResponse.json(await evento1.getEvento())
     } catch (error) {
         return NextResponse.json(error)
     }

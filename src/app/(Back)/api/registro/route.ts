@@ -15,9 +15,9 @@ export const POST = async(req:Request)=>{
 
 
 //get
-export const GET =async(req:Request)=>{
+export const GET =async()=>{
     try {
-        return NextResponse.json(await registro1.getRegistro(req))
+        return NextResponse.json(await registro1.getRegistro())
     } catch (error) {
         return NextResponse.json(error, {
             status: 500

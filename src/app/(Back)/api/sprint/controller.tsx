@@ -16,7 +16,7 @@ class Sprint {
         return saveSprint
     }
 
-    getSprint =async(req:Request)=>{
+    getSprint =async()=>{
         const getAllSprint = await prisma.sprint.findMany({
             orderBy:{
                 nombreSprint: 'asc'

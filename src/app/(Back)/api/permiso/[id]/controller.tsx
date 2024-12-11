@@ -4,7 +4,7 @@ import prisma from "@/libs/prisma"
 class PermisoDetalle {
 
     // get one
-    getOnePermiso =async(req:Request, {params}:IPermisoParams)=>{
+    getOnePermiso =async({params}:IPermisoParams)=>{
         const {id} = await params
         const onePermiso = await prisma.permiso.findFirst({
             where:{
@@ -18,7 +18,7 @@ class PermisoDetalle {
     }
 
     // borrar un permiso 
-    deleteOnePermiso = async(req:Request, {params}:IPermisoParams)=>{
+    deleteOnePermiso = async({params}:IPermisoParams)=>{
         const {id} = await params
         const deleteOnePermiso = await prisma.permiso.delete({
             where:{

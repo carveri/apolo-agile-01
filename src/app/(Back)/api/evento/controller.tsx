@@ -17,7 +17,7 @@ class Evento {
         return saveEvento
     }
 
-    getEvento =async(req:Request)=>{
+    getEvento =async()=>{
         const getAllEvento = await prisma.evento.findMany({
             orderBy:{
                 nombreEvento: 'asc'

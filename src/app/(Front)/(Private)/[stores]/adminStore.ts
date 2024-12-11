@@ -1,5 +1,4 @@
 import { create } from "zustand";
-import { getDataLista } from "../../React/Fetch/getDataLista";
 import { IUsuarios } from "@/app/Interfaces/IGeneral";
 import { getDataCompleja2 } from "../../React/Fetch/getDataCompleja2";
 

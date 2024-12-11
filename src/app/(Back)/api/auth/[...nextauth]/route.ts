@@ -18,7 +18,7 @@ export const authOptions: AuthOptions = {
             password: { label: "Contraseña", type: "password", placeholder: "***********" },
             //empresa : {label: 'empresa', type: "text"}
           },
-          async authorize(credentials:any, req:any) {
+          async authorize(credentials:any) {
             
             const userFound:any = await prisma.user.findUnique({
               where: {
@@ -69,11 +69,11 @@ export const authOptions: AuthOptions = {
         strategy: 'jwt'
       },
       callbacks:{
-        async signIn({user, account, profile, email, credentials}){
+        async signIn({}){
           return true
         },
 
-        async jwt({ token, user, account, profile }){
+        async jwt({ token }){
           
           const dbUser = await prisma.user.findUnique({
             where:{
@@ -88,7 +88,7 @@ export const authOptions: AuthOptions = {
           
           return token
         },
-        async session({ session, token, user }:any){
+        async session({ session, token }:any){
 
           if(session && session.user){
             session.user.id = token.id
