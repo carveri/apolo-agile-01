@@ -8,21 +8,11 @@ import { useEffect } from "react";
 
 const ComPoHistoriasRetornadas = ({nombre, id, resul}:IComPoHistoriasRetornadas) => {
 
-
   const { getHistoriaStatusRetornada, historiaStatusRetornada} = useHistoriaPo()
-
 
   useEffect(()=>{
     getHistoriaStatusRetornada(resul)
   }, [])
-
-  console.log('id', id);
-  console.log('resull:', resul);
-
-  console.log('histostarturresul:', historiaStatusRetornada)
-  
-  
-  
 
   return (
     <div className='w-full h-full bg-white grid place-items-center' >
@@ -95,9 +85,6 @@ const ComPoHistoriasRetornadas = ({nombre, id, resul}:IComPoHistoriasRetornadas)
                       <td className={`text-center ${status === 'Retornada' ? 'text-colorTextoRetornada' : 'text-green-500'}`}>
                         {status}
                       </td>
-                      
-                       
-                     
                     </tr>
                   })}
                 </tbody>
@@ -108,10 +95,7 @@ const ComPoHistoriasRetornadas = ({nombre, id, resul}:IComPoHistoriasRetornadas)
                   nombre = 'Retornadas'
                 />
               </div>
-          
-          
-          }
-          
+          }  
         </section>
     </div>
   )

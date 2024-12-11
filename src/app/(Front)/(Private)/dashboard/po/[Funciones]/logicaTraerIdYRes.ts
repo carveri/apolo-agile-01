@@ -11,10 +11,9 @@ export const logicaTraerIdYres = async()=>{
       if(!session){
        redirect('/api/auth/signin')
      }
-     //console.log(user);
      
      const {user}= session
-     const {id, name, email, image} = user
+     const {id} = user
     
      const ruta = 'empresaPorUser'
      const url = id

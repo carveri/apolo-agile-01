@@ -5,45 +5,38 @@ import Link from "next/link";
 import { updateData } from '@/app/(Front)/React/Fetch/updateData';
 import { useHistoriaPo } from '@/app/(Front)/(Private)/[stores]/poStore';
 import BadgeDiscrepancia from './Componentes/BadgeDiscrepancia';
-import { getDataLista } from '@/app/(Front)/React/Fetch/getDataLista';
 import { useRouter } from "next/navigation";
-import { IHistoria } from '@/app/Interfaces/IGeneral';
-//import { useRouter } from "next/router";
+import { useHistoriaProductOwner } from '@/app/(Front)/(Private)/[stores]/productOwnerStore';
 
 const page = () => {
 
     const router = useRouter()
+    const { idHistoria} = useHistoriaPo()
+
+    const status = 'Retornada'
+    const status2 = 'Aceptada'
+    const id = idHistoria
+
+    // TRAER LOS DATOS DE LA STORE
+    useEffect(()=>{
+        getHistoriaPorId(idHistoria)
+    }, [])
+
+    const {historiaPorId, getHistoriaPorId} = useHistoriaProductOwner()
 
     // ACTIVOS 
     const [activoDiscrepancia, setActivoDiscrepancia] = useState(false)
     const [activoDiscrepancia2, setActivoDiscrepancia2] = useState(false)
-    //const [activoDiscrepancia3, setActivoDiscrepancia3] = useState(false)
-    
 
     // INICIAL
     const [discrepancia1I, setDiscrepancia1I] = useState('Tiempo')
     const [discrepancia2I, setDiscrepancia2I] = useState('Presupuesto')
-    //const [discrepancia3I, setDiscrepancia3I] = useState('Equipo')
-    
     const [descTiempo, setDescTiempo] = useState('-')
     const [descPresupuesto, setDescPresupuesto] = useState('-')
-    //const [descEquipo, setDescEquipo] = useState('-')
-
-
-    // historiaporId
-    const [historiaporId, setHistoriaporId] = useState< IHistoria>({})
-
-
-    //const {tiempoHistoria, presupuestoHistoria} = historiaporId
-    const [paramTiempo, setParamTiempo] = useState(historiaporId?.tiempoHistoria)
-    const [paramPresupuesto, setParamPresupuesto] = useState(historiaporId?.presupuestoHistoria)
-    //const [paramEquipo, setParamEquipo] = useState(0)
-
+    const [paramTiempo, setParamTiempo] = useState(historiaPorId.at(0)?.tiempoHistoria)
+    const [paramPresupuesto, setParamPresupuesto] = useState(historiaPorId.at(0)?.presupuestoHistoria)
     const [pesoTiempo, setPesoTiempo] = useState(0)
     const [pesoPresupuesto, setPesoPresupuesto] = useState(0)
-    //const [pesoEquipo, setPesoEquipo] = useState(0)
-
-
 
     const handleClickVerNuevasTareas1 =()=>{
         setActivoDiscrepancia(!activoDiscrepancia)
@@ -53,18 +46,6 @@ const page = () => {
         setActivoDiscrepancia2(!activoDiscrepancia2)
     }
 
-    console.log('histoporid', historiaporId);
-    
-
-
-    const { idHistoria} = useHistoriaPo()
-
-    const status = 'Retornada'
-    const status2 = 'Aceptada'
-    const id = idHistoria
-    
-    
-
     // handlechange descripciones 
     const changeDesTiempo =(e:React.ChangeEvent<HTMLInputElement>)=>{
         setDescTiempo(e.target.value)
@@ -73,8 +54,6 @@ const page = () => {
     const changeDescPresupuesto =(e:React.ChangeEvent<HTMLInputElement>)=>{
         setDescPresupuesto(e.target.value)
     }
-
-
 
     // handlechange parametero
     const changeParamTiempo = (e:React.ChangeEvent<HTMLInputElement>)=>{
@@ -131,13 +110,9 @@ const page = () => {
         router.back()
     }
 
-
     // estados de los checkbox
     const [checked1, setChecked1] = useState(false)
     const [checked2, setChecked2] = useState(false)
-    //const [checked3, setChecked3] = useState(false)
-    
-
 
     // cosas a enviar 
     const dis1 = {
@@ -151,25 +126,9 @@ const page = () => {
         titulo2: 'Presupuesto propuesto (Clp)',
         titulo3: 'Peso de discrepancia (%)'
     }
-
-    
-
-    
-
-    useEffect(()=>{
-        const traerHistoriaPorId = async()=>{
-            const ruta = 'historia'
-            const url = idHistoria
-            const res = await getDataLista({ruta, url})
-            setHistoriaporId(res)
-        }
-        traerHistoriaPorId()
-    }, [])
-
         
     const pesototal = pesoTiempo + pesoPresupuesto
 
-    
   return (
     <div className='w-full h-full bg-white grid place-items-center' >
         <section className='w-[99%] h-[99%]  '>
@@ -190,13 +149,11 @@ const page = () => {
                                         handleClickVerNuevasTareas={handleClickVerNuevasTareas1}
                                         discrepanciaI={discrepancia1I}
                                         dis={dis1}
-                                        parame = {historiaporId?.tiempoHistoria}
+                                        parame = {historiaPorId.at(0)?.tiempoHistoria}
                                         handleChangeDes={changeDesTiempo}
                                         handleChangeInputPeso = {changePesoTiempo}
                                         handleChangeInputParam={changeParamTiempo}
-
                                     />
-
                                     <BadgeDiscrepancia
                                         numero = '2'
                                         checked = {checked2}
@@ -204,13 +161,11 @@ const page = () => {
                                         handleClickVerNuevasTareas={handleClickVerNuevasTareas2}
                                         discrepanciaI={discrepancia2I}
                                         dis={dis2}
-                                        parame = {historiaporId?.presupuestoHistoria}
+                                        parame = {historiaPorId.at(0)?.presupuestoHistoria}
                                         handleChangeDes={changeDescPresupuesto}
                                         handleChangeInputPeso = {changePesoPresupuesto}
-                                        handleChangeInputParam={changeParamPresupuesto}
-                                        
+                                        handleChangeInputParam={changeParamPresupuesto}   
                                     />
-
                                     
                             </main>
                         </section>

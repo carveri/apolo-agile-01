@@ -1,7 +1,13 @@
+import { IHistoria } from "@/app/Interfaces/IGeneral"
+import { IHistoriaPorId } from "@/app/Interfaces/IPoContraOferta"
 
 
 
-const TablaComVerPoContraOferta = ({historia}) => {
+const TablaComVerPoContraOferta = ({historia}:any) => {
+
+  console.log('HISTO:', historia);
+  
+
   return (
     <table className='border border-gray-200 h-[40%]  w-[47%] mt-5   ml-[450px]'>
                     <thead>
@@ -19,27 +25,26 @@ const TablaComVerPoContraOferta = ({historia}) => {
                             1
                           </td>
                           <td className='text-center'>
-                            {historia?.nombreHistoria}
+                            {historia.at(0)?.nombreHistoria}
                           </td>
                           
                           <td className='text-center'>
-                            {historia?.user?.cargo?.nombreCargo}
+                            {historia.at(0)?.user?.cargo?.nombreCargo}
                           </td>
                           <td className='pl-8 '>
                             <div className='h-20 grid place-content-center'>
-                              {historia?.discrepancia1} (Dias)
+                              {historia.at(0)?.discrepancia1} (Dias)
                             </div>
                             <div className='h-20 grid place-content-center'>
-                              {historia?.discrepancia2} (Clp)
+                              {historia.at(0)?.discrepancia2} (Clp)
                             </div>
-
                           </td>
                           <td className='pl-8'>
                             <div className='h-20 grid place-content-center'>
-                              {historia?.tiempoHistoria}
+                              {historia.at(0)?.tiempoHistoria}
                             </div>
                             <div className='h-20 grid place-content-center'>
-                              {historia?.presupuestoHistoria}
+                              {historia.at(0)?.presupuestoHistoria}
                             </div>
 
                           </td>

@@ -6,10 +6,9 @@ import { arrayMove, SortableContext, verticalListSortingStrategy } from "@dnd-ki
 import { useEffect } from "react"
 import { format } from "date-fns";
 import TablaPo from "./TablaPo"
+import { IComPoProductBacklog } from "@/app/Interfaces/IPoProductBacklog"
 
-const ComPoProductBacklog = ({id, resul}) => {
-
-    //const router = useRouter()
+const ComPoProductBacklog = ({id, resul}:IComPoProductBacklog) => {
 
   const {historiaBacklog,getHistoriaBacklog, updatedHistoriaProductBacklog} = useHistoriaPo()
 
@@ -17,7 +16,7 @@ const ComPoProductBacklog = ({id, resul}) => {
     getHistoriaBacklog(resul)
   }, [])
   
-  const handleDrawEnd =(e)=>{
+  const handleDrawEnd =(e:any)=>{
     const {active, over} = e
     const oldIndex = historiaBacklog.findIndex((el)=> el?.id === active?.id)
     const newIndex = historiaBacklog.findIndex((el)=> el?.id === over?.id)    
@@ -66,7 +65,6 @@ const ComPoProductBacklog = ({id, resul}) => {
               <td className='w-[12%] text-center'>Cargo del Solicitante</td>
               <td className='w-[10%] text-center'>Fecha Ingreso </td>
               <td className='w-[10%] text-center'>Hora Ingreso </td>
-             
               <td className='w-[8%] text-center'>Status </td>
               <td className='w-[8%] text-center'>Tiempo(dias) </td>
               <td className='w-[10%] text-center'>Presupuesto (Clp) </td>
@@ -95,7 +93,6 @@ const ComPoProductBacklog = ({id, resul}) => {
                   updatedAt2 = {updatedAt2}
                   updatedPintar = {updatedPintar}
                   user={user}
-                
                 />
               </SortableContext>
             })}
@@ -108,16 +105,11 @@ const ComPoProductBacklog = ({id, resul}) => {
             Confirmar Sprint Backlog
           </button>
         </div>
-        
       </section>
-      
   </div>: <div>
    sd
   </div>
-  
-  
   }
-    
     </DndContext>
   )
 }

@@ -3,8 +3,6 @@
 import { create } from "zustand";
 import { getData } from "../../React/Fetch/getData";
 import { IEmpresa, IHistoria } from "@/app/Interfaces/IGeneral";
-import { getDataLista } from "../../React/Fetch/getDataLista";
-import { getDataCompleja } from "../../React/Fetch/getDataCompleja";
 import { getDataCompleja2 } from "../../React/Fetch/getDataCompleja2";
 import { getDataCompleja3 } from "../../React/Fetch/getDataCompleja3";
 
@@ -26,7 +24,7 @@ interface IUseHistoriaPo {
     getHistoriaContraOferta: (resul:IEmpresa[])=>void
     getHistoriaBacklog:(resul:IEmpresa[])=>void
     getHistoriaStatusEmpresa:(resul:IEmpresa[])=>void
-    updatedHistoriaProductBacklog:(setHistoriaBacklog:[])=>void
+    updatedHistoriaProductBacklog:(newOrder:any)=>void
 
 }
 

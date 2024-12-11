@@ -1,15 +1,9 @@
 import { IBadgeDiscrepancia } from '@/app/Interfaces/IPoNuevaTarea';
 import React from 'react'
 
-// interface IBadgeDiscrepancia {
-//     dis: 
-// }
 
 const BadgeDiscrepancia = ({dis, numero, checked, setChecked, handleClickVerNuevasTareas, discrepanciaI, handleChangeDes,  parame, handleChangeInputParam,handleChangeInputPeso}:IBadgeDiscrepancia) => {
-  
-    //console.log('BADGEDISDCREPP:', dis, numero, checked, setChecked, handleClickVerNuevasTareas, discrepanciaI, handleChangeDes, parame, handleChangeInputParam, handleChangeInputPeso);
     
-  
     return (
     <>
         <label  className='flex content-center '  htmlFor=""> 
@@ -49,14 +43,12 @@ const BadgeDiscrepancia = ({dis, numero, checked, setChecked, handleClickVerNuev
                                         <div className='h-[30%] w-full  grid place-content-center text-center pb-3'>
                                             {dis.titulo2}
                                         </div>
-                                        
                                         <input onChange={handleChangeInputParam} className='w-full h-8 border border-gray-200 text-center' type="number" placeholder='7' />
                                     </article>
                                     <article className=' w-1/3 h-full px-2 '>
                                         <div className='h-[30%] w-full  grid place-content-center text-center pb-3'>
                                             {dis.titulo3}
                                         </div>
-                                        
                                         <input onChange={handleChangeInputPeso} className='w-full h-8 border border-gray-200 text-center' type="number" placeholder='100' />
                                     </article>
                             </section>

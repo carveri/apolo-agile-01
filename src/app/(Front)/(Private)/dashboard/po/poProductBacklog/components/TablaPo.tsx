@@ -2,8 +2,9 @@
 
 import { CSS } from "@dnd-kit/utilities";
 import { useSortable} from "@dnd-kit/sortable";
+import { ITablaPoProductBacklog } from "@/app/Interfaces/IPoProductBacklog";
 
-const TablaPo = ({id, nombreHistoria, updatedAt2, updatedPintar, tiempoHistoria, user, presupuestoHistoria, status, index, createdAt, updatedAt, horaAt}) => {
+const TablaPo = ({id, nombreHistoria, updatedAt2, updatedPintar, tiempoHistoria, user, presupuestoHistoria, status, index, createdAt, updatedAt, horaAt}:ITablaPoProductBacklog) => {
     
   
     const {attributes, listeners, setNodeRef, transform, transition} = useSortable({id: id})
@@ -38,8 +39,6 @@ const TablaPo = ({id, nombreHistoria, updatedAt2, updatedPintar, tiempoHistoria,
                   <td className='text-center'>
                     11
                   </td>
-                   
-                 
                 </tr>
   )
 }

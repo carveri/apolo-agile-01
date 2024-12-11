@@ -27,7 +27,7 @@ export interface IBadgeDiscrepancia {
     handleClickVerNuevasTareas: ()=>void
     discrepanciaI: string
     dis: Idis
-    parame: number
+    parame: number | null | undefined
     handleChangeDes:(e: React.ChangeEvent<HTMLInputElement>) => void
     handleChangeInputPeso:(e: React.ChangeEvent<HTMLInputElement>) => void
     handleChangeInputParam:(e: React.ChangeEvent<HTMLInputElement>) => void

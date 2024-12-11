@@ -88,7 +88,7 @@ export interface IUsua{
     como: string
     para: string
     quiero: string
-    user: ICargo[]
+    user: IUsuarios
   }
 
   export interface IEmpresa {

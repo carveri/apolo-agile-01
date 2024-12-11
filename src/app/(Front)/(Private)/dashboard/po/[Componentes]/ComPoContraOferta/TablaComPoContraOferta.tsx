@@ -15,7 +15,6 @@ const TablaComPoContraOferta = ({historiaContraOferta, handleClickVerContraofert
                   <td className='w-[10%] text-center'>Tiempo(Dias) </td>
                   <td className='w-[10%] text-center'>Status </td>
                   <td className='w-[15%] text-center'>Descripción </td>
-                  
                 </tr>
                 </thead>
                 <tbody>

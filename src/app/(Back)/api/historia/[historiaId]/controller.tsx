@@ -47,12 +47,11 @@ class HistoriaOne {
     getOneHistoria = async(req:Request, {params}:IHistoriaParams)=>{
         const {historiaId} = await params
         
-        const getOneHistoria = await prisma.historia.findFirst({
+        const getOneHistoria = await prisma.historia.findMany({
             where:{
                 id:{
                     equals: historiaId
-                },
-                
+                }, 
             },include:{
                 user:{
                     include:{
@@ -71,8 +70,6 @@ class HistoriaOne {
         })
         return getOneHistoria
     }
-    
-    
 }
 
 export const historiaOne1 = new HistoriaOne()

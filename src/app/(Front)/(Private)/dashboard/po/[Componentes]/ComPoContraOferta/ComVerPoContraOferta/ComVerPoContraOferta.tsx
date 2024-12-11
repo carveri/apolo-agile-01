@@ -3,6 +3,11 @@ import TablaComVerPoContraOferta from './TablaComVerPoContraOferta'
 import { IComVerPoContraOferta } from '@/app/Interfaces/IPoContraOferta'
 
 const ComVerPoContraOferta = ({nombre, historia, handleClickAgregarAlProductBacklogContra, handleClickEnviarAlLiderTecnico}:IComVerPoContraOferta) => {
+  
+  console.log('HISTORIA:', historia);
+  
+
+
   return (
     <div className='w-full h-full '>
         <header className='w-full h-[5%] bg-white py-4 pb-10 pl-6 '>
@@ -14,16 +19,12 @@ const ComVerPoContraOferta = ({nombre, historia, handleClickAgregarAlProductBack
             </header>
                 <TablaComVerPoContraOferta
                     historia={historia}
-
                 />
                 <div className='w-full h-[30%]'>
-
                 </div>
                 <div className='w-full h-[10%]  grid justify-end pt-7 pr-7 font-bold text-lg'>
-                  
                 </div>
                 <div className='w-full h-[10%]  flex justify-end gap-x-2 pr-3'>
-                
                   <button onClick={handleClickAgregarAlProductBacklogContra} className='bg-colorBotonAceptar w-60 rounded h-12 text-white font-semibold'>
                     Agregar Al Product Backlog
                   </button>

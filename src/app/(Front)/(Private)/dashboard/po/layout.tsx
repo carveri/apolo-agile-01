@@ -63,9 +63,7 @@ const linksPo = [
          
         <Sidebar
         links={linksPo}
-        //nombreEmpresa={res.at(0)?.nombreEmpresa}
-      />
-          
+      />     
         </aside>
       </section>
       <section className="w-full h-full  ">
@@ -80,7 +78,7 @@ const linksPo = [
             {session.user?.email}
           </section>
           <div className="text-white">
-            sdsd
+            {res.at(0)?.nombreEmpresa}
           </div>
       </div>
       </section>
