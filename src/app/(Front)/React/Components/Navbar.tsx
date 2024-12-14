@@ -5,8 +5,9 @@ import React from 'react'
 import { signOut } from "next-auth/react";
 import Image from 'next/image';
 
-import campana from "./../Assets/Icons/campana2.png";
+import campana from "./../Assets/Icons/campana5.png";
 import perfil from "./../Assets/Icons/perfil2.png";
+import store from "./../Assets/Icons/store.png";
 
 const Navbar = () => {
 
@@ -16,9 +17,20 @@ const Navbar = () => {
 
   return (
     <nav className='w-full h-full  grid justify-items-end '>
-        <ul className='w-44  h-full  grid grid-cols-3 place-items-center pr-16 text-colorTextoNavbar font-medium '>
+        <ul className='w-52  h-full  grid grid-cols-4 place-items-center pr-16 text-colorTextoNavbar font-medium '>
             <li >
-            <Link href={'/dashboard/perfil'}>
+                <Link href={'/dashboard/store'}>
+                    <Image 
+                        src={store}
+                        width={25}
+                        height={25}
+                        alt='campanita'
+                        
+                        />
+                </Link> 
+            </li>
+            <li >
+                <Link href={'/dashboard/perfil'}>
                     <Image 
                         src={campana}
                         width={25}
