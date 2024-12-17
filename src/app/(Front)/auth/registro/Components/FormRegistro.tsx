@@ -1,7 +1,10 @@
 'use client'
 
-
-import React from 'react'
+// interface IFormRegistro {
+//   handleSubmitRegistro: React.FormEvent<HTMLFormElement>
+//   handleChangeRegistro: React.ChangeEvent<HTMLInputElement>
+//   nombreEmpresa: string
+// }
 
 const FormRegistro = ({handleSubmitRegistro, handleChangeRegistro, nombreEmpresa}) => {
 
@@ -51,7 +54,7 @@ const FormRegistro = ({handleSubmitRegistro, handleChangeRegistro, nombreEmpresa
                 </div>
               </main>
               <div className='h-[10%] w-ful grid items-center '>
-                <button   className='h-[65%] cursor-pointer bg-[#00ff08] hover:bg-[#35e83b]  hover:duration-300 w-full text-white font-bold '>
+                <button   className='h-[60%]  rounded cursor-pointer bg-[#00ff08] hover:bg-[#35e83b]  hover:duration-300 w-full text-white font-bold '>
                   Ingresar
                 </button>
               </div>

@@ -11,13 +11,13 @@ const Diagrama = ({dataDiagramaAceptadas, dataDiagramaSprintBacklog}) => {
                 <article className='w-full h-12  bg-colorBarraSuperiorTablas text-colorTextoBarraAlta grid place-content-center'>
                     SprintBacklog
                 </article>
-                <article className='w-full h-[94%] grid grid-rows-12'>
+                <main className='w-full h-[94%] grid grid-rows-12'>
                     {dataDiagramaSprintBacklog.map((el)=>{
-                        return <div className='border border-gray-200 grid place-content-center cursor-pointer'>
+                        return <div key={el.id} className='border border-gray-200 grid place-content-center cursor-pointer'>
                             {el.nombreTarea}
                         </div>
                     })}
-                </article>
+                </main>
                 
             </section>
             <section className='w-full h-full border border-b-gray-200'>

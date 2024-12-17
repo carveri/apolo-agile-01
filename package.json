@@ -14,7 +14,6 @@
     "@dnd-kit/sortable": "^8.0.0",
     "@dnd-kit/utilities": "^3.2.2",
     "@prisma/adapter-pg": "5.22.0",
-    "@prisma/client": "5.22.0",
     "@types/bcryptjs": "2.4.6",
     "@types/sortablejs": "^1.15.8",
     "bcryptjs": "2.4.3",
@@ -30,6 +29,7 @@
     "zustand": "5.0.1"
   },
   "devDependencies": {
+    "@prisma/client": "^6.0.1",
     "@types/node": "20",
     "@types/react": "18",
     "@types/react-dom": "18",
@@ -37,7 +37,7 @@
     "eslint": "8",
     "eslint-config-next": "15.0.2",
     "postcss": "8",
-    "prisma": "5.22.0",
+    "prisma": "^6.0.1",
     "tailwindcss": "3.4.1",
     "typescript": "5"
   }

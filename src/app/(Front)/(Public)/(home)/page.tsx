@@ -34,7 +34,7 @@ const page = () => {
           <article className='text-lg w-full h-2/6 py-4 pl-2'>
             olisss ipsum dolor sit amet consectetur adipisicing elit. Facere non laboriosam, laudantium illum voluptatum adipisci reprehenderit est esse consectetur adipisicing elit. Facere non laboriosam, laudantium i
           </article>
-          <article className='w-[95%] h-1/6  grid grid-cols-2 place-items-center gap-x-4 py-3 text-tamañoLetra'>
+          <article className='w-[95%] h-[15%] grid grid-cols-2 place-items-center gap-x-4 py-3 text-tamañoLetra'>
             <MiBoton
               nombreBoton = 'HomeIngresar'  
             />

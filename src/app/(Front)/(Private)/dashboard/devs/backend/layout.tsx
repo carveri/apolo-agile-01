@@ -9,12 +9,11 @@ import { redirect } from 'next/navigation'
 //   // imagenes dev
 
     import homeDev from "../../../../React/Assets/Icons/homeDevs.png";
-   //import homeDev from "../../../React/Assets/Icons/homeDevs.png";
-   
-   import miEquipoDev from "../../../../React/Assets/Icons/devMIEquipo.png";
+    import sprintBacklogDev from "../../../../React/Assets/Icons/devSprintBacklog.png";
+    import diagrama from "../../../../React/Assets/Icons/devMIEquipo.png";
    //import miEquipoDev from "../../../React/Assets/Icons/devMIEquipo.png";
     
-   import sprintBacklogDev from "../../../../React/Assets/Icons/devSprintBacklog.png";
+   
    //import sprintBacklogDev from "../../../React/Assets/Icons/devSprintBacklog.png";
     
    import misTareasDev from "../../../../React/Assets/Icons/devMisTareas.png";
@@ -59,19 +58,25 @@ const linksDevs = [
       icono: homeDev
   },
   {
-    id:2,
-    href: '/dashboard/devs/backend/diagrama',
-    nombre: 'Diagrama',
-    icono: miEquipoDev
-},
+      id:2,
+      href: '/dashboard/devs/backend/sprintBacklog',
+      nombre: 'SprintBacklog',
+      icono: sprintBacklogDev
+  },
+  {
+      id:3,
+      href: '/dashboard/devs/backend/diagrama',
+      nombre: 'Diagrama',
+      icono: diagrama
+  },
   
 ]
 
   return (
     <div className="w-screen h-screen flex">
       <section className="w-[280px] h-full bg-[--verdecito] ">
-        <header className="h-12 w-full bg-gray-500 grid place-content-center text-[#00ff08]">
-          Apolo Scrum
+        <header className="h-12 w-full bg-colorCajaLogo grid place-content-center text-colorTextoCaja">
+          Apolo Agile
         </header>
         <aside className="w-full h-[820px] bg-gray-100 ">
          

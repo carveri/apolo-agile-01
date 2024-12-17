@@ -25,12 +25,12 @@ export const dataRegistro = [
         id:4,
         icono: alerta,
         titulo: 'La capa gratuita es por el primer mes',
-        descripcion: 'La capa gratuita de Apolo Scrum es por el primer mes y vas a poder agregar pluggins de pago de acuerdo a tus necesidades'
+        descripcion: 'La capa gratuita de Apolo Agile es por el primer mes y vas a poder agregar plugins de pago de acuerdo a tus necesidades.'
     },
     {
         id:5,
         icono: alerta,
-        titulo: 'No es necesario tarjeta de credito ni ningun otro metodo de pago.',
+        titulo: 'No es necesario tarjeta de credito ni ningun otro metodo de pago para tú prueba gratuita.',
         descripcion: ''
     },
     

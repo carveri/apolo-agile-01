@@ -1,4 +1,3 @@
-
 generator client {
   provider = "prisma-client-js"
 }
@@ -8,81 +7,65 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-
-// MODELOS 
-
 model Account {
-  id                 String  @id @default(uuid())
-  type               String
-  provider           String
-  providerAccountId  String
-  refresh_token      String?  @db.Text
-  access_token       String?  @db.Text
-  expires_at         Int?
-  token_type         String?
-  scope              String?
-  id_token           String?  @db.Text
-  session_state      String?
+  id                String  @id @default(uuid())
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String? @db.Text
+  access_token      String? @db.Text
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String? @db.Text
+  session_state     String?
+  userId            String
+  user              User    @relation(fields: [userId], references: [id], onDelete: Cascade)
 
-  // USER FUERTE VS Account
-  userId             String
-  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
   @@unique([provider, providerAccountId])
+  @@index([userId], map: "Account_userId_fkey")
 }
 
 model Session {
   id           String   @id @default(uuid())
   sessionToken String   @unique
   expires      DateTime
-
-  // USER FUERTE VS SESSION
   userId       String
   user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId], map: "Session_userId_fkey")
 }
 
 model User {
-  id            String    @id @default(uuid())
+  id              String     @id @default(uuid())
   primerNombre    String?
   segundoNombre   String?
   apellidoPaterno String?
   apellidoMaterno String?
-  rutPersonal     String? @unique
-  password      String?  @unique
-  isActive      Boolean @default(true)
-  email         String?   @unique
-  emailVerified DateTime?
-  image         String?
+  rutPersonal     String?    @unique
+  password        String?    @unique
+  isActive        Boolean    @default(true)
+  email           String?    @unique
+  emailVerified   DateTime?
+  image           String?
+  createdAt       String     @map("created_at")
+  horaAt          String     @map("hora_at")
+  updatedAt       DateTime   @updatedAt
+  empresaId       String
+  cargoId         String
+  equipoId        String
+  accounts        Account[]
+  historias       Historia[]
+  sessions        Session[]
+  tareas          Tarea[]
+  cargo           Cargo      @relation(fields: [cargoId], references: [id], onDelete: Cascade)
+  empresa         Empresa    @relation(fields: [empresaId], references: [id], onDelete: Cascade)
+  equipo          Equipo     @relation(fields: [equipoId], references: [id], onDelete: Cascade)
+  eventos         Evento[]   @relation("EventoToUser")
 
-  createdAt String @map("created_at")
-  horaAt String @map("hora_at")
-  updatedAt     DateTime @updatedAt
-
-  // ACCOUNT DEBIL VS USER
-  accounts      Account[]
-  // SESSION DEBIL VS USER
-  sessions      Session[]
-  
-  // EMPRESA FUERTE VS USUARIO
-  empresaId     String
-  empresa       Empresa @relation(fields: [empresaId], references: [id], onDelete: Cascade)
-
-  // CARGO FUERTE VS USUARIO
-  cargoId       String
-  cargo         Cargo @relation(fields: [cargoId], references: [id], onDelete: Cascade)
-  
-  // EQUIPO FUERTE VS USUARIO
-  equipoId String
-  equipo Equipo @relation(fields: [equipoId], references: [id], onDelete: Cascade)
-
-
-  // EVENTO MUCHOS A MUCHOS CON USUARIO
-  eventos Evento[]
-
-  // TAREA DEBIL VS USUARIO
-  tareas Tarea[]
-
-  // HISTORIA DEBIL VS USER
-  historias Historia[]
+  @@index([cargoId], map: "User_cargoId_fkey")
+  @@index([empresaId], map: "User_empresaId_fkey")
+  @@index([equipoId], map: "User_equipoId_fkey")
 }
 
 model VerificationToken {
@@ -93,291 +76,228 @@ model VerificationToken {
   @@unique([identifier, token])
 }
 
-// // MIOS
-
 model Area {
-  id            String    @id @default(uuid())
-  nombreArea    String 
-  isActive      Boolean @default(true)     
-
-  createdAt String @map("created_at")
-  horaAt String @map("hora_at")
-  updatedAt     DateTime @updatedAt
-
-  
-  // AREA DEBIL VS DEPARTAMENTO
+  id            String         @id @default(uuid())
+  nombreArea    String
+  isActive      Boolean        @default(true)
+  createdAt     String         @map("created_at")
+  horaAt        String         @map("hora_at")
+  updatedAt     DateTime       @updatedAt
   departamentos Departamento[]
-
-  // EQUIPO DEL VS AREA
-  equipos Equipo[]
-
-  // EMPRESA MUCHOS A MUCHOS CON AREA
-  empresas Empresa[]
-
+  equipos       Equipo[]
+  empresas      Empresa[]      @relation("AreaToEmpresa")
 }
-
 
 model Departamento {
-  id            String    @id @default(uuid())
-  nombreDepartamento String 
-  isActive      Boolean @default(true)
+  id                 String   @id @default(uuid())
+  nombreDepartamento String
+  isActive           Boolean  @default(true)
+  createdAt          String   @map("created_at")
+  horaAt             String   @map("hora_at")
+  updatedAt          DateTime @updatedAt
+  areaId             String
+  cargos             Cargo[]
+  area               Area     @relation(fields: [areaId], references: [id], onDelete: Cascade)
 
-  createdAt String @map("created_at")
-  horaAt String @map("hora_at")
-  updatedAt     DateTime @updatedAt
-
-  // AREA FUERTE VS DEPARTAMENTO
-  areaId        String
-  area          Area  @relation(fields: [areaId], references: [id], onDelete: Cascade)
-
-
-  // CARGO DEBIL VS DEPARTAMENTO
-  cargos        Cargo[]
+  @@index([areaId], map: "Departamento_areaId_fkey")
 }
 
-
-
 model Cargo {
-  id            String @id @default(uuid())
-  nombreCargo   String
-  isActive      Boolean @default(true)
-
-  createdAt String @map("created_at")
-  horaAt String @map("hora_at")
-  updatedAt     DateTime @updatedAt
-
-  // DEPARTAMENTO FUERTE VS CARGO
+  id             String       @id @default(uuid())
+  nombreCargo    String
+  isActive       Boolean      @default(true)
+  createdAt      String       @map("created_at")
+  horaAt         String       @map("hora_at")
+  updatedAt      DateTime     @updatedAt
   departamentoId String
   departamento   Departamento @relation(fields: [departamentoId], references: [id], onDelete: Cascade)
+  eventos        Evento[]
+  tareas         Tarea[]
+  usuarios       User[]
+  permisos       Permiso[]    @relation("CargoToPermiso")
 
-  // USUARIO DEBIL VS CARGO
-  usuarios User[]
-
-
-  // TAREA DEBIL VS CARGO
-  tareas Tarea[]
-
-
-  // EVENTO DEBIL VS CARGO
-  eventos Evento[]
-
-  // PERMISO MUCHOS A MUCHOS CON CARGO
-  permisos Permiso[]
+  @@index([departamentoId], map: "Cargo_departamentoId_fkey")
 }
 
 model Empresa {
-  id            String @id @default(uuid())
-  nombreEmpresa String 
+  id            String   @id @default(uuid())
+  nombreEmpresa String
   rutEmpresa    String
-  isActive      Boolean @default(true)
-
-
-  createdAt String @map("created_at")
-  horaAt String @map("hora_at")
+  isActive      Boolean  @default(true)
+  createdAt     String   @map("created_at")
+  horaAt        String   @map("hora_at")
   updatedAt     DateTime @updatedAt
-
-
-  // USUARIO DEBIL VS EMPRESA
   usuarios      User[]
-
-  // AREA MUCHOS A MUCHOS CON EMPRESA
-  areas Area[]
-
+  areas         Area[]   @relation("AreaToEmpresa")
 }
 
 model Evento {
-  id        String @id @default(uuid())
-  nombreEvento String 
-  isActive      Boolean @default(true)
+  id           String   @id @default(uuid())
+  nombreEvento String
+  isActive     Boolean  @default(true)
+  createdAt    String   @map("created_at")
+  horaAt       String   @map("hora_at")
+  updatedAt    DateTime @updatedAt
+  cargoId      String
+  cargo        Cargo    @relation(fields: [cargoId], references: [id], onDelete: Cascade)
+  usuarios     User[]   @relation("EventoToUser")
 
-  createdAt String @map("created_at")
-  horaAt String @map("hora_at")
-  updatedAt     DateTime @updatedAt
-
-  // CARGO FUERTE VS EVENTO
-  cargoId String
-  cargo Cargo @relation(fields: [cargoId], references: [id], onDelete: Cascade)
-
-  // USURIO MUCHOS A MUCHOS CON EVENTO
-  usuarios User[]
-
+  @@index([cargoId], map: "Evento_cargoId_fkey")
 }
 
-
-
 model Tarea {
-  id            String @id @default(uuid())
-  nombreTarea   String 
-  pesoTarea     Int @default(1)
-  bloqueoTarea  Boolean @default(false)
-  isActive      Boolean @default(true)
-  
-
-  createdAt String @map("created_at")
-  horaAt String @map("hora_at")
-  updatedAt     DateTime @updatedAt
-
-
-  // CARGO FUERTE TAREA
-  cargoId       String 
-  cargo         Cargo @relation(fields: [cargoId], references: [id], onDelete: Cascade)
-
-  // USUARIO FUERTE VS TAREA
-  usuarioId String
-  usuario User @relation(fields: [usuarioId],references: [id], onDelete: Cascade)
-
-  
-  // HISTORIA FUERTE VS TAREA 
-  historiaId String
-  historia Historia @relation(fields: [historiaId], references: [id], onDelete: Cascade)
-
-  // SB FUERTE VS TAREA
+  id              String        @id @default(uuid())
+  nombreTarea     String
+  pesoTarea       Int           @default(1)
+  bloqueoTarea    Boolean       @default(false)
+  isActive        Boolean       @default(true)
+  createdAt       String        @map("created_at")
+  horaAt          String        @map("hora_at")
+  updatedAt       DateTime      @updatedAt
+  cargoId         String
+  usuarioId       String
+  historiaId      String
   sprintBacklogId String
-  sprintBacklog SprintBacklog @relation(fields: [sprintBacklogId], references: [id], onDelete: Cascade)
+  cargo           Cargo         @relation(fields: [cargoId], references: [id], onDelete: Cascade)
+  historia        Historia      @relation(fields: [historiaId], references: [id], onDelete: Cascade)
+  sprintBacklog   SprintBacklog @relation(fields: [sprintBacklogId], references: [id], onDelete: Cascade)
+  usuario         User          @relation(fields: [usuarioId], references: [id], onDelete: Cascade)
+
+  @@index([cargoId], map: "Tarea_cargoId_fkey")
+  @@index([historiaId], map: "Tarea_historiaId_fkey")
+  @@index([sprintBacklogId], map: "Tarea_sprintBacklogId_fkey")
+  @@index([usuarioId], map: "Tarea_usuarioId_fkey")
 }
 
 model Equipo {
-  id String @id @default(uuid())
-  nombreEquipo  String
-  isActive      Boolean @default(true)
+  id           String   @id @default(uuid())
+  nombreEquipo String
+  createdAt    String   @map("created_at")
+  horaAt       String   @map("hora_at")
+  updatedAt    DateTime @updatedAt
+  areaId       String
+  isActive     Boolean  @default(true)
+  area         Area     @relation(fields: [areaId], references: [id], onDelete: Cascade)
+  usuarios     User[]
 
-  createdAt String @map("created_at")
-  horaAt String @map("hora_at")
-  updatedAt     DateTime @updatedAt
-
-
-  // USUARIO DEBIL VS EQUIPO
-  usuarios User[]
-
-  // AREA FUERTE VS EQUIPO
-  areaId String
-  area Area @relation(fields: [areaId], references: [id], onDelete: Cascade)
+  @@index([areaId], map: "Equipo_areaId_fkey")
 }
-
 
 model Permiso {
-  id String @id @default(uuid())
+  id            String   @id @default(uuid())
   nombrePermiso String
-  isActive      Boolean @default(true)
-
-  createdAt String @map("created_at")
-  horaAt String @map("hora_at")
+  createdAt     String   @map("created_at")
+  horaAt        String   @map("hora_at")
   updatedAt     DateTime @updatedAt
-
-  // CARGO MUCHOS A MUCHOS CON PERMISO
-  cargos Cargo[]
-
-  
-
+  isActive      Boolean  @default(true)
+  cargos        Cargo[]  @relation("CargoToPermiso")
 }
-
 
 model Historia {
-  id String @id @default(uuid())
-  nombreHistoria String
-  presupuestoHistoria Int @default(100000)
-  puntoHistoria   Int @default(10)
-  tiempoHistoria Int @default(0)
-  detalleHistoria String @default("Urgente")
-  discrepancia1 String @default("-")
-  descripcion1  String @default("-")
-  discrepancia2 String @default("-")
-  descripcion2  String @default("-")
-  
-  
-  peso1          Int @default(100)
- 
-  peso2          Int @default(100)
-  
-  peso3          Int @default(100)
-  posicion    Int @default(0)
-           
-  isActive      Boolean @default(true)
-  status       String @default("Pendiente")
+  id                  String         @id @default(uuid())
+  nombreHistoria      String
+  presupuestoHistoria Int            @default(100000)
+  puntoHistoria       Int            @default(10)
+  tiempoHistoria      Int            @default(0)
+  detalleHistoria     String         @default("Urgente")
+  discrepancia1       String         @default("-")
+  descripcion1        String         @default("-")
+  discrepancia2       String         @default("-")
+  descripcion2        String         @default("-")
+  discrepancia3       String         @default("-")
+  descripcion3        String         @default("-")
+  discrepancia4       String         @default("-")
+  descripcion4        String         @default("-")
+  createdAt           String         @map("created_at")
+  horaAt              String         @map("hora_at")
+  updatedAt           DateTime       @updatedAt
+  productBacklogId    String
+  mediumBacklogId     String
+  caracterId          String
+  userId              String
+  isActive            Boolean        @default(true)
+  status              String         @default("Pendiente")
+  peso1               Int            @default(100)
+  peso2               Int            @default(100)
+  peso3               Int            @default(100)
+  posicion            Int            @default(0)
+  como                String
+  para                String
+  quiero              String
+  caracter            Caracter       @relation(fields: [caracterId], references: [id], onDelete: Cascade)
+  productBacklog      ProductBacklog @relation(fields: [productBacklogId], references: [id], onDelete: Cascade)
+  mediumBacklog       MediumBacklog  @relation(fields: [mediumBacklogId], references: [id], onDelete: Cascade)
+  user                User           @relation(fields: [userId], references: [id], onDelete: Cascade)
+  tareas              Tarea[]
 
-  quiero     String 
-  como       String
-  para       String
-  //archivo   String @default("https://www.google.com/url?sa=i&url=https%3A%2F%2Fpixabay.com%2Fes%2Fvectors%2Ffoto-de-perfil-en-blanco-973460%2F&psig=AOvVaw3jWVjyVsqp30np_KLIL0OK&ust=1732742764070000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCKCFnPr3-okDFQAAAAAdAAAAABAE")
-
-  createdAt String @map("created_at")
-  horaAt String @map("hora_at")
-  updatedAt     DateTime @updatedAt
-
-
-  // TAREA DEBIL VS HISTORIA
-  tareas Tarea[]
-
-  // PB FUERTE VS HISTORIA 
-  productBacklogId String
-  productBacklog ProductBacklog @relation(fields: [productBacklogId], references: [id], onDelete: Cascade)
-
-  // CARACTER FUERTE VS HISTORIA 
-  caracterId String
-  caracter Caracter @relation(fields: [caracterId], references: [id], onDelete: Cascade)
-
-
-  // USER FUERTE VS HISTORIA 
-  userId String 
-  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  @@index([caracterId], map: "Historia_caracterId_fkey")
+  @@index([productBacklogId], map: "Historia_productBacklogId_fkey")
+  @@index([userId], map: "Historia_userId_fkey")
+  @@index([mediumBacklogId], map: "Historia_mediumBacklogId_fkey")
+ //@@index([productMediumBacklogId], map: "Historia_productMediumBacklogId_fkey")
 }
 
-
-
 model ProductBacklog {
-  id String @id @default(uuid())
-  nombreProductBacklog String @default("Pb")
-  isActive      Boolean @default(true)
-  createdAt String @map("created_at")
-  horaAt String @map("hora_at")
-  updatedAt     DateTime @updatedAt
-
-  // HISTORIA DEBIL VS PB
-  historias Historia[]
-
+  id                   String     @id @default(uuid())
+  nombreProductBacklog String     @default("Pb")
+  createdAt            String     @map("created_at")
+  horaAt               String     @map("hora_at")
+  updatedAt            DateTime   @updatedAt
+  isActive             Boolean    @default(true)
+  historias            Historia[]
 }
 
 model SprintBacklog {
-  id String @id @default(uuid())
-  nombreSprintBacklog String @default("Sb")
-  createdAt String @map("created_at")
-  isActive      Boolean @default(true)
-  horaAt String @map("hora_at")
-  updatedAt     DateTime @updatedAt
+  id                  String   @id @default(uuid())
+  nombreSprintBacklog String   @default("Sb")
+  createdAt           String   @map("created_at")
+  horaAt              String   @map("hora_at")
+  updatedAt           DateTime @updatedAt
+  sprintId            String
+  isActive            Boolean  @default(true)
+  sprint              Sprint   @relation(fields: [sprintId], references: [id], onDelete: Cascade)
+  tareas              Tarea[]
 
-  // TAREA DEBIL VS SB
-  tareas Tarea[]
-
-  // SPRINT FUERTE VS SB
-  sprintId String
-  sprint Sprint @relation(fields: [sprintId], references: [id], onDelete: Cascade)
-
+  @@index([sprintId], map: "SprintBacklog_sprintId_fkey")
 }
 
 model Caracter {
-  id String @id @default(uuid())
+  id             String     @id @default(uuid())
   nombreCaracter String
-  isActive      Boolean @default(true)
-
-  createdAt String @map("created_at")
-  horaAt String @map("hora_at")
-  updatedAt     DateTime @updatedAt
-
-  // HISTORIA DEBIL VS CARACTER
-  historias Historia[]
-
+  createdAt      String     @map("created_at")
+  horaAt         String     @map("hora_at")
+  updatedAt      DateTime   @updatedAt
+  isActive       Boolean    @default(true)
+  historias      Historia[]
 }
 
 model Sprint {
-  id String @id @default(uuid())
-  nombreSprint String
-  isActive      Boolean @default(true)
-
-  createdAt String @map("created_at")
-  horaAt String @map("hora_at")
-  updatedAt     DateTime @updatedAt
-
-  // SB DEBIL VS SPRINT
+  id             String          @id @default(uuid())
+  nombreSprint   String
+  createdAt      String          @map("created_at")
+  horaAt         String          @map("hora_at")
+  updatedAt      DateTime        @updatedAt
+  isActive       Boolean         @default(true)
   sprintBacklogs SprintBacklog[]
+}
 
+// nuevo
+model MediumBacklog {
+  id                   String     @id @default(uuid())
+  nombreProductBacklog String     @default("Mb")
+  createdAt            String     @map("created_at")
+  horaAt               String     @map("hora_at")
+  updatedAt            DateTime   @updatedAt
+  isActive             Boolean    @default(true)
+  historias            Historia[]
+}
+
+
+model Plugin {
+  id                   String     @id @default(uuid())
+  nombrePlugin         String     @unique
+  createdAt            String     @map("created_at")
+  horaAt               String     @map("hora_at")
+  updatedAt            DateTime   @updatedAt
+  isActive             Boolean    @default(true)
 }

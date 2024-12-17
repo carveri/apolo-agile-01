@@ -29,7 +29,7 @@ const TablaHistoriasAceptadas = ({histouseridcargo}:Ihistouseridcargo) => {
                     const updatedAt2 = format(new Date(updatedAt), 'dd/MM/yyyy')
                     //const horaIngreso = format(new Date(createdAt), 'H:mm')
                     const updatedPintar = format(new Date(updatedAt), 'H:mm')
-                    return <tr key={id} className='border border-gray-200 h-14  cursor-pointer w-full '>
+                    return <tr key={id} className='border border-gray-200 h-14   w-full '>
                       <td className='text-center'>
                         {index + 1}
                       </td>

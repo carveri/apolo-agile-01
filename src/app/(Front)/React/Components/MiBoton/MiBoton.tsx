@@ -11,7 +11,7 @@ interface IMiBoton {
   ancho: string
   alto: string
   borde: string
-  hover: string
+  hover?: string
   //nombreBoton: string
 }
 

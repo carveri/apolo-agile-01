@@ -12,7 +12,12 @@ import { dataRegistro } from '../../React/Utils/dataRegistro';
 import Link from 'next/link';
 import { dataEmpresas } from '../../React/Utils/dataEmpresas';
 import { getDataLista } from "../../React/Fetch/getDataLista";
+import { IEmpresa } from "@/app/Interfaces/IGeneral";
 
+
+// interface IEmpresa {
+
+// }
 
 const page = () => {
 
@@ -31,7 +36,7 @@ const page = () => {
     const [nombreEmpresa, setNombreEmpresa] = useState('-')
     const [password, setPassword] = useState('')
     const [confirmPassword, setConfirmPassword] = useState('')
-    const [empresa, setEmpresa] = useState([])
+    const [empresa, setEmpresa] = useState<IEmpresa[]>([])
 
 
 
@@ -47,11 +52,8 @@ const page = () => {
       traerEmpresas()
     }, [rutEmpresa])
 
-    console.log('rutempr:', rutEmpresa);
-    
-    console.log('emp:', empresa);
-    
-        
+
+          
     const handleChangeRegistro = (e:React.ChangeEvent<HTMLInputElement>)=>{
         if(e.target.name === 'primerNombre'){
           setPrimerNombre(e.target.value)
@@ -125,17 +127,11 @@ const page = () => {
         //console.log(primerNombre, segundoNombre, apellidoPaterno, apellidoMaterno,  email, rutEmpresa,  password, confirmPassword);
         const ruta = 'user'
         postData({ruta, data})
-        // console.log('cargoId:', cargoId);
-        // console.log('equipoId:', equipoId);
-        
-        // console.log('rut empresa:', rutEmpresa);
-        // console.log('nombre de empresa:', nombreEmpresa);
-        // console.log('empresa:', empresa);
-        
-        
-        //postData2({ruta2, data2})
         router.push('/api/auth/login')
     }
+
+    //console.log('empresa:', empresa);
+    
 
   return (
     <div className='w-screen h-screen bg-white grid place-items-center'>
@@ -166,7 +162,7 @@ const page = () => {
                   />
                 </header>
                 <main className='w-[90%] text-tamañoLetra'>
-                  <header className='font-bold text-blue-800 pb-1'>
+                  <header className='font-bold text-blue-800 pb-1 text-base'>
                     {el.titulo}
                   </header>
                     <article>

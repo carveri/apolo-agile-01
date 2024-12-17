@@ -21,8 +21,6 @@ class HistoriaOne {
                 descripcion1,
                 discrepancia2,
                 descripcion2,
-                discrepancia3,
-                descripcion3,
                 status,
                 peso1,
                 peso2,

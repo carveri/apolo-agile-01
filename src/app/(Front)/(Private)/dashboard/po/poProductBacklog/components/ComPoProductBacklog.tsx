@@ -69,6 +69,7 @@ const ComPoProductBacklog = ({id, resul}:IComPoProductBacklog) => {
               <td className='w-[8%] text-center'>Tiempo(dias) </td>
               <td className='w-[10%] text-center'>Presupuesto (Clp) </td>
               <td className='w-[10%] text-center'>Proximo Sprint </td> 
+              <td className='w-[5%] text-center'></td> 
             </tr>
           </thead>
           <tbody>

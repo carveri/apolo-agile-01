@@ -89,9 +89,11 @@ const page = () => {
         const peso1 = pesoTiempo
         const peso2 = pesoPresupuesto
         const ruta = 'historia'
+        //const status = 
         
-
-        const data = {id, status,tiempoHistoria, presupuestoHistoria, peso1,  peso2, discrepancia1, descripcion1, discrepancia2, descripcion2, discrepancia3}
+        //console.log({id, status, tiempoHistoria, presupuestoHistoria, peso1,  peso2, discrepancia1, descripcion1, discrepancia2, descripcion2, discrepancia3});
+        
+        const data = {id, status, tiempoHistoria, presupuestoHistoria, peso1,  peso2, discrepancia1, descripcion1, discrepancia2, descripcion2, discrepancia3}
         updateData({ruta, id, data})
         alert('Se enviaron las dicrepancias')
         router.back()
@@ -133,7 +135,7 @@ const page = () => {
     <div className='w-full h-full bg-white grid place-items-center' >
         <section className='w-[99%] h-[99%]  '>
             <header className='w-full h-[5%] bg-white py-4 pl-4'>
-                Dashboard {'>'} Product Owner {'>'} <Link className='hover:underline' href={'/dashboard/po/poNuevaTarea'}>Nuevas Tareas</Link> {'>'} Ver
+                Dashboard {'>'} Product Owner {'>'} <Link className='hover:underline' href={'/dashboard/po/poNuevaTarea'}>Nuevas Tareas</Link> {'>'} Discrepancias
             </header>
             <form  className='w-full h-[95%]  '>
                    <div className='w-[100%] h-[90%]   px-5   justify-end'>

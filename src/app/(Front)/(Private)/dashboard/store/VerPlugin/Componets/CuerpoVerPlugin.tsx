@@ -53,7 +53,7 @@ const CuerpoVerPlugin = () => {
                             4
                     </div>
                 </article>
-                <article className='w-[25%] h-full   place-items-center flex gap-x-2'>
+                <article className='w-[25%] h-full   justify-items-center items-end flex gap-x-2'>
                     <button onClick={handleClickVolverAPlugins} className='bg-colorBotonPrincipal text-colorTextoBoton w-36 h-10 rounded font-semibold'>
                         Volver a Plugins
                     </button>

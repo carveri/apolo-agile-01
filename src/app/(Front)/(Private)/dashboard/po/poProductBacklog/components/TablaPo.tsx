@@ -37,7 +37,10 @@ const TablaPo = ({id, nombreHistoria, updatedAt2, updatedPintar, tiempoHistoria,
                     {presupuestoHistoria}
                   </td>
                   <td className='text-center'>
-                    11
+                    1
+                  </td>
+                  <td>
+                    <input className="w-4 h-4 cursor-pointer" type="checkbox" />
                   </td>
                 </tr>
   )

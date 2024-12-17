@@ -21,7 +21,7 @@ const TablaHistoriasEnviadas = ({histouseridcargo}:IhistouseridcargoEnviada) => 
                 {histouseridcargo?.map((el, index)=>{
                   const {id, nombreHistoria, createdAt, status ,updatedAt, horaAt, puntoHistoria, tiempoHistoria, presupuestoHistoria} = el
                     const updatedAt2 = format(new Date(updatedAt), 'dd/MM/yyyy')
-                    return <tr key={id} className='border border-gray-200 h-14  cursor-pointer w-full '>
+                    return <tr key={id} className='border border-gray-200 h-14  w-full '>
                       <td className='text-center'>
                         {index + 1}
                       </td>

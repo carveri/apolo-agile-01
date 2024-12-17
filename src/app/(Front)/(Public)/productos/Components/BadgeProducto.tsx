@@ -1,6 +1,21 @@
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 
-const BadgeProducto = ({el}) => {
+interface IDataProductos {
+    id:number,
+    nombre: string,
+    icono: StaticImageData,
+    descripcion: string
+}
+
+export interface IEDataProductos {
+    el: IDataProductos
+}
+
+
+
+const BadgeProducto = ({el}:IEDataProductos) => {
+
+
   return (
     <div className='w-full h-full border border-gray-200 flex rounded py-4 cursor-pointer hover:shadow-md'>
         <section className="w-1/5 h-full grid place-items-center ">
