@@ -91,7 +91,7 @@ const linksAdmin = [
             {session.user?.email}
           </section>
           <div className="text-colorTextoBarraBaja font-semibold">
-            {user?.name}
+            Administración
           </div>
       </div>
       </section>

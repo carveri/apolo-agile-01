@@ -11,17 +11,17 @@ export const dataExterno = [
     },
     {
         id:2,
-        nombreExterno: 'Csv',
+        nombreExterno: 'Archivo Csv',
         logoExterno: iconoCsv
     },
     {
         id:3,
-        nombreExterno: 'Drive',
+        nombreExterno: 'Google Drive',
         logoExterno: iconoDrive
     },
     {
         id:4,
-        nombreExterno: 'OneDrive',
+        nombreExterno: 'Microsoft OneDrive',
         logoExterno: iconoOneDrive
     },
 

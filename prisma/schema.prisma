@@ -224,6 +224,7 @@ model Historia {
   como                String
   para                String
   quiero              String
+  archivoApoyo        String         @default("vacio")
   caracter            Caracter       @relation(fields: [caracterId], references: [id], onDelete: Cascade)
   productBacklog      ProductBacklog @relation(fields: [productBacklogId], references: [id], onDelete: Cascade)
   mediumBacklog       MediumBacklog  @relation(fields: [mediumBacklogId], references: [id], onDelete: Cascade)
@@ -234,7 +235,7 @@ model Historia {
   @@index([productBacklogId], map: "Historia_productBacklogId_fkey")
   @@index([userId], map: "Historia_userId_fkey")
   @@index([mediumBacklogId], map: "Historia_mediumBacklogId_fkey")
- //@@index([productMediumBacklogId], map: "Historia_productMediumBacklogId_fkey")
+  
 }
 
 model ProductBacklog {
@@ -281,10 +282,10 @@ model Sprint {
   sprintBacklogs SprintBacklog[]
 }
 
-// nuevo
+// // nuevo
 model MediumBacklog {
   id                   String     @id @default(uuid())
-  nombreProductBacklog String     @default("Mb")
+  nombreMediumBacklog  String     @default("Mb")
   createdAt            String     @map("created_at")
   horaAt               String     @map("hora_at")
   updatedAt            DateTime   @updatedAt
@@ -301,3 +302,8 @@ model Plugin {
   updatedAt            DateTime   @updatedAt
   isActive             Boolean    @default(true)
 }
+
+// model Prueba {
+//   id             String          @id @default(uuid())
+//   nombrePrueba   String  @default("ojala ctm")
+// }

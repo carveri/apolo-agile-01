@@ -17,7 +17,7 @@ const page = async() => {
   return (
     <ComAdmin
       logicaTabla={logicaTabla}
-      nombre = 'Devs'
+      nombre = 'Desarrolladores'
       url = '68b9247a-5884-46e7-a66f-3341b640469b'
       id= {id}
       res={res}

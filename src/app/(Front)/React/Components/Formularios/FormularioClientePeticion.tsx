@@ -116,6 +116,7 @@ const FormularioClientePeticion = ({id, areaId, email}:IFormularioClientePeticio
 
 
     const productBacklogId = '1af659a1-06b9-46e7-94fb-2220d8f5f0b8'
+    const mediumBacklogId = '05328597-2cd3-4eb6-be0c-1b1e5d1ec985'
 
 
 
@@ -128,7 +129,7 @@ const FormularioClientePeticion = ({id, areaId, email}:IFormularioClientePeticio
     const handleSumbitCliente =(e:React.FormEvent<HTMLFormElement>)=>{
         e.preventDefault()    
         const userId = id
-        const data = { nombreHistoria, quiero, para, como, presupuestoHistoria, puntoHistoria, tiempoHistoria,  detalleHistoria, productBacklogId, caracterId, userId}
+        const data = { nombreHistoria, mediumBacklogId, quiero, para, como, presupuestoHistoria, puntoHistoria, tiempoHistoria,  detalleHistoria, productBacklogId, caracterId, userId}
         console.log(data);
         
         const ruta = 'historia'

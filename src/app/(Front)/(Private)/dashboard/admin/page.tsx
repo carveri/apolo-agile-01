@@ -19,12 +19,12 @@ const page = async() => {
   const {id, name, email, image} = user
 
   return (
-    // <Formulario
-    //   id= {id}
-    // />
-    <CuerpoAdminIngresar
-      // id={id}
-    />
+    <div className=" w-full h-full">
+      <CuerpoAdminIngresar
+     />
+    </div>
+      
+    
 )}
 
 export default page
