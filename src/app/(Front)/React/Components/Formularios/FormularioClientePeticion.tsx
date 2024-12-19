@@ -146,7 +146,7 @@ const FormularioClientePeticion = ({id, areaId, email}:IFormularioClientePeticio
                         <header className='w-full h-[10%]  grid place-content-center text-base'>
                             Información de la petición 
                         </header>
-                        <div className='w-full h-[70%] grid grid-rows-4 px-8 mt-4'>
+                        <div className='w-full h-[70%] grid grid-rows-5 px-8 mt-4'>
                             <article className='grid grid-rows-2 pb-3'>
                                 <label  htmlFor="">Nombre de la petición (Historia de usuario):</label>
                                     
@@ -171,6 +171,12 @@ const FormularioClientePeticion = ({id, areaId, email}:IFormularioClientePeticio
                                     
                                     
                                 <input name="para" onChange={handleChangeCliente} className="pl-3 py-4 rounded-md bg-white border border-gray-200   grid content-center" type="text" placeholder="Filtrar vacaciones de empleados entre dos fechas dadas."/>
+                            </article>
+                            <article className='grid grid-rows-2 pb-3'>
+                                <label  htmlFor="">Archivo de apoyo:</label>
+                                    
+                                    
+                                <input name="archivoApoyo" onChange={handleChangeCliente} className="file:h-9 file:px-3 file:rounded  file:text-tamañoLetra font-semibold  file:border-none   file:bg-colorBotonPrincipal file:text-white text-colorTextoTitulo1  file:cursor-pointer " accept=".jpg, .png, .webp" type="file" />
                             </article>
                             
                         </div>

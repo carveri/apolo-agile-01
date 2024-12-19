@@ -24,7 +24,7 @@ const linksAdmin = [
     {
         id:1,
         href: '/dashboard/admin',
-        nombre: 'Nuevo Usuario',
+        nombre: 'Ingresar Usuarios',
         icono: nuevoUsuarioAdmin
     },
     {

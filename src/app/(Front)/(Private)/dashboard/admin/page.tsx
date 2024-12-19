@@ -3,6 +3,7 @@ import Formulario from "@/app/(Front)/React/Components/Formularios/Formulario";
 import { ISession } from "@/app/Interfaces/ISession";
 import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
+import CuerpoAdminIngresar from "./IngresarUsuario/CuerpoAdminIngresar";
 
 
 const page = async() => {
@@ -18,8 +19,11 @@ const page = async() => {
   const {id, name, email, image} = user
 
   return (
-    <Formulario
-      id= {id}
+    // <Formulario
+    //   id= {id}
+    // />
+    <CuerpoAdminIngresar
+      // id={id}
     />
 )}
 
