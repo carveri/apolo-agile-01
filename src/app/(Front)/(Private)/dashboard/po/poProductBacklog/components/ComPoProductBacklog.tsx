@@ -7,6 +7,7 @@ import { useEffect } from "react"
 import { format } from "date-fns";
 import TablaPo from "./TablaPo"
 import { IComPoProductBacklog } from "@/app/Interfaces/IPoProductBacklog"
+import BadgeNoAun from "@/app/(Front)/React/Components/BadgeNoAun/BadgeNoAun"
 
 const ComPoProductBacklog = ({id, resul}:IComPoProductBacklog) => {
 
@@ -52,6 +53,7 @@ const ComPoProductBacklog = ({id, resul}:IComPoProductBacklog) => {
               {format(new Date(), 'dd/MM/yyyy')}
             </div>
           </header>
+          
           <div className='flex'>
 
           
@@ -107,8 +109,12 @@ const ComPoProductBacklog = ({id, resul}:IComPoProductBacklog) => {
           </button>
         </div>
       </section>
-  </div>: <div>
-   sd
+  </div>: 
+  <div>
+
+   <BadgeNoAun
+    nombre='en el Product Backlog'
+   />
   </div>
   }
     </DndContext>

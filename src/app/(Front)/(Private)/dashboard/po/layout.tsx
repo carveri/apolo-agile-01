@@ -41,7 +41,7 @@ const linksPo = [
   {
       id:4,
       href: '/dashboard/po/poContraOfertas',
-      nombre: 'Controfertas',
+      nombre: 'ContraOfertas',
       icono: gestionTareasPo
   },
   {
@@ -78,7 +78,7 @@ const linksPo = [
             {session.user?.email}
           </section>
           <div className="text-white">
-            {res.at(0)?.nombreEmpresa}
+            Product Owner
           </div>
       </div>
       </section>

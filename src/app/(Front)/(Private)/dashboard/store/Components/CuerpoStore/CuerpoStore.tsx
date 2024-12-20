@@ -5,7 +5,7 @@ const CuerpoStore = () => {
   return (
     <div className='w-[88%] h-full bg-gray-50 ' >
         <header className=' w-full h-[8%] grid place-content-center  text-colorTextoNavbar font-semibold'>
-            Plugins
+            Plugin Store
         </header>
         <main className='w-full h-[92%] '>
             <section className='w-full h-[7%]  flex items-center px-3'>
@@ -19,17 +19,13 @@ const CuerpoStore = () => {
                 <article className='w-[10%] h-8 border border-b-colorTextoNavbar  grid place-content-center mr-3 cursor-pointer'>
                     Departamento
                 </article>
-                {/* <article className='w-[10%] h-8 border border-b-colorTextoNavbar grid place-content-center cursor-pointer'>
-                    Clasificación
-                </article> */}
             </section>
             <section className='w-full h-[93%] '>
-                <div className='w-full h-[8%]  grid place-content-center text-gray-700'>
+                <div className='w-full h-[8%]  grid place-content-center text-colorTextoNavbar font-semibold'>
                     Todos los Plugins
                 </div>
                 <section className="w-full h-[92%] grid grid-cols-2  gap-5 p-2  z-30 mt-3  top-28 left-3/5 max-h-[610px] overflow-auto">
                     {dataPlugins.map((el)=>{
-
                         return <BadgeStore
                             el={el}
                             key={el.id}

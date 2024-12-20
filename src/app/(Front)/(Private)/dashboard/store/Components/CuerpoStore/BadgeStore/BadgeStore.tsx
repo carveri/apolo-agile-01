@@ -34,8 +34,8 @@ const BadgeStore = ({el}:IEBadgeStore) => {
 
   return (
     <div className='border border-gray-200 w-full h-72 text-tamañoLetra p-2 bg-white'>
-      <section className='w-full h-[40%]  flex'>
-        <article className='w-[25%] border border-gray-200 grid place-content-center'>
+      <section className='w-full h-[40%]  flex '>
+        <article className='w-[25%]  grid place-content-center'>
           <Image
             alt="as"
             src={el.imagenPlugin}
@@ -44,7 +44,7 @@ const BadgeStore = ({el}:IEBadgeStore) => {
           
           />
         </article>
-        <article className='w-[75%]  pl-3 grid grid-rows-3 py-2'>
+        <article className='w-[75%]  pl-3 grid grid-rows-3 py-2 '>
           <div className="font-semibold text-base text-colorTextoTitulo1">
             {el?.nombrePlugin}
           </div>
@@ -63,7 +63,7 @@ const BadgeStore = ({el}:IEBadgeStore) => {
             </div>
         </article>
       </section>
-      <section className='w-full h-[35%]'>
+      <section className='w-full h-[35%] mt-4'>
           {el.descripcionPlugin}
       </section>
       <section className='w-full h-[35%] flex justify-end pr-2'>

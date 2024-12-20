@@ -84,7 +84,7 @@ const linksTecnico = [
           {session.user?.email}
           </section>
           <div className="text-white">
-          {user?.name}
+          Finanzas
           </div>
       </div>
       </section>

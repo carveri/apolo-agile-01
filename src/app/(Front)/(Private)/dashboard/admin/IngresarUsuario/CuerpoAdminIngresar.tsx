@@ -29,23 +29,23 @@ const CuerpoAdminIngresar = () => {
                     </div>
                   </header>
       <div className="w-[97%] h-[90%] grid grid-cols-2 justify-items-center ml-5">
-        <section className="w-[100%] h-[65%]  rounded mt-10">
+        <section className="w-[100%] h-[65%]  rounded mt-10 ">
           <header className="w-full h-8 grid place-content-center font-semibold  text-gray-500">Importar Usuarios</header>
           <div className="w-full h-full grid  grid-rows-2 grid-cols-2 py-5 gap-9">
             {dataExterno.map((el)=>{
-              return <div key={el.id}  className="pb-3 pt-5 grid place-items-center shadow-lg rounded cursor-pointer hover:shadow-xl">
+              return <div key={el.id}  className="pb-3 pt-5 grid place-items-center shadow-lg border border-gray-100 rounded cursor-pointer hover:shadow-xl">
                 <Image
                   className=""
                   src={el.logoExterno}
                   alt="asa"
-                  width={35}
-                  height={35}
+                  width={40}
+                  height={40}
                 />
                 <div className="text-xs">
                   {el?.nombreExterno}
                 </div>
                 <div className="text-center">
-                  <input type="file" className="file:h-8 file:hover:bg-colorFormularioLogin file:px-3 file:rounded flex text-xs file:text-xs font-semibold  file:border-none   file:bg-colorBotonPrincipal file:text-white text-colorTextoTitulo1  file:cursor-pointer " accept=".csv"/>
+                  <input type="file"  className=" file:h-8  file:mr-1 file:hover:bg-colorFormularioLogin file:px-3 file:rounded flex text-xs file:text-xs font-semibold  file:border-none   file:bg-colorBotonPrincipal file:text-white text-colorTextoTitulo1  file:cursor-pointer " />
                 </div>
                 
               </div>
@@ -53,14 +53,13 @@ const CuerpoAdminIngresar = () => {
           </div>
           
         </section>
-        <section className="w-[60%] h-[25%]  rounded shadow-md grid grid-content-center mt-56 py-5">
+        <section className="w-[60%] h-[25%]  rounded shadow-md border border-gray-100 grid grid-content-center mt-56 py-5">
           <div className="grid justify-center">
           <Image
               src={iconoAgregarManual}
               alt="as"
               width={45}
               height={45}
-              
             />
           </div>
           <div className='w-full h-8 grid place-items-center font-semibold  text-gray-500'>

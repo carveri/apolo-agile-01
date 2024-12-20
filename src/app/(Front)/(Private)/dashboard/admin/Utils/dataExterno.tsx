@@ -1,4 +1,4 @@
-import iconoExcel from "../../../../React/Assets/Icons/iconoExcel.png";
+import iconoExcel from "../../../../React/Assets/Icons/iconoExcel2.webp";
 import iconoCsv from "../../../../React/Assets/Icons/iconoCsv.png";
 import iconoDrive from "../../../../React/Assets/Icons/iconoDrive.png";
 import iconoOneDrive from "../../../../React/Assets/Icons/iconoOneDrive.webp";
@@ -6,7 +6,7 @@ import iconoOneDrive from "../../../../React/Assets/Icons/iconoOneDrive.webp";
 export const dataExterno = [
     {
         id:1,
-        nombreExterno: 'Excel',
+        nombreExterno: 'Microsoft Excel',
         logoExterno: iconoExcel
     },
     {

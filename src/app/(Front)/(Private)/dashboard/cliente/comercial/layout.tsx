@@ -83,7 +83,7 @@ const linksTecnico = [
             {session.user?.email}
           </section>
           <div className="text-white">
-            {user?.name}
+            Comercial
           </div>
       </div>
       </section>

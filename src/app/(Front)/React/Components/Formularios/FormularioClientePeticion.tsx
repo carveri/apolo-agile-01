@@ -147,7 +147,7 @@ const FormularioClientePeticion = ({id, areaId, email}:IFormularioClientePeticio
                         <header className='w-full h-[10%]  grid place-content-center text-base'>
                             Información de la petición 
                         </header>
-                        <div className='w-full h-[70%] grid grid-rows-5 px-8 mt-4'>
+                        <div className='w-full h-[80%] grid grid-rows-5 px-8 mt-4'>
                             <article className='grid grid-rows-2 pb-3'>
                                 <label  htmlFor="">Nombre de la petición (Historia de usuario):</label>
                                     
