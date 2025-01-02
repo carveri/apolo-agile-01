@@ -152,7 +152,7 @@ const FormularioClientePeticion = ({id, areaId, email}:IFormularioClientePeticio
                                 <label  htmlFor="">Nombre de la petición (Historia de usuario):</label>
                                     
                                     
-                                <input name="nombreHistoria" onChange={handleChangeCliente} className="pl-3 py-4 rounded-md bg-white border border-gray-200   grid content-center" type="text" placeholder="Agregar calendario. "/>
+                                <input name="nombreHistoria" onChange={handleChangeCliente} className="pl-3 py-4 rounded-md bg-white border border-gray-200   grid content-center "  type="text" placeholder="Agregar calendario. "/>
                             </article>
                             
                             <article className='grid grid-rows-2 pb-3'>

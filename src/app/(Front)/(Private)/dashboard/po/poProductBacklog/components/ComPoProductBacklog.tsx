@@ -3,7 +3,7 @@
 import { useHistoriaPo } from "@/app/(Front)/(Private)/[stores]/poStore"
 import { closestCenter, DndContext } from "@dnd-kit/core"
 import { arrayMove, SortableContext, verticalListSortingStrategy } from "@dnd-kit/sortable"
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import { format } from "date-fns";
 import TablaPo from "./TablaPo"
 import { IComPoProductBacklog } from "@/app/Interfaces/IPoProductBacklog"
@@ -12,6 +12,12 @@ import BadgeNoAun from "@/app/(Front)/React/Components/BadgeNoAun/BadgeNoAun"
 const ComPoProductBacklog = ({id, resul}:IComPoProductBacklog) => {
 
   const {historiaBacklog,getHistoriaBacklog, updatedHistoriaProductBacklog} = useHistoriaPo()
+
+  const [checkedOn, setCheckedOn] = useState(false)
+  const [numero, setNumero] = useState(0)
+
+  console.log('histodios:', historiaBacklog);
+  
 
   useEffect(()=>{
     getHistoriaBacklog(resul)
@@ -26,11 +32,34 @@ const ComPoProductBacklog = ({id, resul}:IComPoProductBacklog) => {
     updatedHistoriaProductBacklog(newOrder)  
        
   }
-  console.log('histoFinal:', historiaBacklog);
-  console.log('iddd;', id);
-  console.log('resulll;', resul);
+
+  const handleChangeCkecked =(e:React.ChangeEvent<HTMLInputElement>)=>{
+    console.log(e.target.value);
+    
+  }
   
-  
+  // const handleClickGo =()=>{
+  //   //console.log('as');
+  //   setCheckedOn(true)
+  //   //setNumero(0)
+    
+  // }
+
+  const handleChangeNumero =(e:React.ChangeEvent<HTMLInputElement>)=>{
+    setNumero(e.target.valueAsNumber)
+  }
+
+  const cortarBacklog =()=>{
+    return historiaBacklog.slice(0, numero)
+  }
+
+  const handleClickConfirmSB =()=>{
+    //console.log(historiaBacklog);
+    console.log(cortarBacklog());
+    
+    
+    
+  }
 
   return (
     <DndContext collisionDetection={closestCenter} onDragEnd={handleDrawEnd}>
@@ -58,8 +87,12 @@ const ComPoProductBacklog = ({id, resul}:IComPoProductBacklog) => {
 
           
         <div className='w-[98%] h-[90%]  z-30  top-32 left-3/5 max-h-[618px] overflow-auto -mt-8 '>
-        
-        <table className='border border-gray-200   w-[98%] ml-8 '>
+        <div className="w-[98%] ml-8 h-11 bg-gray-50 flex justify-end px-2 ">
+          <label className="py-3 mr-2 font-semibold text-blue-900" htmlFor="">N° Historias:</label>
+          <input min={1} max={historiaBacklog.length} onChange={handleChangeNumero} className="w-10 font-bold pl-3 my-1 border rounded border-gray-200 mr-2 text-violet-900" type="number" />
+          {/* <button className="bg-colorTextoAceptada rounded text-colorTextoBoton w-10 h-9 my-1 font-bold hover:bg-green-600" >Go</button> */}
+        </div>
+        <table className='border border-gray-200  w-[98%] ml-8 '>
           <thead>
             <tr className='h-14'>
               <td className='w-[8%] text-center'>Posición</td>
@@ -96,6 +129,9 @@ const ComPoProductBacklog = ({id, resul}:IComPoProductBacklog) => {
                   updatedAt2 = {updatedAt2}
                   updatedPintar = {updatedPintar}
                   user={user}
+                  checkedOn={checkedOn}
+                  handleChangeCkecked={handleChangeCkecked}
+                  //numero={numero}
                 />
               </SortableContext>
             })}
@@ -103,10 +139,12 @@ const ComPoProductBacklog = ({id, resul}:IComPoProductBacklog) => {
         </table>
       </div>
       </div>
-        <div className='h-[10%]  grid justify-end mt-4'>
-          <button className='bg-colorBotonAceptar h-[60%] w-60 rounded mr-14 mt-5 text-colorTextoBoton font-semibold hover:bg-hoverColorBotonAceptar'>
-            Confirmar Sprint Backlog
-          </button>
+        <div className='h-[10%]  grid justify-end  mt-4 '>
+          {numero>0 && numero<= historiaBacklog.length &&
+            <button onClick={handleClickConfirmSB} className='bg-colorBotonAceptar  h-[60%] w-60 rounded mr-14 mt-5 text-colorTextoBoton font-semibold hover:bg-hoverColorBotonAceptar'>
+              Confirmar Sprint Backlog
+            </button>
+          }
         </div>
       </section>
   </div>: 

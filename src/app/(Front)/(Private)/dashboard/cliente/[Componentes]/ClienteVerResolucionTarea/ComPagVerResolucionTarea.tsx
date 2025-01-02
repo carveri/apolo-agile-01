@@ -123,7 +123,7 @@ const ComPagVerResolucionTarea = ({nombre}:any) => {
         <header className='w-full h-[5%] bg-white py-4 pb-10 pl-6 '>
             Dashboard {'>'} Clientes {'>'} {nombre} {'>'} Resolucion Tarea {'>'} Ver
           </header>
-          <main className='w-full h-[95%] '>
+          <main className='w-full h-[95%] px-7'>
             <div className='h-14 mx-6 bg-colorBarraSuperiorTablas grid place-content-center text-colorTextoBarraAlta font-semibold'>
                 Resolución de Historia Retornada
             </div>

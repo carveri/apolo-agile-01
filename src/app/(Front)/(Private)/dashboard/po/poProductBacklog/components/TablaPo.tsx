@@ -4,11 +4,11 @@ import { CSS } from "@dnd-kit/utilities";
 import { useSortable} from "@dnd-kit/sortable";
 import { ITablaPoProductBacklog } from "@/app/Interfaces/IPoProductBacklog";
 
-const TablaPo = ({id, nombreHistoria, updatedAt2, updatedPintar, tiempoHistoria, user, presupuestoHistoria, status, index, createdAt, updatedAt, horaAt}:ITablaPoProductBacklog) => {
+const TablaPo = ({id, nombreHistoria, handleChangeCkecked, updatedAt2, checkedOn, updatedPintar, tiempoHistoria, user, presupuestoHistoria, status, index, createdAt, updatedAt, horaAt}:ITablaPoProductBacklog) => {
     
   
-    const {attributes, listeners, setNodeRef, transform, transition} = useSortable({id: id})
-  
+    const {attributes,  listeners, setNodeRef, transform, transition} = useSortable({id: id})
+ 
     return (
         <tr  style={{transform: CSS.Transform.toString(transform), transition}} ref={setNodeRef} {...attributes} {...listeners}  className='border border-gray-200 h-14  cursor-move hover:bg-colorHoverLista'>
                   <td className='text-center text-blue-500 font-semibold'>
@@ -40,7 +40,7 @@ const TablaPo = ({id, nombreHistoria, updatedAt2, updatedPintar, tiempoHistoria,
                     1
                   </td>
                   <td>
-                    <input className="w-4 h-4 cursor-pointer" type="checkbox" />
+                    <input onChange={handleChangeCkecked} disabled   checked={checkedOn?.valueOf(2)}  className="w-4 h-4 cursor-pointer bg-red-400" type="checkbox" />
                   </td>
                 </tr>
   )

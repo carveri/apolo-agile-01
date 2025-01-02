@@ -2,9 +2,9 @@ import React from 'react'
 
 const Diagrama = ({dataDiagramaAceptadas, dataDiagramaSprintBacklog}) => {
   return (
-    <div className='w-full h-full '>
-        <header className='w-full h-12  grid place-content-center'>
-            Diagrama 
+    <div className='w-full h-full px-5'>
+        <header className='w-full h-14  grid place-content-center'>
+            Diagrama de Trabajo
         </header>
         <main className='w-full h-[94%]  grid grid-cols-6'>
             <section className='w-full h-full border border-b-gray-200'>
@@ -26,7 +26,7 @@ const Diagrama = ({dataDiagramaAceptadas, dataDiagramaSprintBacklog}) => {
                 </article>
                 <article className='w-full h-[95%] grid grid-rows-12'>
                     {dataDiagramaAceptadas.map((el)=>{
-                        return <div className='border border-gray-200 grid place-content-center cursor-pointer'>
+                        return <div key={el.id} className='border border-gray-200 grid place-content-center cursor-pointer'>
                             {el.nombreTarea}
                         </div>
                     })}

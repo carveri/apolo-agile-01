@@ -20,5 +20,6 @@ export interface ITablaPoProductBacklog {
     createdAt: string 
     updatedAt: string 
     horaAt: string
-
+    checkedOn?: boolean
+    handleChangeCkecked?: ()=>void
 }

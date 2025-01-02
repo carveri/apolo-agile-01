@@ -55,7 +55,7 @@ const ComClienteResolucionTarea = ({id, resul}:IComPageHistoriasResolucion) => {
         </main>
     </section>: 
           <BadgeNoAun
-          nombre = 'Retornada'
+          nombre = 'Retornadas'
         />
                   
       }

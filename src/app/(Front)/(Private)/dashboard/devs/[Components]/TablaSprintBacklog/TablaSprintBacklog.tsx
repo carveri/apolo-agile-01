@@ -21,12 +21,12 @@ const TablaSprintBacklog = ({id, resul}) => {
 
   return (
     <>
-        <header className='w-[95%] h-14 bg-colorBarraSuperiorTablas font-semibold text-colorTextoBarraAlta grid place-content-center mt-6'>
+        <header className='w-[95%] h-14 bg-colorBarraSuperiorTablas grid place-content-center font-semibold text-colorTextoBarraAlta mt-6'>
             SprintBacklog
         </header>
-        <div  className='w-[95%] h-[93%]  z-30  top-32 left-3/5 max-h-[690px] overflow-auto '>
+        <div  className='w-[95%] h-[93%]   left-3/5 max-h-[690px]'>
             
-            <table className='border border-gray-200   w-[100%]  '>
+            <table className='border border-gray-200 h-full   w-[100%]  '>
                         <thead>
                         <tr className='h-14'>
                         <td className='w-[8%] text-center'>Posición</td>

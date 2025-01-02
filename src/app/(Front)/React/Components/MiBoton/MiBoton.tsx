@@ -1,8 +1,10 @@
 'use client'
 
+import { useState } from "react";
 import { deleteData } from "../../Fetch/deleteData";
 import { logicaMiBoton } from "./logicaMiBoton";
 import { useRouter } from "next/navigation";
+import ModalGestionUsuario from "@/app/(Front)/(Private)/dashboard/admin/[Components]/ModalGestionUsuario";
 
 interface IMiBoton {
   texto: string 
@@ -12,6 +14,7 @@ interface IMiBoton {
   alto: string
   borde: string
   hover?: string
+  el?: any
   //nombreBoton: string
 }
 
@@ -20,6 +23,9 @@ interface IMiBoton {
 const MiBoton = ({ nombreBoton}) => {
 
   const router = useRouter()
+
+  const [activarModal, setActivarModal] = useState(false)
+  
 
   const { texto, color, bgColor, ancho, alto, borde }:IMiBoton = logicaMiBoton(nombreBoton)
   
@@ -34,19 +40,30 @@ const MiBoton = ({ nombreBoton}) => {
       console.log('soy el bot de prueba'); 
     }
     else if(e.target.name === 'Actualizar'){
-      console.log('soy el bot de prueba'); 
+      console.log('el.id'); 
+      setActivarModal(true)
     }
     else if(e.target.name === 'Eliminar'){
-      console.log('borrar');
+      // const ruta = 'user'
+      // const url = ''
+      //deleteData()
+      console.log('as');
+      
       
     }
 
   }
 
   return (
-    <button style={{background: `var(${bgColor})`, width: `${ancho}`, height: `${alto}`, borderRadius: `${borde}`, color: `${color}`, fontWeight: 'bold'}} name={nombreBoton} onClick={handleClickMiBoton} >
+    <>
+      <button className="grid place-content-center" style={{background: `var(${bgColor})`, width: `${ancho}`, height: `${alto}`, borderRadius: `${borde}`, color: `${color}`, fontWeight: 'bold'}} name={nombreBoton} onClick={handleClickMiBoton} >
       {texto}
     </button>
+    <ModalGestionUsuario
+      isOpen = {activarModal}
+      onClose = {activarModal}
+    />{}
+    </>
   )
 }
 

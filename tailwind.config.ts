@@ -59,11 +59,13 @@ const config: Config = {
 
       },
         fontSize:{
-          'tamañoLetra': '0.875rem'
+          'tamañoLetra': '0.860rem',
+          
         }
     },
     
   },
+  
   plugins: [],
 };
 export default config;

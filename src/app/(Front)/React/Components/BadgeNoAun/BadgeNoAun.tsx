@@ -5,7 +5,7 @@ import diagramaVacio from "../../Assets/Icons/diagramaVacio2.png";
 
 const BadgeNoAun = ({nombre}) => {
   return (
-    <div className='w-full h-[400px] grid content-end justify-center text-xl '>
+    <div className='w-full h-[350px] grid content-end justify-center text-xl '>
       <div className='flex justify-center'>
         <Image
           src={diagramaVacio}

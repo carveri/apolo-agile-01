@@ -65,11 +65,11 @@ const linksAdmin = [
 
   return (
     <div className="w-screen h-screen flex">
-      <section className="w-[280px] h-full bg-[--verdecito] ">
+      <section className="w-[280px]  h-full bg-[--verdecito] ">
         <header className="h-12 w-full bg-colorCajaLogo grid place-content-center text-colorTextoCaja ">
         <div className="text-sm text-center">Apolo Agile</div> <div className="text-[9px] text-center  text-white">{res.at(0)?.nombreEmpresa}</div>
         </header>
-        <aside className="w-full h-[820px] bg-gray-100 "> 
+        <aside className="w-full h-[820px] bg-gray-100 grid self-end "> 
         <Sidebar
           links={linksAdmin}
       />  

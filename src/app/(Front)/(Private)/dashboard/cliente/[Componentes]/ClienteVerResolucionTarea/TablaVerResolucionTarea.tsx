@@ -3,17 +3,17 @@ import { IVerResolucionTarea } from "@/app/Interfaces/IVerResolucionTarea"
 const TablaVerResolucionTarea = ({historia,peso1, peso2, handleChangeVerResuTarea, pesoTiempo, pesoPresupuesto}:IVerResolucionTarea) => {
   
   return (
-    <table className='border border-gray-200 h-[40%]  w-[97%]  ml-6'>
+    <table className='border border-gray-200 h-[40%]  w-[97%]  ml-6 '>
                     <thead>
                       <tr className='h-14'>
-                        <td className='w-[7%]  pl-3'>Numero</td>
-                        <td className='w-[10%] pl-8'>Nombre Historia</td>
+                        <td className='w-[5%]  pl-3'>Numero</td>
+                        <td className='w-[12%] pl-8'>Nombre Historia</td>
                         <td className='w-[13%] text-center'>Discrepancias</td>
                         <td className='w-[10%] text-center'>Propuesta del Po($)</td>
                         <td className='w-[10%] text-center'>Nueva oferta($)</td>
                         <td className='w-[10%] text-center'>Peso Oferta</td>
                         <td className='w-[10%] text-center'>Peso Discrepancia (%)</td>
-                        <td className='w-[27%] text-center'>Descripciónes</td>
+                        <td className='w-[25%] text-center'>Descripciónes</td>
                       </tr>
                     </thead>
                     <tbody>

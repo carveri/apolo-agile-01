@@ -12,6 +12,11 @@ const geistMono = localFont({
   variable: "--font-geist-mono",
   weight: "100 900",
 });
+const geistRoboto = localFont({
+  src: "./fonts/GeistRobotoVF.woff",
+  variable: "--font-geist-roboto",
+  weight: "100 900",
+});
 
 export const metadata: Metadata = {
   title: "Apolo Agile",
@@ -26,7 +31,7 @@ export default function RootLayout({
   return (
     <html lang="es">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistMono.variable}  antialiased`}
       >
         {children}
       </body>

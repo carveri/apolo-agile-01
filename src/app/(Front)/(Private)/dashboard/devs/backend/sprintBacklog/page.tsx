@@ -11,7 +11,7 @@ const page = async() => {
      <header className='w-full h-[5%] bg-white py-4 pl-4'>
         Dashboard {'>'} Devs {'>'} Backend {'>'} SprintBacklog
     </header>
-    <div className='w-[100%] h-[90%] grid justify-items-center '>
+    <div className='w-[100%] h-[90%]   '>
         <TablaSprintBacklog
         id={id}
         resul={res}

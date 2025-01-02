@@ -119,17 +119,7 @@ model Cargo {
   @@index([departamentoId], map: "Cargo_departamentoId_fkey")
 }
 
-model Empresa {
-  id            String   @id @default(uuid())
-  nombreEmpresa String
-  rutEmpresa    String
-  isActive      Boolean  @default(true)
-  createdAt     String   @map("created_at")
-  horaAt        String   @map("hora_at")
-  updatedAt     DateTime @updatedAt
-  usuarios      User[]
-  areas         Area[]   @relation("AreaToEmpresa")
-}
+
 
 model Evento {
   id           String   @id @default(uuid())
@@ -238,6 +228,22 @@ model Historia {
   
 }
 
+model Empresa {
+  id            String   @id @default(uuid())
+  nombreEmpresa String
+  rutEmpresa    String
+  isActive      Boolean  @default(true)
+  createdAt     String   @map("created_at")
+  horaAt        String   @map("hora_at")
+  updatedAt     DateTime @updatedAt
+  productBacklogId  String @unique
+  //mediumBacklogs MediumBacklog[]
+  usuarios      User[]
+  areas         Area[]   @relation("AreaToEmpresa")
+  productBacklog      ProductBacklog @relation(fields: [productBacklogId], references: [id])
+  
+}
+
 model ProductBacklog {
   id                   String     @id @default(uuid())
   nombreProductBacklog String     @default("Pb")
@@ -246,6 +252,7 @@ model ProductBacklog {
   updatedAt            DateTime   @updatedAt
   isActive             Boolean    @default(true)
   historias            Historia[]
+  empresa              Empresa?
 }
 
 model SprintBacklog {
@@ -254,33 +261,27 @@ model SprintBacklog {
   createdAt           String   @map("created_at")
   horaAt              String   @map("hora_at")
   updatedAt           DateTime @updatedAt
-  sprintId            String
+  // sprintId            String
+  // sprint              Sprint   @relation(fields: [sprintId], references: [id], onDelete: Cascade)
+  sprint              Int @default(0)
   isActive            Boolean  @default(true)
-  sprint              Sprint   @relation(fields: [sprintId], references: [id], onDelete: Cascade)
   tareas              Tarea[]
 
-  @@index([sprintId], map: "SprintBacklog_sprintId_fkey")
+  //@@index([sprintId], map: "SprintBacklog_sprintId_fkey")
 }
 
-model Caracter {
-  id             String     @id @default(uuid())
-  nombreCaracter String
-  createdAt      String     @map("created_at")
-  horaAt         String     @map("hora_at")
-  updatedAt      DateTime   @updatedAt
-  isActive       Boolean    @default(true)
-  historias      Historia[]
-}
 
-model Sprint {
-  id             String          @id @default(uuid())
-  nombreSprint   String
-  createdAt      String          @map("created_at")
-  horaAt         String          @map("hora_at")
-  updatedAt      DateTime        @updatedAt
-  isActive       Boolean         @default(true)
-  sprintBacklogs SprintBacklog[]
-}
+
+// model Sprint {
+//   id             String          @id @default(uuid())
+//   nombreSprint   String
+//   createdAt      String          @map("created_at")
+//   horaAt         String          @map("hora_at")
+//   updatedAt      DateTime        @updatedAt
+//   isActive       Boolean         @default(true)
+//   sprintBacklogs SprintBacklog[]
+//   mediumBacklogs MediumBacklog[]
+// }
 
 // // nuevo
 model MediumBacklog {
@@ -290,7 +291,12 @@ model MediumBacklog {
   horaAt               String     @map("hora_at")
   updatedAt            DateTime   @updatedAt
   isActive             Boolean    @default(true)
+  // sprintId             String     
+  // sprint               Sprint     @relation(fields: [sprintId], references: [id], onDelete: Cascade)
+  sprint               Int @default(0)
   historias            Historia[]
+
+  //@@index([sprintId], map: "MediumBacklog_sprintId_fkey")
 }
 
 
@@ -301,6 +307,16 @@ model Plugin {
   horaAt               String     @map("hora_at")
   updatedAt            DateTime   @updatedAt
   isActive             Boolean    @default(true)
+}
+
+model Caracter {
+  id             String     @id @default(uuid())
+  nombreCaracter String
+  createdAt      String     @map("created_at")
+  horaAt         String     @map("hora_at")
+  updatedAt      DateTime   @updatedAt
+  isActive       Boolean    @default(true)
+  historias      Historia[]
 }
 
 // model Prueba {

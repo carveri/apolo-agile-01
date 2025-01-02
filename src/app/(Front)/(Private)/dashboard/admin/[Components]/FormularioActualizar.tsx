@@ -1,21 +1,32 @@
 'use client'
 
-import InputFormulario from './InputFormulario'
-import { useState, useEffect } from "react";
-import { getData } from '../../Fetch/getData';
-import Image from 'next/image';
+import InputFormulario from "@/app/(Front)/React/Components/Formularios/InputFormulario"
+import { getData } from "@/app/(Front)/React/Fetch/getData"
+import { getDataLista } from "@/app/(Front)/React/Fetch/getDataLista"
+import { postData } from "@/app/(Front)/React/Fetch/postData"
+import { IParametro3, ISelectForm, ISelectForm2, ISelectForm3 } from "@/app/Interfaces/IformAdmin"
+import { IEmpresa } from "@/app/Interfaces/IGeneral"
+import Image from "next/image"
+import { useEffect, useState } from "react"
+import flechaAbajo from "../../../../React/Assets/Icons/flechaAbajo4.png"
+import ModalAviso from "@/app/(Front)/React/Components/ModalAviso/ModalAviso"
 
-import flechaAbajo from "./../../../React/Assets/Icons/flechaAbajo4.png";
-import { getDataLista } from '../../Fetch/getDataLista';
-import ModalAviso from '../ModalAviso/ModalAviso';
-import { IId } from '@/app/Interfaces/IUsers';
-import { IEmpresa, IParametro3, ISelectForm, ISelectForm2, ISelectForm3 } from '@/app/Interfaces/IformAdmin';
-import { postData } from '../../Fetch/postData';
+// import InputFormulario from './InputFormulario'
+// import { useState, useEffect } from "react";
+// import { getData } from '../../Fetch/getData';
+// import Image from 'next/image';
+
+// import flechaAbajo from "./../../../React/Assets/Icons/flechaAbajo4.png";
+// import { getDataLista } from '../../Fetch/getDataLista';
+// import ModalAviso from '../ModalAviso/ModalAviso';
+// import { IId } from '@/app/Interfaces/IUsers';
+// import { IEmpresa, IParametro3, ISelectForm, ISelectForm2, ISelectForm3 } from '@/app/Interfaces/IformAdmin';
+// import { postData } from '../../Fetch/postData';
 
 
 
 
-const Formulario = ({id}:IId) => {
+const FormularioActualizar = ({id}) => {
     // ACTIVO MODAL
     const [activoModal, setActivoModal] = useState(false)
 
@@ -217,10 +228,15 @@ const Formulario = ({id}:IId) => {
         
     }
  
+
+    const handleClickCerrarActualizar =()=>{
+        console.log('sd');
+        
+    }
     
 
   return (
-    <div className='w-full h-full bg-white grid place-items-center'  >
+    <div className='w-full h-[700px] bg-white grid place-items-center'  >
         <section className='w-[100%] h-[90%] bg-gray-50 rounded '>
             
             <main className='w-full h-[99%] -mt-10'>
@@ -416,9 +432,12 @@ const Formulario = ({id}:IId) => {
                         
                     </section>
                 </div>
-                <div className=' w-full h-[7%] grid place-items-center  '>
+                <div className=' w-full h-[7%] grid grid-cols-2 justify-items-center bg-yellow-400'>
                     <button className='w-[20%] h-[100%] bg-colorBotonPrincipal hover:bg-hoverColorBotonPrincipal text-white rounded font-semibold'>
-                        Guardar Usuario
+                        Actualizar Usuario
+                    </button>
+                    <button onClick={handleClickCerrarActualizar} className='w-[20%] h-[100%] bg-colorBotonPrincipal hover:bg-hoverColorBotonPrincipal text-white rounded font-semibold'>
+                        Cerrar
                     </button>
                 </div>
                 <ModalAviso 
@@ -434,4 +453,4 @@ const Formulario = ({id}:IId) => {
   )
 }
 
-export default Formulario
+export default FormularioActualizar
