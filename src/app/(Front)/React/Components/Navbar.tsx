@@ -8,6 +8,7 @@ import Image from 'next/image';
 import campana from "./../Assets/Icons/campana5.png";
 import perfil from "./../Assets/Icons/perfil2.png";
 import store from "./../Assets/Icons/store.png";
+import iconoLupa from "./../Assets/Icons/iconoLupa.png";
 
 const Navbar = () => {
 
@@ -17,7 +18,29 @@ const Navbar = () => {
 
   return (
     <nav className='w-full h-full  grid justify-items-end '>
-        <ul className='w-52  h-full  grid grid-cols-4 place-items-center pr-16 text-colorTextoNavbar font-medium '>
+        {/* <div className='grid items-center'>
+        <Image 
+            src={iconoLupa}
+            width={20}
+            height={20}
+            alt='as'
+        />
+        </div> */}
+        {/* <div className=' grid items-center '>
+            <input className='w-  h-7 border border-gray-200 pl-2 text-tamañoLetraChica rounded' placeholder=' Search' type="text" />
+        </div> */}
+        <ul className='w-64  h-full  grid grid-cols-5 place-items-center pr-16 text-colorTextoNavbar font-medium '>
+            {/* <div className='grid items-center'>
+            <Image 
+                src={iconoLupa}
+                width={20}
+                height={20}
+                alt='as'
+            />
+            </div> */}
+            <div className=' flex items-center mr-40'>
+                <Image src={iconoLupa} width={15} height={15} alt='as' /><input className='w-44 ml-1 h-7 border border-gray-200 pl-2 text-tamañoLetraChica rounded' placeholder=' Search' type="text" />
+            </div>
             <li >
                 <Link href={'/dashboard/store'}>
                     <Image 

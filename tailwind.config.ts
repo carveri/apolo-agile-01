@@ -32,10 +32,10 @@ const config: Config = {
         'colorNavbar': '#ffffff',
         'colorFormularioLogin': 'rgb(78, 92, 159)',
         'colorSidebar': 'rgb(146, 153, 255)',
-        'colorBarraBaja': 'rgb(95, 103, 210)',
+        'colorBarraBaja': 'rgb(31, 50, 147)',
         'hoverColorSidebar': 'rgb(134, 141, 236)',
-        'colorBarraSuperiorTablas': 'rgb(122, 143, 253)',
-        'colorCajaLogo': 'rgb(73, 61, 163)',
+        'colorBarraSuperiorTablas': 'rgb(31, 50, 147)',
+        'colorCajaLogo': 'rgb(21, 34, 100)',
         'colorHoverLista': 'rgb(208, 216, 255)',
 
         // Botones
@@ -60,6 +60,7 @@ const config: Config = {
       },
         fontSize:{
           'tamañoLetra': '0.860rem',
+          'tamañoLetraChica': '12px',
           
         }
     },

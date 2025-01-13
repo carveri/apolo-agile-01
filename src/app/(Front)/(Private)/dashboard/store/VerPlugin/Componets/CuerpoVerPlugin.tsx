@@ -50,14 +50,14 @@ const CuerpoVerPlugin = () => {
                             <Star />
                         
                         </div> 
-                            4
+                            1
                     </div>
                 </article>
                 <article className='w-[25%] h-full   justify-items-center items-end flex gap-x-2'>
-                    <button onClick={handleClickVolverAPlugins} className='bg-colorBotonPrincipal text-colorTextoBoton w-36 h-10 rounded font-semibold'>
+                    <button onClick={handleClickVolverAPlugins} className='bg-colorBotonPrincipal text-tamañoLetraChica text-colorTextoBoton w-36 h-10 rounded font-semibold'>
                         Volver a Plugins
                     </button>
-                    <button className='bg-colorBotonAceptar text-colorTextoBoton w-36 h-10 rounded font-semibold'>
+                    <button className='bg-colorBotonAceptar text-colorTextoBoton text-tamañoLetraChica w-36 h-10 rounded font-semibold'>
                         Comprar
                     </button>
                 </article>
@@ -68,7 +68,7 @@ const CuerpoVerPlugin = () => {
                                 Descripción
                             </header>
                             <div className='w-full h-[55%]'>
-                            Muestra transmisiones de Twitch con este bloque de Gutenberg. = Equipo = * Desarrollado y mantenido por straightvisions GmbH
+                            Configuracion automatizada para gestion del backup de base de datos relacional. genereacion de Rollback, gestion de base de datos main y replicadoras con estacalado automatizado.
                             </div>
                         </article>
                         <article className='w-full h-56'>

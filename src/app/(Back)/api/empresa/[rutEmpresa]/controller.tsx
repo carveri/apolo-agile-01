@@ -19,6 +19,19 @@ class EmpresaDetalle {
         return getOneEmpresa
     }
 
+    // deleteEmpresaDetalle = async(req:Request, {params}:IRutEmpresaParams)=>{
+    //     const {rutEmpresa} = await params
+    //     //console.log('rutt:', rutEmpresa);
+        
+    //     const deleteOneEmpresa = await prisma.empresa.delete({
+    //         where:{
+    //             rutEmpresa: rutEmpresa
+    //         }
+            
+    //     })
+    //     return deleteOneEmpresa
+    // }
+
     // metodo put
     // putEmpresaDetalle = async(req:Request, {params})=>{
     //     const {id} = await params

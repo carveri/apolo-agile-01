@@ -116,7 +116,7 @@ const FormularioClientePeticion = ({id, areaId, email}:IFormularioClientePeticio
 
 
     const productBacklogId = '1af659a1-06b9-46e7-94fb-2220d8f5f0b8'
-    const mediumBacklogId = '05328597-2cd3-4eb6-be0c-1b1e5d1ec985'
+    const mediumBacklogId = '1919780b-4aa0-4189-a18c-3f778ce5df4a'
 
 
 

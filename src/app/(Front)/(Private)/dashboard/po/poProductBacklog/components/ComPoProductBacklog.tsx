@@ -8,6 +8,7 @@ import { format } from "date-fns";
 import TablaPo from "./TablaPo"
 import { IComPoProductBacklog } from "@/app/Interfaces/IPoProductBacklog"
 import BadgeNoAun from "@/app/(Front)/React/Components/BadgeNoAun/BadgeNoAun"
+import { postData } from "@/app/(Front)/React/Fetch/postData"
 
 const ComPoProductBacklog = ({id, resul}:IComPoProductBacklog) => {
 
@@ -16,7 +17,7 @@ const ComPoProductBacklog = ({id, resul}:IComPoProductBacklog) => {
   const [checkedOn, setCheckedOn] = useState(false)
   const [numero, setNumero] = useState(0)
 
-  console.log('histodios:', historiaBacklog);
+  //console.log('histodios:', historiaBacklog);
   
 
   useEffect(()=>{
@@ -56,6 +57,7 @@ const ComPoProductBacklog = ({id, resul}:IComPoProductBacklog) => {
   const handleClickConfirmSB =()=>{
     //console.log(historiaBacklog);
     console.log(cortarBacklog());
+    //postData()
     
     
     
@@ -148,7 +150,7 @@ const ComPoProductBacklog = ({id, resul}:IComPoProductBacklog) => {
         </div>
       </section>
   </div>: 
-  <div>
+  <div className="pt-20">
 
    <BadgeNoAun
     nombre='en el Product Backlog'

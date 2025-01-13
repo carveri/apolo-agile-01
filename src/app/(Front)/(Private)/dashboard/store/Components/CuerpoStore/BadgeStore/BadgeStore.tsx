@@ -39,13 +39,13 @@ const BadgeStore = ({el}:IEBadgeStore) => {
           <Image
             alt="as"
             src={el.imagenPlugin}
-            width={75}
-            height={75}
+            width={70}
+            height={70}
           
           />
         </article>
         <article className='w-[75%]  pl-3 grid grid-rows-3 py-2 '>
-          <div className="font-semibold text-base text-colorTextoTitulo1">
+          <div className="font-semibold text-tamañoLetra text-colorTextoTitulo1">
             {el?.nombrePlugin}
           </div>
           <div className="">
@@ -66,11 +66,11 @@ const BadgeStore = ({el}:IEBadgeStore) => {
       <section className='w-full h-[35%] mt-4'>
           {el.descripcionPlugin}
       </section>
-      <section className='w-full h-[35%] flex justify-end pr-2'>
-        <button onClick={handleClickVerPlugin} className="w-12 h-10 bg-colorBotonVer rounded mr-2 text-colorTextoTitulo1 font-semibold">
+      <section className='w-full h-[35%] flex justify-end pr-2 text-tamañoLetra'>
+        <button onClick={handleClickVerPlugin} className="w-12 h-9 bg-colorBotonVer text-tamañoLetraChica rounded mr-2 text-colorTextoTitulo1 font-semibold">
           Ver
         </button>
-        <button className="w-24 h-10 bg-colorBotonAceptar rounded text-colorTextoBoton font-semibold">
+        <button className="w-24 h-9 bg-colorBotonAceptar text-tamañoLetraChica rounded text-colorTextoBoton font-semibold">
           Comprar
         </button>
       </section>

@@ -6,7 +6,7 @@ export default function RootLayout({children,}: Readonly<{children: React.ReactN
   return (
     <div className='w-screen h-screen'>
       <section className='w-full h-12 bg-colorNavbar grid justify-items-center'>
-        <header className='w-4/5 h-full bg-colorNavbar'>
+        <header className='w-[85%] h-full bg-colorNavbar'>
          <NavbarHome />
         </header>
       </section>

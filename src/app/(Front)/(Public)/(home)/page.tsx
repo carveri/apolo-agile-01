@@ -28,10 +28,10 @@ const page = () => {
               Apolo Agile
             </p>
           </article>
-          <article className='text-xl w-full h-24 py-4' >
+          <article className='text-2xl text-gray-700 w-full h-24 py-4 font-semibold' >
             El ERP de metodologia Scrum para StartUps con alto potencial de crecimiento
           </article>
-          <article className='text-lg w-full h-2/6 py-4 pl-2'>
+          <article className='text-lg w-full h-2/6 py-4 pl-2 text-gray-700'>
             olisss ipsum dolor sit amet consectetur adipisicing elit. Facere non laboriosam, laudantium illum voluptatum adipisci reprehenderit est esse consectetur adipisicing elit. Facere non laboriosam, laudantium i
           </article>
           <article className='w-[95%] h-[15%] grid grid-cols-2 place-items-center gap-x-4 py-3 text-tamañoLetra'>

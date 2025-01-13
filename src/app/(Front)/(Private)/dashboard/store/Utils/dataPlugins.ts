@@ -13,15 +13,15 @@ export const dataPlugins = [
         nombrePlugin: 'Database Safety',
         imagenPlugin: pluginDb,
         departamentoPlugin: 'Database',
-        calificacion: 5,
-        descripcionPlugin: 'Muestra transmisiones de Twitch con este bloque de Gutenberg. = Equipo = * Desarrollado y mantenido por straightvisions GmbH',
+        calificacion: 1,
+        descripcionPlugin: 'Configuracion automatizada para gestion del backup de base de datos relacional. genereacion de Rollback, gestion de base de datos main y replicadoras con estacalado automatizado.',
     },
     {
         id:'2',
         nombrePlugin: 'Transfer Block',
         imagenPlugin: pluginTransferencia,
         departamentoPlugin: 'Backend',
-        calificacion: 5,
+        calificacion: 1,
         descripcionPlugin: 'Muestra Muestra transmisiones de Twitch con este bloque de Gutenberg. = Equipo = * Desarrollado  transmisiones de Twitch con este bloque de Gutenberg. = Equipo = * Desarrollado y mantenido por straightvisions GmbH',
     },
     {
@@ -29,7 +29,7 @@ export const dataPlugins = [
         nombrePlugin: 'Testing Integrated',
         imagenPlugin: pluginTesting,
         departamentoPlugin: 'Quality Assurance',
-        calificacion: 5,
+        calificacion: 1,
         descripcionPlugin: 'Muestra transmisiones de Twitch con este bloque de Gutenberg. = Equipo = * Muestra transmisiones de Twitch con este bloque de Gutenberg. = Equipo = * Desarrollado  Desarrollado y mantenido por straightvisions GmbH',
     },
     {
@@ -37,7 +37,7 @@ export const dataPlugins = [
         nombrePlugin: 'Managment of cloud Infraestructure',
         imagenPlugin: pluginInfra,
         departamentoPlugin: 'Infrastructure',
-        calificacion: 5,
+        calificacion: 1,
         descripcionPlugin: 'Muestra transmisiones de Twitch con este bloque de Gutenberg. = Equipo = * Desarrollado  Muestra transmisiones de Twitch con este bloque de Gutenberg. = Equipo = * Desarrollado Muestra transmisiones de Twitch con este bloque de Gutenberg. = Equipo = * Desarrollado y mantenido por straightvisions GmbH',
     },
     {
@@ -45,7 +45,7 @@ export const dataPlugins = [
         nombrePlugin: 'Package of Containers',
         imagenPlugin: pluginDocker,
         departamentoPlugin: 'Infrastructure',
-        calificacion: 5,
+        calificacion: 1,
         descripcionPlugin: 'Muestra transmisiones de Twitch con este bloque de Gutenberg. = Equipo = * Desarrollado y mantenido por straightvisions GmbH',
     },
     

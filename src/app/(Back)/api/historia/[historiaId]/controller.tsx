@@ -8,7 +8,7 @@ class HistoriaOne {
     // el param es el is de la historia
     putHistoria = async(req:Request, {params}:IHistoriaParams)=>{
         const {historiaId} = await params
-        const {nombreHistoria,presupuestoHistoria, tiempoHistoria, discrepancia1, descripcion1, status, discrepancia2, descripcion2,discrepancia3, descripcion3, peso1, peso2, peso3} = await req.json()
+        const {nombreHistoria, productBacklogId, mediumBacklogId, presupuestoHistoria, tiempoHistoria, discrepancia1, descripcion1, status, discrepancia2, descripcion2,discrepancia3, descripcion3, peso1, peso2, peso3} = await req.json()
         const updatedCategorias = await prisma.historia.update({
             where:{
                 id: historiaId
@@ -24,7 +24,9 @@ class HistoriaOne {
                 status,
                 peso1,
                 peso2,
-                peso3
+                peso3,
+                productBacklogId,
+                mediumBacklogId
             }
         })
         return updatedCategorias

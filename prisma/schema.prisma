@@ -236,11 +236,12 @@ model Empresa {
   createdAt     String   @map("created_at")
   horaAt        String   @map("hora_at")
   updatedAt     DateTime @updatedAt
-  productBacklogId  String @unique
-  //mediumBacklogs MediumBacklog[]
+  productBacklogId  String @unique @default("1af659a1-06b9-46e7-94fb-2220d8f5f0b8")
+  mediumBacklogId   String @unique @default("05328597-2cd3-4eb6-be0c-1b1e5d1ec985")
   usuarios      User[]
   areas         Area[]   @relation("AreaToEmpresa")
   productBacklog      ProductBacklog @relation(fields: [productBacklogId], references: [id])
+  mediumBacklog      MediumBacklog @relation(fields: [mediumBacklogId], references: [id])
   
 }
 
@@ -293,8 +294,9 @@ model MediumBacklog {
   isActive             Boolean    @default(true)
   // sprintId             String     
   // sprint               Sprint     @relation(fields: [sprintId], references: [id], onDelete: Cascade)
-  sprint               Int @default(0)
+  sprint               Int        @default(1)      
   historias            Historia[]
+  empresa              Empresa?
 
   //@@index([sprintId], map: "MediumBacklog_sprintId_fkey")
 }

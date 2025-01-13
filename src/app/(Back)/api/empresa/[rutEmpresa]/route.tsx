@@ -12,3 +12,12 @@ export const GET = async(req:Request, {params}:IRutEmpresaParams)=>{
         return NextResponse.json(error)
     }
 }
+
+
+// export const DELETE = async(req:Request, {params}:IRutEmpresaParams)=>{
+//     try {
+//         return NextResponse.json(await empresaDetalle1.deleteEmpresaDetalle(req, {params}))
+//     } catch (error) {
+//         return NextResponse.json(error)
+//     }
+// }
