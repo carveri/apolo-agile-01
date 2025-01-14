@@ -42,12 +42,14 @@ const MiBoton = ({ nombreBoton}) => {
     else if(e.target.name === 'Actualizar'){
       console.log('el.id'); 
       setActivarModal(true)
+      
     }
     else if(e.target.name === 'Eliminar'){
       // const ruta = 'user'
       // const url = ''
       //deleteData()
       console.log('as');
+      setActivarEli(!act)
       
       
     }

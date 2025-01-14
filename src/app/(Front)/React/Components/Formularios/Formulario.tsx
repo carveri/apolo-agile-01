@@ -208,13 +208,14 @@ const Formulario = ({id}:IId) => {
         }
             console.log(data);
             const ruta = 'user'
-            postData({ruta, data})
-            alert('EL usuario se agrego correctamente!')
+            if(primerNombre === '' || segundoNombre === '' || apellidoPaterno === '' || apellidoMaterno === '' || rutPersonal==='' || empresa === null || parametros2Id === '' || parametros3Id === '' || email === '' || password === '' || confirmPassword ===''){
+                alert('No se guardo el usuario. debes completar todos los campos')
+            }
+            else {
+                postData({ruta, data})
+                alert('EL usuario se agrego correctamente!')
 
-            
-
-            
-        
+            }
     }
  
     
@@ -417,7 +418,7 @@ const Formulario = ({id}:IId) => {
                     </section>
                 </div>
                 <div className=' w-full h-[7%] grid place-items-center  '>
-                    <button className='w-[20%] h-[100%] bg-colorBotonPrincipal hover:bg-hoverColorBotonPrincipal text-white rounded font-semibold'>
+                    <button className='w-[20%] h-[100%] bg-colorBarraBaja hover:bg-colorBarraBaja text-white rounded font-semibold'>
                         Guardar Usuario
                     </button>
                 </div>

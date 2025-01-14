@@ -59,10 +59,6 @@ const linksAdmin = [
     }
 ]
 
-
-
-    
-
   return (
     <div className="w-screen h-screen flex">
       <section className="w-[280px]  h-full bg-[--verdecito] ">

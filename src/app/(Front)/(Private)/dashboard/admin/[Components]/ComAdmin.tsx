@@ -1,16 +1,22 @@
 'use client'
 
 import Tabla from '@/app/(Front)/React/Components/Tablas/Tabla'
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { format } from "date-fns";
 import BadgeNoAun from '@/app/(Front)/React/Components/BadgeNoAun/BadgeNoAun';
 import { IComAdmin } from '@/app/Interfaces/IComAdmin';
 import { useHistoriaAdmin } from '../../../[stores]/adminStore';
+import Modal from './Modal';
 
 const ComAdmin = ({logicaTabla,nombre, url,res}:IComAdmin) => {
 
   //console.log('resllega;', res);
   const {usuarios, getUsuarios} = useHistoriaAdmin()
+  const [activarModal, setActivarModal] = useState(false)
+
+  //const {updateidUsuario} = usuarioStore()
+  const [datosUsuarios, setDatosUsuarios] = useState([])
+  const [isModalOpen, setIsModalOpen] = useState<boolean> (false)
   
   const empresaId =  res.at(0)?.id
 
@@ -18,6 +24,8 @@ const ComAdmin = ({logicaTabla,nombre, url,res}:IComAdmin) => {
     getUsuarios(url, empresaId)
   }, [])
 
+  console.log('usuario;', usuarios);
+  
   
   
   return (
@@ -40,10 +48,23 @@ const ComAdmin = ({logicaTabla,nombre, url,res}:IComAdmin) => {
             <Tabla
                 logicaTabla ={logicaTabla}
                 usuarios={usuarios}
+                activarModal={activarModal}
+                setActivarModal={setActivarModal}
+                isModalOpen={isModalOpen}
+                setIsModalOpen={setIsModalOpen}
             />
       </div>
         </main>
-    </section>: 
+        <div className=' '>
+                  <Modal
+                    isModalOpen={isModalOpen}
+                    setIsModalOpen={setIsModalOpen}
+                    datosUsuarios={datosUsuarios}
+                  />
+                </div>
+    </section>
+    
+    : 
     <BadgeNoAun
         nombre = {nombre}
     />

@@ -28,7 +28,7 @@ const Sidebar = ({links}:ILinks) => {
     
   return (
     <aside className='w-full h-full rounded '>
-        <header className='h-12 bg-blue-100 grid place-content-center rounded text-tamañoLetra'>
+        <header className='h-12 bg-gray-100 grid place-content-center rounded text-tamañoLetra'>
              <p className='pr-1'>Dashboard</p> 
         </header>
         <ul className='w-full h-[43%] grid grid-rows-6 '>

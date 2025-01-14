@@ -45,7 +45,7 @@ const CuerpoAdminIngresar = () => {
                   {el?.nombreExterno}
                 </div>
                 <div className="text-center">
-                  <input type="file"  className=" file:h-8  file:mr-1 file:hover:bg-colorFormularioLogin file:px-3 file:rounded flex text-xs file:text-xs font-semibold  file:border-none   file:bg-colorBotonPrincipal file:text-white text-colorTextoTitulo1  file:cursor-pointer " />
+                  <input type="file"  className=" file:h-8  file:mr-1 file:hover:bg-colorBarraBaja file:px-3 file:rounded flex text-xs file:text-xs font-semibold  file:border-none   file:bg-colorBarraBaja file:text-white text-colorBarraBaja  file:cursor-pointer " />
                 </div>
                 
               </div>
@@ -67,7 +67,7 @@ const CuerpoAdminIngresar = () => {
           </div>
           <div className="grid place-items-center">
             
-            <button onClick={handleClickFormManual} className=" bg-colorBotonPrincipal text-white py-2 px-8 rounded font-semibold text-xs hover:bg-colorFormularioLogin ">
+            <button onClick={handleClickFormManual} className=" bg-colorBarraBaja text-white py-2 px-8 rounded font-semibold text-xs hover:bg-colorBarraBaja ">
               Ir al Formulario
             </button>
           </div>

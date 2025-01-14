@@ -15,7 +15,7 @@ const config: Config = {
         'colorFondoChico': '#ffffff',
 
         // textos
-        'colorTextoNavbar': 'rgb(78, 92, 159)',
+        'colorTextoNavbar': 'rgb(138, 106, 201)',
         'colorTextoTitulo1': 'rgb(95, 103, 210)',
         'colorTextoTitulo2': 'rgb(36, 28, 34)',
         'colorTextoBarraAlta': 'white',
@@ -31,11 +31,11 @@ const config: Config = {
         // Componentes
         'colorNavbar': '#ffffff',
         'colorFormularioLogin': 'rgb(78, 92, 159)',
-        'colorSidebar': 'rgb(146, 153, 255)',
-        'colorBarraBaja': 'rgb(31, 50, 147)',
-        'hoverColorSidebar': 'rgb(134, 141, 236)',
-        'colorBarraSuperiorTablas': 'rgb(31, 50, 147)',
-        'colorCajaLogo': 'rgb(21, 34, 100)',
+        'colorSidebar': 'rgb(138, 106, 201)',
+        'colorBarraBaja': 'rgb(138, 106, 201)',
+        'hoverColorSidebar': 'rgb(147, 113, 215)',
+        'colorBarraSuperiorTablas': 'rgb(138, 106, 201)',
+        'colorCajaLogo': 'rgb(138, 106, 201)',
         'colorHoverLista': 'rgb(208, 216, 255)',
 
         // Botones
