@@ -34,7 +34,7 @@ class UserDetalle {
     // metodo put
     putUserDetalle = async(req:Request, {params}:IParams)=>{
         const {id} = await params
-        const {primerNombre,segundoNombre, apellidoPaterno, apellidoMaterno, rutPersonal, empresaId, cargoId, equipoId } = await req.json()
+        const {primerNombre,segundoNombre, apellidoPaterno, apellidoMaterno, rutPersonal, empresaId, cargoId, equipoId, email } = await req.json()
         const updatedUser = await prisma.user.update({
             where:{
                 id: id
@@ -47,7 +47,8 @@ class UserDetalle {
                 rutPersonal,
                 empresaId,
                 cargoId,
-                equipoId
+                equipoId,
+                email
                 
             }
         })

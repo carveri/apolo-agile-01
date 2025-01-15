@@ -5,6 +5,8 @@ import { getDataLista } from "../../Fetch/getDataLista";
 import { postData } from "../../Fetch/postData";
 import { IFormularioClientePeticion } from "@/app/Interfaces/IAgregarTareas";
 
+import xlsx from "node-xlsx";
+
 
 const FormularioClientePeticion = ({id, areaId, email}:IFormularioClientePeticion) => {
   
@@ -21,6 +23,7 @@ const FormularioClientePeticion = ({id, areaId, email}:IFormularioClientePeticio
     const [quiero, setQuiero] = useState('')
     const [como, setComo] = useState('')
     const [para, setPara] = useState('')
+    const [archivoA, setArchivoA] = useState('')
 
 
     const [cargo, setCargo] = useState({})
@@ -107,6 +110,9 @@ const FormularioClientePeticion = ({id, areaId, email}:IFormularioClientePeticio
         else if(e.target.name === 'puntoDeHistoria'){
             setPuntoHistoria(e.target.valueAsNumber)
         }
+        else if(e.target.name === 'archivoApoyo'){
+            setArchivoA(e.target.value)
+        }
         else {
             console.log('sd');
             
@@ -126,24 +132,38 @@ const FormularioClientePeticion = ({id, areaId, email}:IFormularioClientePeticio
         setActivoCaracter(false)
     }
 
+    // TRABAJAR CON EL ARCHIVO ESTATICO DEL FRONT
+   // Parse a buffer
+// const workSheetsFromBuffer = xlsx.parse(`${__dirname}/archivo/usuario.xslx.ods`);
+
+// //console.log('res:', workSheetsFromBuffer);
+
+// const arrayUsers = workSheetsFromBuffer.at(0).data
+// const arraysincabecera = arrayUsers.slice(1,arrayUsers.length)
+
+// console.log('arr1:', arraysincabecera);
+
+
+
+
+
+
     const handleSumbitCliente =(e:React.FormEvent<HTMLFormElement>)=>{
         e.preventDefault()    
         const userId = id
         const data = { nombreHistoria, mediumBacklogId, quiero, para, como, presupuestoHistoria, puntoHistoria, tiempoHistoria,  detalleHistoria, productBacklogId, caracterId, userId}
-        console.log(data);
-        
+        //console.log(data);
         const ruta = 'historia'
         postData({ruta, data})
         alert('Se guardo correctamente la historia')
-        
     }
 
  
     return (
     <form onSubmit={handleSumbitCliente} action="" className=' w-full h-full '>
 
-                <div className='flex h-[85%]  place-content-center  mt-8 px-64 gap-x-16 '>
-                    <section className='w-[48%] h-[95%] border border-gray-200 px-4 mr-10 pt-5 bg-white rounded shadow-md'>
+                <div className='flex h-[85%]  place-content-center  mt-8 px-80 gap-x-16 '>
+                    <section className='w-[48%] h-[95%] border border-gray-200 px-4 mr-10 pt-5 bg-white rounded shadow-lg'>
                         <header className='w-full h-[10%]  grid place-content-center text-base'>
                             Información de la petición 
                         </header>
@@ -171,13 +191,13 @@ const FormularioClientePeticion = ({id, areaId, email}:IFormularioClientePeticio
                                 <label  htmlFor="">Para:</label>
                                     
                                     
-                                <input name="para" onChange={handleChangeCliente} className="pl-3 py-4 rounded-md bg-white border border-gray-200   grid content-center" type="text" placeholder="Filtrar vacaciones de empleados entre dos fechas dadas."/>
+                                <input name="para" onChange={handleChangeCliente} className="pl-3 py-4 rounded-md bg-white border border-gray-200   grid content-center" type="text" placeholder="Filtrar vacaciones de empleados entre dos fechas."/>
                             </article>
                             <article className='grid grid-rows-2 pb-3'>
                                 <label  htmlFor="">Archivo de apoyo:</label>
                                     
                                     
-                                <input name="archivoApoyo" onChange={handleChangeCliente} className="file:h-9 file:px-3 file:rounded  file:text-tamañoLetra font-semibold  file:border-none   file:bg-colorBotonPrincipal file:text-white text-colorTextoTitulo1  file:cursor-pointer " accept=".jpg, .png, .webp" type="file" />
+                                <input name="archivoApoyo" onChange={handleChangeCliente} className="file:h-9 file:px-3 file:rounded  file:text-tamañoLetraChica font-semibold text-tamañoLetraChica file:border-none   file:bg-colorBotonPrincipal file:text-white text-colorTextoNavbar  file:cursor-pointer " accept=".jpg, .png, .webp" type="file" />
                             </article>
                             
                         </div>
@@ -187,7 +207,7 @@ const FormularioClientePeticion = ({id, areaId, email}:IFormularioClientePeticio
 
 
 
-                    <section className='w-[48%] h-[95%] border border-gray-200 bg-white  mr-4 pt-5  px-8 shadow-md'>
+                    <section className='w-[48%] h-[95%] border border-gray-200 bg-white  mr-4 pt-5  px-8 shadow-xl'>
                         <header className='w-full h-[10%]  grid place-content-center text-base pb-2' >
                             Detalles de la petición
                         </header>
@@ -209,7 +229,7 @@ const FormularioClientePeticion = ({id, areaId, email}:IFormularioClientePeticio
                                             
                                             {caracter.map((el)=>{
                                                     const {nombreCaracter, id} = el
-                                                    return  (<div onClick={()=>handleClickCliente4(id, nombreCaracter)} className='w-[370px] cursor-pointer ml-2 h-10 bg-white hover:bg-violet-200  grid items-center pl-4' key={id}>
+                                                    return  (<div onClick={()=>handleClickCliente4(id, nombreCaracter)} className='w-[300px] cursor-pointer ml-1 h-10 bg-white hover:bg-violet-200  grid items-center pl-4' key={id}>
                                                         {nombreCaracter}
                                                     </div>)
                                                 })}

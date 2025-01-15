@@ -5,7 +5,7 @@ import React from 'react'
 import { signOut } from "next-auth/react";
 import Image from 'next/image';
 
-import campana from "./../Assets/Icons/campana5.png";
+import campana from "./../Assets/Icons/campana8.png";
 import perfil from "./../Assets/Icons/perfil2.png";
 import store from "./../Assets/Icons/store.png";
 import iconoLupa from "./../Assets/Icons/iconoLupa.png";
@@ -38,8 +38,8 @@ const Navbar = () => {
                 alt='as'
             />
             </div> */}
-            <div className=' flex items-center mr-40'>
-                <Image src={iconoLupa} width={15} height={15} alt='as' /><input className='w-44 ml-1 h-7 border border-gray-200 pl-2 text-tamañoLetraChica rounded' placeholder=' Search' type="text" />
+            <div className=' flex items-center mr-48'>
+                <Image src={iconoLupa} width={15} height={15} alt='as' /><input className='w-56 ml-1 h-7 border border-gray-200 pl-2 text-tamañoLetraChica rounded' placeholder=' Search' type="text" />
             </div>
             <li >
                 <Link href={'/dashboard/store'}>

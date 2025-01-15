@@ -53,11 +53,7 @@ const Tabla = ({logicaTabla, usuarios, activarModal, setActivarModal, isModalOpe
     
 
   return (
-   isModalOpen ? 
-    <div>
-      
-    </div>
-    :
+   
 
 
     <table className={`border border-gray-200   w-[100%]  `}>
@@ -95,9 +91,27 @@ const Tabla = ({logicaTabla, usuarios, activarModal, setActivarModal, isModalOpe
                     <td className='text-center pr-3'>
                       {el?.cargo?.nombreCargo}
                     </td>
-                    
+                    {isModalOpen ? 
+                      <>
+                      <td className='w-[3%] h-4 py-3 mr-3 pr-4 text-tamañoLetraChica '>
+                          <button name='ver' disabled  onClick={(e)=>handleClickTablaAdmin(e, el.id)}  className=' rounded bg-cyan-500 w-full h-full text-white font-semibold'>
+                            Ver
+                          </button>
+                      </td>
+                      <td className='w-[6%] h-4 py-3  mr-3   pr-4 text-tamañoLetraChica'>
+                          <button name='actualizar' disabled onClick={(e)=>handleClickTablaAdmin(e, el.id)} className='rounded bg-violet-500 w-full h-full text-white font-semibold'>
+                            Actualizar
+                          </button>
+                      </td>
+                      <td className='w-[5%] h-4 py-3 mr-3  pr-8 text-tamañoLetraChica'>
+                          <button name='eliminar' disabled onClick={(e)=>handleClickTablaAdmin(e, el.id)} className=' rounded bg-red-500 w-full h-full text-white font-semibold'>
+                            Eliminar
+                          </button>
+                      </td>
+                      </>:
+                    <>
                     <td className='w-[3%] h-4 py-3 mr-3 pr-4 text-tamañoLetraChica'>
-                        <button name='ver' onClick={(e)=>handleClickTablaAdmin(e, el.id)} className='rounded bg-cyan-500 w-full h-full text-white font-semibold'>
+                        <button name='ver'   onClick={(e)=>handleClickTablaAdmin(e, el.id)} className='rounded bg-cyan-500 w-full h-full text-white font-semibold'>
                           Ver
                         </button>
                     </td>
@@ -111,6 +125,11 @@ const Tabla = ({logicaTabla, usuarios, activarModal, setActivarModal, isModalOpe
                           Eliminar
                         </button>
                     </td>
+                    </>
+                    
+                    }
+                    
+                    
                   </tr>
                 })}
             </tbody>

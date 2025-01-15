@@ -162,7 +162,7 @@ const page = () => {
                   />
                 </header>
                 <main className='w-[90%] text-tamañoLetra'>
-                  <header className='font-bold text-blue-800 pb-1 text-base'>
+                  <header className='font-bold text-colorFormularioLogin pb-1 text-base'>
                     {el.titulo}
                   </header>
                     <article>
@@ -173,7 +173,7 @@ const page = () => {
             })}
           </ul>
           <div className=' h-[20%] grid place-content-end '>
-            <Link className='text-[#00ff08] hover:underline font-semibold pl-2 text-base' href={'/api/auth/login'}>Volver al login</Link>
+            <Link className=' cursor-pointer font-semibold pl-2 text-white grid place-content-center rounded  bg-colorTextoAceptada w-36 h-10 text-tamañoLetra' href={'/api/auth/login'}>Volver al login</Link>
           </div>
         </article>
         <article className='grid justify-items-center'>

@@ -14,7 +14,7 @@ export const dataNavHome =[
     {
         id:3, 
         href: 'faq',
-        texto: 'FAQ'
+        texto: 'Faq'
     },
     {
         id:4, 

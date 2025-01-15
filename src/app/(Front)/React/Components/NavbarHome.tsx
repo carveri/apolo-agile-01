@@ -27,7 +27,7 @@ const NavbarHome = () => {
             </Link>
             </div>
         </header>
-        <div className='grid items-center'>
+        <div className='grid items-center pr-1'>
         <Image 
             src={iconoLupa}
             width={20}
@@ -36,7 +36,7 @@ const NavbarHome = () => {
         />
         </div>
         <div className=' grid items-center'>
-            <input className='w-44 h-7 border border-gray-200 pl-2 text-tamañoLetraChica rounded' placeholder=' Search' type="text" />
+            <input className='w-44 h-7 border border-gray-200 pl-3 text-tamañoLetraChica rounded' placeholder=' Search' type="text" />
         </div>
         <ul className={`mr-9 w-[23%] h-full grid grid-cols-${dataNavHome.length}  font-light gap-x-1 text-center group-has-[&>li]:text-colorTextoNavbar group-has-[&>li]:justify-items-center group-has-[&>li]:text-base`}>
             {dataNavHome.map((el)=>{

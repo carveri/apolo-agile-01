@@ -208,14 +208,15 @@ const Formulario = ({id}:IId) => {
         }
             console.log(data);
             const ruta = 'user'
-            if(primerNombre === '' || segundoNombre === '' || apellidoPaterno === '' || apellidoMaterno === '' || rutPersonal==='' || empresa === null || parametros2Id === '' || parametros3Id === '' || email === '' || password === '' || confirmPassword ===''){
-                alert('No se guardo el usuario. debes completar todos los campos')
-            }
-            else {
-                postData({ruta, data})
-                alert('EL usuario se agrego correctamente!')
-
-            }
+            if(primerNombre === '' || segundoNombre === '' || apellidoPaterno === '' || apellidoMaterno === '' || rutPersonal ==='' ||   email === '' )
+                {
+                    alert('No se guardo el usuario. debes completar todos los campos')
+                }
+            else
+                {
+                    postData({ruta, data})
+                    alert('EL usuario se agrego correctamente!')
+                }
     }
  
     

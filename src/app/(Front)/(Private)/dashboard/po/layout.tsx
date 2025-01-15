@@ -73,8 +73,8 @@ const linksPo = [
         <main className="w-full h-[828px]  rounded text-tamañoLetra">
           {children}
         </main>
-        <div className=' h-7 flex items-center pl-4  bg-colorBotonPrincipal mt-1 text-tamañoLetra'>
-          <section className="w-4/6  bg-colorBotonPrincipal text-white">
+        <div className=' h-7 flex items-center pl-4  bg-colorBarraBaja mt-1 text-tamañoLetra font-semibold'>
+          <section className="w-4/6  bg-colorBarraBaja text-white">
             {session.user?.email}
           </section>
           <div className="text-white">

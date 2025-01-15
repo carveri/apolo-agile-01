@@ -16,7 +16,7 @@ import ModalAviso from '@/app/(Front)/React/Components/ModalAviso/ModalAviso';
 import flechaAbajo from '../../../../React/Assets/Icons/flechaAbajo4.png'
 
 
-const Modal = ({isModalOpen, setIsModalOpen, datosUsuarios}) => {
+const Modal = ({isModalOpen, setIsModalOpen, datosUsuarios, empresaId}) => {
 
   const [activoModal, setActivoModal] = useState(false)
   
@@ -54,6 +54,9 @@ const Modal = ({isModalOpen, setIsModalOpen, datosUsuarios}) => {
       const [empresa, setEmpresa] = useState([])
       
   
+      console.log('datosusuarios;', datosUsuarios);
+      
+
       // traer datos de los departamentos
       useEffect(()=>{
           const traerParametros = async()=>{
@@ -95,7 +98,7 @@ const Modal = ({isModalOpen, setIsModalOpen, datosUsuarios}) => {
       useEffect(()=>{
           const traerParametros = async()=>{
               const ruta = 'empresaPorUser'
-              const url = 'sd'
+              const url = empresaId
               const res = await getDataLista({ruta, url})
               setEmpresa(res)
               
@@ -183,41 +186,7 @@ const Modal = ({isModalOpen, setIsModalOpen, datosUsuarios}) => {
               setConfirmPassword(e.target.value)
           }
       }
-      
-      //console.log('idempresaHIjo:', empresa.at(0)?.id);
-      
-  
-   
-      // MENSAJES DE MODAL
-      // const mensajePositivo = 'El Usuario se agrego correctamente'
-      // const mensajeNegativo = 'Ocurrio un error y el usuario no guardo!'
-  
-      const handleSubmitAdmin =(e:React.FormEvent<HTMLFormElement>)=>{
-          e.preventDefault()
-          const data = {
-              primerNombre, 
-              segundoNombre, 
-              apellidoPaterno, 
-              apellidoMaterno, 
-              rutPersonal, 
-              empresaId: empresa.at(0)?.id,
-              cargoId: parametros2Id,
-              equipoId: parametros3Id ? parametros3Id : '1c3eb8cf-684c-49d4-90da-6698060cbe54',
-              email, 
-              password, 
-              confirmPassword
-          }
-              console.log(data);
-              const ruta = 'user'
-              postData({ruta, data})
-              alert('EL usuario se agrego correctamente!')
-  
-              
-  
-              
-          
-      }
-  
+        
 
     const [nombre, setNombre] = useState('')
     const [tipo, setTipo] = useState('')
@@ -241,48 +210,34 @@ const Modal = ({isModalOpen, setIsModalOpen, datosUsuarios}) => {
     }, [])
     
 
-    
-    const handleChangeActua =( e:React.ChangeEvent<HTMLInputElement> )=>{
-        if(e.target.name === 'nombre' && e.target.value.length > 0){
-            setNombre(e.target.value)
-        }
-        else if(e.target.name === 'tipo' && e.target.value.length > 0){
-          setTipo(e.target.value)
-        }
-        else if(e.target.name === 'precio' && e.target.value.length > 0){
-          setPrecio(e.target.valueAsNumber)
-        }
-        else {
-            console.log('No se encontro el campo');
-            
-        }
-    }
-
-    const handleClickActualizarUsua =()=>{
-        const ruta = 'producto'
-        const id = 'as'
-        const data = {
-            nombre:nombre.length > 0 ? nombre : datoDelUsuario?.nombre,
-            tipo:tipo.length > 0 ? tipo : datoDelUsuario?.tipo,
-            precio: precio.valueOf() > 0 ? precio : datoDelUsuario?.precio
-          }
-        updateData({ruta, id, data})
-        alert('Se actualizo correctamente')
-        setIsModalOpen(false)
-        location.reload()
-    }
-
-
-    const handleClickCerrarUsua =()=>{
-        setIsModalOpen(false)
-    }
-
     // FUNCION DE LOS BOTONES ACTUALIZAR Y CERRAR DE LA MODAL
     const handleClickModalAdmin =(e)=>{
       e.preventDefault()
       if(e.target.name === 'actualizar'){
-        console.log('actuaa');
-        
+        e.preventDefault()
+          const data = {
+            // nombre:nombre.length > 0 ? nombre : datoDelUsuario?.nombre,
+            // tipo:tipo.length > 0 ? tipo : datoDelUsuario?.tipo,
+            // precio: precio.valueOf() > 0 ? precio : datoDelUsuario?.precio
+              primerNombre, 
+              segundoNombre, 
+              apellidoPaterno, 
+              apellidoMaterno, 
+              rutPersonal, 
+              empresaId: empresaId,
+              cargoId: parametros2Id,
+              equipoId: parametros3Id ? parametros3Id : '1c3eb8cf-684c-49d4-90da-6698060cbe54',
+              email, 
+              password, 
+              confirmPassword
+          }
+              console.log(data);
+              const ruta = 'user'
+              const id= 'fbe29def-eb7d-4083-8c22-32c7bc0a0e52'
+              updateData({ruta, id, data})
+              alert('Se actualizo correctamente el usuario')
+              setIsModalOpen(!isModalOpen)
+              location.reload()    
       }
       else if(e.target.name === 'cerrar'){
         //console.log('que moierda hace');
@@ -297,15 +252,15 @@ const Modal = ({isModalOpen, setIsModalOpen, datosUsuarios}) => {
 
 // +++++++++++++++++++++++++++++++++++++++++ ACA EMPIEZA LA MODAL
 
-    <div className=' rounded w-[1000px] h-[650px] bg-white border border-gray-200 shadow-2xl fixed top-10 left-[500px] py-3 text-tamañoLetra'>
-        <header className=' w-[100%] h-12   grid place-content-center  text-gray-500 font-semibold text-tamañoLetra '>
+    <div className=' rounded w-[1000px] h-[800px] bg-white border border-gray-200 shadow-2xl fixed top-10 left-[500px] py-3 text-tamañoLetra'>
+        <header className=' w-[100%] h-14   grid place-content-center  text-gray-500 font-semibold text-base '>
           Formulario de Actualizacion
         </header>
         <form   className=' w-full h-[500px] '>
 
-<div className='flex h-[95%] place-content-center  mt-4  px-28 gap-x-10 '>
+<div className='flex h-[100%] place-content-center  mt-4  px-28 gap-x-10 '>
     
-    <section className='w-[45%] h-[100%] border border-gray-200 bg-white px-4 mr-10 pt-5  rounded shadow-lg'>
+    <section className='w-[45%] h-[610px] border border-gray-200  px-4 mr-10 pt-5  rounded shadow-lg'>
         <header className='w-full h-[10%]  grid place-content-center text-base'>
             Datos Personales
         </header>
@@ -358,7 +313,7 @@ const Modal = ({isModalOpen, setIsModalOpen, datosUsuarios}) => {
 
 
 
-    <section className='w-[45%] h-[100%] border border-gray-200 bg-white  mr-4 pt-5 px-8 rounded shadow-lg  '>
+    <section className='w-[45%] h-[610px] border border-gray-200 bg-white  mr-4 pt-5 px-8 rounded shadow-lg  '>
         <header className='w-full h-[10%]  grid place-content-center  text-base' >
             Datos Laborales
         </header>
@@ -368,7 +323,7 @@ const Modal = ({isModalOpen, setIsModalOpen, datosUsuarios}) => {
         <article className='grid grid-rows-2  pb-3 '>
             <label  htmlFor="">Nombre Departamento</label>
             <div  className=" pl-3 pr-3 rounded-md w-[220px] border  border-gray-200 cursor-pointer  flex space-x-[10px]  " onClick={handleClickParam1}>
-                <div className=" w-[350px] pt-2">
+                <div className=" w-[350px] flex items-center">
                     {parametro1}
                 </div> 
                 {/* <input type="text" className="w-56 "  readOnly aria-valuetext="ds" defaultValue={parametro1} name="cargoId"/> */}
@@ -382,11 +337,11 @@ const Modal = ({isModalOpen, setIsModalOpen, datosUsuarios}) => {
                 </div>
             </div>
             {activoParametro1 &&
-                <div className={` mt-[75px] z-50  w-[380px] absolute  left-3/5 max-h-[120px] overflow-auto `}>
+                <div className={` mt-[70px] z-50  w-[220px] absolute  left-3/5 max-h-[120px] overflow-auto `}>
                                 
                     {parametros1.map((el)=>{
                         const {id, nombreDepartamento} = el
-                            return  (<button name='departamentoId' onClick={()=>handleClickSelectForm({id, nombreDepartamento})} className='w-[365px]  text-start cursor-pointer h-10 bg-white  hover:bg-violet-200  pl-4' key={id}>
+                            return  (<button name='departamentoId' onClick={()=>handleClickSelectForm({id, nombreDepartamento})} className='w-[200px]  text-start cursor-pointer h-10 bg-white  hover:bg-violet-200  pl-4' key={id}>
                                 {nombreDepartamento}
                                     </button>)
                                     })}
@@ -402,8 +357,8 @@ const Modal = ({isModalOpen, setIsModalOpen, datosUsuarios}) => {
             {parametro1 !== '-' &&
                 <article className='grid grid-rows-2 pb-3 '>
                 <label  htmlFor="">Nombre Cargo</label>
-                <div  className=" pl-3 pr-3 rounded-md w-[380px] border border-gray-200 cursor-pointer  flex space-x-[10px]  " onClick={handleClickParam2}>
-                    <div className=" w-96 pt-2 ">
+                <div  className=" pl-3 pr-3 rounded-md w-[220px] border border-gray-200 cursor-pointer  flex space-x-[10px]  " onClick={handleClickParam2}>
+                    <div className=" w-[350px] flex items-center">
                         {parametro2}
                     </div> 
                     {/* <input type="text" className="w-56 "  readOnly aria-valuetext="ds" defaultValue={parametro1} name="cargoId"/> */}
@@ -417,11 +372,11 @@ const Modal = ({isModalOpen, setIsModalOpen, datosUsuarios}) => {
                     </div>
                 </div>
                 {activoParametro2 &&
-                    <div className={` mt-[75px] w-[380px] z-50 absolute left-3/5 max-h-[120px] overflow-auto `}>
+                    <div className={` mt-[70px] w-[220px] z-50 absolute left-3/5 max-h-[120px] overflow-auto `}>
                                     
                         {parametros2?.map((el)=>{
                             const {id, nombreCargo} = el
-                                return  (<button name='cargoId' onClick={()=>handleClickSelectForm2({id, nombreCargo})} className='w-[365px] text-start cursor-pointer h-10 bg-white hover:bg-violet-200  pl-4' key={id}>
+                                return  (<button name='cargoId' onClick={()=>handleClickSelectForm2({id, nombreCargo})} className='w-[200px] text-start cursor-pointer h-10 bg-white hover:bg-violet-200  pl-4' key={id}>
                                     {nombreCargo}
                                         </button>)
                                         })}
@@ -436,8 +391,8 @@ const Modal = ({isModalOpen, setIsModalOpen, datosUsuarios}) => {
             {(parametro1 === 'Backend' || parametro1 === 'Frontend' || parametro1 ==='Database' || parametro1 ==='Diseño' || parametro1 ==='Quality Assurance' || parametro1 ==='SysAdmin') &&
                 <article className='grid grid-rows-2 pb-3 '>
                 <label  htmlFor="">Nombre Equipo</label>
-                <div  className=" pl-3 pr-3 rounded-md w-[380px]  border border-gray-200 cursor-pointer  flex space-x-[10px]  " onClick={handleClickParam3}>
-                    <div className=" w-96 pt-2">
+                <div  className=" pl-3 pr-3 rounded-md w-[220px]  border border-gray-200 cursor-pointer  flex space-x-[10px]  " onClick={handleClickParam3}>
+                    <div className=" w-[350px] flex items-center">
                         {parametro3}
                     </div> 
                     {/* <input type="text" className="w-56 "  readOnly aria-valuetext="ds" defaultValue={parametro1} name="cargoId"/> */}
@@ -451,11 +406,11 @@ const Modal = ({isModalOpen, setIsModalOpen, datosUsuarios}) => {
                     </div>
                 </div>
                 {activoParametro3 &&
-                    <div className={` mt-[75px] w-[380px] z-50 absolute left-3/5 max-h-[120px] overflow-auto `}>
+                    <div className={` mt-[70px] w-[220px] z-50 absolute left-3/5 max-h-[120px] overflow-auto `}>
                                     
                         {filtrarEquiposDevs(parametros3)?.map((el)=>{
                             const {id, nombreEquipo} = el
-                                return  (<button name='equipoId' onClick={()=>handleClickSelectForm3({id, nombreEquipo})} className='w-[365px] text-start cursor-pointer h-10 bg-white hover:bg-violet-200  pl-4' key={id}>
+                                return  (<button name='equipoId' onClick={()=>handleClickSelectForm3({id, nombreEquipo})} className='w-[200px] text-start cursor-pointer h-10 bg-white hover:bg-violet-200  pl-4' key={id}>
                                     {nombreEquipo}
                                         </button>)
                                         })}
@@ -494,11 +449,11 @@ const Modal = ({isModalOpen, setIsModalOpen, datosUsuarios}) => {
         
     </section>
 </div>
-<div className=' w-full h-[9%] grid grid-cols-2  place-items-center  mt-5'>
-    <button name='actualizar' onClick={handleClickModalAdmin} className=' ml-[220px] w-[500px] h-[100%] bg-colorBarraBaja hover:bg-violet-600 text-white rounded font-semibold'>
+<div className=' w-full h-[9%] grid grid-cols-2 justify-items-center mt-36 '>
+    <button name='actualizar' onClick={handleClickModalAdmin} className='  w-[250px] h-[100%] bg-colorBarraBaja hover:bg-violet-600 text-white rounded font-semibold'>
         Actualizar Usuario
     </button>
-    <button name='cerrar' onClick={handleClickModalAdmin} className='ml-28 w-[100px] h-[100%] bg-colorBotonEliminar hover:bg-red-700 text-white rounded font-semibold'>
+    <button name='cerrar' onClick={handleClickModalAdmin} className=' w-[250px] h-[100%] bg-colorBotonEliminar hover:bg-red-700 text-white rounded font-semibold'>
         Cerrar
     </button>
 </div>

@@ -6,10 +6,13 @@ import Image from "next/image";
 import { format } from "date-fns";
 
 import iconoAgregarManual from "../../../../React/Assets/Icons/iconoAgregarManual.webp";
+import { useState } from "react";
 
 const CuerpoAdminIngresar = () => {
 
   const router = useRouter()
+
+  const [docume, setDocume] = useState('')
 
   const handleClickFormManual =()=>{
     router.push('/dashboard/admin/IngresarUsuario')
@@ -30,7 +33,7 @@ const CuerpoAdminIngresar = () => {
                   </header>
       <div className="w-[97%] h-[90%] grid grid-cols-2 justify-items-center ml-5">
         <section className="w-[100%] h-[65%]  rounded mt-10 ">
-          <header className="w-full h-8 grid place-content-center font-semibold  text-gray-500">Importar Usuarios</header>
+          <header className="w-full h-8 grid place-content-center  text-gray-700">Importar Usuarios</header>
           <div className="w-full h-full grid  grid-rows-2 grid-cols-2 py-5 gap-9">
             {dataExterno.map((el)=>{
               return <div key={el.id}  className="pb-3 pt-5 grid place-items-center shadow-lg border border-gray-100 rounded cursor-pointer hover:shadow-xl">
@@ -62,7 +65,7 @@ const CuerpoAdminIngresar = () => {
               height={45}
             />
           </div>
-          <div className='w-full h-8 grid place-items-center font-semibold  text-gray-500'>
+          <div className='w-full h-8 grid place-items-center   text-gray-700'>
             Ingresar Usuarios Manualmente
           </div>
           <div className="grid place-items-center">

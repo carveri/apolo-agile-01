@@ -1,12 +1,28 @@
-
+'use client'
 import Image from "next/image";
 
 import logoPrincipal from "../../React/Assets/Icons/logoPricipal2.png";
 import imagenDashboard2 from "./../../React/Assets/Icons/dashboard4.png";
 import MiBoton from "../../React/Components/MiBoton/MiBoton";
+import { useRouter } from "next/navigation";
 
 
 const page = () => {
+
+  const router = useRouter()
+
+  const handleClickBotonesHome =(e)=>{
+    if(e.target.name === 'ingresar'){
+      router.push('/api/auth/login')
+    }
+    else if(e.targat.name === 'prueba'){
+      router.push('/api/auth')
+    }
+    else {
+      console.log('as');
+      
+    }
+  }
 
   
 
@@ -24,7 +40,7 @@ const page = () => {
               />
               
             </header> 
-            <p >
+            <p className="text-colorTextoNavbar font-semibold">
               Apolo Agile
             </p>
           </article>
@@ -35,12 +51,12 @@ const page = () => {
             olisss ipsum dolor sit amet consectetur adipisicing elit. Facere non laboriosam, laudantium illum voluptatum adipisci reprehenderit est esse consectetur adipisicing elit. Facere non laboriosam, laudantium i
           </article>
           <article className='w-[95%] h-[15%] grid grid-cols-2 place-items-center gap-x-4 py-3 text-tamañoLetra'>
-            <MiBoton
-              nombreBoton = 'HomeIngresar'  
-            />
-            < MiBoton
-              nombreBoton = 'HomePrueba'
-            />
+            <button name="ingresar" onClick={handleClickBotonesHome} className="bg-colorTextoAceptada w-full h-full text-white font-semibold rounded">
+              Ingresar
+            </button>
+            <button name="prueba" onClick={handleClickBotonesHome} className="bg-colorFormularioLogin w-full h-full text-white font-semibold rounded">
+              Prueba Gratuita
+            </button>
           </article>
         </div>
       </section>

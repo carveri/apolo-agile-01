@@ -11,7 +11,7 @@ const TablaPo = ({id, nombreHistoria, handleChangeCkecked, updatedAt2, checkedOn
  
     return (
         <tr  style={{transform: CSS.Transform.toString(transform), transition}} ref={setNodeRef} {...attributes} {...listeners}  className='border border-gray-200 h-14  cursor-move hover:bg-colorHoverLista'>
-                  <td className='text-center text-blue-500 font-semibold'>
+                  <td className='text-center text-colorTextoNavbar font-semibold'>
                     {index + 1}
                   </td>
                   <td className='text-center'>

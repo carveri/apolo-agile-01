@@ -90,7 +90,7 @@ const ComPoProductBacklog = ({id, resul}:IComPoProductBacklog) => {
           
         <div className='w-[98%] h-[90%]  z-30  top-32 left-3/5 max-h-[618px] overflow-auto -mt-8 '>
         <div className="w-[98%] ml-8 h-11 bg-gray-50 flex justify-end px-2 ">
-          <label className="py-3 mr-2 font-semibold text-blue-900" htmlFor="">N° Historias:</label>
+          <label className="py-3 mr-2 font-semibold text-colorTextoNavbar" htmlFor="">N° Historias:</label>
           <input min={1} max={historiaBacklog.length} onChange={handleChangeNumero} className="w-10 font-bold pl-3 my-1 border rounded border-gray-200 mr-2 text-violet-900" type="number" />
           {/* <button className="bg-colorTextoAceptada rounded text-colorTextoBoton w-10 h-9 my-1 font-bold hover:bg-green-600" >Go</button> */}
         </div>

@@ -24,14 +24,16 @@ const ComAdmin = ({logicaTabla,nombre, url,res}:IComAdmin) => {
     getUsuarios(url, empresaId)
   }, [])
 
-  console.log('usuario;', usuarios);
+  //console.log('usuario;', usuarios);
+  //console.log('empressaaaid;', empresaId);
+  
   
   
   
   return (
     <div className='w-full h-full ' >
         {usuarios.length !== 0 ?
-        <section  className='w-[99%] h-[99%] '> 
+        <section  className={`${isModalOpen ?  'w-[99%] h-[99%] bg-gray-200 opacity-10': 'w-[99%] h-[99%]'}`}> 
         <main className=' px-4 w-full h-[99%] '>
             <div className='h-14  bg-colorBarraSuperiorTablas grid place-content-center text-colorTextoBarraAlta font-semibold'>
                {nombre} {res.at(0)?.nombreEmpresa}
@@ -60,6 +62,7 @@ const ComAdmin = ({logicaTabla,nombre, url,res}:IComAdmin) => {
                     isModalOpen={isModalOpen}
                     setIsModalOpen={setIsModalOpen}
                     datosUsuarios={datosUsuarios}
+                    empresaId={empresaId}
                   />
                 </div>
     </section>
