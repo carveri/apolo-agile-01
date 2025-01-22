@@ -5,10 +5,12 @@ import { format } from "date-fns";
 
 class MediumBacklog {
     postMediumBacklog =async(req:Request)=>{
-        const {nombreMediumBacklog} = await req.json()
+        const {nombreMediumBacklog, sprint} = await req.json()
         const saveMediumBacklog = await prisma.mediumBacklog.create({
             data:{
                 nombreMediumBacklog,
+                sprint,
+                
                 createdAt: format(new Date(), 'dd/MM/yyyy'),
                 horaAt: format(new Date(), 'H:mm')
             }

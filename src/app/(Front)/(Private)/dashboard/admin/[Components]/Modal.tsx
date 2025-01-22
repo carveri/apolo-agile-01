@@ -252,16 +252,16 @@ const Modal = ({isModalOpen, setIsModalOpen, datosUsuarios, empresaId}) => {
 
 // +++++++++++++++++++++++++++++++++++++++++ ACA EMPIEZA LA MODAL
 
-    <div className=' rounded w-[1000px] h-[800px] bg-white border border-gray-200 shadow-2xl fixed top-10 left-[500px] py-3 text-tamañoLetra'>
-        <header className=' w-[100%] h-14   grid place-content-center  text-gray-500 font-semibold text-base '>
+    <div className=' rounded w-[900px] h-[700px] bg-gray-50 border border-gray-200 shadow-2xl fixed top-14 left-[600px] py-3 text-tamañoLetraChica'>
+        <header className=' w-[100%] h-12  grid place-content-center  text-violet-500 font-semibold text-tamañoLetra '>
           Formulario de Actualizacion
         </header>
         <form   className=' w-full h-[500px] '>
 
-<div className='flex h-[100%] place-content-center  mt-4  px-28 gap-x-10 '>
+<div className='flex h-[100%] place-content-center  mt-4  px-20 gap-x-5 '>
     
-    <section className='w-[45%] h-[610px] border border-gray-200  px-4 mr-10 pt-5  rounded shadow-lg'>
-        <header className='w-full h-[10%]  grid place-content-center text-base'>
+    <section className='w-[55%] h-[550px] border border-gray-200 bg-white  px-4 mr-10 pt-5  rounded shadow-lg'>
+        <header className='w-full h-[10%]  grid place-content-center text-tamañoLetra'>
             Datos Personales
         </header>
         <div className='w-full h-[80%] grid grid-rows-5 px-8 '>
@@ -300,7 +300,7 @@ const Modal = ({isModalOpen, setIsModalOpen, datosUsuarios, empresaId}) => {
             />
             {/* RUT PERSONAL */}
             <InputFormulario
-                texto = 'Rut Personal (Con puntos y guion):'
+                texto = 'Rut Personal (Puntos y guion):'
                 nombre = 'rutPersonal'
                 tipo = 'text'
                 placeholder = '11.111.111-1'
@@ -313,8 +313,8 @@ const Modal = ({isModalOpen, setIsModalOpen, datosUsuarios, empresaId}) => {
 
 
 
-    <section className='w-[45%] h-[610px] border border-gray-200 bg-white  mr-4 pt-5 px-8 rounded shadow-lg  '>
-        <header className='w-full h-[10%]  grid place-content-center  text-base' >
+    <section className='w-[45%] h-[550px] border border-gray-200 bg-white  mr-4 pt-5 px-8 rounded shadow-lg  '>
+        <header className='w-full h-[10%]  grid place-content-center  text-tamañoLetra' >
             Datos Laborales
         </header>
         <div className='w-full h-[80%] grid grid-rows-6 px-8 mt-2 '>
@@ -337,7 +337,7 @@ const Modal = ({isModalOpen, setIsModalOpen, datosUsuarios, empresaId}) => {
                 </div>
             </div>
             {activoParametro1 &&
-                <div className={` mt-[70px] z-50  w-[220px] absolute  left-3/5 max-h-[120px] overflow-auto `}>
+                <div className={` mt-[60px] z-50  w-[220px] absolute  left-3/5 max-h-[120px] overflow-auto `}>
                                 
                     {parametros1.map((el)=>{
                         const {id, nombreDepartamento} = el
@@ -372,7 +372,7 @@ const Modal = ({isModalOpen, setIsModalOpen, datosUsuarios, empresaId}) => {
                     </div>
                 </div>
                 {activoParametro2 &&
-                    <div className={` mt-[70px] w-[220px] z-50 absolute left-3/5 max-h-[120px] overflow-auto `}>
+                    <div className={` mt-[60px] w-[220px] z-50 absolute left-3/5 max-h-[120px] overflow-auto `}>
                                     
                         {parametros2?.map((el)=>{
                             const {id, nombreCargo} = el
@@ -406,7 +406,7 @@ const Modal = ({isModalOpen, setIsModalOpen, datosUsuarios, empresaId}) => {
                     </div>
                 </div>
                 {activoParametro3 &&
-                    <div className={` mt-[70px] w-[220px] z-50 absolute left-3/5 max-h-[120px] overflow-auto `}>
+                    <div className={` mt-[60px] w-[220px] z-50 absolute left-3/5 max-h-[120px] overflow-auto `}>
                                     
                         {filtrarEquiposDevs(parametros3)?.map((el)=>{
                             const {id, nombreEquipo} = el
@@ -449,13 +449,15 @@ const Modal = ({isModalOpen, setIsModalOpen, datosUsuarios, empresaId}) => {
         
     </section>
 </div>
-<div className=' w-full h-[9%] grid grid-cols-2 justify-items-center mt-36 '>
-    <button name='actualizar' onClick={handleClickModalAdmin} className='  w-[250px] h-[100%] bg-colorBarraBaja hover:bg-violet-600 text-white rounded font-semibold'>
-        Actualizar Usuario
-    </button>
-    <button name='cerrar' onClick={handleClickModalAdmin} className=' w-[250px] h-[100%] bg-colorBotonEliminar hover:bg-red-700 text-white rounded font-semibold'>
-        Cerrar
-    </button>
+<div className=' w-full h-[7%] grid  justify-items-end mt-[65px] text-tamañoLetraChica '>
+    <div className='w-[450px] h-full  flex justify-center gap-x-2 '>
+        <button name='actualizar' onClick={handleClickModalAdmin} className='  w-[150px] h-[100%] bg-colorBarraBaja hover:bg-violet-600 text-white rounded font-semibold'>
+            Actualizar Usuario
+        </button>
+        <button name='cerrar' onClick={handleClickModalAdmin} className=' w-[70px] h-[100%] bg-colorBotonEliminar hover:bg-red-700 text-white rounded font-semibold'>
+            Cerrar
+        </button>
+    </div>
 </div>
 <ModalAviso 
     isOpen = {activoModal}

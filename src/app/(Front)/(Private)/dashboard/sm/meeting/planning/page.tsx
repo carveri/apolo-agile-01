@@ -26,7 +26,7 @@ const page = () => {
       <section  className='w-[99%] h-[99%]  '>
             <main className='py-2 px-4 w-full h-[99%] '>
                 <div className='h-14  bg-colorBarraSuperiorTablas text-colorTextoBarraAlta font-semibold flex'>
-                    <div className='w-[55%]  grid place-content-end py-3 text-base'>
+                    <div className='w-[55%]  grid place-content-end py-3 text-tamañoLetra'>
                     Nueva Planning meeting
                     </div>
                     <header className='w-[45%] h-[7%]  flex justify-end items-center  py-8 font-bold mb-1 pr-6   '>
@@ -40,7 +40,7 @@ const page = () => {
                 </div>
                 <div className='w-[1625px] z-30  top-28 left-3/5 max-h-[520px] overflow-auto'>
                   <table className='border border-gray-200   w-[100%]  '>
-                    <thead className='h-14'>
+                    <thead className='h-14 text-gray-600'>
                       <th className='w-[5%] text-center'>Numero</th>                      
                       <th className='w-[10%] text-center'>Inicio Sprint</th>
                       <th className='w-[10%] text-center'>Dias Sprints</th>

@@ -21,10 +21,10 @@ const CuerpoStore = () => {
                     <label htmlFor="">Buscar:</label>
                     <input className='w-[90%] pl-2 h-9 rounded ml-2 border border-gray-200' placeholder='database...' type="text" />
                 </article>
-                <article className='w-[10%] h-8 border text-tamañoLetraChica border-b-colorTextoNavbar  grid place-content-center mr-3 cursor-pointer'>
+                <article className='w-[10%] h-8 border-b text-tamañoLetraChica border-b-colorTextoNavbar  grid place-content-center mr-3 cursor-pointer'>
                     Todos 
                 </article>
-                <article className='w-[10%] h-8 border text-tamañoLetraChica border-b-colorTextoNavbar  grid place-content-center mr-3 cursor-pointer'>
+                <article className='w-[10%] h-8 border-b text-tamañoLetraChica border-b-colorTextoNavbar  grid place-content-center mr-3 cursor-pointer'>
                     Departamento
                 </article>
                 <article className='w-[10%] h-8 bg-colorBarraBaja  text-white font-semibold border border-b-colorTextoNavbar  grid place-content-center mr-3 cursor-pointer'>
@@ -35,7 +35,7 @@ const CuerpoStore = () => {
                 <div className='w-full h-[8%]  grid place-content-center text-colorTextoNavbar font-semibold'>
                     Todos los Plugins
                 </div>
-                <section className="w-full h-[92%] grid grid-cols-2  gap-5 p-2  z-30 mt-3  top-28 left-3/5 max-h-[610px] overflow-auto">
+                <section className="w-full h-[92%] grid grid-cols-2  gap-7 p-2  z-30 mt-3  top-28 left-3/5 max-h-[610px] overflow-auto">
                     {dataPlugins.map((el)=>{
                         return <BadgeStore
                             el={el}

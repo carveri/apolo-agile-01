@@ -228,7 +228,7 @@ const Formulario = ({id}:IId) => {
             <main className='w-full h-[99%] -mt-10'>
             <form  onSubmit={handleSubmitAdmin} className=' w-full h-[700px]'>
 
-                <div className='flex h-[95%]   place-content-center  mt-8  px-72 gap-x-10 '>
+                <div className='flex h-[95%]   place-content-center  mt-8  px-80 gap-x-28 '>
                     <section className='w-[48%] h-[95%] border border-gray-200 bg-white px-4 mr-10 pt-5  rounded shadow-lg'>
                         <header className='w-full h-[10%]  grid place-content-center text-base'>
                             Datos Personales
@@ -291,7 +291,7 @@ const Formulario = ({id}:IId) => {
                             {/* LISTA DE Departamento */}
                         <article className='grid grid-rows-2  pb-3 '>
                             <label  htmlFor="">Nombre Departamento</label>
-                            <div  className=" pl-3 pr-3 rounded-md w-[380px] border  border-gray-200 cursor-pointer  flex space-x-[10px]  " onClick={handleClickParam1}>
+                            <div  className=" pl-3 pr-3 rounded-md w-[300px] border  border-gray-200 cursor-pointer  flex space-x-[10px]  " onClick={handleClickParam1}>
                                 <div className=" w-[350px] pt-2">
                                     {parametro1}
                                 </div> 
@@ -306,11 +306,11 @@ const Formulario = ({id}:IId) => {
                                 </div>
                             </div>
                             {activoParametro1 &&
-                                <div className={` mt-[75px] z-50  w-[380px] absolute  left-3/5 max-h-[120px] overflow-auto `}>
+                                <div className={` mt-[75px] z-50  w-[300px] absolute  left-3/5 max-h-[120px] overflow-auto `}>
                                                 
                                     {parametros1.map((el)=>{
                                         const {id, nombreDepartamento} = el
-                                            return  (<button name='departamentoId' onClick={()=>handleClickSelectForm({id, nombreDepartamento})} className='w-[365px]  text-start cursor-pointer h-10 bg-white  hover:bg-violet-200  pl-4' key={id}>
+                                            return  (<button name='departamentoId' onClick={()=>handleClickSelectForm({id, nombreDepartamento})} className='w-[280px]  text-start cursor-pointer h-10 bg-white  hover:bg-violet-200  pl-4' key={id}>
                                                 {nombreDepartamento}
                                                     </button>)
                                                     })}
@@ -326,7 +326,7 @@ const Formulario = ({id}:IId) => {
                             {parametro1 !== '-' &&
                                 <article className='grid grid-rows-2 pb-3 '>
                                 <label  htmlFor="">Nombre Cargo</label>
-                                <div  className=" pl-3 pr-3 rounded-md w-[380px] border border-gray-200 cursor-pointer  flex space-x-[10px]  " onClick={handleClickParam2}>
+                                <div  className=" pl-3 pr-3 rounded-md w-[300px] border border-gray-200 cursor-pointer  flex space-x-[10px]  " onClick={handleClickParam2}>
                                     <div className=" w-96 pt-2 ">
                                         {parametro2}
                                     </div> 
@@ -341,11 +341,11 @@ const Formulario = ({id}:IId) => {
                                     </div>
                                 </div>
                                 {activoParametro2 &&
-                                    <div className={` mt-[75px] w-[380px] z-50 absolute left-3/5 max-h-[120px] overflow-auto `}>
+                                    <div className={` mt-[75px] w-[300px] z-50 absolute left-3/5 max-h-[120px] overflow-auto `}>
                                                     
                                         {parametros2?.map((el)=>{
                                             const {id, nombreCargo} = el
-                                                return  (<button name='cargoId' onClick={()=>handleClickSelectForm2({id, nombreCargo})} className='w-[365px] text-start cursor-pointer h-10 bg-white hover:bg-violet-200  pl-4' key={id}>
+                                                return  (<button name='cargoId' onClick={()=>handleClickSelectForm2({id, nombreCargo})} className='w-[280px] text-start cursor-pointer h-10 bg-white hover:bg-violet-200  pl-4' key={id}>
                                                     {nombreCargo}
                                                         </button>)
                                                         })}
@@ -360,7 +360,7 @@ const Formulario = ({id}:IId) => {
                             {(parametro1 === 'Backend' || parametro1 === 'Frontend' || parametro1 ==='Database' || parametro1 ==='Diseño' || parametro1 ==='Quality Assurance' || parametro1 ==='SysAdmin') &&
                                 <article className='grid grid-rows-2 pb-3 '>
                                 <label  htmlFor="">Nombre Equipo</label>
-                                <div  className=" pl-3 pr-3 rounded-md w-[380px]  border border-gray-200 cursor-pointer  flex space-x-[10px]  " onClick={handleClickParam3}>
+                                <div  className=" pl-3 pr-3 rounded-md w-[300px]  border border-gray-200 cursor-pointer  flex space-x-[10px]  " onClick={handleClickParam3}>
                                     <div className=" w-96 pt-2">
                                         {parametro3}
                                     </div> 
@@ -375,11 +375,11 @@ const Formulario = ({id}:IId) => {
                                     </div>
                                 </div>
                                 {activoParametro3 &&
-                                    <div className={` mt-[75px] w-[380px] z-50 absolute left-3/5 max-h-[120px] overflow-auto `}>
+                                    <div className={` mt-[75px] w-[300px] z-50 absolute left-3/5 max-h-[120px] overflow-auto `}>
                                                     
                                         {filtrarEquiposDevs(parametros3)?.map((el)=>{
                                             const {id, nombreEquipo} = el
-                                                return  (<button name='equipoId' onClick={()=>handleClickSelectForm3({id, nombreEquipo})} className='w-[365px] text-start cursor-pointer h-10 bg-white hover:bg-violet-200  pl-4' key={id}>
+                                                return  (<button name='equipoId' onClick={()=>handleClickSelectForm3({id, nombreEquipo})} className='w-[280px] text-start cursor-pointer h-10 bg-white hover:bg-violet-200  pl-4' key={id}>
                                                     {nombreEquipo}
                                                         </button>)
                                                         })}

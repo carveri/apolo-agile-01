@@ -1,30 +1,33 @@
 
 
-import icono from "../Assets/Icons/producto.png";
+import iconoPb from "../Assets/Icons/iconoPB3.png";
+import iconoPendiente from "../Assets/Icons/iconoPendiente.png";
+import iconoRealizas from "../Assets/Icons/iconoRealizadas3.png";
+import iconoRechazados from "../Assets/Icons/iconoRechazadas3.png";
 
 export const dataHomePo = [
     {
         id:1,
         nombre: 'Tareas Pendientes',
         valor: 3,
-        icono: icono
+        icono: iconoPendiente
     },
     {
         id:2,
         nombre: 'Tareas Realizadas',
         valor: 32,
-        icono: icono
+        icono: iconoRealizas
     },
     {
         id:3,
-        nombre: 'Tareas en Product Backlog',
+        nombre: 'Tareas Product Backlog',
         valor: 11,
-        icono: icono
+        icono: iconoPb
     },
     {
         id:4,
         nombre: 'Tareas Rechazadas',
         valor: 9,
-        icono: icono
+        icono: iconoRechazados
     },
 ]

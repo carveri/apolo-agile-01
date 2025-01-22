@@ -76,7 +76,7 @@ const linksAdmin = [
           <Navbar />
         </header>
 
-        <main className="w-full  h-[807px]  rounded text-tamañoLetra pl-2">
+        <main className="w-full  h-[807px] rounded text-tamañoLetra pl-2">
           <header className='w-full h-[4%]  pl-4 mt-5'>
                 Dashboard {'>'} Administrador
             </header>

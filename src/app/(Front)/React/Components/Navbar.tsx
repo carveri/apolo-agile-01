@@ -75,7 +75,7 @@ const Navbar = () => {
                 </Link>
             </li>
             <div>
-                <button className=' hover:underline py-2 px-1 font-semibold text-tamañoLetra' onClick={handleClickLogOut}>
+                <button className=' hover:underline py-2 px-1 font-semibold text-tamañoLetraChica' onClick={handleClickLogOut}>
                     Salir
                 </button>
             </div>

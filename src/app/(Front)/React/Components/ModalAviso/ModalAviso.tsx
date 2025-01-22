@@ -11,7 +11,7 @@ const ModalAviso = ({isOpen, onClose}) => {
             <header className='w-full h-[30%] text-lg text-center '>
                 El Usuario se Agrego con exito
             </header>
-            <section className='flex gap-x-4 w-full h-[70%] justify-end'>
+            <section className='flex gap-x-4 w-full h-[70%] justify-end bg-yellow-400'>
                 <button onClick={onClose} className='bg-colorBotonPrincipal w-14 h-8 rounded text-colorBotonVer font-semibold'>
                     Ver 
                 </button>

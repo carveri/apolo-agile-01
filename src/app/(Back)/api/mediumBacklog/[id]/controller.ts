@@ -22,16 +22,16 @@ class MediumBacklogOne {
         return updatedCategorias
     }
 
-    // // metodo delete
-    // deleteHistoria = async(req:Request, {params}:IHistoriaParams)=>{
-    //     const {historiaId} = params
-    //     const deleteCategoria = await prisma.historia.delete({
-    //         where:{
-    //             id:historiaId
-    //         }
-    //     })
-    //     return deleteCategoria
-    // }
+    // metodo delete
+    deleteHistoria = async(req:Request, {params})=>{
+        const {id} = await params
+        const deleteCategoria = await prisma.mediumBacklog.delete({
+            where:{
+                id:id
+            }
+        })
+        return deleteCategoria
+    }
 
     // // metodo get
     // getOneHistoria = async(req:Request, {params}:IHistoriaParams)=>{

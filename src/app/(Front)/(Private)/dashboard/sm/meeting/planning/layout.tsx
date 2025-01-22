@@ -23,15 +23,15 @@ export default  function RootLayout({children,}: Readonly<{children: React.React
           </header>
       </section>
       <main className='w-full h-[95%] -mt-[377px]'> 
-        <header className="w-full h-9  flex px-7">
+        {/* <header className="w-full h-9  flex px-7">
           <div onClick={handleClickMeeting1} className="border border-gray-200 px-5 grid place-content-center cursor-pointer hover:underline">
             Nueva Planning
           </div>
           <div onClick={handleClickMeeting2} className="border border-gray-200 px-5 grid place-content-center cursor-pointer hover:underline">
             Historial Plannin Meeting
           </div>
-        </header>
-        <div className="h-64 ">
+        </header> */}
+        <div className="h-64 text-tamañoLetra">
           {children}
         </div>
       </main>

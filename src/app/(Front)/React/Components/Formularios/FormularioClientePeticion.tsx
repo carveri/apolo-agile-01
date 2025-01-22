@@ -122,7 +122,7 @@ const FormularioClientePeticion = ({id, areaId, email}:IFormularioClientePeticio
 
 
     const productBacklogId = '1af659a1-06b9-46e7-94fb-2220d8f5f0b8'
-    const mediumBacklogId = '1919780b-4aa0-4189-a18c-3f778ce5df4a'
+    const mediumBacklogId = '65a5640f-f657-4630-886f-c3a086980cf9'
 
 
 
@@ -156,6 +156,8 @@ const FormularioClientePeticion = ({id, areaId, email}:IFormularioClientePeticio
         const ruta = 'historia'
         postData({ruta, data})
         alert('Se guardo correctamente la historia')
+        //console.log('as', archivoA);
+        
     }
 
  
@@ -197,7 +199,7 @@ const FormularioClientePeticion = ({id, areaId, email}:IFormularioClientePeticio
                                 <label  htmlFor="">Archivo de apoyo:</label>
                                     
                                     
-                                <input name="archivoApoyo" onChange={handleChangeCliente} className="file:h-9 file:px-3 file:rounded  file:text-tamañoLetraChica font-semibold text-tamañoLetraChica file:border-none   file:bg-colorBotonPrincipal file:text-white text-colorTextoNavbar  file:cursor-pointer " accept=".jpg, .png, .webp" type="file" />
+                                <input name="archivoApoyo"  onChange={handleChangeCliente} className="file:h-9 file:px-3 file:rounded  file:text-tamañoLetraChica font-semibold text-tamañoLetraChica file:border-none   file:bg-colorBotonPrincipal file:text-white text-colorTextoNavbar  file:cursor-pointer " accept=".jpg, .png, .webp" type="file" />
                             </article>
                             
                         </div>

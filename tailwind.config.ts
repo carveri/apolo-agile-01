@@ -30,12 +30,12 @@ const config: Config = {
         
         // Componentes
         'colorNavbar': '#ffffff',
-        'colorFormularioLogin': 'rgb(96, 63, 162)',
+        'colorFormularioLogin': 'rgb(75, 50, 126)',
         'colorSidebar': 'rgb(138, 106, 201)',
         'colorBarraBaja': 'rgb(138, 106, 201)',
         'hoverColorSidebar': 'rgb(147, 113, 215)',
         'colorBarraSuperiorTablas': 'rgb(138, 106, 201)',
-        'colorCajaLogo': 'rgb(110, 86, 159)',
+        'colorCajaLogo': 'rgb(99, 66, 164)',
         'colorHoverLista': 'rgb(208, 216, 255)',
 
         // Botones

@@ -1,6 +1,6 @@
 
 
-import pluginDb from "../../../../React/Assets/Icons/pluginDB.png";
+import pluginDb from "../../../../React/Assets/Icons/pluginDB2.png";
 
 export const dataVerPlugin = 
     {

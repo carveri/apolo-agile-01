@@ -56,8 +56,23 @@ const ComPoProductBacklog = ({id, resul}:IComPoProductBacklog) => {
 
   const handleClickConfirmSB =()=>{
     //console.log(historiaBacklog);
-    console.log(cortarBacklog());
+    const nombreMediumBacklog = cortarBacklog()
+    const sprint = 10
+    const data= {nombreMediumBacklog, sprint}
+    console.log(data);
+    
+    //console.log(cortarBacklog());
     //postData()
+    // const nombreMediumBacklog = 'back3'
+    // const sprint = 3
+    // //const historias = ['de4cd5e5-9c4d-4173-bbd3-bce6011b2e62']
+    
+    // const data = {nombreMediumBacklog, sprint}
+    // const ruta = 'mediumBacklog'
+    // //const data = ''
+    const ruta = 'mediumBacklog'
+    postData({ruta, data})
+    alert('Se guardo correctamente!')
     
     
     

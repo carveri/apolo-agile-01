@@ -1,82 +1,58 @@
 'use client'
 
 import { useRouter } from "next/navigation";
+import Image from "next/image";
+
+import iconoLogoPerfil from "../../../React/Assets/Icons/iconoLogoPerfil.png";
 
 const page = () => {
 
   const router = useRouter()
 
   return (
-    <div className='w-full h-[880px] grid place-items-center grid-cols-2   px-80'>
-      <div className='w-[500px] h-[60%] rounded-xl '>
-        <header className='w-full shadow-xl h-[10%] border border-b-violet-400 grid place-content-center rounded font-semibold text-lg text-violet-700'>
-          Datos Personales
-        </header>
-        <main className='w-full h-[80%] shadow-lg bg-white grid grid-rows-6 px-6 py-3 rounded text-sm'>
-          <section className='grid content-center'>
-            Primer Nombre: Juan 
+    <div className='w-full h-screen bg-yellow-300 grid place-items-center'>
+      <div className="w-[60%] h-[70%] bg-orange-500 flex">
+        <section className="w-[20%] h-full bg-cyan-500 grid grid-contents-center">
+          <div className="">
+              <Image 
+                src={iconoLogoPerfil}
+                width={200}
+                height={200}
+                alt="dsd"
+              />
+          </div>
+          <main>
+            <header>
+              Juan Perez Lopez
+            </header>
+            <div>
+              @juanperez
+            </div>
+            <div>
+              Hilti
+            </div>
+          </main>
+        </section>
+        <div className="w-[80%] h-full bg-violet-500 flex">
+          <section className="w-[50%] h-full">
+            <header>
+              Datos Personales
+            </header>
+            <main>
+              datos
+            </main>
           </section>
-          <section className='grid content-center'>
-            Segundo Nombre: Luis
+          <section className="w-[50%]">
+            <header>
+              Datos Laborales
+            </header>
+            <main>
+              sdsd
+            </main>
           </section>
-          <section className='grid content-center'>
-            Apellido Paterno: Perex
-          </section>
-          <section className='grid content-center'>
-            Apellido Materno: Gomez
-          </section>
-          <section className='grid content-center'>
-            Rut: 16.645.873-4
-          </section>
-          <section className='grid content-center'>
-            Fecha Ingreso: 12-07-2022
-          </section>
-          
-          {/* <button  onClick={()=>router.back()} className="mt-10 w-full h-14 bg-colorTextoAceptada text-white font-semibold rounded-sm">
-            Volver 
-          </button> */}
-        </main>
-      </div>
-      <div className='w-[500px]  h-[60%] rounded-xl '>
-        <header className='w-full h-[10%] border border-b-violet-400 grid place-content-center rounded font-semibold text-lg text-violet-700'>
-          Datos Laborales
-        </header>
-        <main className='w-full  h-[80%] shadow-lg bg-white grid grid-rows-6 px-6 py-3 rounded text-tamañoLetra'>
-          <section className='grid content-center'>
-            Empresa: Hilti
-          </section>
-          <section className='grid content-center'>
-            Rut Empresa: 16.645.873-4
-          </section>
-          <section className='grid content-center'>
-            Email Corporativo: juanperez@hilti.com
-          </section>
-          <section className='grid content-center'>
-            Area: Desarrollo
-          </section>
-          <section className='grid content-center'>
-            Departamento: Backend
-          </section>
-          <section className='grid content-center'>
-            Cargo: Backend Senior
-          </section>
-          {/* <section className='grid content-center'>
-            Deapartamento: Backend
-          </section>
-          <section className='grid content-center'>
-            Cargo: Backend Senior
-          </section> */}
-          {/* <button  onClick={()=>router.back()} className="mt-10 w-full h-14 bg-colorTextoAceptada text-white font-semibold rounded-sm">
-            Volver 
-          </button> */}
-        </main>
-        <div className="w-full h-14 flex justify-end">
-          <button  onClick={()=>router.back()} className="mt-10   w-36 h-14 bg-colorTextoAceptada text-white font-semibold rounded-sm">
-              Volver 
-          </button>
         </div>
+
       </div>
-      
     </div>
   )
 }

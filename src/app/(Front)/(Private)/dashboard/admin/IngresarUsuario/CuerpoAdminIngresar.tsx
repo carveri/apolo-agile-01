@@ -48,7 +48,7 @@ const CuerpoAdminIngresar = () => {
                   {el?.nombreExterno}
                 </div>
                 <div className="text-center">
-                  <input type="file"  className=" file:h-8  file:mr-1 file:hover:bg-colorBarraBaja file:px-3 file:rounded flex text-xs file:text-xs font-semibold  file:border-none   file:bg-colorBarraBaja file:text-white text-colorBarraBaja  file:cursor-pointer " />
+                  <input type="file"  className=" file:h-8  file:mr-1 file:hover:bg-colorBarraBaja file:px-3 file:rounded flex text-xs file:text-xs font-semibold  file:border-none   file:bg-colorBarraBaja file:text-white text-gray-500  file:cursor-pointer " />
                 </div>
                 
               </div>

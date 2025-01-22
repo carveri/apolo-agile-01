@@ -28,10 +28,10 @@ const Sidebar = ({links}:ILinks) => {
     
   return (
     <aside className='w-full h-full rounded '>
-        <header className='h-12 bg-gray-100 grid place-content-center rounded text-tamañoLetra'>
-             <p className='pr-1'>Dashboard</p> 
+        <header className='h-12 bg-gray-200 grid place-content-center rounded text-tamañoLetra'>
+             <p className='pr-1 text-gray-800'>Dashboard</p> 
         </header>
-        <ul className='w-full h-[43%] grid grid-rows-6 '>
+        <ul className={`w-full h-[40%] grid grid-rows-6`}>
             {links.map((element)=>{
                 const {id, nombre, href, icono, coso} = element
                 return <li key={id} className={`rounded  font-medium border-1 border-gray-100 grid items-center pl-4  hover:bg-hoverColorSidebar

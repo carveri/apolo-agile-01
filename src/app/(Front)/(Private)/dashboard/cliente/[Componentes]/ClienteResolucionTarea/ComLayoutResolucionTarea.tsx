@@ -9,14 +9,14 @@ const ComLayoutResolucionTarea = ({handleClickMeeting1, handleClickMeeting2, chi
           </header>
       </section>
       <main className='w-full h-[95%] -mt-[377px]'> 
-        <header className="w-full h-9  flex px-7">
+        {/* <header className="w-full h-9  flex px-7">
           <div onClick={handleClickMeeting1} className="border border-gray-200 px-5 grid place-content-center cursor-pointer hover:underline">
             Peticiones Actuales
           </div>
           <div onClick={handleClickMeeting2} className="border border-gray-200 px-5 grid place-content-center cursor-pointer hover:underline">
             Historial Peticiones
           </div>
-        </header>
+        </header> */}
         <div className="h-64 ">
           {children}
         </div>

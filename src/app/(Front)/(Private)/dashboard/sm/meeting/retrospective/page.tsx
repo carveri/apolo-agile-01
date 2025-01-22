@@ -8,7 +8,7 @@ const page = () => {
       <section  className='w-[99%] h-[99%]  '>
             <main className='py-2 px-4 w-full h-[99%] '>
             <div className='h-14  bg-colorBarraSuperiorTablas text-colorTextoBarraAlta font-semibold flex'>
-                    <div className='w-[55%]  grid place-content-end py-3 text-base'>
+                    <div className='w-[55%]  grid place-content-end py-3 text-tamañoLetra'>
                     Nueva Retrospective meeting
                     </div>
                     <header className='w-[45%] h-[7%]  flex justify-end items-center  py-8 font-bold mb-1 pr-6   '>

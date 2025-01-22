@@ -1,7 +1,7 @@
 
-import pluginDb from "../../../../React/Assets/Icons/pluginDB.png";
+import pluginDb from "../../../../React/Assets/Icons/pluginDB2.png";
 import pluginTesting from "../../../../React/Assets/Icons/pluginTesting.png";
-import pluginTransferencia from "../../../../React/Assets/Icons/pluginTransferencia.png";
+import pluginTransferencia from "../../../../React/Assets/Icons/pluginTransferencia2.png";
 import pluginInfra from "../../../../React/Assets/Icons/pluginInfra.png";
 import pluginDocker from "../../../../React/Assets/Icons/pluginDocker.png";
 

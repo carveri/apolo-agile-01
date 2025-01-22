@@ -8,7 +8,7 @@ import PoHome from './[Componentes]/PoHome/PoHome';
 
 const page = () => {
 
-  const { getHistorias} = useHistoriaPo()
+  const { getHistorias } = useHistoriaPo()
 
 
   useEffect(()=>{
