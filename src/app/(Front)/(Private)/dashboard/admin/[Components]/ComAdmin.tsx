@@ -7,8 +7,12 @@ import BadgeNoAun from '@/app/(Front)/React/Components/BadgeNoAun/BadgeNoAun';
 import { IComAdmin } from '@/app/Interfaces/IComAdmin';
 import { useHistoriaAdmin } from '../../../[stores]/adminStore';
 import Modal from './Modal';
+import { deleteData } from '@/app/(Front)/React/Fetch/deleteData';
+import { useRouter } from "next/navigation";
 
 const ComAdmin = ({logicaTabla,nombre, url,res}:IComAdmin) => {
+
+  const router = useRouter()
 
   //console.log('resllega;', res);
   const {usuarios, getUsuarios} = useHistoriaAdmin()
@@ -17,6 +21,9 @@ const ComAdmin = ({logicaTabla,nombre, url,res}:IComAdmin) => {
   //const {updateidUsuario} = usuarioStore()
   const [datosUsuarios, setDatosUsuarios] = useState([])
   const [isModalOpen, setIsModalOpen] = useState<boolean> (false)
+
+  const [idActualizar, setIdActualizar] = useState('')
+  const [usuarioActualizado, setUsuarioActualizado] = useState([])
   
   const empresaId =  res.at(0)?.id
 
@@ -24,9 +31,41 @@ const ComAdmin = ({logicaTabla,nombre, url,res}:IComAdmin) => {
     getUsuarios(url, empresaId)
   }, [])
 
-  //console.log('usuario;', usuarios);
+//console.log('usuario;', usuarios);
   //console.log('empressaaaid;', empresaId);
+  // useEffect(()=>{
+  //   if(idActualizar){
+  //     const usuario = usuarios.find(usuario=> usuario.id === idActualizar)
+  //     setUsuarioActualizado(usuario)
+  //   }
+  // }, [])
   
+  const handleClickTablaAdmin =(e, id)=>{
+    if(e.target.name === 'ver'){
+      console.log('soy el de ver');
+    }
+    else if(e.target.name === 'actualizar'){
+      setIsModalOpen(!isModalOpen)
+      console.log('idd:', id);
+      setIdActualizar(id)
+      
+      //console.log(idActualizar);
+      
+    }
+    else if(e.target.name ==='eliminar'){
+      const ruta = 'user'
+      const url = id
+      deleteData({ruta, url})
+      alert('Se elimino correctamente el usuario!')
+      router.refresh()
+    }
+    else {
+      console.log('sd');
+      
+    }
+ }
+  console.log('usuarioActualizado;', usuarioActualizado);
+  console.log('idddsssssssssssssssssss;', idActualizar);
   
   
   
@@ -54,6 +93,10 @@ const ComAdmin = ({logicaTabla,nombre, url,res}:IComAdmin) => {
                 setActivarModal={setActivarModal}
                 isModalOpen={isModalOpen}
                 setIsModalOpen={setIsModalOpen}
+                setIdActualizar={setIdActualizar}
+                idActualizar={idActualizar}
+                setUsuarioActualizado={setUsuarioActualizado}
+                handleClickTablaAdmin={handleClickTablaAdmin}
             />
       </div>
         </main>
@@ -63,6 +106,11 @@ const ComAdmin = ({logicaTabla,nombre, url,res}:IComAdmin) => {
                     setIsModalOpen={setIsModalOpen}
                     datosUsuarios={datosUsuarios}
                     empresaId={empresaId}
+                    usuarios={usuarios}
+                    usuarioActualizado={usuarioActualizado}
+                    idActualizar={idActualizar}
+                    setUsuarioActualizado={setUsuarioActualizado}
+                    usuarioActualizado={usuarioActualizado}
                   />
                 </div>
     </section>

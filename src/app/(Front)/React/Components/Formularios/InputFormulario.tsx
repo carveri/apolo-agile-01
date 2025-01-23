@@ -1,5 +1,10 @@
 
 const InputFormulario = ({texto, nombre, tipo, placeholder, handleChangeAdmin}) => {
+  
+  //console.log('usuarios;', usuarios);
+  
+  
+  
   return (
     <article className='grid grid-rows-2 pb-3'>
         <label  htmlFor="">{texto}</label>

@@ -20,7 +20,7 @@ interface ITablaAdmin {
   usuarios: IUsuarios[]
 }
 
-const Tabla = ({logicaTabla, usuarios, activarModal, setActivarModal, isModalOpen, setIsModalOpen}) => {
+const Tabla = ({logicaTabla, usuarios, activarModal, setActivarModal, isModalOpen, setIsModalOpen, setIdActualizar, idActualizar, setUsuarioActualizado, handleClickTablaAdmin}) => {
 
 
     const router = useRouter()
@@ -31,25 +31,7 @@ const Tabla = ({logicaTabla, usuarios, activarModal, setActivarModal, isModalOpe
 
    // const [activarEli, setActivarEli] = useState(false)
 
-   const handleClickTablaAdmin =(e, id)=>{
-      if(e.target.name === 'ver'){
-        console.log('soy el de ver');
-      }
-      else if(e.target.name === 'actualizar'){
-        setIsModalOpen(!isModalOpen)
-      }
-      else if(e.target.name ==='eliminar'){
-        const ruta = 'user'
-        const url = id
-        deleteData({ruta, url})
-        alert('Se elimino correctamente el usuario!')
-        router.refresh()
-      }
-      else {
-        console.log('sd');
-        
-      }
-   }
+   
     
 
   return (

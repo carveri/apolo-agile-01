@@ -16,7 +16,7 @@ import ModalAviso from '@/app/(Front)/React/Components/ModalAviso/ModalAviso';
 import flechaAbajo from '../../../../React/Assets/Icons/flechaAbajo4.png'
 
 
-const Modal = ({isModalOpen, setIsModalOpen, datosUsuarios, empresaId}) => {
+const Modal = ({isModalOpen, setIsModalOpen, datosUsuarios, empresaId, usuarios, idActualizar, setUsuarioActualizado, usuarioActualizado}) => {
 
   const [activoModal, setActivoModal] = useState(false)
   
@@ -54,7 +54,9 @@ const Modal = ({isModalOpen, setIsModalOpen, datosUsuarios, empresaId}) => {
       const [empresa, setEmpresa] = useState([])
       
   
-      console.log('datosusuarios;', datosUsuarios);
+      //console.log('datosusuarios;', datosUsuarios);
+      
+      console.log('usuarioActualizado;', usuarioActualizado);
       
 
       // traer datos de los departamentos
@@ -208,6 +210,16 @@ const Modal = ({isModalOpen, setIsModalOpen, datosUsuarios, empresaId}) => {
       }
       traerData()
     }, [])
+
+    if(idActualizar){
+        //console.log('idActualizarddddddddddddddddddd;', idActualizar);
+        
+        const usuario = usuarios.find(usuario => usuario.id === idActualizar)
+        setUsuarioActualizado(usuario)
+      }
+
+      console.log('por fin:', usuarioActualizado);
+      
     
 
     // FUNCION DE LOS BOTONES ACTUALIZAR Y CERRAR DE LA MODAL
@@ -272,6 +284,7 @@ const Modal = ({isModalOpen, setIsModalOpen, datosUsuarios, empresaId}) => {
                 tipo = 'text'
                 placeholder = 'Pedro'
                 handleChangeAdmin={handleChangeAdmin}
+                //usuarios={usuarioActualizado.primerNombre}
             />
             {/* SEGUNDO NOMBRE */}
             <InputFormulario
@@ -280,6 +293,7 @@ const Modal = ({isModalOpen, setIsModalOpen, datosUsuarios, empresaId}) => {
                 tipo = 'text'
                 placeholder = 'Raul'
                 handleChangeAdmin={handleChangeAdmin}
+               // usuarios={usuarioActualizado.segundoNombre}
             />
             
             {/* AP PATERNO */}
@@ -289,6 +303,7 @@ const Modal = ({isModalOpen, setIsModalOpen, datosUsuarios, empresaId}) => {
                 tipo = 'text'
                 placeholder = 'Ruiz'
                 handleChangeAdmin={handleChangeAdmin}
+                //usuarios={usuarioActualizado.apellidoPaterno}
             />
             {/* AP MATERNO */}
             <InputFormulario
@@ -297,6 +312,7 @@ const Modal = ({isModalOpen, setIsModalOpen, datosUsuarios, empresaId}) => {
                 tipo = 'text'
                 placeholder = 'Cortes'
                 handleChangeAdmin={handleChangeAdmin}
+                //usuarios={usuarioActualizado.apellidoMaterno}
             />
             {/* RUT PERSONAL */}
             <InputFormulario
@@ -305,6 +321,7 @@ const Modal = ({isModalOpen, setIsModalOpen, datosUsuarios, empresaId}) => {
                 tipo = 'text'
                 placeholder = '11.111.111-1'
                 handleChangeAdmin={handleChangeAdmin}
+               // usuarios={usuarioActualizado.rutPersonal}
             />    
         </div>
         
@@ -427,6 +444,7 @@ const Modal = ({isModalOpen, setIsModalOpen, datosUsuarios, empresaId}) => {
                 tipo = 'text'
                 placeholder = 'juanitoxx@gmail.com'
                 handleChangeAdmin={handleChangeAdmin}
+                //usuarios={usuarioActualizado.email}
             />
             {/* PASSWORD */}
             <InputFormulario
@@ -435,6 +453,7 @@ const Modal = ({isModalOpen, setIsModalOpen, datosUsuarios, empresaId}) => {
                 tipo = 'password'
                 placeholder = '************'
                 handleChangeAdmin={handleChangeAdmin}
+               // usuarios={usuarioActualizado?.password}
             />
             {/* CONFIRM PASSWORD */}
             <InputFormulario
@@ -443,6 +462,7 @@ const Modal = ({isModalOpen, setIsModalOpen, datosUsuarios, empresaId}) => {
                 tipo = 'password'
                 placeholder = '************'
                 handleChangeAdmin={handleChangeAdmin}
+                //usuarios={usuarioActualizado?.password}
              />
             
         </div>

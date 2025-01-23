@@ -14,7 +14,7 @@ const PoHome = ({dataHomePo}) => {
           <header className='w-full h-[5%] bg-white py-4 pl-14'>
             Dashboard {'>'} Product Owner {'>'} Home
           </header>
-          <main className='w-full h-[95%]  px-36 pt-5'>
+          <main className='w-full h-[95%]  px-24 pt-5'>
             <header className='w-full h-[9%]  flex gap-x-20 px-6 '>
               {dataHomePo.map((el)=>{
                 return <article key={el.id} className='w-full h-full py-3 rounded-md flex bg-gray-50 border border-violet-50 shadow-lg'>

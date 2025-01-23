@@ -22,6 +22,7 @@ export const useHistoriaCliente = create<IuseHistoriaCliente>((set)=>
     historiasAceptas: [],
     historiasRetornadas: [],
     historia:[],
+    //usuarioActualizado: [],
     
     getHistoriasEnviadas: async(resul, id)=>{
         const ruta = 'historiaStatusCargo' 
@@ -69,5 +70,6 @@ export const useHistoriaCliente = create<IuseHistoriaCliente>((set)=>
     }))
     }
 
+    //setUsuarioActualizado: (usuario)=>{ 
     
 }))

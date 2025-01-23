@@ -62,7 +62,7 @@ const CuerpoAdminIngresar = () => {
       const data = new FormData();
       data.set("file", excel);
      // console.log('data;', data);
-      
+      //const rut = 'asa'
 
       const res = await fetch("/api/userMany", {
         method: "POST",

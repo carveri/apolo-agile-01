@@ -90,7 +90,7 @@ const ComPoHistoriasRetornadas = ({nombre, id, resul}:IComPoHistoriasRetornadas)
                 </tbody>
             </table>
               </div>: 
-              <div className='w-full h-[40%]  grid place-content-center text-xl'>
+              <div className='w-full h-[30%]  grid place-content-center text-xl'>
                 <BadgeNoAun
                   nombre = 'Retornadas'
                 />

@@ -54,7 +54,7 @@ const ComPoNuevaTarea = ({nombre, id, resul}:IPoNuevaTarea) => {
                 handleClickVerNuevasTareasPo={handleClickVerNuevasTareasPo}
             />
             </div>: 
-            <div className='w-full h-[40%]  grid place-content-center text-xl'>
+            <div className='w-full h-[30%]  grid place-content-center text-xl'>
             <BadgeNoAun
               nombre = ''
             />

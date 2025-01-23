@@ -111,7 +111,7 @@ const FormularioClientePeticion = ({id, areaId, email}:IFormularioClientePeticio
             setPuntoHistoria(e.target.valueAsNumber)
         }
         else if(e.target.name === 'archivoApoyo'){
-            setArchivoA(e.target.value)
+            setArchivoA(e.target.files[0])
         }
         else {
             console.log('sd');
@@ -119,6 +119,9 @@ const FormularioClientePeticion = ({id, areaId, email}:IFormularioClientePeticio
         }
         
     }
+
+    console.log();
+    
 
 
     const productBacklogId = 'b7617060-cc79-472b-8e84-8763beb787a0'
@@ -136,13 +139,12 @@ const FormularioClientePeticion = ({id, areaId, email}:IFormularioClientePeticio
     const handleSumbitCliente =(e:React.FormEvent<HTMLFormElement>)=>{
         e.preventDefault()    
         const userId = id
-        const data = { nombreHistoria, mediumBacklogId, quiero, para, como, presupuestoHistoria, puntoHistoria, tiempoHistoria,  detalleHistoria, productBacklogId, caracterId, userId}
-        //console.log(data);
-        const ruta = 'historia'
-        postData({ruta, data})
-        alert('Se guardo correctamente la historia')
-        //console.log('as', archivoA);
-        
+        const data = { nombreHistoria, mediumBacklogId, quiero, para, como, presupuestoHistoria, puntoHistoria, tiempoHistoria,  detalleHistoria, productBacklogId, caracterId, userId, archivoA}
+        console.log(data);
+        // const ruta = 'historia'
+        // postData({ruta, data})
+        // alert('Se guardo correctamente la historia')
+        //console.log('as', archivoA);    
     }
 
  
@@ -184,7 +186,7 @@ const FormularioClientePeticion = ({id, areaId, email}:IFormularioClientePeticio
                                 <label  htmlFor="">Archivo de apoyo:</label>
                                     
                                     
-                                <input name="archivoApoyo"  onChange={handleChangeCliente} className="file:h-9 file:px-3 file:rounded  file:text-tamañoLetraChica font-semibold text-tamañoLetraChica file:border-none   file:bg-colorBotonPrincipal file:text-white text-colorTextoNavbar  file:cursor-pointer " accept=".jpg, .png, .webp" type="file" />
+                                <input  name="archivoApoyo"  onChange={handleChangeCliente} className="file:h-9 file:px-3 file:rounded  file:text-tamañoLetraChica font-semibold text-tamañoLetraChica file:border-none   file:bg-colorBotonPrincipal file:text-white text-colorTextoNavbar  file:cursor-pointer " accept=".jpg, .png, .webp" type="file" />
                             </article>
                             
                         </div>

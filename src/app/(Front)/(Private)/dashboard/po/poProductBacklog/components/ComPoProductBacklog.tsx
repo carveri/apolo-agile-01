@@ -165,7 +165,7 @@ const ComPoProductBacklog = ({id, resul}:IComPoProductBacklog) => {
         </div>
       </section>
   </div>: 
-  <div className="pt-20">
+  <div className="pt-[58px]">
 
    <BadgeNoAun
     nombre='en el Product Backlog'
