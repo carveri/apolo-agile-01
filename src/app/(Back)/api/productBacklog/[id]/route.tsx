@@ -12,3 +12,13 @@ export const GET = async(req:Request, {params}:IParams)=>{
         return NextResponse.json(error)
     }
 }
+
+
+// ruta delete
+export const DELETE = async(req:Request, {params}:IParams)=>{
+    try {
+        return NextResponse.json(await pb1.deletePb(req, {params}))
+    } catch (error) {
+        return NextResponse.json(error)
+    }
+}

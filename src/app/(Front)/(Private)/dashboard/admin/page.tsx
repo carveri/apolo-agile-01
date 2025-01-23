@@ -23,8 +23,6 @@ const page = async() => {
       <CuerpoAdminIngresar
      />
     </div>
-      
-    
 )}
 
 export default page

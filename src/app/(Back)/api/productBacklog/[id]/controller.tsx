@@ -26,7 +26,20 @@ class Pb {
         })
         return getOnePb
     }
+
+
+    //  metodo delete
+    deletePb = async(req:Request, {params}:IParams)=>{
+        const {id} = params
+        const deletePb = await prisma.productBacklog.delete({
+            where:{
+                id: id
+            }
+        })
+        return deletePb
+
     }
+}
 
 
 export const pb1 = new Pb()

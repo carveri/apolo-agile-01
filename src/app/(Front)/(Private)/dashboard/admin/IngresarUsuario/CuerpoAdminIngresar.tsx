@@ -14,9 +14,71 @@ const CuerpoAdminIngresar = () => {
 
   const [docume, setDocume] = useState('')
 
+  // file
+  const [excel, setExcel] = useState()
+  const [csv, setCsv] = useState()
+  const [drive, setDrive] = useState()
+  const [onedrive, setOnedrive] = useState()
+
   const handleClickFormManual =()=>{
     router.push('/dashboard/admin/IngresarUsuario')
   }
+
+  const handleChangeInputFile =(e)=>{
+    if(e.target.name === 'Microsoft Excel'){
+      
+      
+      setExcel(e.target.files[0])
+      
+    }
+    else if(e.target.name === 'Archivo Csv'){
+      //console.log('soy csv');
+      setCsv(e.target.files[0])
+    }
+    else if(e.target.name === 'Google Drive'){
+      //console.log('soy drive');
+      setDrive(e.target.files[0])
+    }
+    else if(e.target.name === 'Microsoft OneDrive'){
+      //console.log('soy onedrive');
+      setOnedrive(e.target.files[0])
+    }
+    else {
+      console.log('nada');
+    }
+  }
+
+  // console.log('excel;', excel);
+  // console.log('csv;', csv);
+
+
+  const handleClickGauardarExcel = async(e)=>{
+    e.preventDefault()
+    //console.log('guardar excel');
+
+    if (!excel) return;
+
+    try {
+      const data = new FormData();
+      data.set("file", excel);
+     // console.log('data;', data);
+      
+
+      const res = await fetch("/api/userMany", {
+        method: "POST",
+        body: data,
+      });
+     // console.log('resultado;', res);
+
+      if (res.ok) {
+        console.log("File uploaded successfully");
+      }
+      alert('TODO BIEN')
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
 
   return (
     <main className="w-[97%] h-full text-tamañoLetra ml-12">
@@ -31,8 +93,8 @@ const CuerpoAdminIngresar = () => {
                       {format(new Date(), 'dd/MM/yyyy')}
                     </div>
                   </header>
-      <div className="w-[97%] h-[90%] grid grid-cols-2 justify-items-center ml-5">
-        <section className="w-[100%] h-[65%]  rounded mt-10 ">
+      <div className="w-[97%] h-[90%] grid grid-cols-2 justify-items-center ml-5 ">
+        <section className="w-[100%] h-[450px]  rounded mt-10 ">
           <header className="w-full h-8 grid place-content-center  text-gray-700">Importar Usuarios</header>
           <div className="w-full h-full grid  grid-rows-2 grid-cols-2 py-5 gap-9">
             {dataExterno.map((el)=>{
@@ -48,7 +110,7 @@ const CuerpoAdminIngresar = () => {
                   {el?.nombreExterno}
                 </div>
                 <div className="text-center">
-                  <input type="file"  className=" file:h-8  file:mr-1 file:hover:bg-colorBarraBaja file:px-3 file:rounded flex text-xs file:text-xs font-semibold  file:border-none   file:bg-colorBarraBaja file:text-white text-gray-500  file:cursor-pointer " />
+                  <input onChange={handleChangeInputFile} name={el?.nombreExterno} type="file"  className=" file:h-8  file:mr-1 file:hover:bg-colorBarraBaja file:px-3 file:rounded flex text-xs file:text-xs font-semibold  file:border-none   file:bg-colorBarraBaja file:text-white text-gray-500  file:cursor-pointer " />
                 </div>
                 
               </div>
@@ -75,9 +137,17 @@ const CuerpoAdminIngresar = () => {
             </button>
           </div>
         </section>
+        {excel &&
+          <div className="w-full h-[90%]  grid items-center">
+            <button onClick={handleClickGauardarExcel} className="bg-colorBotonPrincipal hover:bg-hoverColorBotonPrincipal w-full  h-12 text-white rounded font-semibold">
+              Guardar
+            </button>
+          </div>
+        }
       </div>
+      
     </main>
-  )
-}
+  )}
+
 
 export default CuerpoAdminIngresar

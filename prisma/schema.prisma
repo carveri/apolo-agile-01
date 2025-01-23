@@ -216,10 +216,11 @@ model Historia {
   quiero              String
   archivoApoyo        String         @default("vacio")
   caracter            Caracter       @relation(fields: [caracterId], references: [id], onDelete: Cascade)
-  productBacklog      ProductBacklog @relation(fields: [productBacklogId], references: [id], onDelete: Cascade)
-  mediumBacklog       MediumBacklog  @relation(fields: [mediumBacklogId], references: [id], onDelete: Cascade)
+  // productBacklog      ProductBacklog @relation(fields: [productBacklogId], references: [id], onDelete: Cascade)
+  // mediumBacklog       MediumBacklog  @relation(fields: [mediumBacklogId], references: [id], onDelete: Cascade)
   user                User           @relation(fields: [userId], references: [id], onDelete: Cascade)
   tareas              Tarea[]
+  sprint              Int           @default(0)
 
   @@index([caracterId], map: "Historia_caracterId_fkey")
   @@index([productBacklogId], map: "Historia_productBacklogId_fkey")
@@ -240,21 +241,21 @@ model Empresa {
   mediumBacklogId   String @unique @default("05328597-2cd3-4eb6-be0c-1b1e5d1ec985")
   usuarios      User[]
   areas         Area[]   @relation("AreaToEmpresa")
-  productBacklog      ProductBacklog @relation(fields: [productBacklogId], references: [id])
-  mediumBacklog      MediumBacklog @relation(fields: [mediumBacklogId], references: [id])
+  // productBacklog      ProductBacklog @relation(fields: [productBacklogId], references: [id])
+  // mediumBacklog      MediumBacklog @relation(fields: [mediumBacklogId], references: [id])
   
 }
 
-model ProductBacklog {
-  id                   String     @id @default(uuid())
-  nombreProductBacklog String     @default("Pb")
-  createdAt            String     @map("created_at")
-  horaAt               String     @map("hora_at")
-  updatedAt            DateTime   @updatedAt
-  isActive             Boolean    @default(true)
-  historias            Historia[]
-  empresa              Empresa?
-}
+// model ProductBacklog {
+//   id                   String     @id @default(uuid())
+//   nombreProductBacklog String     @default("Pb")
+//   createdAt            String     @map("created_at")
+//   horaAt               String     @map("hora_at")
+//   updatedAt            DateTime   @updatedAt
+//   isActive             Boolean    @default(true)
+//   historias            Historia[]
+//   empresa              Empresa?
+// }
 
 model SprintBacklog {
   id                  String   @id @default(uuid())
@@ -284,22 +285,22 @@ model SprintBacklog {
 //   mediumBacklogs MediumBacklog[]
 // }
 
-// // nuevo
-model MediumBacklog {
-  id                   String     @id @default(uuid())
-  nombreMediumBacklog  String     @default("Mb")
-  createdAt            String     @map("created_at")
-  horaAt               String     @map("hora_at")
-  updatedAt            DateTime   @updatedAt
-  isActive             Boolean    @default(true)
-  // sprintId             String     
-  // sprint               Sprint     @relation(fields: [sprintId], references: [id], onDelete: Cascade)
-  sprint               Int        @default(1)      
-  historias            Historia[]
-  empresa              Empresa?
+// // // nuevo
+// model MediumBacklog {
+//   id                   String     @id @default(uuid())
+//   nombreMediumBacklog  String     @default("Mb")
+//   createdAt            String     @map("created_at")
+//   horaAt               String     @map("hora_at")
+//   updatedAt            DateTime   @updatedAt
+//   isActive             Boolean    @default(true)
+//   // sprintId             String     
+//   // sprint               Sprint     @relation(fields: [sprintId], references: [id], onDelete: Cascade)
+//   sprint               Int        @default(1)      
+//   historias            Historia[]
+//   empresa              Empresa?
 
-  //@@index([sprintId], map: "MediumBacklog_sprintId_fkey")
-}
+//   //@@index([sprintId], map: "MediumBacklog_sprintId_fkey")
+// }
 
 
 model Plugin {
