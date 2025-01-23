@@ -121,8 +121,8 @@ const FormularioClientePeticion = ({id, areaId, email}:IFormularioClientePeticio
     }
 
 
-    const productBacklogId = '1af659a1-06b9-46e7-94fb-2220d8f5f0b8'
-    const mediumBacklogId = '65a5640f-f657-4630-886f-c3a086980cf9'
+    const productBacklogId = 'b7617060-cc79-472b-8e84-8763beb787a0'
+    const mediumBacklogId = 'b2f58e30-19ca-437b-8875-8470435b65e0'
 
 
 
@@ -131,21 +131,6 @@ const FormularioClientePeticion = ({id, areaId, email}:IFormularioClientePeticio
         setCaracterI(nombreCaracter)
         setActivoCaracter(false)
     }
-
-    // TRABAJAR CON EL ARCHIVO ESTATICO DEL FRONT
-   // Parse a buffer
-// const workSheetsFromBuffer = xlsx.parse(`${__dirname}/archivo/usuario.xslx.ods`);
-
-// //console.log('res:', workSheetsFromBuffer);
-
-// const arrayUsers = workSheetsFromBuffer.at(0).data
-// const arraysincabecera = arrayUsers.slice(1,arrayUsers.length)
-
-// console.log('arr1:', arraysincabecera);
-
-
-
-
 
 
     const handleSumbitCliente =(e:React.FormEvent<HTMLFormElement>)=>{

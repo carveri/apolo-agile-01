@@ -57,6 +57,24 @@ class UserMany{
         console.log('cuerpoUNico;', cuerpo.at(0)?.at(1));
         
         //const bpassword = bcrypt.hashSync(password)
+
+
+        const base ={
+            //id: cuerpo.at(0)?.at(0),
+            primerNombre: cuerpo.at(0)?.at(0),
+            segundoNombre: cuerpo.at(0)?.at(1),
+            apellidoPaterno: cuerpo.at(0)?.at(2),
+            apellidoMaterno: cuerpo.at(0)?.at(3),
+            rutPersonal: cuerpo.at(0)?.at(4),
+            password: bcrypt.hashSync(cuerpo.at(0)?.at(5)),
+            email: cuerpo.at(0)?.at(6),
+            empresaId: cuerpo.at(0)?.at(7),
+            cargoId: cuerpo.at(0)?.at(8),
+            equipoId: cuerpo.at(0)?.at(9),
+            createdAt: format(new Date(), 'dd/MM/yyyy'),
+            horaAt: format(new Date(), 'H:mm')
+        }
+
         const fusion = [
             {
                 //id: cuerpo.at(0)?.at(0),
@@ -103,6 +121,96 @@ class UserMany{
                 createdAt: format(new Date(), 'dd/MM/yyyy'),
                 horaAt: format(new Date(), 'H:mm')
               },
+              {
+                //id: cuerpo.at(0)?.at(0),
+                primerNombre: cuerpo.at(3)?.at(0),
+                segundoNombre: cuerpo.at(3)?.at(1),
+                apellidoPaterno: cuerpo.at(3)?.at(2),
+                apellidoMaterno: cuerpo.at(3)?.at(3),
+                rutPersonal: cuerpo.at(3)?.at(4),
+                password: bcrypt.hashSync(cuerpo.at(3)?.at(5)),
+                email: cuerpo.at(3)?.at(6),
+                empresaId: cuerpo.at(3)?.at(7),
+                cargoId: cuerpo.at(3)?.at(8),
+                equipoId: cuerpo.at(3)?.at(9),
+                createdAt: format(new Date(), 'dd/MM/yyyy'),
+                horaAt: format(new Date(), 'H:mm')
+            },
+            // {
+            //     //id: cuerpo.at(0)?.at(0),
+            //     primerNombre: cuerpo.at(4)?.at(0),
+            //     segundoNombre: cuerpo.at(4)?.at(1),
+            //     apellidoPaterno: cuerpo.at(4)?.at(2),
+            //     apellidoMaterno: cuerpo.at(4)?.at(3),
+            //     rutPersonal: cuerpo.at(4)?.at(4),
+            //     password: bcrypt.hashSync(cuerpo.at(4)?.at(5)),
+            //     email: cuerpo.at(4)?.at(6),
+            //     empresaId: cuerpo.at(4)?.at(7),
+            //     cargoId: cuerpo.at(4)?.at(8),
+            //     equipoId: cuerpo.at(4)?.at(9),
+            //     createdAt: format(new Date(), 'dd/MM/yyyy'),
+            //     horaAt: format(new Date(), 'H:mm')
+            //   },
+            //   {
+            //     //id: cuerpo.at(0)?.at(0),
+            //     primerNombre: cuerpo.at(5)?.at(0),
+            //     segundoNombre: cuerpo.at(5)?.at(1),
+            //     apellidoPaterno: cuerpo.at(5)?.at(2),
+            //     apellidoMaterno: cuerpo.at(5)?.at(3),
+            //     rutPersonal: cuerpo.at(5)?.at(4),
+            //     password: bcrypt.hashSync(cuerpo.at(5)?.at(5)),
+            //     email: cuerpo.at(5)?.at(6),
+            //     empresaId: cuerpo.at(5)?.at(7),
+            //     cargoId: cuerpo.at(5)?.at(8),
+            //     equipoId: cuerpo.at(5)?.at(9),
+            //     createdAt: format(new Date(), 'dd/MM/yyyy'),
+            //     horaAt: format(new Date(), 'H:mm')
+            //   },
+            //   {
+            //     //id: cuerpo.at(0)?.at(0),
+            //     primerNombre: cuerpo.at(6)?.at(0),
+            //     segundoNombre: cuerpo.at(6)?.at(1),
+            //     apellidoPaterno: cuerpo.at(6)?.at(2),
+            //     apellidoMaterno: cuerpo.at(6)?.at(3),
+            //     rutPersonal: cuerpo.at(6)?.at(4),
+            //     password: bcrypt.hashSync(cuerpo.at(6)?.at(5)),
+            //     email: cuerpo.at(6)?.at(6),
+            //     empresaId: cuerpo.at(6)?.at(7),
+            //     cargoId: cuerpo.at(6)?.at(8),
+            //     equipoId: cuerpo.at(6)?.at(9),
+            //     createdAt: format(new Date(), 'dd/MM/yyyy'),
+            //     horaAt: format(new Date(), 'H:mm')
+            // },
+            // {
+            //     //id: cuerpo.at(0)?.at(0),
+            //     primerNombre: cuerpo.at(7)?.at(0),
+            //     segundoNombre: cuerpo.at(7)?.at(1),
+            //     apellidoPaterno: cuerpo.at(7)?.at(2),
+            //     apellidoMaterno: cuerpo.at(7)?.at(3),
+            //     rutPersonal: cuerpo.at(7)?.at(4),
+            //     password: bcrypt.hashSync(cuerpo.at(7)?.at(5)),
+            //     email: cuerpo.at(7)?.at(6),
+            //     empresaId: cuerpo.at(7)?.at(7),
+            //     cargoId: cuerpo.at(7)?.at(8),
+            //     equipoId: cuerpo.at(7)?.at(9),
+            //     createdAt: format(new Date(), 'dd/MM/yyyy'),
+            //     horaAt: format(new Date(), 'H:mm')
+            //   },
+            //   {
+            //     //id: cuerpo.at(0)?.at(0),
+            //     primerNombre: cuerpo.at(8)?.at(0),
+            //     segundoNombre: cuerpo.at(8)?.at(1),
+            //     apellidoPaterno: cuerpo.at(8)?.at(2),
+            //     apellidoMaterno: cuerpo.at(8)?.at(3),
+            //     rutPersonal: cuerpo.at(8)?.at(4),
+            //     password: bcrypt.hashSync(cuerpo.at(8)?.at(5)),
+            //     email: cuerpo.at(8)?.at(6),
+            //     empresaId: cuerpo.at(8)?.at(7),
+            //     cargoId: cuerpo.at(8)?.at(8),
+            //     equipoId: cuerpo.at(8)?.at(9),
+            //     createdAt: format(new Date(), 'dd/MM/yyyy'),
+            //     horaAt: format(new Date(), 'H:mm')
+            //   },
             // {
             //   //id: cuerpo.at(3)?.at(0),
             //   nombre: cuerpo.at(3)?.at(1),
@@ -146,7 +254,9 @@ class UserMany{
         // //const {file} = await request.json()
         
         console.log('FUSION!!!!!!!;', fusion);
+        
         const postManyUser = await prisma.user.createMany({
+            
             data: await fusion
         })
         return postManyUser
@@ -165,9 +275,7 @@ class UserMany{
     getUserMany =async(req:Request )=>{
         
         const getUserMany = await prisma.user.findMany({
-            where:{
-
-            }
+            
         })
         return getUserMany
     } 
