@@ -1,14 +1,17 @@
-
+'use client'
 
 
 import { format, addBusinessDays } from "date-fns";
 //import {addBusinessDays}  from "date-fns/addBusinessDays";
 import { dataAsistenteDailyHoy } from '@/app/(Front)/React/Utils/dataAsistentesDailyHoy';
 //import "react-day-picker/style.css";
-
+import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 const page = () => {
 
+  const router = useRouter()
+  const [suma, setSuma] = useState(0)
 
   // const [selected, setSelected] = useState();
 
@@ -18,8 +21,17 @@ const page = () => {
   //   setActivarCalendario(!activarCalendario)
   // }
 
+  const handleChangeINputSM =(e)=>{
+    setSuma(e.target.valueAsNumber)
+  }
+
 
   const result = addBusinessDays(new Date(2019, 8, 1), 10)
+
+  const handleClickGuardarPLanning =()=>{
+    alert('Se guardo correctamente los datos')
+    router.push('/dashboard/sm/meeting/daily')
+  }
 
   return (
     <div className='w-full h-full bg-white grid place-items-center'>
@@ -41,14 +53,16 @@ const page = () => {
                 <div className='w-[1625px] z-30  top-28 left-3/5 max-h-[520px] overflow-auto'>
                   <table className='border border-gray-200   w-[100%]  '>
                     <thead className='h-14 text-gray-600'>
-                      <th className='w-[5%] text-center'>Numero</th>                      
-                      <th className='w-[10%] text-center'>Inicio Sprint</th>
-                      <th className='w-[10%] text-center'>Dias Sprints</th>
-                      <th className='w-[10%] text-center'>Final Sprint</th>
-                      <th className='w-[10%] text-center'>N° Sprint</th>
-                      <th className='w-[15%] text-center'>Historias</th>
-                      <th className='w-[15%] text-center'>Objetivo Sprint</th>
-                      <th className='w-[15%] text-center'>Temas tratados</th>  
+                      <tr>
+                      <td className='w-[5%] text-center'>Numero</td>                      
+                      <td className='w-[10%] text-center'>Inicio Sprint</td>
+                      <td className='w-[10%] text-center'>Dias Sprints</td>
+                      <td className='w-[10%] text-center'>Final Sprint</td>
+                      <td className='w-[10%] text-center'>N° Sprint</td>
+                      <td className='w-[15%] text-center'>Historias</td>
+                      <td className='w-[15%] text-center'>Objetivo Sprint</td>
+                      <td className='w-[15%] text-center'>Temas tratados</td>  
+                      </tr>
                     </thead>
                     <tbody>
                     {dataAsistenteDailyHoy.map((el)=>{
@@ -60,16 +74,16 @@ const page = () => {
                             {format(new Date(), 'dd/MM/yyyy')}
                           </td>
                           <td className='h-14 grid self-center py-2'>
-                            <input className='w-[110px] py-2 text-center ml-6 border border-gray-200 ' placeholder='14' type="text" />
+                            <input onChange={handleChangeINputSM} className='w-[110px] py-2 text-center ml-6 border border-gray-200 ' placeholder='5' type="number" />
                           </td>
                           <td className='text-violet-500 font-bold text-center'>
-                            {format(new Date(), 'dd/MM/yyyy')}
+                            {24+suma}/01/2025
                           </td>
                           <td className='text-center'>
-                            7
+                            1
                           </td>  
                           <td className='text-center'>
-                            12 - 17
+                            1-2
                           </td>
                           <td className='grid place-content-center '>
                             <input className='w-[150px] py-2 text-center border border-gray-200 ' placeholder='14' type="text" />
@@ -83,7 +97,7 @@ const page = () => {
                 </table>
           </div>
           <div className='w-full h-24  grid justify-end items-center pr-4 '>
-          <button className='bg-colorBotonPrincipal hover:bg-hoverColorBotonPrincipal w-32 h-[50%] rounded text-white font-semibold '>
+          <button onClick={handleClickGuardarPLanning} className='bg-colorBotonPrincipal hover:bg-hoverColorBotonPrincipal w-32 h-[50%] rounded text-white font-semibold '>
             Guardar
           </button>
           </div>

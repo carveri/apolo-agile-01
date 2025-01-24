@@ -40,7 +40,7 @@ const TablaPo = ({id, nombreHistoria, handleChangeCkecked, updatedAt2, checkedOn
                     1
                   </td>
                   <td>
-                    <input onChange={handleChangeCkecked} disabled   checked={checkedOn?.valueOf(2)}  className="w-4 h-4 cursor-pointer bg-red-400" type="checkbox" />
+                    <input onChange={handleChangeCkecked}      className="w-4 h-4 cursor-pointer bg-red-400" type="checkbox" />
                   </td>
                 </tr>
   )

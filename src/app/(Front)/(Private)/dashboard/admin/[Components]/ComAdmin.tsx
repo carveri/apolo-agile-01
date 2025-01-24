@@ -57,7 +57,7 @@ const ComAdmin = ({logicaTabla,nombre, url,res}:IComAdmin) => {
       const url = id
       deleteData({ruta, url})
       alert('Se elimino correctamente el usuario!')
-      router.refresh()
+      location.reload()
     }
     else {
       console.log('sd');

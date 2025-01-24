@@ -89,51 +89,51 @@ class UserMany{
                 createdAt: format(new Date(), 'dd/MM/yyyy'),
                 horaAt: format(new Date(), 'H:mm')
               },
-            //   {
-            //     //id: cuerpo.at(0)?.at(0),
-            //     primerNombre: cuerpo.at(2)?.at(0),
-            //     segundoNombre: cuerpo.at(2)?.at(1),
-            //     apellidoPaterno: cuerpo.at(2)?.at(2),
-            //     apellidoMaterno: cuerpo.at(2)?.at(3),
-            //     rutPersonal: cuerpo.at(2)?.at(4),
-            //     password: bcrypt.hashSync(cuerpo.at(2)?.at(5)),
-            //     email: cuerpo.at(2)?.at(6),
-            //     empresaId: cuerpo.at(2)?.at(7),
-            //     cargoId: cuerpo.at(2)?.at(8),
-            //     equipoId: cuerpo.at(2)?.at(9),
-            //     createdAt: format(new Date(), 'dd/MM/yyyy'),
-            //     horaAt: format(new Date(), 'H:mm')
-            //   },
-            //   {
-            //     //id: cuerpo.at(0)?.at(0),
-            //     primerNombre: cuerpo.at(3)?.at(0),
-            //     segundoNombre: cuerpo.at(3)?.at(1),
-            //     apellidoPaterno: cuerpo.at(3)?.at(2),
-            //     apellidoMaterno: cuerpo.at(3)?.at(3),
-            //     rutPersonal: cuerpo.at(3)?.at(4),
-            //     password: bcrypt.hashSync(cuerpo.at(3)?.at(5)),
-            //     email: cuerpo.at(3)?.at(6),
-            //     empresaId: cuerpo.at(3)?.at(7),
-            //     cargoId: cuerpo.at(3)?.at(8),
-            //     equipoId: cuerpo.at(3)?.at(9),
-            //     createdAt: format(new Date(), 'dd/MM/yyyy'),
-            //     horaAt: format(new Date(), 'H:mm')
-            // },
-            // {
-            //     //id: cuerpo.at(0)?.at(0),
-            //     primerNombre: cuerpo.at(4)?.at(0),
-            //     segundoNombre: cuerpo.at(4)?.at(1),
-            //     apellidoPaterno: cuerpo.at(4)?.at(2),
-            //     apellidoMaterno: cuerpo.at(4)?.at(3),
-            //     rutPersonal: cuerpo.at(4)?.at(4),
-            //     password: bcrypt.hashSync(cuerpo.at(4)?.at(5)),
-            //     email: cuerpo.at(4)?.at(6),
-            //     empresaId: cuerpo.at(4)?.at(7),
-            //     cargoId: cuerpo.at(4)?.at(8),
-            //     equipoId: cuerpo.at(4)?.at(9),
-            //     createdAt: format(new Date(), 'dd/MM/yyyy'),
-            //     horaAt: format(new Date(), 'H:mm')
-            //   },
+              {
+                //id: cuerpo.at(0)?.at(0),
+                primerNombre: cuerpo.at(2)?.at(0),
+                segundoNombre: cuerpo.at(2)?.at(1),
+                apellidoPaterno: cuerpo.at(2)?.at(2),
+                apellidoMaterno: cuerpo.at(2)?.at(3),
+                rutPersonal: cuerpo.at(2)?.at(4),
+                password: bcrypt.hashSync(cuerpo.at(2)?.at(5)),
+                email: cuerpo.at(2)?.at(6),
+                empresaId: cuerpo.at(2)?.at(7),
+                cargoId: cuerpo.at(2)?.at(8),
+                equipoId: cuerpo.at(2)?.at(9),
+                createdAt: format(new Date(), 'dd/MM/yyyy'),
+                horaAt: format(new Date(), 'H:mm')
+              },
+              {
+                //id: cuerpo.at(0)?.at(0),
+                primerNombre: cuerpo.at(3)?.at(0),
+                segundoNombre: cuerpo.at(3)?.at(1),
+                apellidoPaterno: cuerpo.at(3)?.at(2),
+                apellidoMaterno: cuerpo.at(3)?.at(3),
+                rutPersonal: cuerpo.at(3)?.at(4),
+                password: bcrypt.hashSync(cuerpo.at(3)?.at(5)),
+                email: cuerpo.at(3)?.at(6),
+                empresaId: cuerpo.at(3)?.at(7),
+                cargoId: cuerpo.at(3)?.at(8),
+                equipoId: cuerpo.at(3)?.at(9),
+                createdAt: format(new Date(), 'dd/MM/yyyy'),
+                horaAt: format(new Date(), 'H:mm')
+            },
+            {
+                //id: cuerpo.at(0)?.at(0),
+                primerNombre: cuerpo.at(4)?.at(0),
+                segundoNombre: cuerpo.at(4)?.at(1),
+                apellidoPaterno: cuerpo.at(4)?.at(2),
+                apellidoMaterno: cuerpo.at(4)?.at(3),
+                rutPersonal: cuerpo.at(4)?.at(4),
+                password: bcrypt.hashSync(cuerpo.at(4)?.at(5)),
+                email: cuerpo.at(4)?.at(6),
+                empresaId: cuerpo.at(4)?.at(7),
+                cargoId: cuerpo.at(4)?.at(8),
+                equipoId: cuerpo.at(4)?.at(9),
+                createdAt: format(new Date(), 'dd/MM/yyyy'),
+                horaAt: format(new Date(), 'H:mm')
+              },
             //   {
             //     //id: cuerpo.at(0)?.at(0),
             //     primerNombre: cuerpo.at(5)?.at(0),
@@ -193,77 +193,25 @@ class UserMany{
             //     equipoId: cuerpo.at(8)?.at(9),
             //     createdAt: format(new Date(), 'dd/MM/yyyy'),
             //     horaAt: format(new Date(), 'H:mm')
-            //   },
-            // {
-            //   //id: cuerpo.at(3)?.at(0),
-            //   nombre: cuerpo.at(3)?.at(1),
-            //   apellido: cuerpo.at(3)?.at(2),
-            //   pais: cuerpo.at(3)?.at(3)
-            // },
-            // {
-            //   //id: cuerpo.at(0)?.at(0),
-            //   nombre: cuerpo.at(4)?.at(1),
-            //   apellido: cuerpo.at(4)?.at(2),
-            //   pais: cuerpo.at(4)?.at(3)
-            // },
-            // {
-            //   //id: cuerpo.at(1)?.at(0),
-            //   nombre: cuerpo.at(5)?.at(1),
-            //   apellido: cuerpo.at(5)?.at(2),
-            //   pais: cuerpo.at(5)?.at(3)
-            // },
-            // {
-            //   //id: cuerpo.at(2)?.at(0),
-            //   nombre: cuerpo.at(6)?.at(1),
-            //   apellido: cuerpo.at(6)?.at(2),
-            //   pais: cuerpo.at(6)?.at(3)
-            // },
-            // {
-            //   //id: cuerpo.at(3)?.at(0),
-            //   nombre: cuerpo.at(7)?.at(1),
-            //   apellido: cuerpo.at(7)?.at(2),
-            //   pais: cuerpo.at(7)?.at(3)
-            // },
-            // {
-            //   //id: cuerpo.at(3)?.at(0),
-            //   nombre: cuerpo.at(8)?.at(1),
-            //   apellido: cuerpo.at(8)?.at(2),
-            //   pais: cuerpo.at(8)?.at(3)
-            // }
+            //   }
           ]
-
-        // console.log(filePath);
-        // console.log(`open ${filePath} to see the uploaded file`);
-        // //const {file} = await request.json()
-        
         console.log('FUSION!!!!!!!;', fusion);
-        
+
+        //if(fusion.at(0)?.primerNombre === undefined){
         const postManyUser = await prisma.user.createMany({
-            
+           
             data: await fusion
         })
         return postManyUser
-
-        // hasta aca llega lo del excel
-
-
-
-        // const postManyUser = await prisma.user.createMany({
-        //     data: await req.json()
-        // })
-        // return postManyUser
 }
 
     // metodo get 
     getUserMany =async(req:Request )=>{
-        
         const getUserMany = await prisma.user.findMany({
-            
         })
         return getUserMany
     } 
 }
-
 
 
 export const userMany1 = new UserMany()

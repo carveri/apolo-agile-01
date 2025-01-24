@@ -9,7 +9,7 @@ const page = () => {
       <section  className='w-[99%] h-[99%]  '>
             <main className='py-2 px-4 w-full h-[99%] '>
             <div className='h-14  bg-colorBarraSuperiorTablas text-colorTextoBarraAlta font-semibold flex'>
-                    <div className='w-[55%]  grid place-content-end py-3 text-base'>
+                    <div className='w-[55%]  grid place-content-end py-4 text-tamañoLetra'>
                     Nueva Review meeting
                     </div>
                     <header className='w-[45%] h-[7%]  flex justify-end items-center  py-8 font-bold mb-1 pr-6   '>
@@ -23,18 +23,23 @@ const page = () => {
                 </div>
                 <div className='w-[1625px] z-30  top-28 left-3/5 max-h-[520px] overflow-auto'>
                   <table className='border border-gray-200   w-[100%]  '>
+                    <thead>
                     <tr className='h-14'>
-                      <td className='w-[5%] pl-3'>Numero</td>
-                      
-                      <td className='w-[10%] text-center'>Fecha</td>
-                      
-                      <td className='w-[10%]'>Sprint</td>
-                      <td className='w-[15%]'>¿Es el producto correcto?</td>
-                      <td className='w-[15%]'>Feedback</td>
-                      <td className='w-[15%]'>¿Que mejorar?</td>
-                      <td className='w-[15%]'>¿Que repetir?</td>
-                      
-                    </tr>
+                     
+                     <td className='w-[5%] pl-3'>Numero</td>
+                     
+                     <td className='w-[10%] text-center'>Fecha</td>
+                     
+                     <td className='w-[10%]'>Sprint</td>
+                     <td className='w-[15%]'>¿Es el producto correcto?</td>
+                     <td className='w-[15%]'>Feedback</td>
+                     <td className='w-[15%]'>¿Que mejorar?</td>
+                     <td className='w-[15%]'>¿Que repetir?</td>
+                  
+                   
+                 </tr>
+                    </thead>
+                    <tbody>
                     {dataAsistenteDailyHoy.map((el)=>{
                         return <tr key={el.id} className='border border-gray-200 h-14   w-full '>
                           <td className='pl-8'>
@@ -67,6 +72,8 @@ const page = () => {
                           
                         </tr>
                       })}
+                    </tbody>
+                    
                 </table>
           </div>
           <div className='w-full h-24  grid justify-end items-center pr-4 '>

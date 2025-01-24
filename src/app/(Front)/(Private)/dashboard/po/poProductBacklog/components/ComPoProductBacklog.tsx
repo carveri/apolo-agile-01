@@ -9,8 +9,11 @@ import TablaPo from "./TablaPo"
 import { IComPoProductBacklog } from "@/app/Interfaces/IPoProductBacklog"
 import BadgeNoAun from "@/app/(Front)/React/Components/BadgeNoAun/BadgeNoAun"
 import { postData } from "@/app/(Front)/React/Fetch/postData"
+import { useRouter } from "next/navigation";
 
 const ComPoProductBacklog = ({id, resul}:IComPoProductBacklog) => {
+
+  const router = useRouter()
 
   const {historiaBacklog,getHistoriaBacklog, updatedHistoriaProductBacklog} = useHistoriaPo()
 
@@ -70,9 +73,10 @@ const ComPoProductBacklog = ({id, resul}:IComPoProductBacklog) => {
     // const data = {nombreMediumBacklog, sprint}
     // const ruta = 'mediumBacklog'
     // //const data = ''
-    const ruta = 'mediumBacklog'
-    postData({ruta, data})
-    alert('Se guardo correctamente!')
+    // const ruta = 'mediumBacklog'
+    // postData({ruta, data})
+    alert('Se guardaron carrectamente las historias')
+    router.push('/dashboard/po/poNuevaTarea')
     
     
     
@@ -157,7 +161,7 @@ const ComPoProductBacklog = ({id, resul}:IComPoProductBacklog) => {
       </div>
       </div>
         <div className='h-[10%]  grid justify-end  mt-4 '>
-          {numero>0 && numero<= historiaBacklog.length &&
+          {numero>0 && numero<= historiaBacklog.length  &&
             <button onClick={handleClickConfirmSB} className='bg-colorBotonAceptar  h-[60%] w-60 rounded mr-14 mt-5 text-colorTextoBoton font-semibold hover:bg-hoverColorBotonAceptar'>
               Confirmar Sprint Backlog
             </button>

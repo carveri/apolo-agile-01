@@ -3,103 +3,103 @@
 export const dataAsistenteDaily = [
     {
         id:1,
-        nombre: 'Juan',
+        nombre: 'Comer1',
         apellido: 'Perez',
         asistio: true,
        
-        cargo: 'Backend Senior',
-        equipo: 1,
+        cargo: 'Comercial',
+        equipo: 'Devs3Team',
 
     },
     {
         id:2,
-        nombre: 'Juan',
-        apellido: 'Perez',
+        nombre: 'Fin1',
+        apellido: 'Lopez',
         asistio: true,
         
-        cargo: 'Backend Senior',
-        equipo: 1,
+        cargo: 'Finanzas',
+        equipo: 'Devs3Team',
 
     },
     {
         id:3,
-        nombre: 'Juan',
-        apellido: 'Perez',
+        nombre: 'Rec1',
+        apellido: 'Arias',
         asistio: true,
     
-        cargo: 'Backend Senior',
-        equipo: 1,
+        cargo: 'Recursos Humanos',
+        equipo: 'Devs3Team',
 
     },
     {
         id:4,
-        nombre: 'Juan',
-        apellido: 'Perez',
+        nombre: 'Mar1',
+        apellido: 'Osorio',
         asistio: true,
      
-        cargo: 'Backend Senior',
-        equipo: 1,
+        cargo: 'Marketing',
+        equipo: 'Devs3Team',
 
     },
     {
         id:5,
-        nombre: 'Juan',
+        nombre: 'Po1',
         apellido: 'Perez',
         asistio: true,
         
-        cargo: 'Backend Senior',
-        equipo: 1,
+        cargo: 'Product Owner',
+        equipo: 'PoTeam',
 
     },
     {
         id:6,
-        nombre: 'Juan',
-        apellido: 'Perez',
+        nombre: 'Sm1',
+        apellido: 'Ruiz',
         asistio: true,
        
-        cargo: 'Backend Senior',
-        equipo: 1,
+        cargo: 'Scrum Master',
+        equipo: 'SmTeam',
 
     },
-    {
-        id:7,
-        nombre: 'Juan',
-        apellido: 'Perez',
-        asistio: true,
+    // {
+    //     id:7,
+    //     nombre: 'Juan',
+    //     apellido: 'Perez',
+    //     asistio: true,
         
-        cargo: 'Backend Senior',
-        equipo: 1,
+    //     cargo: 'Backend Senior',
+    //     equipo: 1,
 
-    },
-    {
-        id:8,
-        nombre: 'Juan',
-        apellido: 'Perez',
-        asistio: true,
+    // },
+    // {
+    //     id:8,
+    //     nombre: 'Juan',
+    //     apellido: 'Perez',
+    //     asistio: true,
     
-        cargo: 'Backend Senior',
-        equipo: 1,
+    //     cargo: 'Backend Senior',
+    //     equipo: 1,
 
-    },
-    {
-        id:9,
-        nombre: 'Juan',
-        apellido: 'Perez',
-        asistio: true,
+    // },
+    // {
+    //     id:9,
+    //     nombre: 'Juan',
+    //     apellido: 'Perez',
+    //     asistio: true,
      
-        cargo: 'Backend Senior',
-        equipo: 1,
+    //     cargo: 'Backend Senior',
+    //     equipo: 1,
 
-    },
-    {
-        id:10,
-        nombre: 'Juan',
-        apellido: 'Perez',
-        asistio: true,
+    // },
+    // {
+    //     id:10,
+    //     nombre: 'Juan',
+    //     apellido: 'Perez',
+    //     asistio: true,
         
-        cargo: 'Backend Senior',
-        equipo: 1,
+    //     cargo: 'Backend Senior',
+    //     equipo: 1,
 
-    },
+    // },
 
 ]

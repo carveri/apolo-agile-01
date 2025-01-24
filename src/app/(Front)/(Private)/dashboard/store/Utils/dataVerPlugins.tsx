@@ -10,5 +10,5 @@ export const dataVerPlugin =
         departamentoPlugin: 'Database',
         calificacion: 5,
         caracteristicas: ['Base de datos relacional', 'superwwnazo', 'compra la wea ctm', 'otro2', 'otro3', 'otro4'],
-        descripcionPlugin: 'Configuracion automatizada para gestion del backup de base de datos relacional. genereacion de Rollback, gestion de base de datos main y replicadoras con estacalado automatizado.',
+        descripcionPlugin: 'Configuracion automatizada de gestion del backup de base de datos relacional. genereacion de Rollback, gestion de base de datos main y replicadoras con escalado automatizado.',
     }

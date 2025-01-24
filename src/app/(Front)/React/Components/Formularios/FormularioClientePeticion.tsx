@@ -120,7 +120,7 @@ const FormularioClientePeticion = ({id, areaId, email}:IFormularioClientePeticio
         
     }
 
-    console.log();
+    //console.log();
     
 
 
@@ -141,9 +141,9 @@ const FormularioClientePeticion = ({id, areaId, email}:IFormularioClientePeticio
         const userId = id
         const data = { nombreHistoria, mediumBacklogId, quiero, para, como, presupuestoHistoria, puntoHistoria, tiempoHistoria,  detalleHistoria, productBacklogId, caracterId, userId, archivoA}
         console.log(data);
-        // const ruta = 'historia'
-        // postData({ruta, data})
-        // alert('Se guardo correctamente la historia')
+        const ruta = 'historia'
+        postData({ruta, data})
+        alert('Se guardo correctamente la historia')
         //console.log('as', archivoA);    
     }
 

@@ -22,6 +22,7 @@ const page = () => {
                 </div>
                 <div className='w-[1625px] z-30  top-28 left-3/5 max-h-[520px] overflow-auto'>
                   <table className='border border-gray-200   w-[100%]  '>
+                    <thead>
                     <tr className='h-14'>
                       <td className='w-[5%] pl-3'>Numero</td>
                       
@@ -34,6 +35,8 @@ const page = () => {
                       
                       
                     </tr>
+                    </thead>
+                    <tbody>
                     {dataAsistenteDailyHoy.map((el)=>{
                         return <tr key={el.id} className='border border-gray-200 h-14   w-full '>
                           <td className='pl-8'>
@@ -64,6 +67,8 @@ const page = () => {
                           
                         </tr>
                       })}
+                    </tbody>
+                    
                 </table>
           </div>
           <div className='w-full h-24  grid justify-end items-center pr-4 '>
