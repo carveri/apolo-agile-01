@@ -44,12 +44,12 @@ const linksDevs = [
       nombre: 'Home',
       icono: homeDev
   },
-  {
-      id:2,
-      href: '/dashboard/devs/backend/sprintBacklog',
-      nombre: 'SprintBacklog',
-      icono: sprintBacklogDev
-  },
+  // {
+  //     id:2,
+  //     href: '/dashboard/devs/backend/sprintBacklog',
+  //     nombre: 'SprintBacklog',
+  //     icono: sprintBacklogDev
+  // },
   {
       id:3,
       href: '/dashboard/devs/backend/diagrama',

@@ -3,7 +3,7 @@
 export const dataAsistenteDaily = [
     {
         id:1,
-        nombre: 'Comer1',
+        nombre: 'Back1',
         apellido: 'Perez',
         asistio: true,
        
@@ -13,7 +13,7 @@ export const dataAsistenteDaily = [
     },
     {
         id:2,
-        nombre: 'Fin1',
+        nombre: 'Front1',
         apellido: 'Lopez',
         asistio: true,
         
@@ -23,44 +23,44 @@ export const dataAsistenteDaily = [
     },
     {
         id:3,
-        nombre: 'Rec1',
-        apellido: 'Arias',
+        nombre: 'Cesar',
+        apellido: 'Carvajal',
         asistio: true,
     
-        cargo: 'Recursos Humanos',
+        cargo: 'Senior Database',
         equipo: 'Devs3Team',
 
     },
     {
         id:4,
-        nombre: 'Mar1',
-        apellido: 'Osorio',
+        nombre: 'Nelda',
+        apellido: 'Arancibia',
         asistio: true,
      
-        cargo: 'Marketing',
+        cargo: 'Senior Designer',
         equipo: 'Devs3Team',
 
     },
-    {
-        id:5,
-        nombre: 'Po1',
-        apellido: 'Perez',
-        asistio: true,
+    // {
+    //     id:5,
+    //     nombre: 'Po1',
+    //     apellido: 'Perez',
+    //     asistio: true,
         
-        cargo: 'Product Owner',
-        equipo: 'PoTeam',
+    //     cargo: 'Product Owner',
+    //     equipo: 'PoTeam',
 
-    },
-    {
-        id:6,
-        nombre: 'Sm1',
-        apellido: 'Ruiz',
-        asistio: true,
+    // },
+    // {
+    //     id:6,
+    //     nombre: 'Sm1',
+    //     apellido: 'Ruiz',
+    //     asistio: true,
        
-        cargo: 'Scrum Master',
-        equipo: 'SmTeam',
+    //     cargo: 'Scrum Master',
+    //     equipo: 'SmTeam',
 
-    },
+    // },
     // {
     //     id:7,
     //     nombre: 'Juan',

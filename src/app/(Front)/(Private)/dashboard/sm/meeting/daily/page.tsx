@@ -35,7 +35,7 @@ const page = () => {
   return (
     <div className='w-full h-full bg-white grid place-items-center mt-1'  >
         <section  className='w-[99%] h-[99%]  '>
-            <main className='py-2 px-4 w-full h-[99%] -mt-40'>
+            <main className='py-2 px-4 w-full h-[99%] -mt-64'>
                 <div className='h-14  bg-colorBarraSuperiorTablas text-colorTextoBarraAlta font-semibold flex'>
                     <div className='w-[55%]  grid place-content-end py-4 text-tamañoLetra'>
                     Nueva Daily meeting

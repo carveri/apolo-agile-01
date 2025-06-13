@@ -1,5 +1,3 @@
-import { dataHomePo } from '@/app/(Front)/React/Utils/dataHomePo'
-import Image from 'next/image'
 import React from 'react'
 import CuerpoHomeDevs from '../[Components]/CuerpoHomeDevs/CuerpoHomeDevs'
 

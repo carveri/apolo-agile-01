@@ -73,7 +73,7 @@ const CuerpoAdminIngresar = () => {
       if (res.ok) {
         console.log("File uploaded successfully");
       }
-      alert('TODO BIEN')
+      alert('Se guardaron correctamente los usuarios')
     } catch (error) {
       console.error(error);
     }

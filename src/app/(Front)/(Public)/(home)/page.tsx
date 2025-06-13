@@ -44,17 +44,17 @@ const page = () => {
               Apolo Agile
             </p>
           </article>
-          <article className='text-2xl text-gray-700 w-full h-24 py-4 font-semibold' >
+          <article className='text-2xl text-colorTextoNavbar w-full h-24 py-4 font-semibold' >
             El ERP de metodologia Scrum para StartUps con alto potencial de crecimiento
           </article>
           <article className='text-lg w-full h-2/6 py-4 pl-2 text-gray-700'>
-            olisss ipsum dolor sit amet consectetur adipisicing elit. Facere non laboriosam, laudantium illum voluptatum adipisci reprehenderit est esse consectetur adipisicing elit. Facere non laboriosam, laudantium i
+            Software de gestion de proyectos y tareas, con metodologias agiles, para StartUps que necesitan orden en su gestion interna del dia a dia. Se disponen de distintos plugins de base de datos, backend e insfraestructura.  
           </article>
           <article className='w-[95%] h-[15%] grid grid-cols-2 place-items-center gap-x-4 py-3 text-tamañoLetra'>
             <button name="ingresar" onClick={handleClickBotonesHome} className="bg-colorTextoAceptada w-full h-full text-white font-semibold rounded">
               Ingresar
             </button>
-            <button name="prueba" onClick={handleClickBotonesHome} className="bg-colorFormularioLogin w-full h-full text-white font-semibold rounded">
+            <button name="prueba" onClick={handleClickBotonesHome} className="bg-colorTextoNavbar w-full h-full text-white font-semibold rounded">
               Prueba Gratuita
             </button>
           </article>

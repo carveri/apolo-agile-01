@@ -5,7 +5,7 @@ import React from 'react'
 const CuerpoHomeDevs = () => {
   return (
    <>
-            <header className='w-full h-[9%]  flex gap-x-16 px-8 '>
+            <header className='w-full h-[9%]  flex gap-x-28 px-36 '>
               {dataHomePo.map((el)=>{
                 return <article key={el.id} className='w-full h-full  rounded-md flex bg-gray-50 border border-violet-50 shadow-md'>
                   <div className='h-full w-[20%] grid place-content-center'>
@@ -28,7 +28,7 @@ const CuerpoHomeDevs = () => {
               })}
               
             </header>
-            <section className='w-full h-[91%] p-8'>
+            <section className='w-full h-[91%] p-8 px-36'>
               graficos
             </section>
             </>

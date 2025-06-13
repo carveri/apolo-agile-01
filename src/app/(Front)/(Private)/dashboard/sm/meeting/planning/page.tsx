@@ -60,8 +60,9 @@ const page = () => {
                       <td className='w-[10%] text-center'>Final Sprint</td>
                       <td className='w-[10%] text-center'>N° Sprint</td>
                       <td className='w-[15%] text-center'>Historias</td>
-                      <td className='w-[15%] text-center'>Objetivo Sprint</td>
-                      <td className='w-[15%] text-center'>Temas tratados</td>  
+                      
+                      <td className='w-[15%] text-center'>Numero de Tareas por Historia</td>
+                      <td className='w-[15%] text-center'>Objetivo Sprint</td>  
                       </tr>
                     </thead>
                     <tbody>
@@ -86,10 +87,10 @@ const page = () => {
                             1-2
                           </td>
                           <td className='grid place-content-center '>
-                            <input className='w-[150px] py-2 text-center border border-gray-200 ' placeholder='14' type="text" />
+                            <input className='w-[150px] py-2 text-center border border-gray-200 ' placeholder='2' type="text" />
                           </td>
                           <td className='text-center'>
-                            <input className='w-[500px] py-2 border border-gray-200 ' type="text" />
+                            <input className='w-[300px] py-2 border border-gray-200 ' type="text" />
                           </td>
                         </tr>
                       })}

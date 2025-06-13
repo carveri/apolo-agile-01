@@ -2,6 +2,7 @@ import { IParams } from "@/app/Interfaces/IParams"
 import prisma from "@/libs/prisma"
 
 
+
 class EquipoDetalle {
 
     // metodo get
